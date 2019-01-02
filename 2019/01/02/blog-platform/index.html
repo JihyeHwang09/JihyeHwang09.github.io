@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>정적블로그 플랫폼(Static Web Generator)의 비교 | 꿈꾸는 지구별 개발자, IT Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="hexo,blog,framework,platform,Jekyll,Hugo,Static Web Generator">
+    
+    <meta name="description" content="정적 블로그 플랫폼 설명에 앞서,정적 웹페이지와 동적 웹페이지란 무엇이며 어떤 차이가 있는지를 살펴봅시다.  정적 페이지 VS 동적 페이지정적(static) 페이지  단순히 사이트 관리자가 미리 만들어놓은 웹 페이지를 볼 수 있는 사이트 데이터베이스(DB)를 사용하지 않음   Jekyll, Hexo, Hugo 등  동적(dynamic) 페이지  컨텐츠 내">
+<meta name="keywords" content="hexo,blog,framework,platform,Jekyll,Hugo,Static Web Generator">
+<meta property="og:type" content="article">
+<meta property="og:title" content="정적블로그 플랫폼(Static Web Generator)의 비교">
+<meta property="og:url" content="https://JihyeHwang09.github.io.git/2019/01/02/blog-platform/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, IT Blog">
+<meta property="og:description" content="정적 블로그 플랫폼 설명에 앞서,정적 웹페이지와 동적 웹페이지란 무엇이며 어떤 차이가 있는지를 살펴봅시다.  정적 페이지 VS 동적 페이지정적(static) 페이지  단순히 사이트 관리자가 미리 만들어놓은 웹 페이지를 볼 수 있는 사이트 데이터베이스(DB)를 사용하지 않음   Jekyll, Hexo, Hugo 등  동적(dynamic) 페이지  컨텐츠 내">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/50584958-f099ee00-0eb5-11e9-8973-49f961bf2f57.png">
+<meta property="og:updated_time" content="2019-01-02T13:55:04.425Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="정적블로그 플랫폼(Static Web Generator)의 비교">
+<meta name="twitter:description" content="정적 블로그 플랫폼 설명에 앞서,정적 웹페이지와 동적 웹페이지란 무엇이며 어떤 차이가 있는지를 살펴봅시다.  정적 페이지 VS 동적 페이지정적(static) 페이지  단순히 사이트 관리자가 미리 만들어놓은 웹 페이지를 볼 수 있는 사이트 데이터베이스(DB)를 사용하지 않음   Jekyll, Hexo, Hugo 등  동적(dynamic) 페이지  컨텐츠 내">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/50584958-f099ee00-0eb5-11e9-8973-49f961bf2f57.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, IT Blog" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/blog/hexo/">Hexo</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-blog-platform" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        정적블로그 플랫폼(Static Web Generator)의 비교
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/01/02/blog-platform/" class="article-date">
+            <time datetime="2019-01-02T08:09:11.680Z" itemprop="datePublished">2019-01-02</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hugo/">Hugo</a>, <a class="tag-link" href="/tags/jekyll/">Jekyll</a>, <a class="tag-link" href="/tags/static-web-generator/">Static Web Generator</a>, <a class="tag-link" href="/tags/blog/">blog</a>, <a class="tag-link" href="/tags/framework/">framework</a>, <a class="tag-link" href="/tags/hexo/">hexo</a>, <a class="tag-link" href="/tags/platform/">platform</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <hr>
+<p><strong>정적 블로그 플랫폼 설명에 앞서,<br><code>정적 웹페이지</code>와 <code>동적 웹페이지</code>란 무엇이며 어떤 차이가 있는지를 살펴봅시다.</strong></p>
+<hr>
+<h2 id="정적-페이지-VS-동적-페이지"><a href="#정적-페이지-VS-동적-페이지" class="headerlink" title="정적 페이지 VS 동적 페이지"></a>정적 페이지 VS 동적 페이지</h2><h3 id="정적-static-페이지"><a href="#정적-static-페이지" class="headerlink" title="정적(static) 페이지"></a><code>정적(static)</code> 페이지</h3><p><img src="https://user-images.githubusercontent.com/37353837/50587293-a833fd80-0ec0-11e9-9038-f6e44be488ea.png" alt="정적 페이지"></p>
+<ul>
+<li>단순히 사이트 관리자가 미리 만들어놓은 웹 페이지를 볼 수 있는 사이트</li>
+<li><code>데이터베이스(DB)</code>를 <strong>사용하지 않음</strong></li>
+</ul>
+<blockquote>
+<p>Jekyll, Hexo, Hugo 등</p>
+</blockquote>
+<h3 id="동적-dynamic-페이지"><a href="#동적-dynamic-페이지" class="headerlink" title="동적(dynamic) 페이지"></a><code>동적(dynamic)</code> 페이지</h3><p><img src="https://user-images.githubusercontent.com/37353837/50587316-c4d03580-0ec0-11e9-9992-f1fd5a32010a.png" alt="동적 페이지"></p>
+<ul>
+<li>컨텐츠 내용이 서버에 있는 <strong>DB에 저장</strong><br>-&gt; 그 결과가 웹페이지에 반영되는 형태로 동작</li>
+<li>일반적인 게시판 형태의 사이트들이 사용하는 방식</li>
+</ul>
+<blockquote>
+<p>티스토리, 네이버 블로그 등</p>
+</blockquote>
+<hr>
+<h2 id="정적블로그-플랫폼-Static-Web-Generator-의-비교-Jekyll-Hexo-Hugo"><a href="#정적블로그-플랫폼-Static-Web-Generator-의-비교-Jekyll-Hexo-Hugo" class="headerlink" title="정적블로그 플랫폼(Static Web Generator)의 비교(Jekyll, Hexo, Hugo)"></a>정적블로그 플랫폼(Static Web Generator)의 비교(Jekyll, Hexo, Hugo)</h2><p><img src="https://user-images.githubusercontent.com/37353837/50584958-f099ee00-0eb5-11e9-8973-49f961bf2f57.png" alt="static-site-generators-cover"></p>
+<h3 id="Jekyll"><a href="#Jekyll" class="headerlink" title="Jekyll"></a>Jekyll</h3><ul>
+<li>특징<ul>
+<li><code>Ruby</code> 기반</li>
+<li>Github Page에 Git History 충돌 없이 <strong>포스트 버전관리 가능</strong></li>
+<li>GitHub Page는 <strong>Jekyll에 최적화</strong>되어 있음</li>
+<li><strong>한글 레퍼런스가 가장 많음</strong></li>
+<li>현재 <strong>가장 많은 사용자</strong>를 보유(Github 별 개수가 가장 많음)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>단점<ul>
+<li><code>Ruby</code>기반으로 <strong>초기 구축에 어려움</strong>이 있음<br>(Ruby를 모르면, 플러그인 등 커스터마이징 하는데 불편할 수 있음)</li>
+<li><strong>윈도우 공식 지원 안됨</strong></li>
+<li><strong>컴파일 속도가 느림</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><ul>
+<li>특징<ul>
+<li><code>자바스크립트(node.js)</code> 기반</li>
+<li><code>Node.js</code>가 설치되어 있어야 하며, 기본적인 npm 사용 방법을 알아야 함</li>
+<li>마크다운 문서로 만든 포스팅을 하는 <strong>방법이 간단함</strong></li>
+<li><strong>윈도우 지원됨</strong></li>
+<li><strong>컴파일 속도가 빠름</strong></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>단점<ul>
+<li><strong>Git으로 포스트 버전관리가 불가능함</strong><br>-&gt; 버전 관리를 위해서는 두 가지 브랜치를 따서 관리해야 함</li>
+<li><code>Node.js</code>의 템플릿 엔진을 그대로 사용 불가능<br>(Github Page에는 <code>Jekyll</code>이 내장되어 있기 때문)</li>
+<li>영어보다는 <strong>중국어로 된 질의응답이 많음</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Hugo"><a href="#Hugo" class="headerlink" title="Hugo"></a>Hugo</h3><ul>
+<li>특징<ul>
+<li><code>Golang</code> 기반</li>
+<li><strong>컴파일 속도가 빠름(Jekyll, Hexo와 비교시 가장 빠름)</strong></li>
+<li>문서화가 잘 되어 있음</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>단점: <strong>한글 레퍼런스가 거의 없음</strong></li>
+</ul>
+<hr>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><ul>
+<li>앞서 살펴보았듯이 블로그 플랫폼 각각이 장단점을 가지고 있기 때문에<br><strong>우위를 따질 수는 없는 것 같습니다.</strong></li>
+<li>다만, 각 플랫폼의 <strong>장단점을 고려</strong>한 후, <strong>본인에게 맞는 블로그 플랫폼을 선택</strong>하시는 게 좋겠죠:)</li>
+<li>저는 <strong>비교적 익숙한 언어인 JavaScript 기반인 <code>Hexo</code>로 블로그를 시작</strong>하고, 차후에 <code>Hugo</code>로 이전을 고려해보는 방향으로 가닥을 잡았습니다.</li>
+</ul>
+<h2 id="포스트-작성시-참고한-링크"><a href="#포스트-작성시-참고한-링크" class="headerlink" title="포스트 작성시 참고한 링크"></a>포스트 작성시 참고한 링크</h2><ul>
+<li><a href="http://snowdeer.github.io/blog/2016/03/21/static-dynamic-webpage/" target="_blank" rel="noopener">http://snowdeer.github.io/blog/2016/03/21/static-dynamic-webpage/</a></li>
+<li><a href="https://qvil.github.io/blog/why-jekyll/#what" target="_blank" rel="noopener">https://qvil.github.io/blog/why-jekyll/#what</a></li>
+<li><a href="https://github.com/Integerous/Integerous.github.io" target="_blank" rel="noopener">https://github.com/Integerous/Integerous.github.io</a></li>
+<li><a href="https://www.slideshare.net/ssuser458523/ss-77033329" target="_blank" rel="noopener">https://www.slideshare.net/ssuser458523/ss-77033329</a></li>
+<li><a href="https://engineering.huiseoul.com/%EC%A0%95%EC%A0%81-%EB%B8%94%EB%A1%9C%EA%B7%B8-hexo-%EC%84%A4%EC%B9%98-f8df865a693a" target="_blank" rel="noopener">https://engineering.huiseoul.com/%EC%A0%95%EC%A0%81-%EB%B8%94%EB%A1%9C%EA%B7%B8-hexo-%EC%84%A4%EC%B9%98-f8df865a693a</a></li>
+<li><a href="http://coashanee5.blogspot.com/2017/07/blog-post_25.html" target="_blank" rel="noopener">http://coashanee5.blogspot.com/2017/07/blog-post_25.html</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "정적블로그 플랫폼(Static Web Generator)의 비교",
+        "image": "https://JihyeHwang09.github.io.githttps://user-images.githubusercontent.com/37353837/50584958-f099ee00-0eb5-11e9-8973-49f961bf2f57.png",
+        "keywords": "hexo blog framework platform Jekyll Hugo Static Web Generator",
+        "genre": "Blog Hexo",
+        "datePublished": "2019-01-02",
+        "dateCreated": "2019-01-02",
+        "dateModified": "2019-01-02",
+        "url": "https://JihyeHwang09.github.io.git/2019/01/02/blog-platform/",
+        "description": "
+정적 블로그 플랫폼 설명에 앞서,정적 웹페이지와 동적 웹페이지란 무엇이며 어떤 차이가 있는지를 살펴봅시다.
+
+정적 페이지 VS 동적 페이지정적(static) 페이지
+
+단순히 사이트 관리자가 미리 만들어놓은 웹 페이지를 볼 수 있는 사이트
+데이터베이스(DB)를 사용하지 않음
+
+
+Jekyll, Hexo, Hugo 등
+
+동적(dynamic) 페이지
+
+컨텐츠 내"
+        "wordCount": 279
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09/JihyeHwang09.github.io.git" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/02/blog-platform/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50584958-f099ee00-0eb5-11e9-8973-49f961bf2f57.png)" alt="정적블로그 플랫폼(Static Web Generator)의 비교" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/blog/hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/2019/01/02/blog-platform/" class="title">정적블로그 플랫폼(Static Web Generator)의 비교</a></p>
+                            <p class="item-date"><time datetime="2019-01-02T08:09:11.680Z" itemprop="datePublished">2019-01-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">Hugo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">Jekyll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-web-generator/">Static Web Generator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/platform/">platform</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/static-web-generator/" style="font-size: 10px;">Static Web Generator</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/framework/" style="font-size: 10px;">framework</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/platform/" style="font-size: 10px;">platform</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'disqus_bSDue21kst';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io.git/2019/01/02/blog-platform/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
