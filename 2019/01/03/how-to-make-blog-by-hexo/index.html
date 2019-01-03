@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>Hexo를 이용한 블로그 만들기 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="blog,framework,platform,hexo,Static Web Generator,git,node.js">
+    
+    <meta name="description" content="지난 포스트에서 정적블로그 플랫폼의 종류와 차이에 대해 소개했습니다.이번에는 Hexo를 이용한 블로그 만드는 방법에 대해 정리해봅시다.  1. Git, Nods.js 설치하기Hexo 블로그를 만들기 전, Git과 Node.js가 설치되어 있어야 합니다.Git과 Node.js가 이미 설치되어 있으신 분들은 2번부터 읽으시면 됩니다:) 1) Git 설치Git">
+<meta name="keywords" content="blog,framework,platform,hexo,Static Web Generator,git,node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo를 이용한 블로그 만들기">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/03/how-to-make-blog-by-hexo/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="지난 포스트에서 정적블로그 플랫폼의 종류와 차이에 대해 소개했습니다.이번에는 Hexo를 이용한 블로그 만드는 방법에 대해 정리해봅시다.  1. Git, Nods.js 설치하기Hexo 블로그를 만들기 전, Git과 Node.js가 설치되어 있어야 합니다.Git과 Node.js가 이미 설치되어 있으신 분들은 2번부터 읽으시면 됩니다:) 1) Git 설치Git">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/50637401-409fb000-0f9d-11e9-86a8-491bfb1c6e38.png">
+<meta property="og:updated_time" content="2019-01-03T12:20:54.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo를 이용한 블로그 만들기">
+<meta name="twitter:description" content="지난 포스트에서 정적블로그 플랫폼의 종류와 차이에 대해 소개했습니다.이번에는 Hexo를 이용한 블로그 만드는 방법에 대해 정리해봅시다.  1. Git, Nods.js 설치하기Hexo 블로그를 만들기 전, Git과 Node.js가 설치되어 있어야 합니다.Git과 Node.js가 이미 설치되어 있으신 분들은 2번부터 읽으시면 됩니다:) 1) Git 설치Git">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/50637401-409fb000-0f9d-11e9-86a8-491bfb1c6e38.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/blog/hexo/">Hexo</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-how-to-make-blog-by-hexo" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hexo를 이용한 블로그 만들기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/01/03/how-to-make-blog-by-hexo/" class="article-date">
+            <time datetime="2019-01-03T09:09:51.675Z" itemprop="datePublished">2019-01-03</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/static-web-generator/">Static Web Generator</a>, <a class="tag-link" href="/tags/blog/">blog</a>, <a class="tag-link" href="/tags/framework/">framework</a>, <a class="tag-link" href="/tags/git/">git</a>, <a class="tag-link" href="/tags/hexo/">hexo</a>, <a class="tag-link" href="/tags/node-js/">node.js</a>, <a class="tag-link" href="/tags/platform/">platform</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <hr>
+<h4 id="지난-포스트에서-정적블로그-플랫폼의-종류와-차이에-대해-소개했습니다"><a href="#지난-포스트에서-정적블로그-플랫폼의-종류와-차이에-대해-소개했습니다" class="headerlink" title="지난 포스트에서 정적블로그 플랫폼의 종류와 차이에 대해 소개했습니다."></a><a href="https://jihyehwang09.github.io/2019/01/02/blog-platform/">지난 포스트</a>에서 <strong>정적블로그 플랫폼의 종류와 차이</strong>에 대해 소개했습니다.</h4><h4 id="이번에는-Hexo를-이용한-블로그-만드는-방법에-대해-정리해봅시다"><a href="#이번에는-Hexo를-이용한-블로그-만드는-방법에-대해-정리해봅시다" class="headerlink" title="이번에는 Hexo를 이용한 블로그 만드는 방법에 대해 정리해봅시다."></a>이번에는 <code>Hexo를 이용한 블로그 만드는 방법</code>에 대해 정리해봅시다.</h4><p><img src="https://user-images.githubusercontent.com/37353837/50637401-409fb000-0f9d-11e9-86a8-491bfb1c6e38.png" alt="github + hexo"></p>
+<hr>
+<h2 id="1-Git-Nods-js-설치하기"><a href="#1-Git-Nods-js-설치하기" class="headerlink" title="1. Git, Nods.js 설치하기"></a>1. Git, Nods.js 설치하기</h2><p>Hexo 블로그를 만들기 전, <code>Git</code>과 <code>Node.js</code>가 설치되어 있어야 합니다.<br><code>Git</code>과 <code>Node.js</code>가 <strong>이미 설치되어 있으신 분들</strong>은 <strong>2번</strong>부터 읽으시면 됩니다:)</p>
+<h4 id="1-Git-설치"><a href="#1-Git-설치" class="headerlink" title="1) Git 설치"></a>1) Git 설치</h4><h5 id="Git-다운로드-페이지"><a href="#Git-다운로드-페이지" class="headerlink" title="Git 다운로드 페이지"></a><a href="https://git-scm.com/" target="_blank" rel="noopener">Git 다운로드 페이지</a></h5><p><img src="https://user-images.githubusercontent.com/37353837/50631455-a8e39700-0f87-11e9-8586-d08c2a2cdd93.png" alt="Git Download Homepage"></p>
+<h4 id="2-Node-js-설치"><a href="#2-Node-js-설치" class="headerlink" title="2) Node.js 설치"></a>2) Node.js 설치</h4><h5 id="Node-js-다운로드-페이지"><a href="#Node-js-다운로드-페이지" class="headerlink" title="Node.js 다운로드 페이지"></a><a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener">Node.js 다운로드 페이지</a></h5><p><img src="https://user-images.githubusercontent.com/37353837/50631798-0c21f900-0f89-11e9-8efa-3c96bb005fdd.png" alt="Node.js Download Homepage"></p>
+<h2 id="2-GiHhub-프로젝트-Repository-만들기"><a href="#2-GiHhub-프로젝트-Repository-만들기" class="headerlink" title="2. GiHhub 프로젝트(Repository) 만들기"></a>2. GiHhub 프로젝트(Repository) 만들기</h2><p>블로그의 포스트를 관리할 <strong>GitHub Repository를 만드는 과정</strong>입니다.</p>
+<h5 id="GitHub-홈페이지"><a href="#GitHub-홈페이지" class="headerlink" title="GitHub 홈페이지"></a><a href="https://github.com/" target="_blank" rel="noopener">GitHub 홈페이지</a></h5><ul>
+<li><code>GitHub</code>에 <strong>회원가입</strong> 후, <strong>로그인</strong>을 합니다.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/37353837/50632134-36c08180-0f8a-11e9-962c-9ed8561dbd85.png" alt="new repository"></p>
+<ul>
+<li>로그인 후, 우측 상단에 있는 <strong>초록색의 New</strong>를 눌러줍니다.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/37353837/50632700-1f829380-0f8c-11e9-8c62-7f2925f6e7af.png" alt="create a new repository"></p>
+<ul>
+<li><code>Repository name</code>에는 <strong>GitHub 계정명과 동일한 username</strong>을 사용하여 <code>username.github.io</code>로 작성한 후, <strong>Create repository</strong> 버튼을 누릅니다.</li>
+</ul>
+<h2 id="3-Hexo-설치하기"><a href="#3-Hexo-설치하기" class="headerlink" title="3. Hexo 설치하기"></a>3. Hexo 설치하기</h2><ul>
+<li>Git을 설치하면,<code>Git Bash</code>가 있으실 겁니다.</li>
+</ul>
+<h5 id="1-Git-Bash를-실행시킵니다"><a href="#1-Git-Bash를-실행시킵니다" class="headerlink" title="1) Git Bash를 실행시킵니다."></a>1) <code>Git Bash</code>를 실행시킵니다.</h5><p><img src="https://user-images.githubusercontent.com/37353837/50635728-a9375e80-0f96-11e9-87a2-7ddeb40aef36.png" alt="Git Bash"></p>
+<h5 id="2-터미널-화면에-를-제외한-부분을-작성하고-Enter를-누르면-Hexo가-설치됩니다"><a href="#2-터미널-화면에-를-제외한-부분을-작성하고-Enter를-누르면-Hexo가-설치됩니다" class="headerlink" title="2) 터미널 화면에 $를 제외한 부분을 작성하고 Enter를 누르면,Hexo가 설치됩니다."></a>2) 터미널 화면에 <code>$</code>를 제외한 부분을 작성하고 <code>Enter</code>를 누르면,<br><strong>Hexo가 설치</strong>됩니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h5 id="3-블로그를-만들고-싶은-폴더-위치로-이동합니다-그-후-아래-코드를-입력합니다-blog-자리에-자신이-원하는-블로그-이름을-넣습니다"><a href="#3-블로그를-만들고-싶은-폴더-위치로-이동합니다-그-후-아래-코드를-입력합니다-blog-자리에-자신이-원하는-블로그-이름을-넣습니다" class="headerlink" title="3) 블로그를 만들고 싶은 폴더 위치로 이동합니다. 그 후, 아래 코드를 입력합니다.blog 자리에 자신이 원하는 블로그 이름을 넣습니다."></a>3) <strong>블로그를 만들고 싶은 폴더 위치</strong>로 <strong>이동</strong>합니다. <br>그 후, 아래 코드를 입력합니다.<br><strong>blog 자리</strong>에 <code>자신이 원하는 블로그 이름</code>을 넣습니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+<h5 id="4-자신이-원하는-폴더-위치에서-blog-이름으로-된-폴더가-생성됩니다-현재-위치에서-블로그-이름으로-된-폴더로-이동합니다"><a href="#4-자신이-원하는-폴더-위치에서-blog-이름으로-된-폴더가-생성됩니다-현재-위치에서-블로그-이름으로-된-폴더로-이동합니다" class="headerlink" title="4) 자신이 원하는 폴더 위치에서 blog 이름으로 된 폴더가 생성됩니다.현재 위치에서 블로그 이름으로 된 폴더로 이동합니다."></a>4) 자신이 원하는 폴더 위치에서 blog 이름으로 된 <strong>폴더가 생성</strong>됩니다.<br>현재 위치에서 <code>블로그 이름으로 된 폴더</code>로 <strong>이동</strong>합니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br></pre></td></tr></table></figure>
+<h5 id="5-npm을-설치합니다"><a href="#5-npm을-설치합니다" class="headerlink" title="5) npm을 설치합니다."></a>5) <strong><code>npm</code>을 설치</strong>합니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<h2 id="4-Hexo-실행해보기"><a href="#4-Hexo-실행해보기" class="headerlink" title="4. Hexo 실행해보기"></a>4. Hexo 실행해보기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/37353837/50633352-58bc0300-0f8e-11e9-8a06-168388254e78.png" alt="hexo server"></p>
+<ul>
+<li>로컬서버인 <code>http://localhost:4000</code>로 접속하면, <strong>Hexo 블로그가 만들어진 것을 확인</strong>할 수 있습니다.</li>
+<li><strong>Hexo 서버를 종료</strong>하려면, <code>Ctrl + C</code>를 눌러줍니다.</li>
+<li><strong>Tip! 코드를 복사하고 싶은 경우에는 <code>Ctrl + C</code>가 아닌, <code>Ctrl+Ins</code>를 눌러줍니다.</strong></li>
+</ul>
+<h2 id="5-Hexo-포스트-작성하기"><a href="#5-Hexo-포스트-작성하기" class="headerlink" title="5. Hexo 포스트 작성하기"></a>5. Hexo 포스트 작성하기</h2><p>위와 같이 <strong>Hexo 설치가 완료</strong>되었다면, 이제 <strong>포스트를 작성</strong>해볼까요?</p>
+<ul>
+<li><code>기본 명령어</code>와 <code>축약 명령어</code> 중에 편하신 명령어를 입력해 줍니다.</li>
+<li><code>hexo new</code>나 <code>hexo n</code> 뒤에는 <code>포스트 제목</code>을 적어줍니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> firstpost</span><br><span class="line"><span class="comment">// 기본 명령어</span></span><br><span class="line">$ hexo n firstpost</span><br><span class="line"><span class="comment">// 축약 명령어</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>위의 명령어를 실행하면, 아래와 같이 디렉토리에 <code>firstpost.md</code>라고 <strong>마크다운 파일이 생성</strong>됩니다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ code .</span><br></pre></td></tr></table></figure>
+<ul>
+<li>현재 생성된 <code>firstpost.md</code>파일을 <code>Visual Studio Code</code>로 열어줍니다.<br><img src="https://user-images.githubusercontent.com/37353837/50633927-58bd0280-0f90-11e9-84c2-af76dc28ffbf.png" alt="file directory"></li>
+<li>위와 같은 디렉토리에 <code>firstpost.md</code>이라는 <strong>마크다운 파일이 생성</strong>됩니다.</li>
+<li><code>firstpost.md</code>을 <code>Visual Studio Code</code>로 열면, 다음과 같이 작성되어 있습니다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: firstpost</span><br><span class="line">date: 2019-01-03 19:42:59</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>title은 자동으로 <strong>파일명과 똑같이 설정</strong>됩니다. <strong>원하는 title로 수정</strong>한 후,<br>아래의 <code>---</code>의 다음 줄부터 <strong>마크다운 문법</strong>을 이용해 글을 작성하시면 됩니다.</p>
+</li>
+<li><p>글 작성시, <strong>실시간으로 포스팅한 모습을 확인하고 싶을 때</strong>는 터미널에 아래와 같은 명령어를 입력해줍니다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line"><span class="comment">// 기본 명령어</span></span><br><span class="line">$ hexo s</span><br><span class="line"><span class="comment">// 축약 명령어</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>웹 브라우저에서 <code>localhost:4000</code> 경로로 접속하시면, 블로그의 모습을 <strong>실시간으로 확인</strong>할 수 있습니다.</p>
+</li>
+<li><p>포스트를 작성한 후, <strong>실제로 서버에 올라갈 정적 페이지를 생성</strong>해줍니다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line"><span class="comment">// 기본 명령어</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment">// 축약 명령어</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>터미널에서 위 코드를 실행하면, <code>blog/public/</code> 디렉토리 아래에 실제 서버에 올라갈 <strong>웹페이지가 생성된 것을 확인</strong>할 수 있습니다.</li>
+</ul>
+<h2 id="6-GitHub과-Hexo를-연결해주기"><a href="#6-GitHub과-Hexo를-연결해주기" class="headerlink" title="6. GitHub과 Hexo를 연결해주기"></a>6. GitHub과 Hexo를 연결해주기</h2><ul>
+<li>로컬 외에 <strong>외부에서도 볼 수 있도록</strong> 서버에 올립니다.</li>
+</ul>
+<h5 id="1-GitHub에-Deploy-해-줄-플러그인을-설치합니다"><a href="#1-GitHub에-Deploy-해-줄-플러그인을-설치합니다" class="headerlink" title="1) GitHub에 Deploy 해 줄 플러그인을 설치합니다."></a>1) GitHub에 Deploy 해 줄 플러그인을 설치합니다.</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<h5 id="2-Hexo-설정파일인-config-yml를-열어서-URL부분과-Deployment부분을-수정해-줍니다"><a href="#2-Hexo-설정파일인-config-yml를-열어서-URL부분과-Deployment부분을-수정해-줍니다" class="headerlink" title="2) Hexo 설정파일인 _config.yml를 열어서 #URL부분과 #Deployment부분을 수정해 줍니다."></a>2) Hexo 설정파일인 <code>_config.yml</code>를 열어서 <code>#URL</code>부분과 <code>#Deployment</code>부분을 수정해 줍니다.</h5><p><img src="https://user-images.githubusercontent.com/37353837/50634965-aab35780-0f93-11e9-9770-0d8b3788e936.png" alt="hexo github - url"></p>
+<ul>
+<li><code>#URL</code>부분을 위와 같이 수정해줍니다.<br><img src="https://user-images.githubusercontent.com/37353837/50635019-e2220400-0f93-11e9-83da-412ba52676d9.png" alt="hexo github - deployment"></li>
+<li><code>#Deployment</code>부분 역시 위와 같이 수정해줍니다.</li>
+</ul>
+<h5 id="3-GitHub-서버에-파일-올리기"><a href="#3-GitHub-서버에-파일-올리기" class="headerlink" title="3) GitHub 서버에 파일 올리기"></a>3) GitHub 서버에 파일 올리기</h5><ul>
+<li>터미널에서 명령어를 실행하여, GitHub 서버에 블로그 파일을 올려줍니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deployment</span><br><span class="line"><span class="comment">// 기본 명령어</span></span><br><span class="line">$ hexo d</span><br><span class="line"><span class="comment">// 축약 명령어</span></span><br></pre></td></tr></table></figure>
+<h5 id="Tip-정적-페이지-생성과-배포를-함께-하고-싶다면-아래-코드를-입력해줍니다"><a href="#Tip-정적-페이지-생성과-배포를-함께-하고-싶다면-아래-코드를-입력해줍니다" class="headerlink" title="Tip! 정적 페이지 생성과 배포를 함께 하고 싶다면, 아래 코드를 입력해줍니다."></a>Tip! 정적 페이지 <code>생성</code>과 <code>배포</code>를 함께 하고 싶다면, 아래 코드를 입력해줍니다.</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="포스트-작성시-참고한-링크"><a href="#포스트-작성시-참고한-링크" class="headerlink" title="포스트 작성시 참고한 링크"></a>포스트 작성시 참고한 링크</h2><ul>
+<li><a href="https://mechanickim.github.io/2018/03/17/20180317_blog_hexo/index.html" target="_blank" rel="noopener">블로그 프레임워크 Hexo</a></li>
+<li><a href="http://blog.lattecom.xyz/2016/06/28/hexo-blog-github-pages" target="_blank" rel="noopener">Github pages와 Hexo를 이용하여 블로그 만들기</a></li>
+<li><a href="http://inote.gitlab.io/2017/GitLab%EC%97%90%EC%84%9C%20Hexo%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0" target="_blank" rel="noopener">GitLab Pages에 Hexo 블로그 설치하기</a></li>
+<li><a href="https://wonheesoo.github.io/2018/01/13/Hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-1-%EC%84%9C%EB%A1%A0-Hexo%EC%99%80-Github-Page-%EC%A1%B0%ED%95%A9%ED%95%98%EA%B8%B0" target="_blank" rel="noopener">Hexo 블로그 만들기 1</a></li>
+<li><a href="https://m.blog.naver.com/future_creator/220722153999" target="_blank" rel="noopener">Hexo, 정말 쉬운 블로그 프레임워크</a></li>
+<li><a href="https://medium.com/@dongmi.public/why-hexo-67070b1e0cc3" target="_blank" rel="noopener">Hexo로 Github 블로그 만들기</a></li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://hexo.io/ko/docs/" target="_blank" rel="noopener">Hexo 공식 홈페이지 문서(한글)</a></li>
+<li><a href="https://gist.github.com/ihoneymon/652be052a0727ad59601_" target="_blank" rel="noopener">마크다운 문서 작성법</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "Hexo를 이용한 블로그 만들기",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/50637401-409fb000-0f9d-11e9-86a8-491bfb1c6e38.png",
+        "keywords": "blog framework platform hexo Static Web Generator git node.js",
+        "genre": "Blog Hexo",
+        "datePublished": "2019-01-03",
+        "dateCreated": "2019-01-03",
+        "dateModified": "2019-01-03",
+        "url": "https://JihyeHwang09.github.io/2019/01/03/how-to-make-blog-by-hexo/",
+        "description": "
+지난 포스트에서 정적블로그 플랫폼의 종류와 차이에 대해 소개했습니다.이번에는 Hexo를 이용한 블로그 만드는 방법에 대해 정리해봅시다.
+
+1. Git, Nods.js 설치하기Hexo 블로그를 만들기 전, Git과 Node.js가 설치되어 있어야 합니다.Git과 Node.js가 이미 설치되어 있으신 분들은 2번부터 읽으시면 됩니다:)
+1) Git 설치Git"
+        "wordCount": 815
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/01/02/blog-platform/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">정적블로그 플랫폼(Static Web Generator)의 비교</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/03/how-to-make-blog-by-hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50637401-409fb000-0f9d-11e9-86a8-491bfb1c6e38.png)" alt="Hexo를 이용한 블로그 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/blog/hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/2019/01/03/how-to-make-blog-by-hexo/" class="title">Hexo를 이용한 블로그 만들기</a></p>
+                            <p class="item-date"><time datetime="2019-01-03T09:09:51.675Z" itemprop="datePublished">2019-01-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/02/blog-platform/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50637315-d981fb80-0f9c-11e9-824a-08fd5d1b3fee.png)" alt="정적블로그 플랫폼(Static Web Generator)의 비교" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/blog/hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/2019/01/02/blog-platform/" class="title">정적블로그 플랫폼(Static Web Generator)의 비교</a></p>
+                            <p class="item-date"><time datetime="2019-01-02T08:09:11.680Z" itemprop="datePublished">2019-01-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">Hugo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">Jekyll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-web-generator/">Static Web Generator</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/platform/">platform</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/static-web-generator/" style="font-size: 20px;">Static Web Generator</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/framework/" style="font-size: 20px;">framework</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 20px;">platform</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/01/03/how-to-make-blog-by-hexo/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
