@@ -21,7 +21,7 @@
 <meta property="og:description" content="지난 포스트에서 정적블로그 플랫폼의 종류와 차이에 대해 소개했습니다.이번에는 Hexo를 이용한 블로그 만드는 방법에 대해 정리해봅시다.  1. Git, Nods.js 설치하기Hexo 블로그를 만들기 전, Git과 Node.js가 설치되어 있어야 합니다.Git과 Node.js가 이미 설치되어 있으신 분들은 2번부터 읽으시면 됩니다:) 1) Git 설치Git">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/50637401-409fb000-0f9d-11e9-86a8-491bfb1c6e38.png">
-<meta property="og:updated_time" content="2019-01-03T12:31:54.564Z">
+<meta property="og:updated_time" content="2019-01-03T16:59:48.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo를 이용한 블로그 만들기">
 <meta name="twitter:description" content="지난 포스트에서 정적블로그 플랫폼의 종류와 차이에 대해 소개했습니다.이번에는 Hexo를 이용한 블로그 만드는 방법에 대해 정리해봅시다.  1. Git, Nods.js 설치하기Hexo 블로그를 만들기 전, Git과 Node.js가 설치되어 있어야 합니다.Git과 Node.js가 이미 설치되어 있으신 분들은 2번부터 읽으시면 됩니다:) 1) Git 설치Git">
@@ -95,7 +95,7 @@ ga('send', 'pageview');
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li></ul>
                                     
                         </ul>
                         <nav id="sub-nav">
@@ -195,7 +195,7 @@ ga('send', 'pageview');
 <h2 id="1-Git-Nods-js-설치하기"><a href="#1-Git-Nods-js-설치하기" class="headerlink" title="1. Git, Nods.js 설치하기"></a>1. Git, Nods.js 설치하기</h2><p>Hexo 블로그를 만들기 전, <code>Git</code>과 <code>Node.js</code>가 설치되어 있어야 합니다.<br><code>Git</code>과 <code>Node.js</code>가 <strong>이미 설치되어 있으신 분들</strong>은 <strong>2번</strong>부터 읽으시면 됩니다:)</p>
 <h4 id="1-Git-설치"><a href="#1-Git-설치" class="headerlink" title="1) Git 설치"></a>1) Git 설치</h4><h5 id="Git-다운로드-페이지"><a href="#Git-다운로드-페이지" class="headerlink" title="Git 다운로드 페이지"></a><a href="https://git-scm.com/" target="_blank" rel="noopener">Git 다운로드 페이지</a></h5><p><img src="https://user-images.githubusercontent.com/37353837/50631455-a8e39700-0f87-11e9-8586-d08c2a2cdd93.png" alt="Git Download Homepage"></p>
 <h4 id="2-Node-js-설치"><a href="#2-Node-js-설치" class="headerlink" title="2) Node.js 설치"></a>2) Node.js 설치</h4><h5 id="Node-js-다운로드-페이지"><a href="#Node-js-다운로드-페이지" class="headerlink" title="Node.js 다운로드 페이지"></a><a href="https://nodejs.org/ko/download/" target="_blank" rel="noopener">Node.js 다운로드 페이지</a></h5><p><img src="https://user-images.githubusercontent.com/37353837/50631798-0c21f900-0f89-11e9-8efa-3c96bb005fdd.png" alt="Node.js Download Homepage"></p>
-<h2 id="2-GiHhub-프로젝트-Repository-만들기"><a href="#2-GiHhub-프로젝트-Repository-만들기" class="headerlink" title="2. GiHhub 프로젝트(Repository) 만들기"></a>2. GiHhub 프로젝트(Repository) 만들기</h2><p>블로그의 포스트를 관리할 <strong>GitHub Repository를 만드는 과정</strong>입니다.</p>
+<h2 id="2-GitHub-프로젝트-Repository-만들기"><a href="#2-GitHub-프로젝트-Repository-만들기" class="headerlink" title="2. GitHub 프로젝트(Repository) 만들기"></a>2. GitHub 프로젝트(Repository) 만들기</h2><p>블로그의 포스트를 관리할 <strong>GitHub Repository를 만드는 과정</strong>입니다.</p>
 <h5 id="GitHub-홈페이지"><a href="#GitHub-홈페이지" class="headerlink" title="GitHub 홈페이지"></a><a href="https://github.com/" target="_blank" rel="noopener">GitHub 홈페이지</a></h5><ul>
 <li><code>GitHub</code>에 <strong>회원가입</strong> 후, <strong>로그인</strong>을 합니다.</li>
 </ul>
@@ -213,7 +213,7 @@ ga('send', 'pageview');
 <h5 id="1-Git-Bash를-실행시킵니다"><a href="#1-Git-Bash를-실행시킵니다" class="headerlink" title="1) Git Bash를 실행시킵니다."></a>1) <code>Git Bash</code>를 실행시킵니다.</h5><p><img src="https://user-images.githubusercontent.com/37353837/50635728-a9375e80-0f96-11e9-87a2-7ddeb40aef36.png" alt="Git Bash"></p>
 <h5 id="2-터미널-화면에-를-제외한-부분을-작성하고-Enter를-누르면-Hexo가-설치됩니다"><a href="#2-터미널-화면에-를-제외한-부분을-작성하고-Enter를-누르면-Hexo가-설치됩니다" class="headerlink" title="2) 터미널 화면에 $를 제외한 부분을 작성하고 Enter를 누르면,Hexo가 설치됩니다."></a>2) 터미널 화면에 <code>$</code>를 제외한 부분을 작성하고 <code>Enter</code>를 누르면,<br><strong>Hexo가 설치</strong>됩니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <h5 id="3-블로그를-만들고-싶은-폴더-위치로-이동합니다-그-후-아래-코드를-입력합니다-blog-자리에-자신이-원하는-블로그-이름을-넣습니다"><a href="#3-블로그를-만들고-싶은-폴더-위치로-이동합니다-그-후-아래-코드를-입력합니다-blog-자리에-자신이-원하는-블로그-이름을-넣습니다" class="headerlink" title="3) 블로그를 만들고 싶은 폴더 위치로 이동합니다. 그 후, 아래 코드를 입력합니다.blog 자리에 자신이 원하는 블로그 이름을 넣습니다."></a>3) <strong>블로그를 만들고 싶은 폴더 위치</strong>로 <strong>이동</strong>합니다. <br>그 후, 아래 코드를 입력합니다.<br><strong>blog 자리</strong>에 <code>자신이 원하는 블로그 이름</code>을 넣습니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
-<h5 id="4-자신이-원하는-폴더-위치에서-blog-이름으로-된-폴더가-생성됩니다-현재-위치에서-블로그-이름으로-된-폴더로-이동합니다"><a href="#4-자신이-원하는-폴더-위치에서-blog-이름으로-된-폴더가-생성됩니다-현재-위치에서-블로그-이름으로-된-폴더로-이동합니다" class="headerlink" title="4) 자신이 원하는 폴더 위치에서 blog 이름으로 된 폴더가 생성됩니다.현재 위치에서 블로그 이름으로 된 폴더로 이동합니다."></a>4) 자신이 원하는 폴더 위치에서 blog 이름으로 된 <strong>폴더가 생성</strong>됩니다.<br>현재 위치에서 <code>블로그 이름으로 된 폴더</code>로 <strong>이동</strong>합니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br></pre></td></tr></table></figure>
+<h5 id="4-자신이-원하는-폴더-위치에-blog-이름으로-된-폴더가-생성됩니다-현재-위치에서-블로그-이름으로-된-폴더로-이동합니다"><a href="#4-자신이-원하는-폴더-위치에-blog-이름으로-된-폴더가-생성됩니다-현재-위치에서-블로그-이름으로-된-폴더로-이동합니다" class="headerlink" title="4) 자신이 원하는 폴더 위치에 blog 이름으로 된 폴더가 생성됩니다.현재 위치에서 블로그 이름으로 된 폴더로 이동합니다."></a>4) 자신이 원하는 폴더 위치에 blog 이름으로 된 <strong>폴더가 생성</strong>됩니다.<br>현재 위치에서 <code>블로그 이름으로 된 폴더</code>로 <strong>이동</strong>합니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br></pre></td></tr></table></figure>
 <h5 id="5-npm을-설치합니다"><a href="#5-npm을-설치합니다" class="headerlink" title="5) npm을 설치합니다."></a>5) <strong><code>npm</code>을 설치</strong>합니다.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
 <h2 id="4-Hexo-실행해보기"><a href="#4-Hexo-실행해보기" class="headerlink" title="4. Hexo 실행해보기"></a>4. Hexo 실행해보기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p><img src="https://user-images.githubusercontent.com/37353837/50633352-58bc0300-0f8e-11e9-8a06-168388254e78.png" alt="hexo server"></p>
@@ -229,17 +229,17 @@ ga('send', 'pageview');
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> firstpost</span><br><span class="line"><span class="comment">// 기본 명령어</span></span><br><span class="line">$ hexo n firstpost</span><br><span class="line"><span class="comment">// 축약 명령어</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>위의 명령어를 실행하면, 아래와 같이 디렉토리에 <code>firstpost.md</code>라고 <strong>마크다운 파일이 생성</strong>됩니다.</li>
+<li>위의 명령어를 실행하여, <code>firstpost.md</code>라는 <strong>마크다운 파일을 생성</strong>합니다.</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ code .</span><br></pre></td></tr></table></figure>
 <ul>
 <li>현재 생성된 <code>firstpost.md</code>파일을 <code>Visual Studio Code</code>로 열어줍니다.<br><img src="https://user-images.githubusercontent.com/37353837/50633927-58bd0280-0f90-11e9-84c2-af76dc28ffbf.png" alt="file directory"></li>
-<li>위와 같은 디렉토리에 <code>firstpost.md</code>이라는 <strong>마크다운 파일이 생성</strong>됩니다.</li>
-<li><code>firstpost.md</code>을 <code>Visual Studio Code</code>로 열면, 다음과 같이 작성되어 있습니다.</li>
+<li>위와 같은 디렉토리에 <code>firstpost.md</code>이라는 <strong>마크다운 파일이 생성</strong>된 것을 확인할 수 있습니다.</li>
+<li><code>firstpost.md</code> 파일을 열면, 다음과 같이 작성되어 있습니다.</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: firstpost</span><br><span class="line">date: 2019-01-03 19:42:59</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>title은 자동으로 <strong>파일명과 똑같이 설정</strong>됩니다. <strong>원하는 title로 수정</strong>한 후,<br>아래의 <code>---</code>의 다음 줄부터 <strong>마크다운 문법</strong>을 이용해 글을 작성하시면 됩니다.</p>
+<li><p>title은 자동으로 <strong>파일명과 똑같이 설정</strong>됩니다. <strong>원하는 title로 수정</strong>한 후,<br>아래의 <code>---</code>의 다음 줄부터 <strong>마크다운 문법</strong>을 이용하여 글을 작성하시면 됩니다.</p>
 </li>
 <li><p>글 작성시, <strong>실시간으로 포스팅한 모습을 확인하고 싶을 때</strong>는 터미널에 아래와 같은 명령어를 입력해줍니다.</p>
 </li>
@@ -358,14 +358,14 @@ ga('send', 'pageview');
         "genre": "Blog Hexo",
         "datePublished": "2019-01-03",
         "dateCreated": "2019-01-03",
-        "dateModified": "2019-01-03",
+        "dateModified": "2019-01-04",
         "url": "https://JihyeHwang09.github.io/2019/01/03/hexo-blog/",
         "description": "
 지난 포스트에서 정적블로그 플랫폼의 종류와 차이에 대해 소개했습니다.이번에는 Hexo를 이용한 블로그 만드는 방법에 대해 정리해봅시다.
 
 1. Git, Nods.js 설치하기Hexo 블로그를 만들기 전, Git과 Node.js가 설치되어 있어야 합니다.Git과 Node.js가 이미 설치되어 있으신 분들은 2번부터 읽으시면 됩니다:)
 1) Git 설치Git"
-        "wordCount": 815
+        "wordCount": 814
     }
 </script>
 
@@ -413,6 +413,16 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
+        <a href="/2019/01/04/boolean-algebra/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            불 대수(Boolean algebra)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2019/01/02/blog-platform/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -431,6 +441,26 @@ ga('send', 'pageview');
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/04/boolean-algebra/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50653266-46f95080-0fcc-11e9-82ef-3c6228bdbabd.png)" alt="불 대수(Boolean algebra)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></p>
+                            <p class="item-title"><a href="/2019/01/04/boolean-algebra/" class="title">불 대수(Boolean algebra)</a></p>
+                            <p class="item-date"><time datetime="2019-01-03T17:20:57.925Z" itemprop="datePublished">2019-01-04</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -481,7 +511,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -491,7 +521,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -501,7 +531,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">Hugo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">Jekyll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-web-generator/">Static Web Generator</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/platform/">platform</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">Hugo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">Jekyll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-web-generator/">Static Web Generator</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boole/">boole</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boolean-algebra/">boolean algebra</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/platform/">platform</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/논리회로/">논리회로</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/전자계산기-구조/">전자계산기 구조</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/정보처리기사/">정보처리기사</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -511,7 +541,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/static-web-generator/" style="font-size: 20px;">Static Web Generator</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/framework/" style="font-size: 20px;">framework</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 20px;">platform</a>
+            <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/static-web-generator/" style="font-size: 20px;">Static Web Generator</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/framework/" style="font-size: 20px;">framework</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 20px;">platform</a> <a href="/tags/논리회로/" style="font-size: 10px;">논리회로</a> <a href="/tags/전자계산기-구조/" style="font-size: 10px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 10px;">정보처리기사</a>
         </div>
     </div>
 
