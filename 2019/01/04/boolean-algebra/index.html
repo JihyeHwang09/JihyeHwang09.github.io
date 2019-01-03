@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="정보처리기사,전자계산기 구조,논리회로,boole,boolean algebra">
     
-    <meta name="description" content="불 대수의 기본 개념과 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다. 불 대수(Boolean algebra)는 하나의 명제가 참 또는 거짓인지를 판별하기 위해 이용되는 수학적 방법으로 19세기 중반 영국의 수학자 조지 불(George Boole)에 의해 개발되었다. 컴퓨터는 참과 거짓을 나타내기 위해 0과 1의 두 가지 상태로">
+    <meta name="description" content="2진 디지털 시스템에서 입출력 관계를 표현하는 방법과 불 대수의 기본 개념 및 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다. 1. 2진 디지털 시스템에서 입출력 관계를 표현하는 방법1) 그래프나 진리표로 표시 2) 논리함수로 표시 입력에 따라 변수가 어떻게 변하는지를 나타내는 함수로 표현 입력이 2진 논리값이므로 논리함수로 나타">
 <meta name="keywords" content="정보처리기사,전자계산기 구조,논리회로,boole,boolean algebra">
 <meta property="og:type" content="article">
 <meta property="og:title" content="불 대수(Boolean algebra)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/04/boolean-algebra/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="불 대수의 기본 개념과 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다. 불 대수(Boolean algebra)는 하나의 명제가 참 또는 거짓인지를 판별하기 위해 이용되는 수학적 방법으로 19세기 중반 영국의 수학자 조지 불(George Boole)에 의해 개발되었다. 컴퓨터는 참과 거짓을 나타내기 위해 0과 1의 두 가지 상태로">
+<meta property="og:description" content="2진 디지털 시스템에서 입출력 관계를 표현하는 방법과 불 대수의 기본 개념 및 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다. 1. 2진 디지털 시스템에서 입출력 관계를 표현하는 방법1) 그래프나 진리표로 표시 2) 논리함수로 표시 입력에 따라 변수가 어떻게 변하는지를 나타내는 함수로 표현 입력이 2진 논리값이므로 논리함수로 나타">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/50653266-46f95080-0fcc-11e9-82ef-3c6228bdbabd.png">
-<meta property="og:updated_time" content="2019-01-03T19:23:12.038Z">
+<meta property="og:updated_time" content="2019-01-03T19:35:06.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="불 대수(Boolean algebra)">
-<meta name="twitter:description" content="불 대수의 기본 개념과 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다. 불 대수(Boolean algebra)는 하나의 명제가 참 또는 거짓인지를 판별하기 위해 이용되는 수학적 방법으로 19세기 중반 영국의 수학자 조지 불(George Boole)에 의해 개발되었다. 컴퓨터는 참과 거짓을 나타내기 위해 0과 1의 두 가지 상태로">
+<meta name="twitter:description" content="2진 디지털 시스템에서 입출력 관계를 표현하는 방법과 불 대수의 기본 개념 및 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다. 1. 2진 디지털 시스템에서 입출력 관계를 표현하는 방법1) 그래프나 진리표로 표시 2) 논리함수로 표시 입력에 따라 변수가 어떻게 변하는지를 나타내는 함수로 표현 입력이 2진 논리값이므로 논리함수로 나타">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/50653266-46f95080-0fcc-11e9-82ef-3c6228bdbabd.png">
     
 
@@ -190,11 +190,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <hr>
-<h4 id="불-대수의-기본-개념과-공식에-대해서-알아보고-불-함수의-대수적-간소화에-대해서-공부해봅시다"><a href="#불-대수의-기본-개념과-공식에-대해서-알아보고-불-함수의-대수적-간소화에-대해서-공부해봅시다" class="headerlink" title="불 대수의 기본 개념과 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다."></a><strong><code>불 대수</code>의 기본 개념과 공식에 대해서 알아보고, <code>불 함수</code>의 <code>대수적 간소화</code>에 대해서 공부해봅시다.</strong></h4><ul>
-<li><code>불 대수(Boolean algebra)</code>는 <strong>하나의 명제가 참 또는 거짓인지를 판별하기 위해 이용되는 수학적 방법</strong>으로 19세기 중반 영국의 수학자 <code>조지 불(George Boole)</code>에 의해 개발되었다.</li>
-<li>컴퓨터는 <strong>참과 거짓</strong>을 나타내기 위해 <strong>0과 1</strong>의 두 가지 상태로 표현하는 <strong>2진 논리회로</strong>로 구성되어 있다. 이러한 <strong>논리회로를 간략하게 표현</strong>할 때 <strong>불 대수가 사용</strong>된다.</li>
-</ul>
-<hr>
+<h4 id="2진-디지털-시스템에서-입출력-관계를-표현하는-방법과-불-대수의-기본-개념-및-공식에-대해서-알아보고-불-함수의-대수적-간소화에-대해서-공부해봅시다"><a href="#2진-디지털-시스템에서-입출력-관계를-표현하는-방법과-불-대수의-기본-개념-및-공식에-대해서-알아보고-불-함수의-대수적-간소화에-대해서-공부해봅시다" class="headerlink" title="2진 디지털 시스템에서 입출력 관계를 표현하는 방법과 불 대수의 기본 개념 및 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다."></a><code>2진 디지털 시스템</code>에서 입출력 관계를 표현하는 방법과 <code>불 대수</code>의 기본 개념 및 공식에 대해서 알아보고, <code>불 함수</code>의 <code>대수적 간소화</code>에 대해서 공부해봅시다.</h4><hr>
 <h2 id="1-2진-디지털-시스템에서-입출력-관계를-표현하는-방법"><a href="#1-2진-디지털-시스템에서-입출력-관계를-표현하는-방법" class="headerlink" title="1. 2진 디지털 시스템에서 입출력 관계를 표현하는 방법"></a>1. <code>2진 디지털 시스템</code>에서 입출력 관계를 표현하는 방법</h2><h3 id="1-그래프나-진리표로-표시"><a href="#1-그래프나-진리표로-표시" class="headerlink" title="1) 그래프나 진리표로 표시"></a>1) <code>그래프</code>나 <code>진리표</code>로 표시</h3><p><img src="https://user-images.githubusercontent.com/37353837/50655756-65fbe080-0fd4-11e9-9349-0f0ec058057b.png" alt="GRAPH &amp; TRUTH TABLE"></p>
 <h3 id="2-논리함수로-표시"><a href="#2-논리함수로-표시" class="headerlink" title="2) 논리함수로 표시"></a>2) <code>논리함수</code>로 표시</h3><ul>
 <li><strong>입력에 따라 변수가 어떻게 변하는지</strong>를 나타내는 <strong>함수로 표현</strong></li>
@@ -202,12 +198,16 @@ ga('send', 'pageview');
 </ul>
 <hr>
 <h2 id="2-불-대수의-기본-개념"><a href="#2-불-대수의-기본-개념" class="headerlink" title="2. 불 대수의 기본 개념"></a>2. 불 대수의 기본 개념</h2><h3 id="1-불-대수-Boolean-Algebra"><a href="#1-불-대수-Boolean-Algebra" class="headerlink" title="1) 불 대수(Boolean Algebra)"></a>1) <code>불 대수(Boolean Algebra)</code></h3><p>: <strong>0과 1의 값을 갖는 논리변수와 논리연산을 다루는 대수</strong></p>
+<ul>
+<li><code>불 대수(Boolean algebra)</code>는 <strong>하나의 명제가 참 또는 거짓인지를 판별하기 위해 이용되는 수학적 방법</strong>으로 19세기 중반 영국의 수학자 <code>조지 불(George Boole)</code>에 의해 개발되었다.</li>
+<li>컴퓨터는 <strong>참과 거짓</strong>을 나타내기 위해 <strong>0과 1</strong>의 두 가지 상태로 표현하는 <strong>2진 논리회로</strong>로 구성되어 있다. 이러한 <strong>논리회로를 간략하게 표현</strong>할 때 <strong>불 대수가 사용</strong>된다.</li>
+</ul>
 <h3 id="2-불-함수-Boolean-Function"><a href="#2-불-함수-Boolean-Function" class="headerlink" title="2) 불 함수(Boolean Function)"></a>2) <code>불 함수(Boolean Function)</code></h3><p>: <strong>논리변수의 상호관계를 나타내기 위해 불 변수, 불 연산기호, 괄호 및 등호 등으로 나타내는 대수적인 표현</strong></p>
 <h4 id="AND-연산"><a href="#AND-연산" class="headerlink" title="AND 연산"></a><code>AND</code> 연산</h4><p><img src="https://user-images.githubusercontent.com/37353837/50654233-85443f00-0fcf-11e9-8619-00c24388698a.png" alt="AND"></p>
 <ul>
 <li>입력값이 <strong>모두 1일 경우에만</strong> 결과값이 1이 된다.</li>
 <li>표현법<ul>
-<li>X AND Y 또는 XY로 표현한다.</li>
+<li><code>X AND Y</code> 또는 <code>XY</code>로 표현한다.</li>
 <li>점으로 표시, 생략 가능</li>
 </ul>
 </li>
@@ -217,7 +217,7 @@ ga('send', 'pageview');
 <ul>
 <li>입력값 중 <strong>한 개라도 1일 경우</strong> 결과값이 1이 된다.</li>
 <li>표현법<ul>
-<li>X OR Y 또는 X + Y로 표현한다.</li>
+<li><code>X OR Y</code> 또는 <code>X + Y</code>로 표현한다.</li>
 <li>덧셈 기호(+)로 표시</li>
 </ul>
 </li>
@@ -227,7 +227,7 @@ ga('send', 'pageview');
 <ul>
 <li>입력값의 <strong>반대값</strong>이 출력된다.</li>
 <li>표현법:<ul>
-<li>NOT X 또는 X’로 표현</li>
+<li><code>NOT X</code> 또는 <code>X&#39;</code>로 표현</li>
 <li>변수 위에 줄(-)을 그어 표시</li>
 </ul>
 </li>
@@ -235,16 +235,16 @@ ga('send', 'pageview');
 <hr>
 <h2 id="3-불-대수의-기본-공식"><a href="#3-불-대수의-기본-공식" class="headerlink" title="3. 불 대수의 기본 공식"></a>3. 불 대수의 기본 공식</h2><p>교환법칙, 결합법칙, 분배법칙, 드모르간의 법칙, 흡수 법칙 등을 이용하여<br><strong>회로를 쉽게 간소화</strong>할 수 있다.<br><img src="https://user-images.githubusercontent.com/37353837/50653266-46f95080-0fcc-11e9-82ef-3c6228bdbabd.png" alt="Boole&#39;s rule"></p>
 <hr>
-<h2 id="4-불-함수-논리식-의-대수적-간소화"><a href="#4-불-함수-논리식-의-대수적-간소화" class="headerlink" title="4. 불 함수(논리식)의 대수적 간소화"></a>4. 불 함수(논리식)의 대수적 간소화</h2><p>불 대수의 기본 공식을 이용해서 논리식을 간소화한다.</p>
+<h2 id="4-불-함수-논리식-의-대수적-간소화"><a href="#4-불-함수-논리식-의-대수적-간소화" class="headerlink" title="4. 불 함수(논리식)의 대수적 간소화"></a>4. 불 함수(논리식)의 대수적 간소화</h2><p>불 대수의 기본 공식을 이용해서 <strong>논리식을 간소화</strong>한다.</p>
 <h4 id="1-합의-곱-표현을-곱의-합표현으로-변환한다"><a href="#1-합의-곱-표현을-곱의-합표현으로-변환한다" class="headerlink" title="1) 합의 곱 표현을 곱의 합표현으로 변환한다."></a>1) <code>합의 곱</code> 표현을 <code>곱의 합</code>표현으로 변환한다.</h4><ul>
-<li>합의 곱: (A + B)(C + D)</li>
-<li>곱의 합: AC + AD + BC + BD</li>
+<li><code>합의 곱</code>: (A + B)(C + D)</li>
+<li><code>곱의 합</code>: AC + AD + BC + BD</li>
 </ul>
-<h4 id="2-공통-인수를-뽑아서-묶는다"><a href="#2-공통-인수를-뽑아서-묶는다" class="headerlink" title="2) 공통 인수를 뽑아서 묶는다."></a>2) 공통 인수를 뽑아서 묶는다.</h4><h4 id="3-기본-공식-형태로-유도해서-식을-줄여-나간다"><a href="#3-기본-공식-형태로-유도해서-식을-줄여-나간다" class="headerlink" title="3) 기본 공식 형태로 유도해서 식을 줄여 나간다."></a>3) 기본 공식 형태로 유도해서 식을 줄여 나간다.</h4><h4 id="항-결합"><a href="#항-결합" class="headerlink" title="항 결합"></a>항 결합</h4><p><img src="https://user-images.githubusercontent.com/37353837/50656790-ac067380-0fd7-11e9-8bc1-2075047c2435.png" alt=""></p>
+<h4 id="2-공통-인수를-뽑아서-묶는다"><a href="#2-공통-인수를-뽑아서-묶는다" class="headerlink" title="2) 공통 인수를 뽑아서 묶는다."></a>2) <strong>공통 인수</strong>를 뽑아서 묶는다.</h4><h4 id="3-기본-공식-형태로-유도해서-식을-줄여-나간다"><a href="#3-기본-공식-형태로-유도해서-식을-줄여-나간다" class="headerlink" title="3) 기본 공식 형태로 유도해서 식을 줄여 나간다."></a>3) 기본 공식 형태로 유도해서 식을 줄여 나간다.</h4><h4 id="항-결합"><a href="#항-결합" class="headerlink" title="항 결합"></a><code>항 결합</code></h4><p><img src="https://user-images.githubusercontent.com/37353837/50656790-ac067380-0fd7-11e9-8bc1-2075047c2435.png" alt=""></p>
 <ul>
 <li><code>X + X&#39; = 1</code>이라는 성질을 이용한다.</li>
 </ul>
-<h4 id="문자-소거"><a href="#문자-소거" class="headerlink" title="문자 소거"></a>문자 소거</h4><p><img src="https://user-images.githubusercontent.com/37353837/50656805-b88acc00-0fd7-11e9-85fb-79703e02a942.png" alt=""></p>
+<h4 id="문자-소거"><a href="#문자-소거" class="headerlink" title="문자 소거"></a><code>문자 소거</code></h4><p><img src="https://user-images.githubusercontent.com/37353837/50656805-b88acc00-0fd7-11e9-85fb-79703e02a942.png" alt=""></p>
 
         </div>
         <footer class="article-footer">
@@ -324,10 +324,12 @@ ga('send', 'pageview');
         "dateModified": "2019-01-04",
         "url": "https://JihyeHwang09.github.io/2019/01/04/boolean-algebra/",
         "description": "
-불 대수의 기본 개념과 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다.
-불 대수(Boolean algebra)는 하나의 명제가 참 또는 거짓인지를 판별하기 위해 이용되는 수학적 방법으로 19세기 중반 영국의 수학자 조지 불(George Boole)에 의해 개발되었다.
-컴퓨터는 참과 거짓을 나타내기 위해 0과 1의 두 가지 상태로 "
-        "wordCount": 371
+2진 디지털 시스템에서 입출력 관계를 표현하는 방법과 불 대수의 기본 개념 및 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다.
+1. 2진 디지털 시스템에서 입출력 관계를 표현하는 방법1) 그래프나 진리표로 표시
+2) 논리함수로 표시
+입력에 따라 변수가 어떻게 변하는지를 나타내는 함수로 표현
+입력이 2진 논리값이므로 논리함수로 나타"
+        "wordCount": 387
     }
 </script>
 
