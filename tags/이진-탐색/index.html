@@ -6,14 +6,14 @@
     
 
     
-    <title>Tag: 컴퓨터 과학 | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>Tag: 이진 탐색 | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="description" content="Phang&apos;s IT Blog using Hexo">
 <meta property="og:type" content="website">
 <meta property="og:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:url" content="https://JihyeHwang09.github.io/tags/컴퓨터-과학/index.html">
+<meta property="og:url" content="https://JihyeHwang09.github.io/tags/이진-탐색/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
 <meta property="og:description" content="Phang&apos;s IT Blog using Hexo">
 <meta property="og:locale" content="en">
@@ -144,7 +144,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>컴퓨터 과학</em>
+    <i class="icon fa fa-tag"></i>Tag: <em>이진 탐색</em>
     </h1>
 </div>
 
@@ -168,17 +168,17 @@ ga('send', 'pageview');
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2019/01/08/recursion2/" class="thumbnail">
+        <a href="/2019/01/09/recursion3/" class="thumbnail">
     
     
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50836374-6b727580-139c-11e9-8240-0c69a49a35cc.png)" alt="순환(Recursion)의 개념과 기본 예제2" class="thumbnail-image"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50882132-26dfec00-1427-11e9-8d37-e5fdccb741f3.png)" alt="순환(Recursion)의 개념과 기본 예제3" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/01/08/recursion2/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/01/09/recursion3/">0</span>
     
 </span>
 
@@ -191,76 +191,25 @@ ga('send', 'pageview');
             <div class="category">
             <a class="article-category-link" href="/categories/컴퓨터-과학-computer-science/">컴퓨터 과학(Computer Science)</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학-computer-science/알고리즘-algorithms/">알고리즘(Algorithms)</a>
             </div>
-            <div class="date"><time datetime="2019-01-08T10:16:09.508Z" itemprop="datePublished">2019-01-08</time></div>
+            <div class="date"><time datetime="2019-01-09T02:42:47.788Z" itemprop="datePublished">2019-01-09</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/01/08/recursion2/">순환(Recursion)의 개념과 기본 예제2</a>
+        <a href="/2019/01/09/recursion3/">순환(Recursion)의 개념과 기본 예제3</a>
         </h1>
     
 
         <p class="article-excerpt">
             
-이번에는 지난 포스트에 이어서, 순환적으로 사고하기와 문자열의 길이 계산, 배열의 합 등의 예제에 대해 알아봅시다.
-본 포스팅은&lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &gt; 자료를 인용하였음을 알려드립니다.
+이번에는 지난 포스트에 이어서, 순환적 알고리즘 설계 방법에 대해 알아봅시다.
+본 포스팅은&lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.
 
 
-순환적으로 사고하기(Recursive Thinking)Recursion은 수학함수 계산에만 유용한가?
-수학함수
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/01/07/recursion1/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50762838-79979780-12b1-11e9-87ea-6681fa28cff2.png)" alt="순환(Recursion)의 개념과 기본 예제1" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/01/07/recursion1/">0</span>
-    
-</span>
+순환적 알고리즘 설계적어도 하나의 base case, 즉 순환되지 않고 종료되는 case가 있어야 함
+모든 case는 결국 base case로 수렴해야 함
 
 
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/컴퓨터-과학-computer-science/">컴퓨터 과학(Computer Science)</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학-computer-science/알고리즘-algorithms/">알고리즘(Algorithms)</a>
-            </div>
-            <div class="date"><time datetime="2019-01-07T08:51:43.427Z" itemprop="datePublished">2019-01-07</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/01/07/recursion1/">순환(Recursion)의 개념과 기본 예제1</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-순환 함수란 무엇이며, 무한 루프에 빠지지 않으려면 어떤 경우가 존재해야 하는지 그리고 수학적 귀납법에 대해 알아봅시다.
-본 포스팅은&lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &gt; 자료를 인용하였음을 알려드립니다.
-
-
-순환이란?
-recursion은 항상 무한루프에 빠질까?
-12345678910111213// 1 ~ n까지
         </p>
     </div>
 </article>
