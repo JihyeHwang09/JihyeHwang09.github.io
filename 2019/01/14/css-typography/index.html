@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>CSS 타이포그래피(Typography) | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="front-end,CSS,타이포그래피,Typography">
+    
+    <meta name="description" content="CSS 타이포그래피(Typography)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 타이포그래피(Typography)폰트(Fonts) 스타일 속성 폰트에 영향을 주는 속성으로 적용되는 모양, 크기, 굵기, 기울임 등.   font-fam">
+<meta name="keywords" content="front-end,CSS,타이포그래피,Typography">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 타이포그래피(Typography)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/14/css-typography/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="CSS 타이포그래피(Typography)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 타이포그래피(Typography)폰트(Fonts) 스타일 속성 폰트에 영향을 주는 속성으로 적용되는 모양, 크기, 굵기, 기울임 등.   font-fam">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51113380-21c6d680-1845-11e9-82a9-50e8a5f16a83.png">
+<meta property="og:updated_time" content="2019-01-14T12:42:49.713Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 타이포그래피(Typography)">
+<meta name="twitter:description" content="CSS 타이포그래피(Typography)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 타이포그래피(Typography)폰트(Fonts) 스타일 속성 폰트에 영향을 주는 속성으로 적용되는 모양, 크기, 굵기, 기울임 등.   font-fam">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/51113380-21c6d680-1845-11e9-82a9-50e8a5f16a83.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학-computer-science/">컴퓨터 과학(Computer Science)</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학-computer-science/알고리즘-algorithms/">알고리즘(Algorithms)</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/css/">CSS</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-css-typography" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        CSS 타이포그래피(Typography)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/01/14/css-typography/" class="article-date">
+            <time datetime="2019-01-14T12:06:34.000Z" itemprop="datePublished">2019-01-14</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/css/">CSS</a>, <a class="tag-link" href="/tags/typography/">Typography</a>, <a class="tag-link" href="/tags/front-end/">front-end</a>, <a class="tag-link" href="/tags/타이포그래피/">타이포그래피</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <hr>
+<h4 id="CSS-타이포그래피-Typography-에-대해-알아봅시다"><a href="#CSS-타이포그래피-Typography-에-대해-알아봅시다" class="headerlink" title="CSS 타이포그래피(Typography)에 대해 알아봅시다."></a><code>CSS 타이포그래피(Typography)</code>에 대해 알아봅시다.</h4><blockquote>
+<p><strong>본 포스팅은</strong> &lt; <a href="https:www.fastcampus.co.kr/dev_online_fep/" target="_blank" rel="noopener">패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP</a> &gt; <strong>강의 내용을 정리한 것임을 알려드립니다.</strong></p>
+</blockquote>
+<hr>
+<h1 id="CSS-타이포그래피-Typography"><a href="#CSS-타이포그래피-Typography" class="headerlink" title="CSS 타이포그래피(Typography)"></a>CSS 타이포그래피(Typography)</h1><h2 id="폰트-Fonts-스타일-속성"><a href="#폰트-Fonts-스타일-속성" class="headerlink" title="폰트(Fonts) 스타일 속성"></a>폰트(Fonts) 스타일 속성</h2><blockquote>
+<p>폰트에 영향을 주는 속성으로 적용되는 모양, 크기, 굵기, 기울임 등.</p>
+</blockquote>
+<ul>
+<li><code>font-family</code>: 글자 모양</li>
+<li><code>font-size</code>: 글자 크기</li>
+<li><code>font-weight</code>: 글자 굵기(두께)</li>
+<li><code>font-style</code>: 글자 기울임</li>
+<li><code>font-variant</code>: 소문자를 작은 대문자로 바꾸는 속성</li>
+</ul>
+<hr>
+<p>※ <strong>글자 색상은 color 속성으로 설정.</strong></p>
+<ul>
+<li><code>color keywords</code>: <code>red</code>, <code>green</code>, <code>blue</code>, <code>pink</code>, <code>black</code></li>
+<li>hex color code: #RRGGBB / 0 ~ 9, a ~ f</li>
+</ul>
+<ul>
+<li><p>예) #1868a7</p>
+<ul>
+<li>rgb VS rgba의 차이 rgba는 불투명도까지 나타낸다.</li>
+<li>각 256가지 색을 나타내고, 0부터 시작하기 떄문에 <strong>번호는 256까지 X</strong>. 256-1인 255까지가 정상적인 색으로 나옴!</li>
+<li>rgb, rgba: <code>RED</code>, <code>GREEN</code>, <code>BLUE</code>, <code>ALPHA</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>예)</p>
+<ul>
+<li>rgba(127,255,0,1): a가 1이면 <strong>불투명</strong>한 색</li>
+<li>rgba(127,255,0,0.3): a가 0.3이면 <strong>반투명</strong>한 색</li>
+</ul>
+</li>
+<li><p><code>hsl</code>, <code>hsla</code></p>
+<ul>
+<li>HUE(각도), `ATURATION(채도), LIGHTNESS(명도), ALPHA (투명도)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">hsla</span>(360,60%,70%,1)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>saturation(채도)</code>: 100%면 순색(원색)에 가까움.</li>
+<li><code>lightness(명도)</code>: 0%에 가까우면, 검정색<br> 100%에 가까우면, 흰색임.</li>
+</ul>
+<blockquote>
+<p>웹브라우저는 운영체제가 지원하는 기본 폰트(웹 안전 폰트)만<br>화면에 렌더링 한다. (참고: cssfontstack.com)</p>
+</blockquote>
+<p><strong>즉, 사용된 폰트가 사용자 컴퓨터에 없으면 렌더링 X.</strong></p>
+<h3 id="웹-안전-폰트"><a href="#웹-안전-폰트" class="headerlink" title="웹 안전 폰트"></a>웹 안전 폰트</h3><ul>
+<li><code>Arial [sans-serif]</code>: 고딕체</li>
+<li><code>Verdana [sans-serif]</code>: 고딕체</li>
+<li><code>Courier New [monospace]</code>: 코드체(공간이 동일)</li>
+<li><code>Georgia [serif]</code>: 명조체</li>
+<li><code>Times New Roman [serif]</code>: 명조체</li>
+<li><code>Trebuchet MS [serif]</code>: 명조체</li>
+</ul>
+<blockquote>
+<p>하지만 웹 안전 폰트만으로 디자인 하는 디자이너는 없다!<br>Helvetica는 디자이너가 애용하는 폰트이지만…<br>Windows는 기본 지원하지 않는다. (Mac OSX는 지원)</p>
+</blockquote>
+<p>※ <strong>비주얼 디자인 과정에서 적용 가능한 웹폰트를 사용해야 한다.</strong><br><strong>폰트 저작권에 주의! (참고: hyundaicard.com)</strong></p>
+<p>※ 저작권 걱정 없는 폰트<br>fonts.google.com<br>google.co.kr/search?q=무료+웹폰트</p>
+<hr>
+<p><code>텍스트(Text) 레이아웃</code> 속성</p>
+<ul>
+<li><strong>텍스트 간격 및 레이아웃 기능에 영향을 주는 속성</strong>으로</li>
+<li>행간, 자간, 어간, 정렬, 변형, 꾸밈, 그림자<blockquote>
+<p>사용자가 읽기 편한 간격: <code>자간</code> &lt; <code>어간</code> &lt; <code>행간</code> 순으로 넓어야 한다.<br>-&gt; 염두에 두고 디자인할 것!</p>
+<ul>
+<li><code>line-height</code><br><strong>줄 높이</strong>를 정하는 속성<ul>
+<li>default: <code>1.25</code>임. <strong>1.5이상 줘야 글을 읽기가 용이해짐.</strong></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ex</span>)<span class="selector-tag">line-height</span>: 1<span class="selector-class">.5</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>letter-spacing</code><blockquote>
+<p><strong>글자</strong> 사이의 간격(자간)</p>
+<ul>
+<li>default값: <code>0</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ex</span>)<span class="selector-tag">letter-spacing</span>: <span class="selector-tag">-0</span><span class="selector-class">.024em</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>word-spacing</code><blockquote>
+<p><strong>단어</strong> 사이의 간격<br>픽셀 단위나 em으로 조정할 것</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ex</span>)<span class="selector-tag">word-spacing</span>: 1<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">word-spacing</span>: 0<span class="selector-class">.02em</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>text-align</code><blockquote>
+<p><strong>정렬</strong></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>default값: <code>왼쪽</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ex</span>)<span class="selector-tag">text-align</span>: <span class="selector-tag">center</span>;</span><br><span class="line"><span class="comment">/* 가운데 정렬 */</span></span><br><span class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">right</span>;</span><br><span class="line"><span class="comment">/* 오른쪽 정렬 */</span></span><br><span class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">left</span>;</span><br><span class="line"><span class="comment">/* 왼쪽 정렬 */</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>text-indent</code><blockquote>
+<p><strong>들여쓰기</strong></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>+값, -값 사용할 수 있음.</li>
+</ul>
+<ul>
+<li><code>+</code>: 오른쪽으로 <strong>들여쓰기</strong>됨.</li>
+<li><code>-</code>: 왼쪽으로 <strong>내어쓰기</strong>됨.</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ex1</span>)<span class="selector-tag">text-indent</span>: 1<span class="selector-tag">em</span>;</span><br><span class="line"><span class="comment">/* 각 문단의 첫째줄만 들여쓰고 싶을 때 */</span></span><br><span class="line"><span class="selector-tag">cf</span>)<span class="selector-tag">padding-left</span>: 1<span class="selector-tag">em</span>;</span><br><span class="line"><span class="comment">/* 텍스트 전체를 들여쓰고 싶을 때  */</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>text-transform</code><blockquote>
+<p><strong>대문자로 또는 소문자로 바꾸는 속성</strong></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-transform</span>: `<span class="selector-tag">uppercase</span>`;</span><br><span class="line"><span class="comment">/* 모두 대문자로 바꿈 */</span></span><br><span class="line"><span class="selector-tag">text-transform</span>: <span class="selector-tag">lowercase</span>;</span><br><span class="line"><span class="comment">/* 모두 소문자로 바꿈 */</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>text-decoration</code><blockquote>
+<p><strong>선으로 텍스트를 꾸미는 속성</strong></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ex</span>) <span class="selector-tag">text-decoration</span>: <span class="selector-tag">underline</span>;</span><br><span class="line"><span class="comment">/* 밑줄 치기</span></span><br><span class="line"><span class="comment"> 글자를 판독하기 어렵게 하기 때문에 권장되지 X.*/</span></span><br><span class="line"><span class="selector-tag">text-decoration</span>: <span class="selector-tag">overline</span> <span class="selector-tag">underline</span> <span class="selector-tag">line-through</span>;</span><br><span class="line"><span class="selector-tag">text-decoration</span>: <span class="selector-tag">overline</span></span><br><span class="line"> <span class="comment">/* 위에 공간을 만들어서 줄을 그어줌. */</span></span><br><span class="line"><span class="selector-tag">text-decoration</span>: <span class="selector-tag">line-through</span>;</span><br><span class="line"><span class="comment">/* -&gt; 글씨 중간에 취소선을 그어줌. */</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>text-shadow</code><blockquote>
+<p><strong>그림자</strong><br>x축 y축 blur sprea color;</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ex1</span>)<span class="selector-tag">text-shadow</span>: 4<span class="selector-tag">px</span> <span class="selector-tag">-3px</span> 10<span class="selector-tag">px</span> <span class="selector-id">#9bdbde</span>;</span><br><span class="line"><span class="selector-tag">ex2</span>)<span class="selector-tag">text-shadow</span>: 0<span class="selector-tag">px</span> 3<span class="selector-tag">px</span> 10<span class="selector-tag">px</span> <span class="selector-id">#943978</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>white-space</code><blockquote>
+<p><strong>공백을 처리</strong>하는 방법</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>white-space: <code>pre</code></li>
+<li>white-space: <code>pre-line</code>;</li>
+<li>white-space: <code>nowrap</code>;<br><br> nowrap은 가로 한줄로 쭈욱~ 나열됨.</li>
+</ul>
+<p><strong>단어의 분리를 어떻게 할 것인지 결정</strong></p>
+<p>(공백/띄어쓰기) 수고했어 오늘도<br>(음절) 수 고 했 어 오 늘 도</p>
+<ul>
+<li><code>word-break</code>: <code>break-all</code>;<blockquote>
+<p><strong>박스의 가로 영역을 넘친 단어 내에서</strong><br>임의의 분리 여부를 결정하여 <strong>줄바꿈에 관여</strong></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><code>word-wrap</code><blockquote>
+<p><strong>긴 단어 처리</strong>하는 방법</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>default: <code>normal</code></li>
+<li><code>normal</code>: 글자가 길어도 <strong>끊어지지 않고 한 줄</strong>에 나타냄</li>
+<li><code>break-word</code>: <strong>강제로 끊어서 줄바꿈</strong>함</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "CSS 타이포그래피(Typography)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/51113380-21c6d680-1845-11e9-82a9-50e8a5f16a83.png",
+        "keywords": "front-end CSS 타이포그래피 Typography",
+        "genre": "front-end CSS",
+        "datePublished": "2019-01-14",
+        "dateCreated": "2019-01-14",
+        "dateModified": "2019-01-14",
+        "url": "https://JihyeHwang09.github.io/2019/01/14/css-typography/",
+        "description": "
+CSS 타이포그래피(Typography)에 대해 알아봅시다.
+본 포스팅은 &lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &gt; 강의 내용을 정리한 것임을 알려드립니다.
+
+
+CSS 타이포그래피(Typography)폰트(Fonts) 스타일 속성
+폰트에 영향을 주는 속성으로 적용되는 모양, 크기, 굵기, 기울임 등.
+
+
+font-fam"
+        "wordCount": 562
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/01/14/javascript2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            자바스크립트 2일차
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/01/13/javascript1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">자바스크립트 1일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/14/javascript2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51113034-10c99580-1844-11e9-83be-953e115912cd.png)" alt="자바스크립트 2일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/14/javascript2/" class="title">자바스크립트 2일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-14T12:06:43.000Z" itemprop="datePublished">2019-01-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/14/css-typography/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51113380-21c6d680-1845-11e9-82a9-50e8a5f16a83.png)" alt="CSS 타이포그래피(Typography)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/css/">CSS</a></p>
+                            <p class="item-title"><a href="/2019/01/14/css-typography/" class="title">CSS 타이포그래피(Typography)</a></p>
+                            <p class="item-date"><time datetime="2019-01-14T12:06:34.000Z" itemprop="datePublished">2019-01-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/13/javascript1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51086906-8d4e6c80-178f-11e9-8522-113880747018.png)" alt="자바스크립트 1일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/13/javascript1/" class="title">자바스크립트 1일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-13T14:54:55.000Z" itemprop="datePublished">2019-01-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/12/css-inheritance&cascade/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51074695-51e76b80-16c5-11e9-82e0-cbdee3157a6b.png)" alt="CSS 상속(Inheritance)과 케스케이드(Cascade)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/css/">CSS</a></p>
+                            <p class="item-title"><a href="/2019/01/12/css-inheritance&cascade/" class="title">CSS 상속(Inheritance)과 케스케이드(Cascade)</a></p>
+                            <p class="item-date"><time datetime="2019-01-12T14:31:47.000Z" itemprop="datePublished">2019-01-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/11/css-selectors/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51074677-1cdb1900-16c5-11e9-9030-9572de22639f.png)" alt="CSS 선택자(Selectors)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/css/">CSS</a></p>
+                            <p class="item-title"><a href="/2019/01/11/css-selectors/" class="title">CSS 선택자(Selectors)</a></p>
+                            <p class="item-date"><time datetime="2019-01-11T14:30:19.000Z" itemprop="datePublished">2019-01-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학-computer-science/">컴퓨터 과학(Computer Science)</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학-computer-science/알고리즘-algorithms/">알고리즘(Algorithms)</a><span class="category-list-count">3</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">14</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 13.33px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16.67px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 13.33px;">Computer Science</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 13.33px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 13.33px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 13.33px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/blog/" style="font-size: 13.33px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 13.33px;">framework</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 13.33px;">platform</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 16.67px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 13.33px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 16.67px;">순환 함수</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 13.33px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 16.67px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 16.67px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 16.67px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 13.33px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/01/14/css-typography/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>자바스크립트 2일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="javaScript">
+    
+    <meta name="description" content="string 타입문자열 리터럴 &amp;#39;&amp;#39; &amp;quot;&amp;quot; &amp;#39;&amp;#39;backtick(backquote)   따옴표는 표기법일 뿐, 실제 저장되는 값에 영향을 미치지는 X. ‘’ 안에 “”는 쓸 수 O “” 안에 ‘’는 쓸 수 O ‘’안에 ‘’는 쓰면 X. “”안에 “”는 쓸 수 X.   -&amp;gt; 서로 다른 따옴표는 안에 중첩되서 자">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트 2일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/14/javascript2/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="string 타입문자열 리터럴 &amp;#39;&amp;#39; &amp;quot;&amp;quot; &amp;#39;&amp;#39;backtick(backquote)   따옴표는 표기법일 뿐, 실제 저장되는 값에 영향을 미치지는 X. ‘’ 안에 “”는 쓸 수 O “” 안에 ‘’는 쓸 수 O ‘’안에 ‘’는 쓰면 X. “”안에 “”는 쓸 수 X.   -&amp;gt; 서로 다른 따옴표는 안에 중첩되서 자">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51113034-10c99580-1844-11e9-83be-953e115912cd.png">
+<meta property="og:updated_time" content="2019-01-14T12:34:41.808Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자바스크립트 2일차">
+<meta name="twitter:description" content="string 타입문자열 리터럴 &amp;#39;&amp;#39; &amp;quot;&amp;quot; &amp;#39;&amp;#39;backtick(backquote)   따옴표는 표기법일 뿐, 실제 저장되는 값에 영향을 미치지는 X. ‘’ 안에 “”는 쓸 수 O “” 안에 ‘’는 쓸 수 O ‘’안에 ‘’는 쓰면 X. “”안에 “”는 쓸 수 X.   -&amp;gt; 서로 다른 따옴표는 안에 중첩되서 자">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/51113034-10c99580-1844-11e9-83be-953e115912cd.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학-computer-science/">컴퓨터 과학(Computer Science)</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학-computer-science/알고리즘-algorithms/">알고리즘(Algorithms)</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-javascript2" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자바스크립트 2일차
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/01/14/javascript2/" class="article-date">
+            <time datetime="2019-01-14T12:06:43.000Z" itemprop="datePublished">2019-01-14</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="string-타입"><a href="#string-타입" class="headerlink" title="string 타입"></a>string 타입</h1><h2 id="문자열-리터럴"><a href="#문자열-리터럴" class="headerlink" title="문자열 리터럴"></a>문자열 리터럴</h2><ul>
+<li><code>&#39;&#39;</code></li>
+<li><code>&quot;&quot;</code></li>
+<li><code>&#39;&#39;</code>backtick(backquote)</li>
+</ul>
+<ul>
+<li>따옴표는 표기법일 뿐, 실제 저장되는 값에 영향을 미치지는 X.<ul>
+<li>‘’ 안에 “”는 쓸 수 O</li>
+<li>“” 안에 ‘’는 쓸 수 O</li>
+<li>‘’안에 ‘’는 쓰면 X.</li>
+<li>“”안에 “”는 쓸 수 X.</li>
+</ul>
+</li>
+<li>-&gt; <strong>서로 다른 따옴표는 안에 중첩되서 자유롭게 쓸 수 있다.</strong></li>
+</ul>
+<h2 id="템플릿-리터럴-Template-Literal"><a href="#템플릿-리터럴-Template-Literal" class="headerlink" title="템플릿 리터럴 (Template Literal)"></a>템플릿 리터럴 (Template Literal)</h2><ul>
+<li><code>${}</code> 변수 안에 들어있는 값이 문자열의 값으로 바꿔치기 됨.<ul>
+<li>동적으로 삽입하고 싶을 때 사용한다.</li>
+<li>템플릿은 빈칸을 만들어두고 삽입할 때 사용하는 거니까 템플릿 리터럴이라고 부른다.</li>
+<li>여러 줄로 이루어진 문자열을 쉽게 표현할 수 있다.</li>
+<li>이 외의 경우에는 ‘’나 “”를 사용한다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name1 = <span class="string">"Foo"</span>;</span><br><span class="line"><span class="keyword">const</span> name2 = <span class="string">"Bar"</span>;</span><br><span class="line"><span class="keyword">const</span> sentence = <span class="string">`<span class="subst">$&#123;name1&#125;</span> meets <span class="subst">$&#123;name2&#125;</span>!`</span>;</span><br><span class="line"><span class="built_in">console</span>.log(sentence);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`hello</span></span><br><span class="line"><span class="string">world</span></span><br><span class="line"><span class="string">hello</span></span><br><span class="line"><span class="string">javascript!</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 일반적인 문자열 리터럴로는 아래와 같이 해야 합니다.</span></span><br><span class="line">(<span class="string">"hello\nworld\nhello\njavascript!\n"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Escape-Sequence"><a href="#Escape-Sequence" class="headerlink" title="Escape Sequence"></a>Escape Sequence</h2><ul>
+<li>잠깐 문자열 문법에서 탈출해서 표기를 한다는 뜻</li>
+<li>\ 하나를 넣었는데 잘 안될 경우, \ 를 넣어볼 것.(\ 하나 넣으면 잘 안될 때가 있음.)</li>
+</ul>
+<ul>
+<li><code>\r\n</code>: 윈도우 개행문자</li>
+<li><code>\n</code>: 맥, 리눅스 개행문자<ul>
+<li>운영체제에 따라 개행문자가 다르기 떄문에 협업할 때 문제가 생길 수 있다.<br>(프로젝트 전에 통일할 필요가 있다.)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong><code>&#39;&#39;</code>안에 개행문자를 넣고 싶다면 <code>\n</code>을 쓰자.</strong></p>
+</li>
+<li><p>유니코드 문자는 <strong>Unicode Code Point</strong>를 가지고 문자를 넣을 수 있다.</p>
+</li>
+<li>‘\uac00’로 ‘가’를 입력하든지 ‘가’ 문자열로 입력하든지 같은 것임.</li>
+<li>이모티콘도 이제 유니코드에 포함되면서 정식 문자로 인정 받음.</li>
+</ul>
+<ul>
+<li><code>\uXXXX</code>: 4자리수 유니코드 문자</li>
+<li><code>\u{X...}</code>: 5자리수 유니코드 문자</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"\u&#123;1F435&#125;"</span>); <span class="comment">// 🐵</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>연산에서 문자열이 하나라도 들어있다고 해서 다 문자열로 변환되는 게 X.</li>
+<li>문자열 이어붙이기를 할 때는 주의해야 함.</li>
+<li><strong>이럴 때는 템플릿 리터럴을 사용하는 것이 좋다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"number"</span> + <span class="number">1</span> + <span class="number">3</span>;</span><br><span class="line"><span class="comment">// =&gt; 'number13' 덧셈은 왼쪽부터 계산되니까 'number' + 1 먼저 계산됨.</span></span><br><span class="line"><span class="number">1</span> + <span class="number">3</span> + <span class="string">"number"</span>;</span><br><span class="line"><span class="comment">// =&gt; '4number' 연산 순서만 바뀌었는데 숫자 덧셈 계산이 먼저 일어나서 4가 되고 뒤에 문자열 'number'가 붙는다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>부등호로 문자열을 비교하면 유니코드 코드포인트의 크기를 기준으로 비교를 한다.</li>
+<li>사전순 비교를 하고 싶을 때는 <code>localeComapare</code> 메서드를 사용한다.</li>
+<li><code>.localeComapare()</code></li>
+<li>문자열을 배열로 바꾸기</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[...<span class="string">'hello'</span>];</span><br><span class="line">&lt;!-- [<span class="string">'h'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>] --&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(최근에 추가된 기능). 객체나 배열에 대해서도 쓸 수 있는 연산자. 쓰임이 많음.</li>
+</ul>
+<h2 id="MDN"><a href="#MDN" class="headerlink" title="MDN"></a>MDN</h2><h3 id="MDN-문서를-읽을-때-주의할-점"><a href="#MDN-문서를-읽을-때-주의할-점" class="headerlink" title="MDN 문서를 읽을 때 주의할 점"></a>MDN 문서를 읽을 때 주의할 점</h3><ul>
+<li>번역의 품질이 굉장히 떨어지는 경우가 있음.</li>
+<li>번역된 버전이 옛날 버전인 경우를 주의해야 함.</li>
+<li>되도록 영어 버전으로 읽는 게 좋다.</li>
+<li>한국어 번역이 좋지 않을 경우 -&gt; 영어쪽으로 가서 번역기로 돌려서 비교해보면서 읽어볼 것.</li>
+</ul>
+<h3 id="MDN-1"><a href="#MDN-1" class="headerlink" title="MDN"></a>MDN</h3><ul>
+<li>빠르게 mdn 문서에 접근하고 싶을 때: <a href="https://devdocs.io/" target="_blank" rel="noopener">https://devdocs.io/</a></li>
+<li>개발 문서에서 사용하는 영어 문서에 사용되는 영어 단어나 문법은 많지 않다.</li>
+<li>읽는 연습을 꾸준히 할 것.</li>
+</ul>
+<h3 id="속성-및-메소드"><a href="#속성-및-메소드" class="headerlink" title="속성 및 메소드"></a>속성 및 메소드</h3><ul>
+<li>공백도 문자열로 취급함.<br>‘hello javascript’.indexOf(‘java’); <!--결과값:  6 -->
+‘hello javascript’.indexOf(‘python’); <!-- 포함되어 있지 않은 문자열을 물어보면, 결과값으로 -1이 나옴.  --></li>
+<li><p>예전에는 indexOf의 결과값이 -1인지 아닌지를 판별함으로써 문자열을 포함하고 있는지 여부를 판단했으나,<br> includes 메소드가 나오면서 includes로 판별함.</p>
+</li>
+<li><p>문자열의 일부를 잘라낸 새 문자열 생성하기</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"hello"</span>.slice(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">// 'll'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>틈에다가 번호를 매긴다고 생각하면 쉽다.</strong></li>
+<li>끝까지 자르고 싶다면, 뒷자리 인수를 안주면 됨.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-<span class="string">"hello"</span>.slice(<span class="number">2</span>); <span class="comment">// 2번째 자리부터 끝까지 자르겠다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>slice</code> 메소드는 원본 문자열을 변경하지 X!</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"abc@gmail.com"</span>.split(<span class="string">"@"</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// =&gt; 'abc'.split한 후에 다 배열이기 떄문에 바로 뒤에 대괄호로 index 번호를 주면 배열안에 있는 값을 가져올 수 있다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>split은 원본 데이터를 변경하지 X.</strong></li>
+</ul>
+<ul>
+<li><code>toLowerCase</code>, <code>toUpperCase</code><ul>
+<li>대소문자 관계없이 비교하고 싶을 때 주로 사용함.</li>
+<li>게시물 검색 기능에서 사용자가 소문자를 입력했다고 해서 대문자로 된 게시물을 보여주지 않으면 안되므로</li>
+</ul>
+</li>
+</ul>
+<h3 id="유니코드와-UTF-8-UTF-16"><a href="#유니코드와-UTF-8-UTF-16" class="headerlink" title="유니코드와 UTF-8, UTF-16"></a>유니코드와 UTF-8, UTF-16</h3><ul>
+<li>문자열은 JavaScript 내부적으로 UTF-16 형식으로 인코딩된 값으로 다뤄진다.</li>
+<li><p>유니코드와 UTF-8을 헷갈리면 안됨!</p>
+<ul>
+<li>유니코드 - 문자 정보 데이터베이스, 문자 집합, 문자 인코딩 등 전 세계의</li>
+<li><p>UTF-8은 인코딩 방식. 유니코드를 위한 가변 길이 문자 인코딩 방식 중의 하나임.</p>
+</li>
+<li><p>컴퓨터 내부적인 메모리 상에 저장할 때는 프로그래밍 해석기 안에서 계산을 할 때는 UTF-16으로 하는 게 UTF-8보다 더 속도가 빠름. <br>(UTF-8처럼 압축하는 게 아니라 그대로 저장하므로)</p>
+</li>
+<li>웹에서는 UTF-8을 사용하는 게 약속임.</li>
+</ul>
+</li>
+<li><p>유니코드가 실무에서 중요한 건 아니지만, 면접에서 종종 물어봄.</p>
+</li>
+<li><strong>유니코드가 무엇인지</strong></li>
+<li><strong>UTF-8과 UTF-16의 장단점</strong></li>
+</ul>
+<h2 id="boolean-타입"><a href="#boolean-타입" class="headerlink" title="boolean 타입"></a>boolean 타입</h2><h3 id="논리연산자"><a href="#논리연산자" class="headerlink" title="논리연산자"></a>논리연산자</h3><ul>
+<li><code>!true</code><ul>
+<li>not ture라고 읽음.</li>
+</ul>
+</li>
+<li><p><code>!false</code></p>
+<ul>
+<li>not false라고 읽음.</li>
+</ul>
+</li>
+<li><p>긴 식 앞에 <code>!</code>를 사용할 수 있다.</p>
+</li>
+</ul>
+<h4 id="삼항-연산자-ternary-operator"><a href="#삼항-연산자-ternary-operator" class="headerlink" title="삼항 연산자 (ternary operator)"></a>삼항 연산자 (ternary operator)</h4><ul>
+<li><code>if else</code>구문보다 축약된 느낌.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="number">1</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="literal">true</span> ? <span class="number">1</span> : <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>if로 둘러싸여진 전체는 표현식이 X.</li>
+<li><p>삼항연산자는 표현식임.</p>
+</li>
+<li><p><code>if else</code>구문에는 여러 개의 명령이 올 수 있지만, <br> 삼항연산자에는</p>
+</li>
+<li>여러 개의 명령이 올 수 X.</li>
+<li>특정 조건을 만족할 때 어떤 결과값을 바로 반환하고 싶다. -&gt; <strong>삼항연산자 사용</strong></li>
+<li><p>특정 조건을 만족할 때 여러 개의 명령을 실행하고 싶으면 -&gt; <strong>if else 구문 사용</strong></p>
+</li>
+<li><p>react할 때 삼항연산자를 많이 사용함.</p>
+</li>
+</ul>
+<h3 id="연산자-우선순위-Operator-Precedence"><a href="#연산자-우선순위-Operator-Precedence" class="headerlink" title="연산자 우선순위 (Operator Precedence)"></a>연산자 우선순위 (Operator Precedence)</h3><ul>
+<li>&amp;&amp;와 ||에는 우선순위가 있기 떄문에 주의해야 함.</li>
+<li>이 우선순위 때문에 버그가 생길 수 있음.</li>
+</ul>
+<h3 id="논리-연산의-여러-가지-법칙"><a href="#논리-연산의-여러-가지-법칙" class="headerlink" title="논리 연산의 여러 가지 법칙"></a>논리 연산의 여러 가지 법칙</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!!a === a;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>not을 2번 붙이면 원래대로 돌아옴</li>
+</ul>
+<p>// 분배 법칙</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* a || (b &amp;&amp; c) === (a || b) &amp;&amp; (a || c);</span><br><span class="line">* a &amp;&amp; (b || c) === (a &amp;&amp; b) || (a &amp;&amp; c);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>우변에 잇는 식을 짧게 코드를 사용하고 싶을 때 좌변에 있는 식을 사용함.</li>
+</ul>
+<ul>
+<li>논리 연산의 여러 가지 법칙들을 표를 그려서 확인해보기</li>
+</ul>
+<h3 id="truthy-amp-falsy"><a href="#truthy-amp-falsy" class="headerlink" title="truthy &amp; falsy"></a>truthy &amp; falsy</h3><ul>
+<li>true로 취급되는 값: truthy</li>
+<li><p>false로 취급되는 값: falsy</p>
+</li>
+<li><p><strong>falsy로 취급되는 값 꼭 외울 것! 이 외의 모든 값들은 truty이다.</strong></p>
+</li>
+</ul>
+<ul>
+<li>falsy로 취급되는 값<ul>
+<li><code>false</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+<li><code>0</code></li>
+<li><code>NaN</code></li>
+<li><code>&#39;&#39;</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>cf) truthy에는 객체, 배열 등도 다 포함됨. (심지어 배열이 비어있더라도 truty임. )</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = prompt(<span class="string">"이름이 무엇인가요?"</span>)</span><br><span class="line"><span class="keyword">if</span> (input) &#123;</span><br><span class="line">&lt;!-- truthy와 falsy의 성질을 이용해서 <span class="keyword">if</span>의 조건식 부분에 input은 truethy라는 성질을 이용해서 짧게 코드를 줄일 수 있음.  --&gt;</span><br><span class="line">  alert(<span class="string">`안녕하세요, <span class="subst">$&#123;input&#125;</span>님!`</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  alert(<span class="string">'이름을 입력해주세요.'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// if (input.length &gt; 0) &#123;</span></span><br><span class="line"><span class="comment">//   alert(`안녕하세요, $&#123;input&#125;님!`)</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   alert('이름을 입력해주세요.')</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>truthy와 falsy의 성질을 이용하면 편하지만, 논리의 허점이 생길 수 있다.</li>
+<li><strong>자바스크립트는 타입 체크를 하지 않는 언어</strong>임.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> x === <span class="string">"number"</span> &amp;&amp; <span class="keyword">typeof</span> y === <span class="string">"number"</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"x 혹은 y의 타입이 number가 아닙니다."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="javascript의-타입을-체크하는-방법"><a href="#javascript의-타입을-체크하는-방법" class="headerlink" title="javascript의 타입을 체크하는 방법"></a>javascript의 타입을 체크하는 방법</h3><ul>
+<li>매번 이렇게 타입 체크하는 조건식을 쓸 수 없으므로 요즘은 <code>타입스크립트</code>를 많이 사용함.</li>
+<li>타입스크립트는 타입 체크가 되는 자바스크립트의 확장 언어임.</li>
+<li>대개 실무에서는 타입 스크립트를 많이 사용한다.</li>
+<li>throw하면 에러가 나면서 나머지 코드가 실행되지 X.</li>
+</ul>
+<ul>
+<li><code>정적 타이핑 언어</code>(statically-typed language)<ul>
+<li>c, c++, java 등</li>
+</ul>
+</li>
+<li><code>동적 타이핑 언어</code>(dynamically-typed language)<ul>
+<li>javascript, python, ruby등</li>
+</ul>
+</li>
+</ul>
+<h3 id="다른-타입의-값을-진리값으로-변환하기"><a href="#다른-타입의-값을-진리값으로-변환하기" class="headerlink" title="다른 타입의 값을 진리값으로 변환하기"></a>다른 타입의 값을 진리값으로 변환하기</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">!<span class="string">"hello"</span>; <span class="comment">// false</span></span><br><span class="line">!!<span class="string">"hello"</span>; <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 'hello'가 truthy이기 때문에(true로 취급되었기 떄문에)</span></span><br><span class="line"></span><br><span class="line">!<span class="literal">NaN</span>; <span class="comment">// true</span></span><br><span class="line">!!<span class="literal">NaN</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>toString</code>: <strong>숫자를 문자열로 변환</strong>하는 메소드</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  if (str.includes('3' || '6' || '9')) &#123;</span></span><br><span class="line"><span class="comment">//  &#125; 틀린 것임.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>‘3’이 truthy이기 떄문에 결과값이 ‘3’으로 나와버림.<br>따라서 조건식을 이렇게 쓰면 X!!.</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "자바스크립트 2일차",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/51113034-10c99580-1844-11e9-83be-953e115912cd.png",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
+        "datePublished": "2019-01-14",
+        "dateCreated": "2019-01-14",
+        "dateModified": "2019-01-14",
+        "url": "https://JihyeHwang09.github.io/2019/01/14/javascript2/",
+        "description": "string 타입문자열 리터럴
+&#39;&#39;
+&quot;&quot;
+&#39;&#39;backtick(backquote)
+
+
+따옴표는 표기법일 뿐, 실제 저장되는 값에 영향을 미치지는 X.
+‘’ 안에 “”는 쓸 수 O
+“” 안에 ‘’는 쓸 수 O
+‘’안에 ‘’는 쓰면 X.
+“”안에 “”는 쓸 수 X.
+
+
+-&gt; 서로 다른 따옴표는 안에 중첩되서 자"
+        "wordCount": 1243
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/01/14/css-typography/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">CSS 타이포그래피(Typography)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/14/javascript2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51113034-10c99580-1844-11e9-83be-953e115912cd.png)" alt="자바스크립트 2일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/14/javascript2/" class="title">자바스크립트 2일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-14T12:06:43.000Z" itemprop="datePublished">2019-01-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/14/css-typography/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51113380-21c6d680-1845-11e9-82a9-50e8a5f16a83.png)" alt="CSS 타이포그래피(Typography)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/css/">CSS</a></p>
+                            <p class="item-title"><a href="/2019/01/14/css-typography/" class="title">CSS 타이포그래피(Typography)</a></p>
+                            <p class="item-date"><time datetime="2019-01-14T12:06:34.000Z" itemprop="datePublished">2019-01-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/13/javascript1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51086906-8d4e6c80-178f-11e9-8522-113880747018.png)" alt="자바스크립트 1일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/13/javascript1/" class="title">자바스크립트 1일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-13T14:54:55.000Z" itemprop="datePublished">2019-01-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/12/css-inheritance&cascade/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51074695-51e76b80-16c5-11e9-82e0-cbdee3157a6b.png)" alt="CSS 상속(Inheritance)과 케스케이드(Cascade)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/css/">CSS</a></p>
+                            <p class="item-title"><a href="/2019/01/12/css-inheritance&cascade/" class="title">CSS 상속(Inheritance)과 케스케이드(Cascade)</a></p>
+                            <p class="item-date"><time datetime="2019-01-12T14:31:47.000Z" itemprop="datePublished">2019-01-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/11/css-selectors/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51074677-1cdb1900-16c5-11e9-9030-9572de22639f.png)" alt="CSS 선택자(Selectors)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/css/">CSS</a></p>
+                            <p class="item-title"><a href="/2019/01/11/css-selectors/" class="title">CSS 선택자(Selectors)</a></p>
+                            <p class="item-date"><time datetime="2019-01-11T14:30:19.000Z" itemprop="datePublished">2019-01-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학-computer-science/">컴퓨터 과학(Computer Science)</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학-computer-science/알고리즘-algorithms/">알고리즘(Algorithms)</a><span class="category-list-count">3</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">14</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 13.33px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16.67px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 13.33px;">Computer Science</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 13.33px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 13.33px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 13.33px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/blog/" style="font-size: 13.33px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 13.33px;">framework</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 13.33px;">platform</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 16.67px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 13.33px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 16.67px;">순환 함수</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 13.33px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 16.67px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 16.67px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 16.67px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 13.33px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/01/14/javascript2/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
