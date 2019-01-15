@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="front-end,CSS,상속,Inheritance,케스케이드,Cascade">
     
-    <meta name="description" content="CSS 상속(Inheritance)과 케스케이드(Cascade)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 상속 (Inheritance) 상속되는 속성 (글자색, 글자 디자인에 관련된 것)  color: 글자 색상 (배경색은 상속되지 X">
+    <meta name="description" content="CSS 상속(Inheritance)과 케스케이드(Cascade)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 상속 (Inheritance)상속되는 속성 (글자색, 글자 디자인에 관련된 것) color: 글자 색상 (배경색은 상속되지 X)">
 <meta name="keywords" content="front-end,CSS,상속,Inheritance,케스케이드,Cascade">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 상속(Inheritance)과 케스케이드(Cascade)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/12/css-inheritance&cascade/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="CSS 상속(Inheritance)과 케스케이드(Cascade)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 상속 (Inheritance) 상속되는 속성 (글자색, 글자 디자인에 관련된 것)  color: 글자 색상 (배경색은 상속되지 X">
+<meta property="og:description" content="CSS 상속(Inheritance)과 케스케이드(Cascade)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 상속 (Inheritance)상속되는 속성 (글자색, 글자 디자인에 관련된 것) color: 글자 색상 (배경색은 상속되지 X)">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51074695-51e76b80-16c5-11e9-82e0-cbdee3157a6b.png">
-<meta property="og:updated_time" content="2019-01-14T12:29:46.755Z">
+<meta property="og:updated_time" content="2019-01-15T10:14:41.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 상속(Inheritance)과 케스케이드(Cascade)">
-<meta name="twitter:description" content="CSS 상속(Inheritance)과 케스케이드(Cascade)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 상속 (Inheritance) 상속되는 속성 (글자색, 글자 디자인에 관련된 것)  color: 글자 색상 (배경색은 상속되지 X">
+<meta name="twitter:description" content="CSS 상속(Inheritance)과 케스케이드(Cascade)에 대해 알아봅시다. 본 포스팅은 &amp;lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &amp;gt; 강의 내용을 정리한 것임을 알려드립니다.   CSS 상속 (Inheritance)상속되는 속성 (글자색, 글자 디자인에 관련된 것) color: 글자 색상 (배경색은 상속되지 X)">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/51074695-51e76b80-16c5-11e9-82e0-cbdee3157a6b.png">
     
 
@@ -194,23 +194,17 @@ ga('send', 'pageview');
 <p><strong>본 포스팅은</strong> &lt; <a href="https://www.fastcampus.co.kr/dev_online_fep/" target="_blank" rel="noopener">패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP</a> &gt; <strong>강의 내용을 정리한 것임을 알려드립니다.</strong></p>
 </blockquote>
 <hr>
-<h1 id="CSS-상속-Inheritance"><a href="#CSS-상속-Inheritance" class="headerlink" title="CSS 상속 (Inheritance)"></a>CSS 상속 (Inheritance)</h1><ul>
-<li><p>상속되는 속성 (글자색, 글자 디자인에 관련된 것)</p>
-<ul>
+<h1 id="CSS-상속-Inheritance"><a href="#CSS-상속-Inheritance" class="headerlink" title="CSS 상속 (Inheritance)"></a>CSS <code>상속 (Inheritance)</code></h1><h4 id="상속되는-속성-글자색-글자-디자인에-관련된-것"><a href="#상속되는-속성-글자색-글자-디자인에-관련된-것" class="headerlink" title="상속되는 속성 (글자색, 글자 디자인에 관련된 것)"></a>상속되는 속성 (글자색, 글자 디자인에 관련된 것)</h4><ul>
 <li><code>color</code>: 글자 색상 (배경색은 상속되지 X)</li>
 <li><code>font-size</code>: 글자 크기</li>
 <li><code>font-family</code>: 글자의 모양(글꼴)</li>
 <li><code>letter-spacing</code>: 자간</li>
 </ul>
-</li>
-<li><p>상속되지 않는 속성 (공간에 관련된 것)</p>
-<ul>
+<h4 id="상속되지-않는-속성-공간에-관련된-것"><a href="#상속되지-않는-속성-공간에-관련된-것" class="headerlink" title="상속되지 않는 속성 (공간에 관련된 것)"></a>상속되지 않는 속성 (공간에 관련된 것)</h4><ul>
 <li><code>outline</code>: 외곽 테두리선</li>
 <li><code>margin</code>: 외곽 영역의 공간</li>
 <li><code>border</code>: 테두리</li>
 <li><code>padding</code>: 테두리 안쪽의 공간</li>
-</ul>
-</li>
 </ul>
 <hr>
 <h1 id="CSS-케스케이드-Cascade"><a href="#CSS-케스케이드-Cascade" class="headerlink" title="CSS 케스케이드(Cascade)"></a>CSS <code>케스케이드(Cascade)</code></h1><hr>
@@ -351,18 +345,17 @@ ga('send', 'pageview');
         "genre": "front-end CSS",
         "datePublished": "2019-01-12",
         "dateCreated": "2019-01-12",
-        "dateModified": "2019-01-14",
+        "dateModified": "2019-01-15",
         "url": "https://JihyeHwang09.github.io/2019/01/12/css-inheritance&cascade/",
         "description": "
 CSS 상속(Inheritance)과 케스케이드(Cascade)에 대해 알아봅시다.
 본 포스팅은 &lt; 패스트캠퍼스 야무 강사님의 프론트엔드 개발 시작하기 CAMP &gt; 강의 내용을 정리한 것임을 알려드립니다.
 
 
-CSS 상속 (Inheritance)
-상속되는 속성 (글자색, 글자 디자인에 관련된 것)
-
-color: 글자 색상 (배경색은 상속되지 X"
-        "wordCount": 447
+CSS 상속 (Inheritance)상속되는 속성 (글자색, 글자 디자인에 관련된 것)
+color: 글자 색상 (배경색은 상속되지 X)
+"
+        "wordCount": 466
     }
 </script>
 
