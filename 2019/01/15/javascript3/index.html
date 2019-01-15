@@ -10,19 +10,20 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="">
+        <meta name="keywords" content="javaScript">
     
-    <meta name="description" content="Phang&apos;s IT Blog using Hexo">
+    <meta name="description" content="null과 undefined 값이 대입되지 않은 변수 혹은 속성을 사용하려고 하면 undefined를 반환 null은 ‘객체가 없음’을 나타낸다.  12typeof null; // &apos;object&apos;typeof undefined; // &apos;undefined&apos;  변수를 선언한 적이 있는지 확인하고 싶을 때에도 typeof 연산자를 사용하고, 이 때, 변수를 선언한">
+<meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript3">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/15/javascript3/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Phang&apos;s IT Blog using Hexo">
+<meta property="og:description" content="null과 undefined 값이 대입되지 않은 변수 혹은 속성을 사용하려고 하면 undefined를 반환 null은 ‘객체가 없음’을 나타낸다.  12typeof null; // &apos;object&apos;typeof undefined; // &apos;undefined&apos;  변수를 선언한 적이 있는지 확인하고 싶을 때에도 typeof 연산자를 사용하고, 이 때, 변수를 선언한">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-15T09:19:29.264Z">
+<meta property="og:updated_time" content="2019-01-15T10:00:44.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript3">
-<meta name="twitter:description" content="Phang&apos;s IT Blog using Hexo">
+<meta name="twitter:description" content="null과 undefined 값이 대입되지 않은 변수 혹은 속성을 사용하려고 하면 undefined를 반환 null은 ‘객체가 없음’을 나타낸다.  12typeof null; // &apos;object&apos;typeof undefined; // &apos;undefined&apos;  변수를 선언한 적이 있는지 확인하고 싶을 때에도 typeof 연산자를 사용하고, 이 때, 변수를 선언한">
     
 
     
@@ -147,7 +148,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
     </h1>
 </div>
 
@@ -177,11 +178,170 @@ ga('send', 'pageview');
 		
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h1 id="null과-undefined"><a href="#null과-undefined" class="headerlink" title="null과 undefined"></a>null과 undefined</h1><ul>
+<li><strong>값이 대입되지 않은 변수 혹은 속성을 사용하려고 하면 <code>undefined</code>를 반환</strong></li>
+<li><code>null</code>은 <strong>‘객체가 없음’</strong>을 나타낸다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>; <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// 'undefined'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>변수를 선언한 적이 있는지 확인하고 싶을 때에도 <code>typeof</code> 연산자를 사용하고,</li>
+<li>이 때, <strong>변수를 선언한 적이 없다면 <code>&#39;undefined&#39;</code>가 반환</strong>된다.</li>
+</ul>
+<ul>
+<li><p>저장을 한 적이 없는지와 내가 ‘없음’이라는 사실을 저장했는지를 구분하기 위해서는 undefined를 저장하면 구분이 안되므로, <br><strong>명시적으로(확 드러나게) ‘없음’을 나타내고 싶다면 항상 null을 사용하는 것</strong>이 좋다. (법칙은 아니고 관례임. )</p>
+</li>
+<li><p>다만, 객체를 사용할 때 어떤 속성의 부재를 null을 통해서 나타내는 쪽보다는, 그냥 그 속성을 정의하지 않는 방식이 간편하므로 더 널리 사용된다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 이렇게 하는 경우는 많지 않습니다.</span></span><br><span class="line">&#123;</span><br><span class="line">  name: <span class="string">'Seungha'</span>,</span><br><span class="line">  address: <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 그냥 이렇게 하는 경우가 많습니다.</span></span><br><span class="line">&#123;</span><br><span class="line">  name: <span class="string">'Seungha'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 어쨌든 이렇게 하지는 말아주세요.</span></span><br><span class="line">&#123;</span><br><span class="line">  name: <span class="string">'Seungha'</span>,</span><br><span class="line">  address: <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Null-Check"><a href="#Null-Check" class="headerlink" title="Null Check"></a>Null Check</h2><p>strict equality<code>===</code> 엄밀한 비교.<br>abstract equality<code>==</code> 추상적인 비교.</p>
+<ul>
+<li>null check를 할 때는 <code>==</code>를 쓰는 것이 편리하다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span>; <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>; <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">null</span>; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">null</span>; <span class="comment">// true</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">undefined</span>; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="literal">null</span> == <span class="number">1</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="string">"hello"</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="literal">undefined</span> == <span class="number">1</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="string">"hello"</span>; <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">false</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>즉, <code>==</code> 연산자는 한 쪽 피연산자에 <code>null</code> 혹은 <code>undefined</code>가 오면, 다른 쪽 피연산자에 <code>null</code> 혹은 <code>undefined</code>가 왔을 때만 <code>true</code>를 반환하고, 다른 모든 경우에 <code>false</code>를 반환한다.</p>
+</li>
+<li><p>따라서 <strong><code>null check</code>를 할 때 만큼은 <code>==</code>를 사용하는 것이 편합니다.</strong> 다른 모든 경우에는 <code>===</code>를 사용하는 것이 좋다.</p>
+</li>
+</ul>
+<h1 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h1><h2 id="함수의-구성-요소"><a href="#함수의-구성-요소" class="headerlink" title="함수의 구성 요소"></a>함수의 구성 요소</h2><h3 id="매개변수와-인수"><a href="#매개변수와-인수" class="headerlink" title="매개변수와 인수"></a>매개변수와 인수</h3><ul>
+<li><p>함수를 호출할 때 인수 자리에 변수를 써주면, 이 변수가 넘어가는 게 아니라 값이 넘어가는 것임. 이 <strong>표현식의 값이 넘어가는 것이지, 변수 자체가 넘어가는 게 X.</strong></p>
+</li>
+<li><p><strong>매개변수에는 재대입이 가능하다.</strong>(let으로 선언한 변수와는 미묘하게 다른 점이 있음.)</p>
+</li>
+</ul>
+<h3 id="반환값"><a href="#반환값" class="headerlink" title="반환값"></a>반환값</h3><ul>
+<li><code>return</code> 키워드 바로 다음에 오는 값이 함수 호출의 결과값으로 반환되며, 반환되는 즉시 함수 실행이 종료된다.</li>
+<li><p>즉, <code>return</code> 다음에 오는 코드는 실행되지 않는다.</p>
+</li>
+<li><p><code>return</code> 뒤에 아무 값도 써주지 않거나, 아예 <code>return</code> 구문을 쓰지 않으면 함수는 undefined를 반환한다.</p>
+</li>
+</ul>
+<h2 id="스코프-Scope"><a href="#스코프-Scope" class="headerlink" title="스코프 (Scope)"></a>스코프 (Scope)</h2><ul>
+<li>매개변수와 같이 함수 안에서 정의된 변수는 함수 바깥에서는 접근할 수 없기 때문에 함수 안에서만 사용할 수 있다.</li>
+<li>즉, <strong>변수는 코드의 일정 범위 안에서만 유효하다는 성질이 있다.</strong></li>
+<li><p><strong>특정 변수가 유효한 코드 상의 유효 범위를 가지고 <code>스코프(scope)</code>라고 합니다.</strong></p>
+</li>
+<li><p>매개변수는 함수 스코프를 갖습니다. <strong>즉, 함수의 중괄호 안에서만 유효하다.</strong></p>
+</li>
+</ul>
+<h3 id="스코프-연쇄-Scope-Chain"><a href="#스코프-연쇄-Scope-Chain" class="headerlink" title="스코프 연쇄 (Scope Chain)"></a>스코프 연쇄 (Scope Chain)</h3><ul>
+<li>중첩된 스코프 안에서는 바깥 스코프의 변수를 가져다 쓸 수 있다.</li>
+<li><p>코드의 실행 흐름이 변수 이름에 도달하면, 그 변수와 같은 이름을 갖는 변수를 현재 스포크에서 찾아보고, 만약 없으면 바로 바깥쪽, 없으면 바같쪽 스코프로 올라가서 계속 찾아보는 과정이 되풀이 된다.</p>
+</li>
+<li><p>바깥 스코프에서 찾을 때는 부모-부모-부모 …를 찾는 것이지, 다른 함수 안에서만 쓰인 변수를 가져다 쓸 수는 X.</p>
+</li>
+<li>가장 바깥에 있는 스코프를 최상위 스코프(top-level scope) 혹은 전역 스코프(global scope)라고 부른다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> five = <span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add5</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="string">`return`</span> x + y;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="string">`return`</span> add(five);</span><br><span class="line">&#125;</span><br><span class="line">add5(<span class="number">3</span>); <span class="comment">// 8</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>reference Error같은 게 뜨면, 내 변수가 스코프 안에서 잘 들어있는지 확인할 것!</li>
+</ul>
+<h3 id="변수-가리기-Variable-Shadowing"><a href="#변수-가리기-Variable-Shadowing" class="headerlink" title="변수 가리기 (Variable Shadowing)"></a>변수 가리기 (Variable Shadowing)</h3><ul>
+<li>안쪽 스코프의 변수가 바깥쪽 스코프에 있는 변수를 가리는 현상을 말한다.</li>
+<li>바깥 스코프와 상관없이 매개변수를 자유롭게 사용할 수 있게끔 하는 성질이다.</li>
+<li>바깥 스코프에 있는 변수를 일일히 기억하지 않고 사용하고 싶은 매개변수를 자유롭게 사용할 수 있도록 이런 성질이 존재한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add5</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// `x`라는 변수가 다시 정의됨</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// `x`라는 변수가 다시 정의됨</span></span><br><span class="line">    <span class="string">`return`</span> x + y;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="string">`return`</span> add(x, <span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add5(x);</span><br></pre></td></tr></table></figure>
+<h3 id="어휘적-스코핑-Lexical-Scoping"><a href="#어휘적-스코핑-Lexical-Scoping" class="headerlink" title="어휘적 스코핑 (Lexical Scoping)"></a>어휘적 스코핑 (Lexical Scoping)</h3><ul>
+<li>스코프는 <strong>코드가 작성된 구조</strong>에 의해서 결정되는 것이지, <strong>함수 호출의 형태</strong>에 의해 결정되는 것이 아니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add5</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> five = <span class="number">5</span>;</span><br><span class="line">  <span class="string">`return`</span> add(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add5(<span class="number">3</span>); <span class="comment">// 8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="string">`return`</span> five + x; <span class="comment">// ReferenceError: five is not defined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>add라는 함수가 add5라는 함수 안에서 호출되었다고 해서, add 함수 내부에서 add5 함수의 스코프 안에 있는 변수에 접근할 수 있는 것은 아니다.</li>
+<li>스코프는 코드가 작성된 구조에 의해 결정되는 성질이다. 위 코드를 동작시키려면, 아래와 같이 작성해야 한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add5</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> five = <span class="number">5</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="string">`return`</span> five + x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="string">`return`</span> add(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="값으로서의-함수"><a href="#값으로서의-함수" class="headerlink" title="값으로서의 함수"></a>값으로서의 함수</h2><ul>
+<li><strong>JavaScript에서는 함수도 값이다.</strong></li>
+<li>cf) filter는 함수를 인수로 넘겨줘야 사용할 수 있는 메소드.<ul>
+<li>원본 배열을 변경시키지 X. 새 배열을 반환함.</li>
+</ul>
+</li>
+<li><code>&#39;일급 객체&#39;</code>라는 용어는 면접에 종종 나옴</li>
+<li><p>자바스크립트의 객체는 <code>일급 객체</code>다.</p>
+<ul>
+<li><strong>조건: 변수나 데이터 구조안에 담을 수 있다.</strong></li>
+<li><strong>파라미터로 전달 할 수 있다.</strong></li>
+<li><p><strong>반환값(<code>return</code> value)으로 사용할 수 있다.</strong></p>
+</li>
+<li><p>할당에 사용된 이름과 관계없이 구별이 가능하다</p>
+</li>
+<li>동적으로 프로퍼티 할당이 가능하다<br>cf) c나 java의 함수는 일급 함수가 아니다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>url(<a href="https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4</a>)</li>
+</ul>
+<h2 id="익명-함수-Anonymous-Function"><a href="#익명-함수-Anonymous-Function" class="headerlink" title="익명 함수 (Anonymous Function)"></a>익명 함수 (Anonymous Function)</h2><ul>
+<li>JavaScript에서 함수를 선언할 때 꼭 이름을 붙여주어야 하는 것은 아니다.</li>
+<li>이름을 붙이지 않은 함수를 가지고 <code>익명 함수(anonymous function)</code>라고 한다.</li>
+<li><strong><code>익명 함수</code>는 함수를 만든 쪽이 아니라 다른 쪽에서 그 함수를 호출할 때 많이 사용된다.</strong></li>
+</ul>
+<h2 id="화살표-함수-Arrow-Function"><a href="#화살표-함수-Arrow-Function" class="headerlink" title="화살표 함수 (Arrow Function)"></a>화살표 함수 (Arrow Function)</h2><ul>
+<li>function keyword 함수는 값을 반환하려면 반드시 <code>return</code>을 사용해야 한다.</li>
+<li>화살표 함수의 경우 중괄호가 없으면 바로 반환이 된다.</li>
+<li>코드의 길이나 표기법이 굉장히 간단해진다.</li>
+<li>화살표 함수는 익명 함수 밖에 없다. 이름이 있는 화살표 함수는 없다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 바로 반환시키지 않고 function 키워드를 통한 함수 정의처럼 여러 구문을 사용하려면 curly braces(&#123;...&#125;) 로 둘러싸주어야 한다.</span></span><br><span class="line"><span class="comment">//  `=&gt;` 다음 부분을 **중괄호로 둘러싸면**, 명시적으로 ``return`` 하지 않는 한 아무것도 반환되지 않습니다.</span></span><br><span class="line"><span class="keyword">const</span> add = <span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> result = x + y;</span><br><span class="line">  <span class="string">`return`</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//매개변수가 하나밖에 없다면, 매개변수 부분의 괄호를 쓰지 않아도 된다.</span></span><br><span class="line"><span class="keyword">const</span> negate = <span class="function"><span class="params">x</span> =&gt;</span> !x;</span><br></pre></td></tr></table></figure>
+<p>cf) function keyword 함수 vs 화살표 함수 비교</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].filter(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="string">`return`</span> x % <span class="number">2</span> === <span class="number">0</span>;</span><br><span class="line">&#125;); <span class="comment">// [2, 4]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].filter(<span class="function"><span class="params">x</span> =&gt;</span> x % <span class="number">2</span> === <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="제어-구문"><a href="#제어-구문" class="headerlink" title="제어 구문"></a>제어 구문</h1><ul>
+<li><p><code>if...else</code> 구문에서 중괄호 내부에 있는 구문이 하나라면, 중괄호를 생략할 수 있으나 나중에 문장을 추가할 수도 있으니 항상 중괄호를 쓰는 습관을 들이자.</p>
+</li>
+<li><p>switch 바로 뒤의 괄호의 값: ‘코드 실행 여부를 판별할 기준이 되는 값’,</p>
+</li>
+<li>이 기준이 되는 값과 case 바로 뒤에 오는 값이 일치하면 콜론(:) 뒤의 코드 영역이 실행된다. -<strong>case쪽의 코드 영역 마지막에 break를 써주지 않으면, 해당 case가 실행될 때 바로 뒤의 case 코드 영역이 뒤이어 실행되게 된다. -&gt; case문에 break를 꼭 써줘야 한다!!</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">translateColor</span>(<span class="params">english</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result;</span><br><span class="line">  <span class="keyword">switch</span> (english) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"red"</span>:</span><br><span class="line">      result = <span class="string">"빨강색"</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="comment">//  이 break를 생략할 경우, 'red'를 넣었을 때 ,result = '빨강색';후에  result = '파랑색';으로 실행흐름이 넘어가서 '파랑색'이 결과값으로 나온다.</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">"blue"</span>:</span><br><span class="line">      result = <span class="string">"파랑색"</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"purple"</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"violet"</span>:</span><br><span class="line">      <span class="comment">// 이 코드 영역은 english 변수의 값이 'purple'일 때와 'violet'일 때 모두 실행됩니다.</span></span><br><span class="line">      result = <span class="string">"보라색"</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      result = <span class="string">"일치하는 색깔이 없습니다."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="string">`return`</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="do…while-구문"><a href="#do…while-구문" class="headerlink" title="do…while 구문"></a>do…while 구문</h2><ul>
+<li>do…while 구문은 while 구문과 사용법은 크게 다르지 않으나, 내부 코드를 <strong>무조건 한 번은 실행</strong>시킨다는 차이점이 있다.</li>
+<li>절대 true가 될 수 없는 구문을 무조건 한 번은 실행시킬 수 있다.</li>
+</ul>
+<h3 id="배열의-순회"><a href="#배열의-순회" class="headerlink" title="배열의 순회"></a>배열의 순회</h3><ul>
+<li>배열의 각 항목을 방문하면서 차례대로 도는 것을 말한다.</li>
+</ul>
+<ul>
+<li><code>forEach</code>메소드 - 배열의 각 항목을 차례대로 실행시키고 싶을 때 사용하는 메소드(ES5에 추가된 문법임)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">arr.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`배열의 <span class="subst">$&#123;index + <span class="number">1</span>&#125;</span> 번째 요소는 <span class="subst">$&#123;item&#125;</span> 입니다.`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="for-구문의-종류"><a href="#for-구문의-종류" class="headerlink" title="for 구문의 종류"></a>for 구문의 종류</h4><ul>
+<li><code>for</code></li>
+<li><code>for...in</code> 구문</li>
+<li><code>for...of</code> 구문</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> arr) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`현재 요소는 <span class="subst">$&#123;item&#125;</span> 입니다.`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 현재 요소는 1 입니다.</span></span><br><span class="line"><span class="comment">// 현재 요소는 2 입니다.</span></span><br><span class="line"><span class="comment">// 현재 요소는 3 입니다.</span></span><br><span class="line"><span class="comment">// 현재 요소는 4 입니다.</span></span><br><span class="line"><span class="comment">// 현재 요소는 5 입니다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>arr의 요소(item)들이 순서대로 item이라는 변수에 들어가면서 차례대로 실행됨.</strong></li>
+</ul>
+<h2 id="break-continue"><a href="#break-continue" class="headerlink" title="break, continue"></a><code>break</code>, <code>continue</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="string">"퀴즈를 시작합니다."</span>);</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> answer = prompt(<span class="string">"빨강의 보색은 무엇일까요?"</span>);</span><br><span class="line">  <span class="keyword">if</span> (answer === <span class="string">"초록"</span>) &#123;</span><br><span class="line">    alert(<span class="string">"정답입니다! 🎉"</span>);</span><br><span class="line">    <span class="keyword">break</span>; <span class="comment">// 루프를 종료하고 다음 코드로 넘어감</span></span><br><span class="line">    <span class="comment">// break를 만나면 while 구문 아예 바깥으로 빠져나오게 됨. 따라서 정답인</span></span><br><span class="line">    <span class="comment">// 초록을 입력했을 때는 정답입니다!를 출력하고 while문을 빠져나가서 alert('퀴즈가 끝났습니다.')로 실행흐름이 옮겨간다.</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    alert(<span class="string">"틀렸습니다! 다시 시도해보세요."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">alert(<span class="string">"퀴즈가 끝났습니다."</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>continue</code>를 만나면, 나머지 코드를 실행하지 않고 루프의 처음으로 되돌아가는 효과가 있다.</li>
+<li><p>반복문의 시작(조건문)으로 돌아가게 된다.</p>
+</li>
+<li><p><code>break</code>는 <code>break</code>를 둘러싸고 있는 가장 가까운 루프만 종료시킨다.</p>
+</li>
+<li>가장 바깥의 루프까지 다 빠져나오는 게 X.</li>
+</ul>
+<h3 id="함수를-즉시-종료하기"><a href="#함수를-즉시-종료하기" class="headerlink" title="함수를 즉시 종료하기"></a>함수를 즉시 종료하기</h3><ul>
+<li><code>return</code>과 <code>throw</code>는 <strong>함수의 나머지 코드를 건너뛰고 함수를 즉시 종료시킨다</strong>는 걸 기억하라!</li>
+<li>switch구문을 쓸 때는 break를 써야 하지만, <code>return</code>이 있으면 함수의 나머지 코드를 건너뛰고 함수를 즉시 종료시킨다.</li>
+<li>함수의 나머지 코드를 건너뛰고 즉시 종료시키는 결과를 낳기 때문에 break를 더 추가해서 쓸 필요가 X.</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
@@ -253,14 +413,21 @@ ga('send', 'pageview');
         },
         "headline": "javascript3",
         "image": "https://JihyeHwang09.github.io",
-        "keywords": "",
-        "genre": "",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
         "datePublished": "2019-01-15",
         "dateCreated": "2019-01-15",
         "dateModified": "2019-01-15",
         "url": "https://JihyeHwang09.github.io/2019/01/15/javascript3/",
-        "description": ""
-        "wordCount": 1
+        "description": "null과 undefined
+값이 대입되지 않은 변수 혹은 속성을 사용하려고 하면 undefined를 반환
+null은 ‘객체가 없음’을 나타낸다.
+
+12typeof null; // 'object'typeof undefined; // 'undefined'
+
+변수를 선언한 적이 있는지 확인하고 싶을 때에도 typeof 연산자를 사용하고,
+이 때, 변수를 선언한"
+        "wordCount": 1889
     }
 </script>
 
@@ -371,7 +538,7 @@ ga('send', 'pageview');
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
                             <p class="item-title"><a href="/2019/01/15/javascript3/" class="title">javascript3</a></p>
                             <p class="item-date"><time datetime="2019-01-15T09:19:29.000Z" itemprop="datePublished">2019-01-15</time></p>
                         </div>
@@ -446,7 +613,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학-computer-science/">컴퓨터 과학(Computer Science)</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학-computer-science/알고리즘-algorithms/">알고리즘(Algorithms)</a><span class="category-list-count">3</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학-computer-science/">컴퓨터 과학(Computer Science)</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학-computer-science/알고리즘-algorithms/">알고리즘(Algorithms)</a><span class="category-list-count">3</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -466,7 +633,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/algorithms/" style="font-size: 12.5px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 17.5px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 12.5px;">Computer Science</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 12.5px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 12.5px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 12.5px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 12.5px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 12.5px;">framework</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 15px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 12.5px;">platform</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 15px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 12.5px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 15px;">순환 함수</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12.5px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 15px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 15px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 15px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12.5px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+            <a href="/tags/algorithms/" style="font-size: 12.5px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 17.5px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 12.5px;">Computer Science</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 12.5px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 12.5px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 12.5px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 12.5px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 12.5px;">framework</a> <a href="/tags/front-end/" style="font-size: 20px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 17.5px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 12.5px;">platform</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 15px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 12.5px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 15px;">순환 함수</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12.5px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 15px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 15px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 15px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12.5px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
         </div>
     </div>
 
