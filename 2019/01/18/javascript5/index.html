@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
 <meta property="og:description" content="프로토타입(Prototype) 함수가 실행될 때마다 객체가 새로 만들어지고 함수도 매번 새로 만들어진다. 객체 안에 메소드를 만들어서 이렇게 매번 만들어지는건 메모리 낭비다. 비슷한 객체들의 속성을 하나로 모아두기 위해서 쓰는 게 프로토타입(Prototype)이다. 프로토타입 상속(prototype inheritance):프로토타입 기능을 이용해 한 객체에">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-18T06:19:38.236Z">
+<meta property="og:updated_time" content="2019-01-18T06:21:38.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 5일차">
 <meta name="twitter:description" content="프로토타입(Prototype) 함수가 실행될 때마다 객체가 새로 만들어지고 함수도 매번 새로 만들어진다. 객체 안에 메소드를 만들어서 이렇게 매번 만들어지는건 메모리 낭비다. 비슷한 객체들의 속성을 하나로 모아두기 위해서 쓰는 게 프로토타입(Prototype)이다. 프로토타입 상속(prototype inheritance):프로토타입 기능을 이용해 한 객체에">
@@ -271,7 +271,13 @@ ga('send', 'pageview');
 <li>reduce를 쓸 때는 항상 초기값을 넣어주자.</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">"Denton"</span>, <span class="string">"Roy"</span>, <span class="string">"Jay"</span>];</span><br><span class="line">arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + item, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// Denton33</span></span><br></pre></td></tr></table></figure>
-<h2 id="배열을-순회할-때-순회-중인-배열을-편집하면-안된다"><a href="#배열을-순회할-때-순회-중인-배열을-편집하면-안된다" class="headerlink" title="배열을 순회할 때, 순회 중인 배열을 편집하면 안된다."></a>배열을 순회할 때, 순회 중인 배열을 편집하면 안된다.</h2><h2 id="루프를-돌면서-배열에-뭔가를-편집하고-싶다면-새-배열을-만들어서-편집해라"><a href="#루프를-돌면서-배열에-뭔가를-편집하고-싶다면-새-배열을-만들어서-편집해라" class="headerlink" title="루프를 돌면서 배열에 뭔가를 편집하고 싶다면, 새 배열을 만들어서 편집해라."></a>루프를 돌면서 배열에 뭔가를 편집하고 싶다면, 새 배열을 만들어서 편집해라.</h2>
+<blockquote>
+<p>배열을 순회할 때, 순회 중인 배열을 편집하면 안된다.</p>
+</blockquote>
+<blockquote>
+<p>루프를 돌면서 배열에 뭔가를 편집하고 싶다면, 새 배열을 만들어서 편집해라.</p>
+</blockquote>
+
         </div>
         <footer class="article-footer">
             
@@ -354,7 +360,7 @@ ga('send', 'pageview');
 객체 안에 메소드를 만들어서 이렇게 매번 만들어지는건 메모리 낭비다.
 비슷한 객체들의 속성을 하나로 모아두기 위해서 쓰는 게 프로토타입(Prototype)이다.
 프로토타입 상속(prototype inheritance):프로토타입 기능을 이용해 한 객체에"
-        "wordCount": 817
+        "wordCount": 793
     }
 </script>
 
