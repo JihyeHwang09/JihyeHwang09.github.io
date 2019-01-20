@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>javascript7.md | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="javaScript">
+    
+    <meta name="description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript7.md">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/21/javascript7/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-20T15:38:53.954Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript7.md">
+<meta name="twitter:description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-javascript7" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        javascript7.md
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/01/21/javascript7/" class="article-date">
+            <time datetime="2019-01-20T15:29:09.000Z" itemprop="datePublished">2019-01-21</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a>클래스</h1><ul>
+<li><code>클래스</code>는 <strong><code>생성자</code>의 기능을 대체</strong>한다. (세부적인 기능상의 차이는 있지만)</li>
+</ul>
+<h1 id="함수형-프로그래밍"><a href="#함수형-프로그래밍" class="headerlink" title="함수형 프로그래밍"></a>함수형 프로그래밍</h1><ul>
+<li>프로그래밍의 큰 흐름: <code>객체 지향 프로그래밍</code> vs <code>함수형 프로그래밍</code></li>
+</ul>
+<h2 id="고차-함수-Higher-order-Function"><a href="#고차-함수-Higher-order-Function" class="headerlink" title="고차 함수(Higher-order Function)"></a>고차 함수(Higher-order Function)</h2><ul>
+<li>함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 <code>고차 함수(higher-order function)</code>라고 한다.</li>
+<li>자바스크립트에서는 함수도 값이다.</li>
+<li><code>함수를 호출할 때 함수를 넘기는 함수</code>나 <code>함수를 반환하는 함수</code>(ex) this를 바꿔치기 하는 메소드: bind)가 <code>고차 함수</code>에 속한다.</li>
+<li>함수를 인수로 받는 <code>Array</code>의 많은 메소드들(<code>forEach</code>, <code>map</code>, <code>reduce</code>, <code>filter</code>, <code>sort</code>, <code>every</code>, <code>some</code>, <code>find</code> 둥)은 고차 함수이다.</li>
+<li>다른 함수의 인수로 넘겨지는 함수를 <code>콜백(callback)</code>이라고 부른다.</li>
+</ul>
+<h2 id="클로저-Closure-타이핑하면서-꼭-연습할-것-react에서-중요한-개념임"><a href="#클로저-Closure-타이핑하면서-꼭-연습할-것-react에서-중요한-개념임" class="headerlink" title="클로저(Closure) - 타이핑하면서 꼭 연습할 것! react에서 중요한 개념임."></a>클로저(Closure) - 타이핑하면서 꼭 연습할 것! react에서 중요한 개념임.</h2><ul>
+<li><strong>자바스크립트에서 스코프는 함수 단위. 자기 자신 스코프에 없으면(자기 자신 스코프 내에서 찾는 해당 변수가 정의되어 있지 않거나 함수 등이 없으면, 상위 스코프로 올라가서 찾는다. 찾을 때까지 상위 스코프로 올라가서 찾으면 가져다가 쓴다. 없으면 global까지 올라간다.</strong></li>
+<li>둘러싸고 있는 것. 성질. 좀비같은 것임</li>
+<li>예전에는 자바스크립트에서 아주 중요한 개념이었으나 요즘은 자주 쓰이지는 않음</li>
+</ul>
+<h3 id="클로저의-2가지-의미"><a href="#클로저의-2가지-의미" class="headerlink" title="클로저의 2가지 의미"></a>클로저의 2가지 의미</h3><ul>
+<li>바깥 스코프에 있는 변수를 가져다가 사용하는 <code>함수</code></li>
+<li>변수가 저장되는 <code>저장소</code></li>
+<li>고차함수를 사용할 때 클로저의 성질을 이용할 수 있다.</li>
+<li><p><code>threshould</code>: 임계값, 기준값</p>
+</li>
+<li><p><code>클로저</code>는 데이터를 숨기고 정해진 방법을 통해서만 데이터에 접근할 수 있도록 제한을 두는 데 활용된다.</p>
+</li>
+<li>다른 프로그래머가 내가 만든 값에 실수로라도 접근하거나 변경하지 못하게 하고 싶을 때 <code>클로저</code>를 사용한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">personFactory</span>(<span class="params">initialAge</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> age = initialAge;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getOlder() &#123;</span><br><span class="line">      age++;</span><br><span class="line">    &#125;,</span><br><span class="line">    getAge() &#123;</span><br><span class="line">      <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// `age`를 직접 변경할 수 있는 방법이 없습니다!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = personFactory(<span class="number">20</span>);</span><br><span class="line">person.getAge();</span><br><span class="line"><span class="comment">// age가 비밀스런 저장공간인 클로저에 저장되었으므로  person.getAge()로 값을 가져올 수 있다.</span></span><br><span class="line"><span class="comment">// 밑에 코드를 추가해서 나이값을 바꿀 수는 없다.</span></span><br></pre></td></tr></table></figure>
+<h2 id="화살표-함수와-고차-함수"><a href="#화살표-함수와-고차-함수" class="headerlink" title="화살표 함수와 고차 함수"></a>화살표 함수와 고차 함수</h2><ul>
+<li><code>화살표 함수 문법</code>을 이용하면, <strong>적은 양의 코드만 사용해서(간단하게) <code>고차 함수</code>를 만들 수 있다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> makeAdder = <span class="function"><span class="params">x</span> =&gt;</span> y =&gt; x + y;</span><br><span class="line"><span class="comment">// 매개변수: x, 반환값: 함수임. y =&gt; x + y</span></span><br><span class="line"><span class="keyword">const</span> add2 = makeAdder(<span class="number">2</span>);</span><br><span class="line">add2(<span class="number">3</span>); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> makeCounter = <span class="function">(<span class="params">x = <span class="number">1</span></span>) =&gt;</span> () =&gt; x++;</span><br><span class="line"><span class="comment">// 매개변수: (x = 1), x의 기본값을 1로 지정</span></span><br><span class="line"><span class="comment">// 반환값: 함수임. () =&gt; x++</span></span><br><span class="line"><span class="keyword">const</span> counter = makeCounter();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(counter()); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(counter()); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h2 id="재귀-함수-Recursive-Function"><a href="#재귀-함수-Recursive-Function" class="headerlink" title="재귀 함수(Recursive Function)"></a>재귀 함수(Recursive Function)</h2><ul>
+<li><code>재귀 함수(recursive function)</code>: 함수 내부에서 <strong>자기 자신을 호출</strong>하는 함수</li>
+<li><strong>문제를 같은 형태의 부분 문제로 쪼갤 수 있을 때, 재귀함수를 활용할 수 있다.</strong></li>
+<li>프론트엔드 개발자가 실무에서 <strong>자주 사용하지는 않으나</strong>, 어떤 문제는 <strong><code>재귀 함수</code>로 푸는 게 편할 때가 있다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sb(<span class="number">5</span>) = <span class="number">1</span> + <span class="number">2</span> + <span class="number">3</span> + <span class="number">4</span> + <span class="number">5</span></span><br><span class="line">        = sb(<span class="number">4</span>) + <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumBy</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> memory = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    memory += i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> memory;</span><br><span class="line">&#125;</span><br><span class="line">sumBy(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumByRec</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Rec를 붙여주는 건 -&gt; '재귀 함수'라는 의미임.</span></span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> sumByRec(n - <span class="number">1</span>) + n;</span><br><span class="line">    <span class="comment">// return에 오는 표현식이 다 계산이 되어서 실행이 되어야 그 다음에 결과값을 return하고 함수 호출을 종료된다.</span></span><br><span class="line">    <span class="comment">// return은 함수 호출을 종료시키는 것이지, 함수 실행 자체를 종료시키는 게 X.</span></span><br><span class="line">    <span class="comment">// 일시중지 되어있는 함수들이 촤라락 있고 다시 되감기되면서 연산을 수행한다.</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">sumByRec(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 위의 코드를 삼항연산자로</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumByRec</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n === <span class="number">1</span> ? <span class="number">1</span> : sumByRec(n - <span class="number">1</span>) + n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 안에서 함수가 호출되면, 코드의 실행 흐름이 일시정지, 재개를 반복한다.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mult</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">calc</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> add(x, y) + mult(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">calc(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 피보나치 수를 루프로 구현</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibo</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 다음 단계의 수는 이전 두 단계 수의 합</span></span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="comment">// 다음 x = 원래 y</span></span><br><span class="line">    <span class="comment">// 다음 y = 원래 x + 원래 y</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> sum = x + y;</span><br><span class="line">    x = y;</span><br><span class="line">    y = sum;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fibo(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 피보나치 수를 재귀 함수로 바꿔보기</span></span><br><span class="line"><span class="comment">// 아이디어</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// fibo(5) = fibo(3) + fibo(4);</span></span><br><span class="line"><span class="comment">// fibo(4) = fibo(2) + fibo(3);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// fibo(1) = 1;</span></span><br><span class="line"><span class="comment">// fibo(0) = 0;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fiboRec</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> fiboRec(n - <span class="number">2</span>) + fiboRec(n - <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">fiboRec(<span class="number">7</span>);</span><br><span class="line"><span class="comment">// 피노나치 수, 팩토리얼 등의 개념이 중요한 게 X.</span></span><br><span class="line"><span class="comment">// 재귀 함수를 이용해서 루프를 다시 구현할 수 있다는 걸 아는 게 중요.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>재귀 함수를 작성할 때는<br><code>부분 문제</code>와 <code>종료 조건</code>(재귀 함수가 멈추는 부분)을 생각해 봐야 한다.<br>그 후에 코드로 구현하자.</li>
+</ul>
+<h1 id="객체-더-알아보기"><a href="#객체-더-알아보기" class="headerlink" title="객체 더 알아보기"></a>객체 더 알아보기</h1><h2 id="객체-자신의-속성-Own-Property"><a href="#객체-자신의-속성-Own-Property" class="headerlink" title="객체 자신의 속성(Own Property)"></a>객체 자신의 속성(Own Property)</h2><ul>
+<li>객체 자신이 특정 속성을 가지고 있는지를 확인하기 위해 <code>Object.prototype.hasOwnProperty</code>메소드를 사용한다.</li>
+<li><code>true</code> or <code>false</code>값을 반환</li>
+</ul>
+<h2 id="데이터-속성-Data-Property-의-부수속성-Property-Attribute"><a href="#데이터-속성-Data-Property-의-부수속성-Property-Attribute" class="headerlink" title="데이터 속성(Data Property)의 부수속성(Property Attribute)"></a>데이터 속성(Data Property)의 부수속성(Property Attribute)</h2><ul>
+<li>내장 객체 중에 어떤 속성은 <code>delete</code> 연산자를 통해 삭제하려고 해도 삭제가 되지 않는 것이 있다.</li>
+<li>JavaScript에서는 <strong>각 속성마다 동작 방식이 다를 수 있다.</strong></li>
+</ul>
+<ul>
+<li><code>생성자.메소드()</code> -&gt; 정적 메소드</li>
+<li>객체의 부수속성을 알아보려면,<br><code>Object.getOwnPropertyDescriptor</code>라는 정적 메소드를 사용해 부수속성을 나타내는 객체를 얻을 수 있다.<br>-&gt; 이 객체를 <code>속성 기술자(property descriptor)</code>라고 한다.</li>
+<li><code>데이터 속성(data property)</code>에 대한 속성 기술자가 갖는 속성<ul>
+<li><ol>
+<li><code>value</code>: 속성에 어떤 값이 저장되어 있으면 true, 아니면 false를 반환</li>
+</ol>
+</li>
+<li><ol start="2">
+<li><code>writable</code>: 변경할 수 있으면 true, 아니면 false를 반환</li>
+</ol>
+</li>
+<li><ol start="3">
+<li><code>enumerable</code>: 열거 가능한 속성이면 true, 아니면 false를 반환</li>
+</ol>
+</li>
+<li><ol start="4">
+<li><code>configurable</code>: 부수속성을 변경하거나 속성을 삭제할 수 있으면 true, 아니면 false를 반환</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="속성의-성질을-가지고-있는-객체를-가져오는-방법"><a href="#속성의-성질을-가지고-있는-객체를-가져오는-방법" class="headerlink" title="속성의 성질을 가지고 있는 객체를 가져오는 방법"></a>속성의 성질을 가지고 있는 객체를 가져오는 방법</h3><ul>
+<li>속성 하나에 대한 속성 기술자 가져올 때<ul>
+<li><code>Object.getOwnPropertyDescriptor</code></li>
+</ul>
+</li>
+<li><p>속성 전체에 대한 속성(여러 속성) 기술자 가져올 때</p>
+<ul>
+<li><code>Object.getOwnPropertyDescriptors</code></li>
+</ul>
+</li>
+<li><p>엄격 모드에서는 <code>writable: false</code>, <code>configurable: false</code>인 속성을 변경하거나 삭제하려고 하면 에러가 난다.</p>
+</li>
+</ul>
+<h2 id="속성-기술자를-통해-객체의-속성-정의하기"><a href="#속성-기술자를-통해-객체의-속성-정의하기" class="headerlink" title="속성 기술자를 통해 객체의 속성 정의하기"></a>속성 기술자를 통해 객체의 속성 정의하기</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">"prop"</span>, &#123;</span><br><span class="line">  <span class="comment">// Object.defineProperty(객체 이름, '속성명', &#123;속성 정의하는 내용&#125;);</span></span><br><span class="line">  value: <span class="number">1</span>,</span><br><span class="line">  writable: <span class="literal">false</span>,</span><br><span class="line">  enumerable: <span class="literal">true</span>,</span><br><span class="line">  configurable: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="접근자-속성-Accessor-Property-과-그-부수속성"><a href="#접근자-속성-Accessor-Property-과-그-부수속성" class="headerlink" title="접근자 속성(Accessor Property)과 그 부수속성"></a>접근자 속성(Accessor Property)과 그 부수속성</h2><ul>
+<li>단위를 하나로 통일해서 저장해둔다.</li>
+<li><p>넣고 꺼낼 때 환율 적용한다.</p>
+</li>
+<li><p>일일히 메소드를 사용하지 않고 <code>getter</code>와 <code>setter</code> 기능을 사용해서, 코드를 조금 더 깔끔하게 작성할 수 있다.</p>
+</li>
+<li>메소드 이름 앞에 <code>get</code>을 써주면, 이 메소드는 getter 메소드가 된다.</li>
+<li>메소드 이름 앞에 <code>set</code>을 써주면, 이 메소드는 setter 메소드가 된다.</li>
+<li>함수를 실행한 적도 없는데, 속성을 읽어오기만 해도 <code>getter</code>가 실행된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="comment">// 메소드 이름 앞에 `get`을 써주면, 이 메소드는 getter 메소드가 됩니다.</span></span><br><span class="line">  get prop() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"getter가 호출되었습니다."</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._hidden;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 메소드 이름 앞에 `set`을 써주면, 이 메소드는 setter 메소드가 됩니다.</span></span><br><span class="line">  set prop(arg) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"setter가 호출되었습니다."</span>);</span><br><span class="line">    <span class="keyword">this</span>._hidden = arg;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// `set prop` 메소드가 `1`을 인수로 해서 호출됩니다.</span></span><br><span class="line"><span class="comment">// 값을 저장하려면 인수가 필요하다.</span></span><br><span class="line">obj.prop = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// `get prop` 메소드가 호출되고 해당 메소드의 반환값을 읽어옵니다.</span></span><br><span class="line"><span class="comment">// 저장된 값을 불러올 때는 따로 인수가 필요없다.</span></span><br><span class="line">obj.prop; <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptors(obj);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   prop: &#123;</span></span><br><span class="line"><span class="comment">//     get: [Function: get],</span></span><br><span class="line"><span class="comment">//     set: [Function: set],</span></span><br><span class="line"><span class="comment">//     enumerable: true,</span></span><br><span class="line"><span class="comment">//     configurable: true</span></span><br><span class="line"><span class="comment">//   &#125;,</span></span><br><span class="line"><span class="comment">//   ...</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>obj 객체 리터럴 안에서 함수 앞에 <code>get</code>과 <code>set</code> 키워드를 사용했다.</li>
+<li>이 두 함수는 각각 prop이라는 속성의 getter와 setter가 된다.</li>
+<li><code>getter</code>는 <strong>속성을 읽어올 때</strong>, <code>setter</code>는 <strong>속성을 변경할 때</strong> 호출됩니다.</li>
+<li>getter와 setter가 정의된 속성을 <code>접근자 속성(accessor property)</code>라고 한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 위 Money 생성자 예제를 접근자 속성을 통해 재작성</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Money</span>(<span class="params">won</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._won = won;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// `Object.defineProperties` 정적 메소드를 사용해서</span></span><br><span class="line"><span class="comment">// 속성 기술자를 통해 특정 객체의 여러 속성을 한꺼번에 정의할 수 있습니다.</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperties(Money.prototype, &#123;</span><br><span class="line">  <span class="comment">// `Money.prototype` 객체에 `won` 이라는 속성을 정의합니다.</span></span><br><span class="line">  won: &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._won;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>._won = arg;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// `Money.prototype` 객체에 `dollar` 라는 속성을 정의합니다.</span></span><br><span class="line">  dollar: &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._won / <span class="number">1086</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>._won = arg * <span class="number">1086</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> w = <span class="keyword">new</span> Money(<span class="number">1086</span>);</span><br><span class="line"></span><br><span class="line">w.won += <span class="number">1086</span>;</span><br><span class="line"><span class="built_in">console</span>.log(w.dollar); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">w.dollar += <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(w.won); <span class="comment">// 3258</span></span><br></pre></td></tr></table></figure>
+<h2 id="객체의-속성-열거하기"><a href="#객체의-속성-열거하기" class="headerlink" title="객체의 속성 열거하기"></a>객체의 속성 열거하기</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(obj); <span class="comment">// ['a', 'b']</span></span><br><span class="line"><span class="comment">// Object.keys(객체명): 속성 이름만 다 뽑아내서 배열로 반환해준다.</span></span><br><span class="line"><span class="comment">// Object.values(객체명): 속성 값만 다 뽑아내서 배열로 반환해준다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.entries(객체명): [속성 이름, 값] 다 뽑아내서 배열로 반환해준다.</span></span><br><span class="line"><span class="comment">// [[속성 이름, 값], [속성 이름, 값], [속성 이름, 값]]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>공부방법: 각 기능을 기억할 것!</li>
+<li><code>Object.keys</code> - 객체 자신의 속성 중 열거 가능한(enumerable) 속성의 이름을 배열로 반환합니다.</li>
+<li><p>상속받은 속성은 반환하지 X. <strong>객체 자신의 속성</strong>만 반환한다.</p>
+</li>
+<li><p><code>Object.values</code> - 객체 자신의 속성 중 열거 가능한(enumerable) 속성의 속성 값을 배열로 반환합니다.</p>
+</li>
+<li><code>Object.entries</code> - 객체 자신의 속성 중 열거 가능한(enumerable) 속성의 이름과 값을 배열로 반환합니다.</li>
+<li><code>Object.getOwnPropertyNames</code> - 객체 자신의 모든 속성의 이름을 배열로 반환합니다. 열거 불가능한 속성도 포함합니다.</li>
+<li><code>for...in</code> 구문 - 객체 자신의 속성 및 상속받은 속성 중 열거 가능한(enumerable) 속성의 이름을 배열로 반환합니다.<ul>
+<li><code>for...in</code> 구문은 꼭 필요할 때만 사용하자.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> parent = &#123;</span><br><span class="line">  d: <span class="number">4</span>,</span><br><span class="line">  e: <span class="number">5</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  c: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">"b"</span>, &#123;</span><br><span class="line">  value: <span class="number">2</span>,</span><br><span class="line">  enumerable: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(obj, parent);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.b);</span><br><span class="line"><span class="comment">// obj.hasOwnProperty('b')</span></span><br><span class="line"><span class="comment">// '객체 자신의 속성' 중 '열거 가능한 속성'만 반환</span></span><br><span class="line"><span class="built_in">Object</span>.keys(obj); <span class="comment">// ['a', 'b']</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> name <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a</span></span><br><span class="line"><span class="comment">// c</span></span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="comment">// e</span></span><br><span class="line"><span class="comment">// 브라우저에 따라 순서가 다르게 나올 수 있음.</span></span><br><span class="line"><span class="comment">// 대부분의 브라우저들은 먼저 넣은 걸 먼저 꺼내서 출력해주는 경향이 있다.</span></span><br><span class="line"><span class="comment">// 어떤 공식 명세서에도 마치 넣은 순서대로 출력되는 것처럼 보이지만,</span></span><br><span class="line"><span class="comment">// 사실은 random으로 나온다고 생각하고 프로그래밍 해야 함.</span></span><br></pre></td></tr></table></figure>
+<h2 id="얕은-복사-Shallow-Copy-amp-깊은-복사-Deep-Copy"><a href="#얕은-복사-Shallow-Copy-amp-깊은-복사-Deep-Copy" class="headerlink" title="얕은 복사(Shallow Copy) &amp; 깊은 복사(Deep Copy)"></a>얕은 복사(Shallow Copy) &amp; 깊은 복사(Deep Copy)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.assign(obj, &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;, &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;);</span><br><span class="line"><span class="comment">// Object.assign(대상객체, 넣을 속성, 넣을 속성)</span></span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123; a: 1, b: 2 &#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Object.assign</code> 정적 메소드는 인수로 받은 객체들의 모든 열거 가능한 속성을 대상 객체에 복사한다.<br>-</li>
+<li><strong><code>배열</code>을 복사</strong>할 때는 <code>slice메소드</code>를 사용하고, <strong><code>객체</code>를 복사</strong>할 때는 <code>Object.assign</code>을 사용한다.</li>
+<li>첫번째 인수에 <code>빈 객체{}</code>를 넣어준다.</li>
+<li><code>사본</code>을 바꿔도 <code>원본</code>에는 영향이 <strong>없다.</strong></li>
+<li>객체의 <strong><code>원본</code>을 바꾸고 싶지 않을 경우에는</strong><br>객체를 복사한 후에, 그 사본으로 작업을 하면 된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 빈 객체를 대상으로 `Object.assign`을 사용하면, 객체를 간단히 복제할 수 있습니다.</span></span><br><span class="line"><span class="keyword">const</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">// &#123; a: 1, b: 2 &#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  innerObj: &#123;</span><br><span class="line">    <span class="comment">// innderObj에는 객체 자체가 아니라 객체에 대한 참조가 저장된다.</span></span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Object.assign</code>, <code>slice메소드</code>는 <strong>객체가 중첩되어 있다면,</strong><br><strong>내부에 있는 객체는 복사되지 않는다.</strong> <strong><code>가장 겉에 있는 한겹</code>만 복사</strong>된다.</li>
+<li>배열 안의 배열, 객체 안의 배열, 배열 안의 객체 등등 <strong>중첩되어 있는 자료구조까지 복사하지는 못한다.</strong></li>
+<li>간편해서 많이 사용하는데, 겉껍질만 복사하기 때문에 <strong>조심해서 써야한다.</strong></li>
+</ul>
+<ul>
+<li><code>깊은 복사(deep copy)</code>를 하고 싶다면<br>JavaScript에 깊은 복사를 위한 기능이 내장되어 있지 않기 때문에,<br><strong>Immutable.js</strong>와 같은 관련 라이브러리를 사용하자.</li>
+</ul>
+<h2 id="Object-preventExtensions"><a href="#Object-preventExtensions" class="headerlink" title="Object.preventExtensions"></a>Object.preventExtensions</h2><ul>
+<li><code>Object.preventExtensions</code>: 특정 객체에 더 이상 속성을 추가하지 못하도록 막아버리는 기능</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.seal(obj); 객체에 속성이 삭제되는 것을 막는다.</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj);</span><br><span class="line"><span class="comment">// Object.freeze(obj); 속성 변경까지 막는다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="keyword">delete</span> obj.a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(); <span class="comment">// TypeError: Cannot add property a, object is not extensible</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "javascript7.md",
+        "image": "https://JihyeHwang09.github.io",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
+        "datePublished": "2019-01-21",
+        "dateCreated": "2019-01-21",
+        "dateModified": "2019-01-21",
+        "url": "https://JihyeHwang09.github.io/2019/01/21/javascript7/",
+        "description": "클래스
+클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)
+
+함수형 프로그래밍
+프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍
+
+고차 함수(Higher-order Function)
+함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 고차 함수(higher-order function)라고 한다.
+자바스크립트에서는 함"
+        "wordCount": 2640
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/01/20/recursion-maze/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">미로 찾기(Decision Thinking)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/21/javascript7/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/21/javascript7/" class="title">javascript7.md</a></p>
+                            <p class="item-date"><time datetime="2019-01-20T15:29:09.000Z" itemprop="datePublished">2019-01-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/20/recursion-maze/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51436914-1f4afd80-1cd9-11e9-8664-8568bc7317b2.png)" alt="미로 찾기(Decision Thinking)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2019/01/20/recursion-maze/" class="title">미로 찾기(Decision Thinking)</a></p>
+                            <p class="item-date"><time datetime="2019-01-20T08:17:57.000Z" itemprop="datePublished">2019-01-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/19/javascript6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51421904-825d6700-1be9-11e9-8c9b-81cf1fb74d0f.png)" alt="자바스크립트 6일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/19/javascript6/" class="title">자바스크립트 6일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-19T03:50:27.000Z" itemprop="datePublished">2019-01-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/18/javascript5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51368969-eeca5e80-1b34-11e9-835e-cc2dfa870bdf.png)" alt="자바스크립트 5일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/18/javascript5/" class="title">자바스크립트 5일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-18T06:16:20.000Z" itemprop="datePublished">2019-01-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/17/css-box-model/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51322977-4cfe2f80-1aaa-11e9-8a7d-d9495fe02de5.png)" alt="CSS 박스모델" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/css/">CSS</a></p>
+                            <p class="item-title"><a href="/2019/01/17/css-box-model/" class="title">CSS 박스모델</a></p>
+                            <p class="item-date"><time datetime="2019-01-17T13:38:24.000Z" itemprop="datePublished">2019-01-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">4</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">22</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 11.67px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16.67px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 11.67px;">Computer Science</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 11.67px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 11.67px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 11.67px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 11.67px;">framework</a> <a href="/tags/front-end/" style="font-size: 18.33px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 11.67px;">platform</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 13.33px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 11.67px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 15px;">순환 함수</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 11.67px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 15px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 13.33px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 13.33px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 11.67px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/01/21/javascript7/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
