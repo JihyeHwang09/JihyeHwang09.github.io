@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="순환 함수,재귀 함수,미로 찾기,Decision Thinking">
     
-    <meta name="description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &amp;gt; 자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지">
+    <meta name="description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까">
 <meta name="keywords" content="순환 함수,재귀 함수,미로 찾기,Decision Thinking">
 <meta property="og:type" content="article">
 <meta property="og:title" content="미로 찾기(Decision Thinking)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/20/recursion-maze/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &amp;gt; 자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지">
+<meta property="og:description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51436914-1f4afd80-1cd9-11e9-8664-8568bc7317b2.png">
-<meta property="og:updated_time" content="2019-01-20T10:45:05.994Z">
+<meta property="og:updated_time" content="2019-01-20T10:45:20.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="미로 찾기(Decision Thinking)">
-<meta name="twitter:description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &amp;gt; 자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지">
+<meta name="twitter:description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/51436914-1f4afd80-1cd9-11e9-8664-8568bc7317b2.png">
     
 
@@ -190,7 +190,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <h4 id="이번에는-Recursion의-응용-미로-찾기에-대해-알아봅시다"><a href="#이번에는-Recursion의-응용-미로-찾기에-대해-알아봅시다" class="headerlink" title="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다."></a>이번에는 <code>Recursion의 응용-미로 찾기</code>에 대해 알아봅시다.</h4><blockquote>
-<p><strong>본 포스팅은</strong><br>&lt;<a href="https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/" target="_blank" rel="noopener">인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌</a> &gt; <strong>자료를 인용하였음을 알려드립니다.</strong></p>
+<p><strong>본 포스팅은</strong><br>&lt;<a href="https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/" target="_blank" rel="noopener">인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌</a><br><strong>자료를 인용하였음을 알려드립니다.</strong></p>
 </blockquote>
 <hr>
 <h2 id="미로-찾기"><a href="#미로-찾기" class="headerlink" title="미로 찾기"></a>미로 찾기</h2><p><img src="https://user-images.githubusercontent.com/37353837/51436914-1f4afd80-1cd9-11e9-8664-8568bc7317b2.png" alt=""></p>
@@ -375,15 +375,15 @@ ga('send', 'pageview');
         "dateModified": "2019-01-20",
         "url": "https://JihyeHwang09.github.io/2019/01/20/recursion-maze/",
         "description": "이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다.
-본 포스팅은&lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &gt; 자료를 인용하였음을 알려드립니다.
+본 포스팅은&lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.
 
 
 미로 찾기
 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면
 
 현재 위치가 출구이거나 혹은
-이웃한 셀들 중 하나에서 현재 위치를 지나지 "
-        "wordCount": 3110
+이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까"
+        "wordCount": 3108
     }
 </script>
 
