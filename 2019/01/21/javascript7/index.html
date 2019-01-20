@@ -12,18 +12,20 @@
     
         <meta name="keywords" content="javaScript">
     
-    <meta name="description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함">
+    <meta name="description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함수">
 <meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="자바스크립트 7일차">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/21/javascript7/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함">
+<meta property="og:description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함수">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-20T15:42:44.076Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51441624-d4e87180-1d16-11e9-86a6-d592a0f1ebb9.png">
+<meta property="og:updated_time" content="2019-01-20T15:53:12.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 7일차">
-<meta name="twitter:description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함">
+<meta name="twitter:description" content="클래스 클래스는 생성자의 기능을 대체한다. (세부적인 기능상의 차이는 있지만)  함수형 프로그래밍 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍  고차 함수(Higher-order Function) 함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를고차 함수(higher-order function)라고 한다. 자바스크립트에서는 함수">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/51441624-d4e87180-1d16-11e9-86a6-d592a0f1ebb9.png">
     
 
     
@@ -194,21 +196,27 @@ ga('send', 'pageview');
 <li>프로그래밍의 큰 흐름: <code>객체 지향 프로그래밍</code> vs <code>함수형 프로그래밍</code></li>
 </ul>
 <h2 id="고차-함수-Higher-order-Function"><a href="#고차-함수-Higher-order-Function" class="headerlink" title="고차 함수(Higher-order Function)"></a>고차 함수(Higher-order Function)</h2><ul>
-<li>함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 <code>고차 함수(higher-order function)</code>라고 한다.</li>
-<li>자바스크립트에서는 함수도 값이다.</li>
+<li>함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를<br><code>고차 함수(higher-order function)</code>라고 한다.</li>
+<li>자바스크립트에서는 <strong><code>함수</code>도 <code>값</code>이다.</strong></li>
 <li><code>함수를 호출할 때 함수를 넘기는 함수</code>나 <code>함수를 반환하는 함수</code>(ex) this를 바꿔치기 하는 메소드: bind)가 <code>고차 함수</code>에 속한다.</li>
 <li>함수를 인수로 받는 <code>Array</code>의 많은 메소드들(<code>forEach</code>, <code>map</code>, <code>reduce</code>, <code>filter</code>, <code>sort</code>, <code>every</code>, <code>some</code>, <code>find</code> 둥)은 고차 함수이다.</li>
-<li>다른 함수의 인수로 넘겨지는 함수를 <code>콜백(callback)</code>이라고 부른다.</li>
+<li><strong>다른 함수의 인수로 넘겨지는 함수</strong>를 <code>콜백(callback)</code>이라고 부른다.</li>
 </ul>
 <h2 id="클로저-Closure"><a href="#클로저-Closure" class="headerlink" title="클로저(Closure)"></a>클로저(Closure)</h2><ul>
-<li><strong>자바스크립트에서 스코프는 함수 단위.<br>자기 자신 스코프에 없으면<br>(자기 자신 스코프 내에서 찾는 해당 변수가 정의되어 있지 않거나 함수 등이 없으면)<br>상위 스코프로 올라가서 찾는다.<br>찾을 때까지 상위 스코프로 올라가서 찾으면 가져다가 쓴다.<br>없으면 global까지 올라간다.</strong></li>
+<li>자바스크립트에서 <code>스코프</code>는 <strong>함수 단위</strong></li>
+<li>자기 자신 스코프에 없으면<br>(자기 자신 스코프 내에서 찾는 해당 변수가 정의되어 있지 않거나 함수 등이 없으면)<br>상위 스코프로 올라가서 찾는다.</li>
+<li>찾을 때까지 상위 스코프로 올라가서 찾으면 가져다가 쓴다.</li>
+<li><strong>없으면 <code>global</code>까지 올라간다.</strong></li>
 <li>둘러싸고 있는 것. 성질. 좀비같은 것임</li>
 <li>예전에는 자바스크립트에서 아주 중요한 개념이었으나 요즘은 자주 쓰이지는 않음</li>
 </ul>
-<h3 id="클로저의-2가지-의미"><a href="#클로저의-2가지-의미" class="headerlink" title="클로저의 2가지 의미"></a>클로저의 2가지 의미</h3><ul>
-<li>바깥 스코프에 있는 변수를 가져다가 사용하는 <code>함수</code></li>
-<li>변수가 저장되는 <code>저장소</code></li>
-<li>고차함수를 사용할 때 클로저의 성질을 이용할 수 있다.</li>
+<hr>
+<h3 id="클로저의-2가지-의미"><a href="#클로저의-2가지-의미" class="headerlink" title="클로저의 2가지 의미"></a>클로저의 2가지 의미</h3><blockquote>
+<p>바깥 스코프에 있는 변수를 가져다가 사용하는 <code>함수</code><br>변수가 저장되는 <code>저장소</code></p>
+</blockquote>
+<hr>
+<ul>
+<li><code>고차함수</code>를 사용할 때 <strong><code>클로저</code>의 성질을 이용할 수 있다.</strong></li>
 <li><p><code>threshould</code>: 임계값, 기준값</p>
 </li>
 <li><p><code>클로저</code>는 데이터를 숨기고 정해진 방법을 통해서만 데이터에 접근할 수 있도록 제한을 두는 데 활용된다.</p>
@@ -216,6 +224,7 @@ ga('send', 'pageview');
 <li>다른 프로그래머가 내가 만든 값에 실수로라도 접근하거나 변경하지 못하게 하고 싶을 때 <code>클로저</code>를 사용한다.</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">personFactory</span>(<span class="params">initialAge</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> age = initialAge;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getOlder() &#123;</span><br><span class="line">      age++;</span><br><span class="line">    &#125;,</span><br><span class="line">    getAge() &#123;</span><br><span class="line">      <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// `age`를 직접 변경할 수 있는 방법이 없습니다!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = personFactory(<span class="number">20</span>);</span><br><span class="line">person.getAge();</span><br><span class="line"><span class="comment">// age가 비밀스런 저장공간인 클로저에 저장되었으므로  person.getAge()로 값을 가져올 수 있다.</span></span><br><span class="line"><span class="comment">// 밑에 코드를 추가해서 나이값을 바꿀 수는 없다.</span></span><br></pre></td></tr></table></figure>
+<hr>
 <h2 id="화살표-함수와-고차-함수"><a href="#화살표-함수와-고차-함수" class="headerlink" title="화살표 함수와 고차 함수"></a>화살표 함수와 고차 함수</h2><ul>
 <li><code>화살표 함수 문법</code>을 이용하면, <strong>적은 양의 코드만 사용해서(간단하게) <code>고차 함수</code>를 만들 수 있다.</strong></li>
 </ul>
@@ -232,6 +241,7 @@ ga('send', 'pageview');
 <ul>
 <li>재귀 함수를 작성할 때는<br><code>부분 문제</code>와 <code>종료 조건</code>(재귀 함수가 멈추는 부분)을 생각해 봐야 한다.<br>그 후에 코드로 구현하자.</li>
 </ul>
+<hr>
 <h1 id="객체-더-알아보기"><a href="#객체-더-알아보기" class="headerlink" title="객체 더 알아보기"></a>객체 더 알아보기</h1><h2 id="객체-자신의-속성-Own-Property"><a href="#객체-자신의-속성-Own-Property" class="headerlink" title="객체 자신의 속성(Own Property)"></a>객체 자신의 속성(Own Property)</h2><ul>
 <li>객체 자신이 특정 속성을 가지고 있는지를 확인하기 위해 <code>Object.prototype.hasOwnProperty</code>메소드를 사용한다.</li>
 <li><code>true</code> or <code>false</code>값을 반환</li>
@@ -404,7 +414,7 @@ ga('send', 'pageview');
             "name": "Phang"
         },
         "headline": "자바스크립트 7일차",
-        "image": "https://JihyeHwang09.github.io",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/51441624-d4e87180-1d16-11e9-86a6-d592a0f1ebb9.png",
         "keywords": "javaScript",
         "genre": "front-end javaScript",
         "datePublished": "2019-01-21",
@@ -418,9 +428,9 @@ ga('send', 'pageview');
 프로그래밍의 큰 흐름: 객체 지향 프로그래밍 vs 함수형 프로그래밍
 
 고차 함수(Higher-order Function)
-함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를 고차 함수(higher-order function)라고 한다.
-자바스크립트에서는 함"
-        "wordCount": 2627
+함수를 인수로 받는 함수, 또는 함수를 반환하는 함수를고차 함수(higher-order function)라고 한다.
+자바스크립트에서는 함수"
+        "wordCount": 2626
     }
 </script>
 
@@ -493,7 +503,7 @@ ga('send', 'pageview');
                             <a href="/2019/01/21/javascript7/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51441624-d4e87180-1d16-11e9-86a6-d592a0f1ebb9.png)" alt="자바스크립트 7일차" class="thumbnail-image"></span>
     
     
 </a>
