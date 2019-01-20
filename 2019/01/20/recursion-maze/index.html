@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="순환 함수,재귀 함수,미로 찾기,Decision Thinking">
     
-    <meta name="description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까">
+    <meta name="description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &amp;gt; 자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지">
 <meta name="keywords" content="순환 함수,재귀 함수,미로 찾기,Decision Thinking">
 <meta property="og:type" content="article">
 <meta property="og:title" content="미로 찾기(Decision Thinking)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/20/recursion-maze/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까">
+<meta property="og:description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &amp;gt; 자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51436914-1f4afd80-1cd9-11e9-8664-8568bc7317b2.png">
-<meta property="og:updated_time" content="2019-01-20T10:45:20.138Z">
+<meta property="og:updated_time" content="2019-01-20T10:46:58.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="미로 찾기(Decision Thinking)">
-<meta name="twitter:description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까">
+<meta name="twitter:description" content="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &amp;gt; 자료를 인용하였음을 알려드립니다.   미로 찾기 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면  현재 위치가 출구이거나 혹은 이웃한 셀들 중 하나에서 현재 위치를 지나지">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/51436914-1f4afd80-1cd9-11e9-8664-8568bc7317b2.png">
     
 
@@ -190,7 +190,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <h4 id="이번에는-Recursion의-응용-미로-찾기에-대해-알아봅시다"><a href="#이번에는-Recursion의-응용-미로-찾기에-대해-알아봅시다" class="headerlink" title="이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다."></a>이번에는 <code>Recursion의 응용-미로 찾기</code>에 대해 알아봅시다.</h4><blockquote>
-<p><strong>본 포스팅은</strong><br>&lt;<a href="https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/" target="_blank" rel="noopener">인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌</a><br><strong>자료를 인용하였음을 알려드립니다.</strong></p>
+<p><strong>본 포스팅은</strong><br>&lt;<a href="https://www.inflearn.com/course/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%95%EC%A2%8C/" target="_blank" rel="noopener">인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌</a> &gt; <strong>자료를 인용하였음을 알려드립니다.</strong></p>
 </blockquote>
 <hr>
 <h2 id="미로-찾기"><a href="#미로-찾기" class="headerlink" title="미로 찾기"></a>미로 찾기</h2><p><img src="https://user-images.githubusercontent.com/37353837/51436914-1f4afd80-1cd9-11e9-8664-8568bc7317b2.png" alt=""></p>
@@ -229,7 +229,7 @@ ga('send', 'pageview');
 <p>recursion이 1번 반복될 때마다<br>새로운 셀이 visited로 표시가 되고, 셀의 개수는 유한하기 때문에<br>-&gt; 무한 루프에 빠지지 않게 된다.</p>
 <h3 id="point-2"><a href="#point-2" class="headerlink" title="point 2"></a>point 2</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (x<span class="string">', y'</span>) is on the pathway and not visited</span><br><span class="line">    <span class="function"><span class="keyword">if</span> <span class="title">findPath</span><span class="params">(x<span class="string">', y'</span>)</span></span></span><br><span class="line"><span class="function">        return <span class="keyword">true</span></span>;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>recursion에 들어가기 전에 먼저,<br>그 지점(x’, y’)이 <strong>벽이 아닌지</strong> 혹은 <strong>이미 방문한 지점이 아닌지</strong>를 *<em>체크</em>8 한다.</li>
+<li>recursion에 들어가기 전에 먼저,<br>그 지점(x’, y’)이 <strong>벽이 아닌지</strong> 혹은 <strong>이미 방문한 지점이 아닌지</strong>를 <strong>체크</strong> 한다.</li>
 <li>둘 다에 해당되지 않으면, recursion에 들어가게 설계한다.</li>
 </ul>
 <hr>
@@ -241,7 +241,7 @@ ga('send', 'pageview');
 </ul>
 <ul>
 <li>이 경우에는 미로 찾기 1번 방식보다 <strong>recursion이 호출되는 횟수는 많아진다.</strong><br>대신 <strong>코드는 간결해진다</strong>는 장점이 있다.</li>
-<li>cf) 미로 찾기 1번, 2번 코드는 <strong>어</strong>느 코드가 더 낫다고 결론지을 수 없고, 보통 취향에 따라 선택해서 작성**한다.</li>
+<li>cf) 미로 찾기 1번, 2번 코드는 <strong>어느 코드가 더 낫다고 결론지을 수 없고, 보통 취향에 따라 선택</strong>해서 작성한다.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">findPath</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// First Base Case: (x, y)가 벽이거나 이미 방문한 셀이라면,</span></span><br><span class="line">    <span class="keyword">if</span> (x, y) is either on the wall or visited cell</span><br><span class="line">    <span class="comment">// 즉시 false를 return하고 함수를 종료한다.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">// 그렇지 않으면서 (x, y)가 출구라면</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x, y) is the exit</span><br><span class="line">        <span class="comment">// (x, y)부터 출구까지가는 경로가 존재하는 것이므로</span></span><br><span class="line">        <span class="comment">// true를 return하고 함수를 종료한다.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">// 그렇지 않다면((x, y)가 출구가 아니라면)</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="comment">// 이 셀(x, y)를 visited라고 표시를 해서</span></span><br><span class="line">        <span class="comment">// 이 위치를 중복 방문하는 일을 방지한 다음에</span></span><br><span class="line">        mark (x, y) as a visited cell;</span><br><span class="line">        <span class="comment">// 그 위치(x, y)에 인접한 각각의 셀(x', y')에 대해서</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="function">each neighbouring <span class="title">cell</span> <span class="params">(x<span class="string">', y'</span>)</span> <span class="title">of</span> <span class="params">(x, y)</span> <span class="keyword">do</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// (x', y')가 벽인지, 방문했는지 여부를 검사하지 않고</span></span><br><span class="line">            <span class="comment">// 그냥 recursion을 호출한다.</span></span><br><span class="line">            <span class="comment">// 왜냐하면, recursion을 호출하면 함수가 실행되고</span></span><br><span class="line">            <span class="comment">// 즉시(맨 처음 코드) if절에 걸려서 false가 return될 것이기 때문에</span></span><br><span class="line">            <span class="comment">// 여기에서 굳이 검사해 주지 않는다!</span></span><br><span class="line">            <span class="function"><span class="keyword">if</span> <span class="title">findPath</span><span class="params">(x<span class="string">', y'</span>)</span></span></span><br><span class="line"><span class="function">            <span class="comment">// 인접한 셀이 최대 4개이므로 4번 호출하고,</span></span></span><br><span class="line"><span class="function">            <span class="comment">// 그 중 하나라도 true라면 true를 반환하고 함수를 종료한다.</span></span></span><br><span class="line"><span class="function">                return <span class="keyword">true</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 아래 코드까지 왔다는 것은 전부 false라는 뜻이다.</span></span><br><span class="line">        <span class="comment">// -&gt; 따라서, false를 return 한다.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
@@ -375,15 +375,15 @@ ga('send', 'pageview');
         "dateModified": "2019-01-20",
         "url": "https://JihyeHwang09.github.io/2019/01/20/recursion-maze/",
         "description": "이번에는 Recursion의 응용-미로 찾기에 대해 알아봅시다.
-본 포스팅은&lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌자료를 인용하였음을 알려드립니다.
+본 포스팅은&lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &gt; 자료를 인용하였음을 알려드립니다.
 
 
 미로 찾기
 Recursive Thinking현재 위치에서 출구까지 가는 경로가 있으려면
 
 현재 위치가 출구이거나 혹은
-이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까"
-        "wordCount": 3108
+이웃한 셀들 중 하나에서 현재 위치를 지나지 "
+        "wordCount": 3110
     }
 </script>
 
