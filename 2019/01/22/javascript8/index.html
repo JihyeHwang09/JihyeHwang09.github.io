@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>자바스크립트 8일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="javaScript">
+    
+    <meta name="description" content="연산자 더 알아보기표현식(Expression) 표현식: 코드 중에 값으로 변환될 수 있는 부분 평가: 표현식을 값으로 변환하기 위해 실제로 해당 표현식을 실행시키는 절차  단축 평가(Short-circuit Evaluation)단축 평가의 연산자는 React할 때 많이 쓰인다. &amp;amp;&amp;amp;  왼쪽 피연산자가 falsy이면 이 값을 반환.오른쪽 피연산">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트 8일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/22/javascript8/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="연산자 더 알아보기표현식(Expression) 표현식: 코드 중에 값으로 변환될 수 있는 부분 평가: 표현식을 값으로 변환하기 위해 실제로 해당 표현식을 실행시키는 절차  단축 평가(Short-circuit Evaluation)단축 평가의 연산자는 React할 때 많이 쓰인다. &amp;amp;&amp;amp;  왼쪽 피연산자가 falsy이면 이 값을 반환.오른쪽 피연산">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51489808-b48ae680-1dec-11e9-8cf0-d5007041c48f.png">
+<meta property="og:updated_time" content="2019-01-21T17:23:49.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자바스크립트 8일차">
+<meta name="twitter:description" content="연산자 더 알아보기표현식(Expression) 표현식: 코드 중에 값으로 변환될 수 있는 부분 평가: 표현식을 값으로 변환하기 위해 실제로 해당 표현식을 실행시키는 절차  단축 평가(Short-circuit Evaluation)단축 평가의 연산자는 React할 때 많이 쓰인다. &amp;amp;&amp;amp;  왼쪽 피연산자가 falsy이면 이 값을 반환.오른쪽 피연산">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/51489808-b48ae680-1dec-11e9-8cf0-d5007041c48f.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-javascript8" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자바스크립트 8일차
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/01/22/javascript8/" class="article-date">
+            <time datetime="2019-01-21T17:01:07.000Z" itemprop="datePublished">2019-01-22</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="연산자-더-알아보기"><a href="#연산자-더-알아보기" class="headerlink" title="연산자 더 알아보기"></a>연산자 더 알아보기</h1><h2 id="표현식-Expression"><a href="#표현식-Expression" class="headerlink" title="표현식(Expression)"></a>표현식(Expression)</h2><ul>
+<li><code>표현식</code>: 코드 중에 값으로 변환될 수 있는 부분</li>
+<li><code>평가</code>: 표현식을 값으로 변환하기 위해 실제로 해당 표현식을 실행시키는 절차</li>
+</ul>
+<h2 id="단축-평가-Short-circuit-Evaluation"><a href="#단축-평가-Short-circuit-Evaluation" class="headerlink" title="단축 평가(Short-circuit Evaluation)"></a>단축 평가(Short-circuit Evaluation)</h2><p>단축 평가의 연산자는 <strong>React할 때 많이 쓰인다.</strong></p>
+<p><code>&amp;&amp;</code></p>
+<ul>
+<li>왼쪽 피연산자가 <code>falsy</code>이면 이 값을 반환.<br><strong>오른쪽 피연산자는 코드가 실행조차 안된다.</strong></li>
+<li>왼쪽 피연산자가 <strong><code>falsy</code>가 아니면,</strong><br>오른쪽 피연산자를 평가한 후, 이 값을 반환</li>
+</ul>
+<p><code>||</code></p>
+<ul>
+<li>왼쪽 피연산자를 평가해서 <code>truthy</code>이면, <strong>이 값을 바로 반환.</strong></li>
+<li>아니라면 <strong>오른쪽 피연산자를 평가한 결과값을 반환.</strong></li>
+<li>특히 <code>||</code> 연산자는 ‘기본 매개변수’ 문법이 생기기 전까지<br>매개변수의 기본값을 지정하는 용도로 많이 사용됐다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">arg = <span class="string">"hello"</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arg);</span><br><span class="line">  <span class="comment">// arg가 undefined일 때만 'hello'를 출력</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">  arg = arg || <span class="string">"hello"</span>;</span><br><span class="line">  <span class="comment">// 매개변수 자리에 아무것도 안들어오면 undefined</span></span><br><span class="line">  <span class="comment">// -&gt; arg가 falsy이므로 오른쪽 피연산자를 평가하게 됨.</span></span><br><span class="line">  <span class="comment">// arg가 falsy이면 'hello'를 출력</span></span><br><span class="line">  <span class="built_in">console</span>.log(arg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func3</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (arg === <span class="literal">undefined</span>) &#123;</span><br><span class="line">    arg = <span class="string">"hello"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(arg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="삼항-연산자-Ternary-Operator"><a href="#삼항-연산자-Ternary-Operator" class="headerlink" title="삼항 연산자 (Ternary Operator)"></a>삼항 연산자 (Ternary Operator)</h2><ul>
+<li>삼항 연산자 역시 평가할 필요가 없는 부분은 평가하지 않는다.</li>
+<li><code>if...else</code>구문처럼 작동한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> ? <span class="number">1</span> : <span class="number">2</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// : 오른쪽의 코드는 실행조차 안함</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> ? <span class="number">1</span> : <span class="number">2</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// : 왼쪽의 코드는 실행조차 안함</span></span><br></pre></td></tr></table></figure>
+<h2 id="증가-감소-연산자-Increment-Decrement-Operator"><a href="#증가-감소-연산자-Increment-Decrement-Operator" class="headerlink" title="증가/감소 연산자 (Increment/Decrement Operator)"></a>증가/감소 연산자 (Increment/Decrement Operator)</h2><ul>
+<li><code>증가/감소 연산자</code>의 결과값을 어딘가에 저장하거나 사용할 때 <strong>코드의 실행 결과가 달라진다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  아래 코드 예제의 위에 있는 루프는 3번 실행되지만,</span></span><br><span class="line"><span class="comment">// 아래 있는 루프는 2번 밖에 실행되지 않는다.</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">while</span> (i--) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"감소 연산자를 뒤에 쓰면 어떻게 될까요?"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> j = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">while</span> (--j) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"감소 연산자를 앞에 쓰면 어떻게 될까요?"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="할당-연산자-Assignment-Operator"><a href="#할당-연산자-Assignment-Operator" class="headerlink" title="할당 연산자 (Assignment Operator)"></a>할당 연산자 (Assignment Operator)</h2><ul>
+<li><code>j -= 1</code>과 <code>--j</code>는 <strong>같은 의미</strong></li>
+<li>j를 1감소시킨 후에 j에 대입하므로 같은 의미이다.</li>
+<li>할당 연산자에 대한 표현식의 결과값은 <code>왼쪽 피연산자에 실제로 할당된 값</code>이 된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i, j, k, l, m, n;</span><br><span class="line">i = j = k = l = m = n = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 이런 표현식도 쓸 수 있다.</span></span><br><span class="line"><span class="comment">// =연산자는 오른쪽부터 계산된다.</span></span><br></pre></td></tr></table></figure>
+<h2 id="연산자-우선-순위-Operator-Precedence"><a href="#연산자-우선-순위-Operator-Precedence" class="headerlink" title="연산자 우선 순위 (Operator Precedence)"></a>연산자 우선 순위 (Operator Precedence)</h2><h2 id="연산자-결합-순서-Operator-Associativity"><a href="#연산자-결합-순서-Operator-Associativity" class="headerlink" title="연산자 결합 순서 (Operator Associativity)"></a>연산자 결합 순서 (Operator Associativity)</h2><ul>
+<li>부등호를 연달아 2개 쓸 수 <strong>없다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 위아래 식은 완전히 같은 방식으로 동작합니다.</span></span><br><span class="line"><span class="comment">// 결과적으로 `true &gt; 1`이 되어 결과값이 `false`가 됩니다.</span></span><br><span class="line"><span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>;</span><br><span class="line"><span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>;</span><br><span class="line"><span class="literal">true</span> &gt; <span class="number">1</span>; <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 세 개의 수에 대한 비교를 하고 싶다면 아래와 같이 해야 합니다.</span></span><br><span class="line"><span class="number">3</span> &gt; <span class="number">2</span> &amp;&amp; <span class="number">2</span> &gt; <span class="number">1</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 삼항 연산자 예제 코드</span></span><br><span class="line"><span class="keyword">const</span> num = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">const</span> str = num === <span class="number">1</span> ? <span class="string">"one"</span> : num === <span class="number">2</span> ? <span class="string">"two"</span> : num === <span class="number">3</span> ? <span class="string">"three"</span> : <span class="string">"?"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>삼항연산자를 너무 여러 개 이어서 쓰면 한 눈에 알아보기 어렵다.</li>
+<li><code>if...else</code>처럼 작동하게 하고 싶은데 꼭 표현식이어야 한다면 삼항연산자를 사용해야 한다.</li>
+<li><code>거듭제곱 연산자</code>, <code>할당 연산자</code>는 오른쪽부터 실행된다.</li>
+<li><code>삼항연산자</code>는 괄호는 오른쪽부터 쳐지는데, 실행은 왼쪽부터 작동한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 위아래 식은 완전히 같은 방식으로 동작합니다.</span></span><br><span class="line">a ? b : c ? d : e ? f : g;</span><br><span class="line">a ? b : c ? d : e ? f : g;</span><br></pre></td></tr></table></figure>
+<h2 id="값을-비교하는-여러-가지-방법"><a href="#값을-비교하는-여러-가지-방법" class="headerlink" title="값을 비교하는 여러 가지 방법"></a>값을 비교하는 여러 가지 방법</h2><ul>
+<li><code>==</code>연산자는 두 피연산자의 타입이 다를 때는 <strong>타입을 변환한 후 비교</strong>한다.</li>
+<li>null check할 때만 <code>==</code>연산자를 사용하자.</li>
+</ul>
+<h3 id="엄격한-동일성-Strict-Equality"><a href="#엄격한-동일성-Strict-Equality" class="headerlink" title="엄격한 동일성(Strict Equality)"></a>엄격한 동일성(Strict Equality)</h3><ul>
+<li><code>===</code>, <code>!==</code> 연산자는 두 피연산자의 <strong>타입이 다른 경우에는 무조건 <code>false</code>를 반환</strong>한다.</li>
+<li><code>NaN</code>은 <code>===</code>로 비교하면 자기 자신에 대해서도 같지 않다고 <code>false</code>가 반환된다.</li>
+<li><code>NaN</code>인지 아닌지 검사할 때는 <code>Number.isNaN</code>을 사용해야 한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// `===` 연산에서, `NaN`은 number 타입의 **모든** 값과 다릅니다.</span></span><br><span class="line"><span class="comment">// 이는 자기 자신에 대해서도 마찬가지입니다.</span></span><br><span class="line"><span class="literal">NaN</span> === <span class="literal">NaN</span>; <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// `0`과 `-0`은 서로 다른 값이지만,</span></span><br><span class="line"><span class="comment">//  `===` 연산은 이 둘을 같은 것으로 취급합니다.</span></span><br><span class="line"><span class="number">0</span> === <span class="number">-0</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is"></a>Object.is</h3><ul>
+<li><strong>두 인수가 정말로 같은 값인지</strong>를 검사</li>
+<li>아래의 두 예외를 제외하고는 <strong><code>===</code> 연산자와 같은 방식으로 동작</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="literal">NaN</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="number">0</span>, <span class="number">-0</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h3 id="무엇을-써야-하나요"><a href="#무엇을-써야-하나요" class="headerlink" title="무엇을 써야 하나요?"></a>무엇을 써야 하나요?</h3><ul>
+<li>특별한 경우를 제외하고는 <code>===</code> 혹은 <code>!==</code>연산자를 사용해서 비교를 하면 된다.</li>
+</ul>
+<h2 id="Spread-Syntax"><a href="#Spread-Syntax" class="headerlink" title="Spread Syntax"></a>Spread Syntax</h2><ul>
+<li><strong>배열을 이어붙이거나 복사할 때 사용</strong>한다.</li>
+<li>배열이 들어가는 게 아니라 배열의 요소들이 펼쳐져서 들어간다.</li>
+<li>Spread 문법을 통해 배열 리터럴의 중간에 다른 배열을 이어붙일 수 있다.</li>
+<li>이 때, arr1 안에 있는 요소들이 arr2 안으로 복사된다.</li>
+</ul>
+<ul>
+<li><strong>배열을 복사</strong>할 때는 <code>Spread Sytax</code>보다는 <code>slice 메소드</code>가 더 자주 사용된다.</li>
+<li><code>Spread Syntax</code>도 <code>slice 메소드</code>와 마찬가지로 <code>얕은 복사</code>를 한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">1</span>, <span class="number">2</span>, ...arr1, <span class="number">5</span>]; <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 이전에는 같은 작업을 하기 위해 `Array.prototype.concat` 메소드를 사용했습니다.</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>].concat(arr1).concat([<span class="number">5</span>]); <span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Spread 문법</code>은 *<em>함수 호출 시에도 사용할 수 있다.</em>8</li>
+<li>이 때 배열의 모든 요소를 함수의 인수로 넘긴다.</li>
+<li><code>Spread 문법</code>은 <strong>배열을 펼쳐서 요소들을 넣고 싶을 때,<br>함수의 인수로 배열을 넘기고 싶을 때</strong> 사용한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 배열 앞에 ...붙이는 건 ES2018에 추가된 문법.</span></span><br><span class="line"><span class="comment">// 어떤 브라우저에서는 동작하지 않을 수 있으므로 꼭 변환한 코드로 적용해야 한다.</span></span><br><span class="line"><span class="comment">// 아래 코드는 `Math.max(1, 2, 3, 4, 5)`와 동일합니다.</span></span><br><span class="line"><span class="built_in">Math</span>.max(...arr); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 이전에는 같은 작업을 하기 위해 `Function.prototype.apply` 메소드를 사용했습니다.</span></span><br><span class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<h3 id="객체"><a href="#객체" class="headerlink" title="객체"></a>객체</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Object Spread 예제 코드</span></span><br><span class="line"><span class="keyword">const</span> obj1 = &#123; <span class="attr">prop</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; ...obj1 &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj1 = &#123; <span class="attr">prop</span>: <span class="number">1</span>, <span class="attr">a</span>: <span class="number">2</span>, <span class="attr">b</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">b</span>: <span class="number">4</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="number">7</span>,</span><br><span class="line">  b: <span class="number">8</span>,</span><br><span class="line">  ...obj1,</span><br><span class="line">  ...obj2,</span><br><span class="line">  c: <span class="number">4</span>,</span><br><span class="line">  d: <span class="number">5</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// array spread flatten 코드</span></span><br><span class="line"><span class="keyword">const</span> arr = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> [...acc, ...item], []);</span><br><span class="line">  <span class="comment">// return arr.reduce((acc, item) =&gt; acc.concat(item), [])</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">flatten(arr);</span><br></pre></td></tr></table></figure>
+<h2 id="분해대입-비구조할당-Destructuring-Assignment"><a href="#분해대입-비구조할당-Destructuring-Assignment" class="headerlink" title="분해대입. 비구조할당 (Destructuring Assignment)"></a>분해대입. 비구조할당 (Destructuring Assignment)</h2><h3 id="배열의-분해대입"><a href="#배열의-분해대입" class="headerlink" title="배열의 분해대입"></a>배열의 분해대입</h3><ul>
+<li>배열 순서 섞을 때, [x, y] = [y, x]를 이용해 보기</li>
+</ul>
+<h3 id="객체의-분해대입"><a href="#객체의-분해대입" class="headerlink" title="객체의 분해대입"></a>객체의 분해대입</h3><ul>
+<li>수의 선언과 동시에 객체의 속성을 해당 변수에 대입할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">a</span>: prop1, <span class="attr">b</span>: prop2 &#125; = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(prop1, prop2); <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>속성 이름과 변수 이름이 같다면 변수 이름을 생략할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 위의 예제보다 이 예제처럼 변수 이름을 생략하는 경우가 훨씬 압도적으로 더 많이 사용된다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; a, b &#125; = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a, b); <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a, b;</span><br><span class="line"><span class="comment">// 자바스크립트에서는 문장이 여는 중괄호`&#123;&#125;`로 시작되면 이는 '블록'으로 간주되므로,</span></span><br><span class="line"><span class="comment">// &#123;a, b&#125;가 블록이라고 간주되서 에러가 난다.</span></span><br><span class="line">&#123;a, b&#125; = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;; <span class="comment">//SyntaxError: Unexpected token</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 아래와 같이 분해대입을 할 때는 식 전체를 괄호()로 둘러싸주어야 합니다.</span></span><br><span class="line"><span class="comment">//()가 문장의 첫 글자이면 아~ &#123;&#125; 블록이랑 다른거구나~ 라고 자바스크립트가 인식한다.</span></span><br><span class="line">(&#123;a, b&#125; = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a, b); <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>화살표 함수</code>에서 중괄호<code>{}</code>가 등장하면,<br>객체라고 인식하는게 아니라 ‘구문이구나.표현식이구나’ 라고 인식하므로<br>객체를 반환하고 싶으면 괄호<code>()</code>로 감싸줘야 한다.</li>
+<li><code>화살표 함수</code>에서 <strong>객체를 바로 반환</strong>하고 싶은 경우,<br><strong>괄호<code>()</code>로 객체를 둘러싸주어야 한다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> returnObj = <span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123;</span><br><span class="line">  x, y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 표현식의 결과는 y. 아무 리턴도 하고 있지 않음.</span></span><br><span class="line"><span class="keyword">const</span> returnObj = <span class="function">(<span class="params">x, y</span>) =&gt;</span> (&#123; x, y &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(returnObj(<span class="number">1</span>, <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>객체가 중첩되어 있으면, 해당 객체에 대해서 분해대입을 할 수 있다.</li>
+</ul>
+<h3 id="객체의-나머지-속성"><a href="#객체의-나머지-속성" class="headerlink" title="객체의 나머지 속성"></a>객체의 나머지 속성</h3><ul>
+<li>분해대입 시 무시된 속성들을 가지고 새로운 객체를 만들고 싶다면,<br><code>...</code>을 붙여주면 된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a, b, ...rest &#125; = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>, <span class="attr">d</span>: <span class="number">4</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(rest); <span class="comment">// &#123; c: 3, d: 4 &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="분해대입의-기본값"><a href="#분해대입의-기본값" class="headerlink" title="분해대입의 기본값"></a>분해대입의 기본값</h3><ul>
+<li><p>분해대입 시, 만약 좌측 변수의 위치에 해당하는 값이 우측의 배열 혹은 객체에 존재하지 않으면<br>거기에는 대입이 일어나지 않는다.<br>-&gt; undefined가 나온다.</p>
+</li>
+<li><p>좌측 변수에 기본으로 대입될 값으로 미리 지정해둘 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 많이 사용되는 기능임</span></span><br><span class="line"><span class="comment">// `c` 위치에는 대입될 값이 없으므로, 기본값인 `3`이 대신 사용됩니다.</span></span><br><span class="line"><span class="keyword">let</span> [a, b, c = <span class="number">3</span>] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<h3 id="매개변수에서의-분해대입"><a href="#매개변수에서의-분해대입" class="headerlink" title="매개변수에서의 분해대입"></a>매개변수에서의 분해대입</h3><ul>
+<li>함수의 매개변수에서 분해대입을 할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123; prop, array: [item1, item2, item3 = <span class="number">4</span>] &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(prop);</span><br><span class="line">  <span class="built_in">console</span>.log(item1);</span><br><span class="line">  <span class="built_in">console</span>.log(item2);</span><br><span class="line">  <span class="built_in">console</span>.log(item3);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1, 2, 3, 4가 차례대로 출력됩니다.</span></span><br><span class="line">func(&#123; <span class="attr">prop</span>: <span class="number">1</span>, <span class="attr">array</span>: [<span class="number">2</span>, <span class="number">3</span>] &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>분해 대입은 요즘 덧셈만큼 많이 쓰인다. 특히, 할당할 때 많이 쓰이므로 잘 익혀두어야 한다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 매개변수에서 객체를 분해대입하는 코드가 많이 쓰이고 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">name, age, address, country</span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 특정 매개변수의 역할을 바로 알아보기 어렵다.</span></span><br><span class="line"><span class="comment">// 함수를 사용할 때마다 매개변수의 이름과 순서를 기억해야 한다는 불편함이 있다.</span></span><br><span class="line"><span class="comment">// 순서를 바꿔서 쓰면 문제가 생긴다.</span></span><br><span class="line">func(<span class="number">31</span>, <span class="string">"김승하"</span>, <span class="string">"관악구"</span>, <span class="string">"대한민국"</span>);</span><br><span class="line">func(<span class="string">"김승하"</span>, <span class="number">31</span>, <span class="string">"관악구"</span>, <span class="string">"대한민국"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params">&#123; name, age, address, country &#125;</span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">func2(&#123;</span><br><span class="line">  <span class="comment">// 직관적으로 알아보기 쉽고, 순서를 바꿔도 이상없이 잘 동작한다.</span></span><br><span class="line">  name: <span class="string">"김승하"</span>,</span><br><span class="line">  age: <span class="number">31</span>,</span><br><span class="line">  address: <span class="string">"관악구"</span>,</span><br><span class="line">  country: <span class="string">"대한민국"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="FDS-브라우저-측-JavaScript"><a href="#FDS-브라우저-측-JavaScript" class="headerlink" title="FDS 브라우저 측 JavaScript"></a>FDS 브라우저 측 JavaScript</h1><h2 id="DOM-API"><a href="#DOM-API" class="headerlink" title="DOM API"></a>DOM API</h2><ul>
+<li>실무에서는 DOM API를 직접 쓸 일은 거의 없다.</li>
+<li>React가 DOM API를 기반으로 되어 있기 떄문에 이해가 필요하다.</li>
+<li><p>React를 벗어나는 수준의 고급 웹 개발에도 필요하기 때문에 <code>DOM API</code>를 공부할 필요가 있다.</p>
+</li>
+<li><p><code>DOM API</code>: 문서를 조작하는 API</p>
+</li>
+<li>라우터가 내장하고 있는 수많은 WEB API들 중에 하나임<br>(통신을 위한 API, 모바일 화면이 가로인지 세로인지 등을 인식하는 API 등이 있음)</li>
+<li>메모리에 올라간 html파일을 편집하고 있는 것이므로<br>하드디스크에 저장되어있는 html 문서 내용이 바뀌는 건 X.</li>
+</ul>
+<h2 id="요소-선택하기"><a href="#요소-선택하기" class="headerlink" title="요소 선택하기"></a>요소 선택하기</h2><ul>
+<li><code>document.querySelector(selector)</code> - CSS 선택자를 통해 <strong>단일 요소</strong> 가져오기<ul>
+<li>이 selector와 일치하는 가장 첫번째 요소 하나를 가져온다.</li>
+</ul>
+</li>
+<li>el은 요소 객체</li>
+<li><code>document.querySelectorAll(selector)</code> - CSS 선택자를 통해 <strong>여러 요소</strong> 가져오기<ul>
+<li>못 찾은 경우 <code>null</code> 반환</li>
+</ul>
+</li>
+<li><code>el.querySelector(selector)</code>- CSS 선택자를 통해 <strong>단일 자식 요소</strong>를 가져오기</li>
+<li><code>el.closest(selector)</code>- 엘리먼트의 조상 중에 CSS 선택자와 일치하는 <strong>가장 가까운 조상 요소</strong> 가져오기</li>
+<li><code>el.matches(selector)</code>- 해당 요소가 CSS 선택자와 일치하는지 검사하기</li>
+</ul>
+<h2 id="요소-내용-조작하기"><a href="#요소-내용-조작하기" class="headerlink" title="요소 내용 조작하기"></a>요소 내용 조작하기</h2><ul>
+<li><p>내용을 읽어오거나 변경하는 방법 2가지</p>
+</li>
+<li><p><code>el.textContent</code>: 요소 본문을 가져오거나 변경할 때 사용하는 속성 (텍스트).<br>태그를 제외하고 텍스트 내용만 넣거나 반환</p>
+</li>
+<li><p><code>el.innerHTML</code> - 요소 본문을 가져오거나 변경할 때 사용하는 속성 (HTML).<br>태그를 포함해서 html으로써 넣거나 반환</p>
+</li>
+<li><p>대부분은 <code>textContent</code>를 사용한다.</p>
+</li>
+<li><p>특히, 사용자로부터 입력받은 텍스트를 <code>innerHTML</code>에 대입해서는 <strong>절대로 안된다.</strong><br><code>textContent</code>를 사용하자.</p>
+</li>
+<li><p>악의적인 사용자가 자바스크립트로 해킹하는 코드를 게시물로 올렸을 때,<br>사용자로부터 입력받은 텍스트를 <code>innerHTML</code>에 대입하도록 하면 해킹하는 데에 이용될 수 있다.</p>
+</li>
+</ul>
+<p><a href="https://codepen.io/jihyehwang09/pen/Regzmj" target="_blank" rel="noopener">요소 선택하기 &amp; 조작하기 실습 코드(Counter 실습)</a></p>
+<h2 id="요소-어트리뷰트-조작하기"><a href="#요소-어트리뷰트-조작하기" class="headerlink" title="요소 어트리뷰트 조작하기"></a>요소 어트리뷰트 조작하기</h2><ul>
+<li><code>el.hasAttribute(attrName)</code>- 어트리뷰트가 있는지 검사하기</li>
+<li><code>el.getAttribute(attrName)</code>- 어트리뷰트의 값 가져오기</li>
+<li><code>el.setAttribute(attrName, attrValue)</code>- 어트리뷰트 설정하기</li>
+<li><code>el.removeAttribute(attrName)</code>- 어트리뷰트 삭제하기</li>
+</ul>
+<p><a href="https://codepen.io/jihyehwang09/pen/ePRqjB" target="_blank" rel="noopener">리스너 붙이기, 떼기 실습 코드</a></p>
+<h2 id="요소-클래스-조작하기"><a href="#요소-클래스-조작하기" class="headerlink" title="요소 클래스 조작하기"></a>요소 클래스 조작하기</h2><ul>
+<li><code>el.classList.add(className, ...)</code> - 클래스 추가</li>
+<li><code>el.classList.remove(className, ...)</code>- 클래스 삭제</li>
+<li><code>el.classList.contains(className)</code>- 클래스 포함 여부 검사</li>
+</ul>
+<p><a href="https://codepen.io/jihyehwang09/pen/ePRqjB" target="_blank" rel="noopener">클래스 추가, 제거 실습 코드(Form Scripting 실습)</a></p>
+<ul>
+<li><code>boolean attribute</code>: 붙어있으면 <code>true</code>, 없으면 <code>false</code>기능을 하는 attribute</li>
+<li><code>클래스명</code>이 <strong>여러 개</strong> 들어있을 때,<br><code>setAttribute</code>를 하면 <strong>기존의 여러가지 클래스들이 다 지워진다</strong>는 버그가 있다.<br>-&gt; <code>setAttribute</code>로 클래스 이름을 추가하는 작업은 거의 하지 않는다.<br>-&gt;<code>classList.add(className,...)</code>하면 쉽게 클래스 이름을 추가할 수 있다.</li>
+</ul>
+<h2 id="인라인-스타일-조작하기"><a href="#인라인-스타일-조작하기" class="headerlink" title="인라인 스타일 조작하기"></a>인라인 스타일 조작하기</h2><ul>
+<li><code>el.style</code>- 요소의 인라인 스타일을 읽고 쓸 때 사용하는 객체. <code>camelCase</code> 사용<ul>
+<li><code>el.style.backgroundColor = &#39;#000000&#39;</code>- 요소의 배경색을 검은색으로 변경</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "자바스크립트 8일차",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/51489808-b48ae680-1dec-11e9-8cf0-d5007041c48f.png",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
+        "datePublished": "2019-01-22",
+        "dateCreated": "2019-01-22",
+        "dateModified": "2019-01-22",
+        "url": "https://JihyeHwang09.github.io/2019/01/22/javascript8/",
+        "description": "연산자 더 알아보기표현식(Expression)
+표현식: 코드 중에 값으로 변환될 수 있는 부분
+평가: 표현식을 값으로 변환하기 위해 실제로 해당 표현식을 실행시키는 절차
+
+단축 평가(Short-circuit Evaluation)단축 평가의 연산자는 React할 때 많이 쓰인다.
+&amp;&amp;
+
+왼쪽 피연산자가 falsy이면 이 값을 반환.오른쪽 피연산"
+        "wordCount": 2262
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/01/21/recursion-counting-cells-in-a-blob/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Recursion의 응용 - Counting Cells in a Blob</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/22/javascript8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51489808-b48ae680-1dec-11e9-8cf0-d5007041c48f.png)" alt="자바스크립트 8일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/22/javascript8/" class="title">자바스크립트 8일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-21T17:01:07.000Z" itemprop="datePublished">2019-01-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/21/recursion-counting-cells-in-a-blob/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51456921-c2ac1900-1d92-11e9-8003-e8efdd5f53bf.png)" alt="Recursion의 응용 - Counting Cells in a Blob" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2019/01/21/recursion-counting-cells-in-a-blob/" class="title">Recursion의 응용 - Counting Cells in a Blob</a></p>
+                            <p class="item-date"><time datetime="2019-01-21T03:45:09.000Z" itemprop="datePublished">2019-01-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/21/javascript7/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51441624-d4e87180-1d16-11e9-86a6-d592a0f1ebb9.png)" alt="자바스크립트 7일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/21/javascript7/" class="title">자바스크립트 7일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-20T15:29:09.000Z" itemprop="datePublished">2019-01-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/20/recursion-maze/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51436914-1f4afd80-1cd9-11e9-8664-8568bc7317b2.png)" alt="미로 찾기(Decision Thinking)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2019/01/20/recursion-maze/" class="title">미로 찾기(Decision Thinking)</a></p>
+                            <p class="item-date"><time datetime="2019-01-20T08:17:57.000Z" itemprop="datePublished">2019-01-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/19/javascript6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51421904-825d6700-1be9-11e9-8c9b-81cf1fb74d0f.png)" alt="자바스크립트 6일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/19/javascript6/" class="title">자바스크립트 6일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-19T03:50:27.000Z" itemprop="datePublished">2019-01-19</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">5</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">24</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 12px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 12px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 12px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 12px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 12px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 12px;">framework</a> <a href="/tags/front-end/" style="font-size: 18px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 12px;">platform</a> <a href="/tags/recursion/" style="font-size: 12px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 14px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 12px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 12px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 14px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 16px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 14px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 14px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/01/22/javascript8/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
