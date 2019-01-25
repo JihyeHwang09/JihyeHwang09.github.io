@@ -21,7 +21,7 @@
 <meta property="og:description" content="previousElementSibling previousElementSibling는 가장 앞에 있는 요소에 주면, null이 반환된다.  insertBefore와 appendChild insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 동작한다.  nextElmentSibling 맨 마지막에 있는 요소의 nextElme">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51750128-76dfd380-20f4-11e9-94fc-7e3c8b6efdf8.png">
-<meta property="og:updated_time" content="2019-01-25T14:19:08.471Z">
+<meta property="og:updated_time" content="2019-01-25T14:23:20.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 11일차">
 <meta name="twitter:description" content="previousElementSibling previousElementSibling는 가장 앞에 있는 요소에 주면, null이 반환된다.  insertBefore와 appendChild insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 동작한다.  nextElmentSibling 맨 마지막에 있는 요소의 nextElme">
@@ -234,26 +234,26 @@ ga('send', 'pageview');
 <li>사용자의 입력 시간의 경과</li>
 <li>뭔가 기억하고 있는 것과 화면을 그리는 것이 연관이 있다.</li>
 </ul>
-<ul>
+<h3 id="상태-State"><a href="#상태-State" class="headerlink" title="상태(State)"></a>상태(State)</h3><ul>
 <li>화면을 그리기 위해 기억하고 있는 것을 <code>상태(State)</code>라고 부른다.</li>
 <li>사용자의 입력을 받았을 때 어떤 상태가 될 지, 상태의 구조는 어떻게 될 지</li>
-<li>프로그램이 기억하는 무언가가 모두 <code>상태</code>가 될 수 있다.<ul>
-<li>ex) <code>textContent</code>는 해당 텍스트를 기억해뒀다가 화면을 <code>1초</code>에 약 <code>60번</code>씩 계속 그리고 있는 것이다.</li>
+<li>프로그램이 기억하는 무언가가 모두 <code>상태</code>가 될 수 있다.</li>
 </ul>
-</li>
-<li><code>classList.add</code>, <code>textContent</code>의 <strong><code>상태</code>를 바꾸면 화면이 자동으로 다시 그려지게 기능이 내장되어 있다.</strong><br>(브라우저 내장 상태이기 때문에)-&gt; 굳이 ‘그리기’라는 절차를 코딩하지 않아도 된다.<ul>
-<li>ex) score라는 상태는 우리가 기억하고 있는 상태이기 때문에<br>개발자가 직접 일일히 화면을 그려주는 작업을 해야 한다.<br>(score를 바꿀 때마다 화면이 다시 그려지는 게 X. )</li>
-</ul>
-</li>
-</ul>
+<h4 id="예시1"><a href="#예시1" class="headerlink" title="예시1"></a>예시1</h4><p><code>textContent</code>는 해당 텍스트를 기억해뒀다가 화면을 <code>1초</code>에 약 <code>60번</code>씩 계속 그리고 있는 것이다.</p>
 <ul>
-<li><code>React</code>를 이용하면, 우리가 만든 상태를 사용할 때도 그 상태를 바꾸면,<br><strong>자동으로 화면을 다시 그려준다. </strong></li>
+<li><code>classList.add</code>, <code>textContent</code>의 <code>상태</code>를 바꾸면<br>화면이 자동으로 다시 그려지게 기능이 내장되어 있다.<br>(브라우저 내장 상태이기 때문에)-&gt; 굳이 ‘그리기’라는 절차를 코딩하지 않아도 된다.<blockquote>
+</blockquote>
+</li>
+</ul>
+<h4 id="예시2"><a href="#예시2" class="headerlink" title="예시2"></a>예시2</h4><p>ex) score라는 상태는 우리가 기억하고 있는 상태이기 때문에<br>개발자가 직접 일일히 화면을 그려주는 작업을 해야 한다.<br>(score를 바꿀 때마다 화면이 다시 그려지는 게 X. )</p>
+<h3 id="React를-이용하기"><a href="#React를-이용하기" class="headerlink" title="React를 이용하기"></a>React를 이용하기</h3><ul>
+<li><code>React</code>를 이용하면, 우리가 만든 상태를 사용할 때도 그 상태를 바꾸면,<br><strong>자동으로 화면을 다시 그려준다.</strong></li>
 <li><code>React</code>는 기술이기도 하지만 사고방식이라고 볼 수 있다.<ul>
 <li>게임에서 사용하던 기술들을 <code>React</code>에 많이 가져왔다. 프로그래밍하기에 편하도록 바꿔준 기술이다.</li>
 </ul>
 </li>
 <li><code>Parcel</code>은 자바스크립트가 수정될 때마다 다시 실행된다.</li>
-<li>Style을 수정할 때는 괜찮지만, 자바스크립트를 수정할 때는 그 때마다 새로고침을 눌러주는 게 좋다.</li>
+<li>Style을 수정할 때는 괜찮지만, <strong>자바스크립트를 수정</strong>할 때는 <strong>그 때마다 새로고침을 눌러주는 게 좋다.</strong></li>
 </ul>
 <hr>
 <h3 id="Git으로-협업할-때-주의할-점"><a href="#Git으로-협업할-때-주의할-점" class="headerlink" title="Git으로 협업할 때 주의할 점"></a>Git으로 협업할 때 주의할 점</h3><ul>
@@ -359,7 +359,7 @@ insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 
 
 nextElmentSibling
 맨 마지막에 있는 요소의 nextElme"
-        "wordCount": 462
+        "wordCount": 477
     }
 </script>
 
