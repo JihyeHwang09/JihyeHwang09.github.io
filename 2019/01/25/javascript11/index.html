@@ -21,7 +21,7 @@
 <meta property="og:description" content="previousElementSibling previousElementSibling는 가장 앞에 있는 요소에 주면, null이 반환된다.  insertBefore와 appendChild insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 동작한다.  nextElmentSibling 맨 마지막에 있는 요소의 nextElme">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51750128-76dfd380-20f4-11e9-94fc-7e3c8b6efdf8.png">
-<meta property="og:updated_time" content="2019-01-25T14:06:37.113Z">
+<meta property="og:updated_time" content="2019-01-25T14:19:08.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 11일차">
 <meta name="twitter:description" content="previousElementSibling previousElementSibling는 가장 앞에 있는 요소에 주면, null이 반환된다.  insertBefore와 appendChild insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 동작한다.  nextElmentSibling 맨 마지막에 있는 요소의 nextElme">
@@ -229,8 +229,12 @@ ga('send', 'pageview');
 </blockquote>
 <h2 id="게임을-만들-때-생각하는-절차"><a href="#게임을-만들-때-생각하는-절차" class="headerlink" title="게임을 만들 때 생각하는 절차"></a>게임을 만들 때 생각하는 절차</h2><ul>
 <li><strong>원래 그려져 있던 화면을 시간이 지남에 따라</strong><br>or <strong>사용자의 입력에 따라서</strong>,<br>화면을 바꿔주는 과정을 거친다.(화면을 새로 그려준다.)</li>
+</ul>
+<ul>
 <li>사용자의 입력 시간의 경과</li>
 <li>뭔가 기억하고 있는 것과 화면을 그리는 것이 연관이 있다.</li>
+</ul>
+<ul>
 <li>화면을 그리기 위해 기억하고 있는 것을 <code>상태(State)</code>라고 부른다.</li>
 <li>사용자의 입력을 받았을 때 어떤 상태가 될 지, 상태의 구조는 어떻게 될 지</li>
 <li>프로그램이 기억하는 무언가가 모두 <code>상태</code>가 될 수 있다.<ul>
@@ -241,6 +245,8 @@ ga('send', 'pageview');
 <li>ex) score라는 상태는 우리가 기억하고 있는 상태이기 때문에<br>개발자가 직접 일일히 화면을 그려주는 작업을 해야 한다.<br>(score를 바꿀 때마다 화면이 다시 그려지는 게 X. )</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li><code>React</code>를 이용하면, 우리가 만든 상태를 사용할 때도 그 상태를 바꾸면,<br><strong>자동으로 화면을 다시 그려준다. </strong></li>
 <li><code>React</code>는 기술이기도 하지만 사고방식이라고 볼 수 있다.<ul>
 <li>게임에서 사용하던 기술들을 <code>React</code>에 많이 가져왔다. 프로그래밍하기에 편하도록 바꿔준 기술이다.</li>
