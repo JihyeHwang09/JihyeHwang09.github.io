@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>자바스크립트 12일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="javaScript">
+    
+    <meta name="description" content="Node.js + HTTPhttp: 통신 규약 이름 처음 만나는 Node.jsREST API 실습 POSTMAN 설치 서버와 통신을 할 때는 주로 JASON 형식으로 주고 받는다. REST API: 통신 규약에 관한 용어 Authentication: 통신을 할 때 내가 누군지를 밝히는 절차 (인증) 내가 누군지를 밝혀야 나에 관한 자료를 받을 수 있다.">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트 12일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/26/javascript12/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="Node.js + HTTPhttp: 통신 규약 이름 처음 만나는 Node.jsREST API 실습 POSTMAN 설치 서버와 통신을 할 때는 주로 JASON 형식으로 주고 받는다. REST API: 통신 규약에 관한 용어 Authentication: 통신을 할 때 내가 누군지를 밝히는 절차 (인증) 내가 누군지를 밝혀야 나에 관한 자료를 받을 수 있다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cascadingmedia.com/assets/images/insites/2015/02/url-anatomy/url-anatomy-55598c24.png">
+<meta property="og:updated_time" content="2019-01-26T11:57:52.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자바스크립트 12일차">
+<meta name="twitter:description" content="Node.js + HTTPhttp: 통신 규약 이름 처음 만나는 Node.jsREST API 실습 POSTMAN 설치 서버와 통신을 할 때는 주로 JASON 형식으로 주고 받는다. REST API: 통신 규약에 관한 용어 Authentication: 통신을 할 때 내가 누군지를 밝히는 절차 (인증) 내가 누군지를 밝혀야 나에 관한 자료를 받을 수 있다.">
+<meta name="twitter:image" content="https://cascadingmedia.com/assets/images/insites/2015/02/url-anatomy/url-anatomy-55598c24.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-javascript12" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자바스크립트 12일차
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/01/26/javascript12/" class="article-date">
+            <time datetime="2019-01-26T11:26:48.000Z" itemprop="datePublished">2019-01-26</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="Node-js-HTTP"><a href="#Node-js-HTTP" class="headerlink" title="Node.js + HTTP"></a>Node.js + HTTP</h1><p><code>http</code>: 통신 규약 이름</p>
+<h1 id="처음-만나는-Node-js"><a href="#처음-만나는-Node-js" class="headerlink" title="처음 만나는 Node.js"></a>처음 만나는 Node.js</h1><h2 id="REST-API-실습"><a href="#REST-API-실습" class="headerlink" title="REST API 실습"></a><code>REST API</code> 실습</h2><ul>
+<li><code>POSTMAN</code> 설치</li>
+<li>서버와 통신을 할 때는 주로 <code>JASON 형식</code>으로 주고 받는다.</li>
+<li><code>REST API</code>: 통신 규약에 관한 용어</li>
+<li><code>Authentication</code>: 통신을 할 때 내가 누군지를 밝히는 절차 (인증)<ul>
+<li>내가 누군지를 밝혀야 나에 관한 자료를 받을 수 있다.</li>
+</ul>
+</li>
+<li><code>token</code>: 내가 누구인지 증명하는 보안카드, 주민등록증 같은 것</li>
+</ul>
+<h3 id="token-생성하기"><a href="#token-생성하기" class="headerlink" title="token 생성하기"></a>token 생성하기</h3><p><strong>github.com</strong><br>-&gt; 프로필의 s<code>ettings</code><br>-&gt; <code>developer settings</code><br>-&gt; <code>personal access tokens</code><br>-&gt; <code>generate new token</code> 버튼 클릭<br>-&gt; <code>Token description</code>에 설명을 적음.<br>아래에 체크박스에는 아무 것도 체크 누르지 말 것.<br>(아무 권한도 없는 식별 코드를 생성)<br>-&gt; <strong>각기 다른 <code>token</code>이 생성됨</strong><br>-&gt; ex) 607d493859c0ddb1cc8e1da472fc49fd66a12724</p>
+<hr>
+<ul>
+<li><p><code>OAUth2 token(sent as a parameter)</code> 방식</p>
+<ul>
+<li>POSTMAN에<br><code>https://api.github.com/user/repos/?access_token=OAUTH-TOKEN(발급받은 토큰)</code><br>넣기<br>-&gt; <code>send 버튼</code> 누르기</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><code>OAuth2 token (sent in a header)</code> 방식<ul>
+<li>개발자들이 주로 사용하는 방식<br>POSTMAN의 Headers를 누르고 KEY에 Authorization 입력<br>VALUE에 token, 2번째 칸에 발급받은 토큰 입력<br>reqeust URL에 <code>https://api.github.com/user/repos</code> 입력</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="Nods-js"><a href="#Nods-js" class="headerlink" title="Nods.js"></a>Nods.js</h2><ul>
+<li>git bash에서 <code>node</code>를 입력 -&gt; javascript 코드를 입력할 수 있다.</li>
+<li><code>.exit</code>를 입력하거나 <code>Ctrl+C</code>를 두 번 입력해서 빠져나갈 수 있다.</li>
+<li>alert, prompt는 브라우저 내장 기능이기 때문에 node.js에는 없다.</li>
+<li>대신, 브라우저에 내장되지 않은 기능들이 많이 있다.</li>
+<li><code>nods.js</code>는 브라우저와 <strong>완전히 다른 구동 환경</strong>이라는 것을 기억!</li>
+<li><code>module</code>: 내장 함수를 가지고 있는 객체<blockquote>
+<p>Node.js module 사용하기</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// git bash에 입력</span></span><br><span class="line">node;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">"os"</span>);</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line">os.platform();</span><br><span class="line"><span class="comment">//'win32'</span></span><br><span class="line">os.freemem();</span><br><span class="line"><span class="comment">//2084761600</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Node-js란"><a href="#Node-js란" class="headerlink" title="Node.js란?"></a>Node.js란?</h3><ul>
+<li>아주 빠른 속도로 요청을 처리할 수 있는 기능을 내장하고 있다.</li>
+<li>Nods.js는 2009년에 만들어짐. 현재는 프론트엔드 개발도 node.js로 하게 되었다.</li>
+<li>세계에서 가장 많은 오픈 소스 라이브러리를 가지고 있다.</li>
+</ul>
+<hr>
+<h3 id="Node-js-Module의-사용법"><a href="#Node-js-Module의-사용법" class="headerlink" title="Node.js Module의 사용법"></a>Node.js Module의 사용법</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// git bash에 입력</span></span><br><span class="line"><span class="string">`code name.js`</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// name.js에 아래의 코드 붙여넣기 -&gt; 저장</span></span><br><span class="line"><span class="comment">// `module.exports`에 저장한 값은 다른 모듈에서 불러올 수 있음</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  familyName: <span class="string">"김"</span>,</span><br><span class="line">  givenName: <span class="string">"승하"</span>,</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.familyName + <span class="keyword">this</span>.givenName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// git bash에 입력</span></span><br><span class="line"><span class="string">`code calc.js`</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// calc.js에 아래의 코드 붙여넣기 -&gt; 저장</span></span><br><span class="line"><span class="comment">// `exports`로도 참조 가능</span></span><br><span class="line">exports.add = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x + y;</span><br><span class="line">exports.sub = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x - y;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 파일을 만들고 다른 곳에서 불러서 쓸 수 있다.</span></span><br><span class="line"><span class="comment">// 'require 함수를 이용해서 다른 곳에 있는 코드를 불러올 수 있구나.' 정도를 알고 넘어가면 된다</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`node`</span> &gt;</span><br><span class="line">  <span class="string">`const name = require('./name')`</span> &gt;</span><br><span class="line">  <span class="comment">// undefined</span></span><br><span class="line">  <span class="string">`name.fullName()`</span> &gt;</span><br><span class="line">  <span class="comment">//  '김승하'</span></span><br><span class="line">  <span class="string">`const calc = require('./calc')`</span> &gt;</span><br><span class="line">  <span class="comment">// undefined</span></span><br><span class="line">  calc &gt;</span><br><span class="line">  <span class="comment">// &#123; add: [Function], sub: [Function] &#125;</span></span><br><span class="line">  <span class="string">`calc.add(1, 2)`</span> &gt;</span><br><span class="line">  <span class="comment">// 3</span></span><br><span class="line">  <span class="string">`calc.sub(1, 2)`</span>;</span><br><span class="line"><span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<h3 id="Hello-NPM"><a href="#Hello-NPM" class="headerlink" title="Hello NPM"></a>Hello NPM</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// git bash에 입력</span></span><br><span class="line"><span class="string">`mkdir hello-npm`</span><span class="string">`cd hello-npm`</span><span class="string">`npm init -y`</span><span class="string">`code .`</span>;</span><br><span class="line"><span class="comment">// npm으로 관리되는 프로젝트를 초기화하겠다.</span></span><br><span class="line"><span class="comment">// code .으로 파일을 열어보면, json파일이 생성된 것을 볼 수 있다.</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="pakage-json"><a href="#pakage-json" class="headerlink" title="pakage.json"></a>pakage.json</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-<span class="string">`npm install --save`</span> -</span><br><span class="line">  <span class="string">`npm install sweetalert`</span> -</span><br><span class="line">  <span class="comment">// 홈 폴더에서 node_modules 지우기</span></span><br><span class="line">  <span class="string">`rm -rf node_modules`</span> -</span><br><span class="line">  <span class="comment">// 전에 설치했던 라이브러리들이 다시 다 설치됨</span></span><br><span class="line">  <span class="string">`npm install`</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>다른 사람과 협업할 때, <code>node_modules 폴더</code>는 파일이 너무 많기 떄문에 git에 올리지 않고,</li>
+<li><code>package-lock.json</code>, <code>package.json</code>을 git에 올린다.</li>
+<li><code>.gitignore</code>에 <code>modules/</code>를 추가</li>
+<li><a href="https://www.npmjs.com/에" target="_blank" rel="noopener">https://www.npmjs.com/에</a> 접속 -&gt; <code>randomstring</code>을 검색</li>
+</ul>
+<hr>
+<h3 id="npm-라이브러리를-사용하는-이유"><a href="#npm-라이브러리를-사용하는-이유" class="headerlink" title="npm 라이브러리를 사용하는 이유"></a>npm 라이브러리를 사용하는 이유</h3><ul>
+<li><code>bower</code><ul>
+<li><a href="https://bower.io/" target="_blank" rel="noopener">https://bower.io/</a></li>
+<li><code>npm</code>과 비슷한 프론트엔드 도구. 클라우드 저장소</li>
+<li>현재 <code>bower</code>는 거의 사용하지 않는다.</li>
+</ul>
+</li>
+<li>빌드 도구(ex) webpack 등)가 <code>npm</code>을 기반으로 만들어졌다.</li>
+<li><code>npm</code>에서 빌드 도구를 다운 받는다.(ex) webpack 등이 node.js에서 작동하기 때문에)</li>
+<li><code>bower</code>와 <code>npm</code>에서 각각 다운 받아야 하는 불편함이 있어서,<br>요즘은 npm에서 거의 대부분의 라이브러리를 다운 받는 게 문화이다.</li>
+<li><code>npm install</code>으로 한 번에 다운 받으면 설치된다.</li>
+<li>거의 모든 (심지어 CSS코드까지) 라이브러리를 받을 수 있다.<br>ex) css reset, jQuery 등 프론트엔드 라이브러리도 <code>npm</code>에서 다운받을 수 있다.</li>
+</ul>
+<hr>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><h3 id="HTTP-까보기"><a href="#HTTP-까보기" class="headerlink" title="HTTP 까보기"></a>HTTP 까보기</h3><ul>
+<li>새로고침을 1번 해도 요청은 <strong>여러 번</strong> 일어날 수 있다.</li>
+<li><code>HTTP(HyperText Transfer Protocol)</code></li>
+<li>HTTP의 원래의 목적: 웹 브라우저와 웹 서버 간의 통신을 위해 개발된 통신규약</li>
+<li>최근에는 REST API의 부상과 함께 다른 용도로도 널리 사용됨<ul>
+<li>모바일 앱 - 서버 간 통신</li>
+<li>서버 - 서버 간 통신</li>
+</ul>
+</li>
+<li><p><code>localhost:8080</code></p>
+<ul>
+<li><code>localhost</code>: 컴퓨터의 이름</li>
+<li>컴퓨터 하나에 통신을 위한 수많은 콘센트가 있다고 생각하면 된다<br>. 그 콘센트에 번호를 매긴 것이라고 생각하면 이해하기 쉽다.</li>
+</ul>
+<p>ex) interpark.com:<strong>80</strong>/malls/index.html<br>:80포트가 생략된 것이다. :80을 붙여서 주소를 입력해도 잘 작동한다.</p>
+<ul>
+<li><code>http</code>를 사용하면 <code>80번 포트</code>가 기본으로 사용된다.</li>
+</ul>
+</li>
+<li><p>클라이언트의 <code>요청(request)</code>과 서버의 <code>응답(response)</code>으로 이루어짐</p>
+</li>
+<li>역사: 지금 사용되고 있는 버전은 1999년에 발표한 <code>HTTP 1.1</code>이다.</li>
+</ul>
+<h4 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h4><ul>
+<li>HTTP over SSL</li>
+<li><strong>HTTP 통신을 암호화해 주고받는 내용을 중간에서 가로챌 수 없도록 함</strong><ul>
+<li>같은 공유기를 사용하는 다른 사용자가 <code>HTTP</code> 사이트에 접속했을 때,<br>어떤 사이트에 무슨 내용으로 접속했는지를 볼 수 있다.</li>
+<li>(공유기를 해킹한 해커도 그 공유기 사이로 흘러다니는 내용을 다 볼 수 있다.<br>-&gt; <code>HTTP</code> 사이트에 아이디와 비밀번호를 넣어서 접속했을 때 해킹 당할 수 있다.)</li>
+<li><code>HTTPS</code>를 사용했을 때는 해커가 알아볼 수 없는 <strong>암호화된 형태</strong>로 정보가 흘러다니기 때문에 해킹할 수 없다.</li>
+</ul>
+</li>
+<li><code>https</code>를 사용했을 때는 <strong>443번 포트</strong>를 기본적으로 사용한다.</li>
+</ul>
+<h4 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP/2"></a>HTTP/2</h4><ul>
+<li><strong>구글의 SPDY 프로토콜</strong>을 기반으로 2015년에 확정된 새로운 HTTP 표준</li>
+<li><strong>속도 개선</strong>에 중점을 두고 개발됨</li>
+<li><strong>반드시 HTTPS를 사용해야 함</strong></li>
+<li>현재 전체 웹사이트 중 26% 이상이 사용중</li>
+<li>HTTP 1.1에 비해 보안이 강화되고 속도도 빨라짐</li>
+<li>HTTP/2로 바뀌는 추세</li>
+</ul>
+<hr>
+<h3 id="HTTP-구성요소"><a href="#HTTP-구성요소" class="headerlink" title="HTTP 구성요소"></a>HTTP 구성요소</h3><h4 id="Request-amp-Response"><a href="#Request-amp-Response" class="headerlink" title="Request &amp; Response"></a>Request &amp; Response</h4><ul>
+<li>웹 브라우저(또는 다른 클라이언트)는 웹 서버에 <code>요청(request)</code>를 보냄</li>
+<li>그에 따라 서버는 클라이언트에 <code>응답(response)</code>를 보냄</li>
+<li>웹 브라우저의 경우, <strong>HTML 문서 형태의 응답</strong>이 오면 해당 문서를 분석한 후,</li>
+<li>[중요!!] <strong>문서에 포함된 모든 자원에 대한 요청을 각각 추가로 보냄</strong> (이미지, 동영상, 오디오, CSS, JS, 폰트, …)</li>
+</ul>
+<h4 id="Request-Methods"><a href="#Request-Methods" class="headerlink" title="Request Methods"></a>Request Methods</h4><ul>
+<li><strong>요청</strong>에만 메소드가 있다. (응답에는 메소드가 X)</li>
+<li><p>HTTP 명세에는 8 종류가 등록되어 있고, 각각의 역할과 충족해야 하는 성질이 명시되어 있음</p>
+<ul>
+<li><code>GET</code><ul>
+<li><code>GET</code> 메소드는 특정 리소스의 표시를 요청한다.<br><code>GET</code>을 사용하는 요청은 오직 데이터를 받기만 한다.</li>
+<li><code>GET</code> 메소드는 정보를 달라는 것</li>
+</ul>
+</li>
+<li><code>POST</code>: 서버에 등록하는 게 아니라, 정보를 받아올 때는 <code>POST</code> 메소드를 사용<ul>
+<li>웹 브라우저는 <strong>특정 상황에서 특정 메소드로 요청을 보내도록 만들어져 있음.</strong> 제출할 때 사용.</li>
+<li><code>POST</code> 메소드는 특정 리소스에 엔티티를 제출할 때 쓰임. 이는 종종 서버의 상태의 변화나 부작용을 일으킨다.</li>
+</ul>
+</li>
+<li><code>PUT</code>: PUT 메소드는 목적 리소스 모든 현재 표시를 요청 payload로 바꾼다.</li>
+</ul>
+</li>
+<li><p>Ajax와 같이 <strong>요청을 보내는 코드를 직접 짤 때</strong>는 요청 메소드를 선택할 수 있음</p>
+</li>
+<li><strong>자료의 본문을 요청하는 <code>GET</code> 메소드</strong>와, <strong>새로운 자료를 등록하는 <code>POST</code> 메소드</strong>가 가장 많이 쓰임</li>
+</ul>
+<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><ul>
+<li><strong>url이 반드시 웹사이트에 대한 주소가 아닐 수 있다.</strong></li>
+<li>특정 자원을 가리키기 위해서 <code>url</code>을 사용할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"mailto:seungha.me@gmail.com"</span>&gt;메일&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 메일 주소에 대한 링크를 만들 때 사용</span></span><br><span class="line"><span class="regexp">&lt;a href="tel:01012345678"&gt;전화걸기&lt;/</span>a&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><img src="https://cascadingmedia.com/assets/images/insites/2015/02/url-anatomy/url-anatomy-55598c24.png" alt="HTTP URL Anatomy"></li>
+<li><code>https://www.example.com:3000/path/resource?id=123#section-id</code></li>
+<li><code>https://www.example.com:3000</code>까지는 <code>서버 주소</code><ul>
+<li>그림이 잘못되어있음. 3000 뒤의 /는 경로에 포함됨.</li>
+</ul>
+</li>
+<li><code>/path/resource?id=123#section-id</code><ul>
+<li>/부터 그 뒤까지는 <code>자원의 주소</code></li>
+</ul>
+</li>
+<li>7번: 어떤 자원을 가져오고 싶은지, 부가정보를 포함시킬 때 querystring을 사용한다.</li>
+<li>8번: #section-id : 문서의 특정 부분을 가리킬 때</li>
+<li><p><code>#(해시)</code>를 기억할 것!</p>
+</li>
+<li><p>ex) <a href="https://www.google.com/search?source=hp&amp;ei=PaDWW7T7EImz8QWZ8ZKoCg&amp;q=http&amp;oq=http&amp;gs_l=psy-ab.3..0i131k1l5j0j0i131k1j0i3k1j0l2.989.1350.0.1568.4.3.0.1.1.0.138.248.0j2.2.0....0...1c.1.64.psy-ab..1.3.255....0._7JtWYsiHlc" target="_blank" rel="noopener">https://www.google.com/search?source=hp&amp;ei=PaDWW7T7EImz8QWZ8ZKoCg&amp;q=http&amp;oq=http&amp;gs_l=psy-ab.3..0i131k1l5j0j0i131k1j0i3k1j0l2.989.1350.0.1568.4.3.0.1.1.0.138.248.0j2.2.0....0...1c.1.64.psy-ab..1.3.255....0._7JtWYsiHlc</a></p>
+</li>
+</ul>
+<hr>
+<p><a href="https://s.codepen.io/dbeat999/debug/pxBJNO/yoAZEWKOwOZr" target="_blank" rel="noopener">해시태그(#)</a></p>
+<ul>
+<li>챕터1: <a href="https://s.codepen.io/dbeat999/debug/pxBJNO/yoAZEWKOwOZr#chapter-1" target="_blank" rel="noopener">https://s.codepen.io/dbeat999/debug/pxBJNO/yoAZEWKOwOZr#chapter-1</a></li>
+<li>챕터2: <a href="https://s.codepen.io/dbeat999/debug/pxBJNO/yoAZEWKOwOZr#chapter-2" target="_blank" rel="noopener">https://s.codepen.io/dbeat999/debug/pxBJNO/yoAZEWKOwOZr#chapter-2</a></li>
+<li>url에서 해시태그(#) 뒷 부분이 바뀐다.<blockquote>
+<p>아무 의미없는 긴 문자열을 html에 넣고 테스트하고 싶을 때,<br>lorem*50 넣어주기. <code>lorem</code>은 표준 채우기 텍스트</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="Percent-Encoding"><a href="#Percent-Encoding" class="headerlink" title="Percent Encoding"></a>Percent Encoding</h4><ul>
+<li>주소 표시줄</li>
+<li><p><a href="https://www.google.co.kr/search?q=%ED%95%9C%EA%B5%AD&amp;oq=%ED%95%9C%EA%B5%AD&amp;aqs=chrome..69i57j69i61l2j69i65l2j69i59.2351j0j7&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank" rel="noopener">https://www.google.co.kr/search?q=%ED%95%9C%EA%B5%AD&amp;oq=%ED%95%9C%EA%B5%AD&amp;aqs=chrome..69i57j69i61l2j69i65l2j69i59.2351j0j7&amp;sourceid=chrome&amp;ie=UTF-8</a></p>
+</li>
+<li><p>크롬 개발자 도구 -&gt; Network-&gt; Name: search?..로 된 파일을 누르기 -&gt; Reqeust URL</p>
+</li>
+<li><a href="https://www.google.co.kr/search?q=%ED%95%9C%EA%B5%AD&amp;oq=%ED%95%9C%EA%B5%AD&amp;aqs=chrome..69i57j69i61l2j69i65l2j69i59.2351j0j7&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank" rel="noopener">https://www.google.co.kr/search?q=%ED%95%9C%EA%B5%AD&amp;oq=%ED%95%9C%EA%B5%AD&amp;aqs=chrome..69i57j69i61l2j69i65l2j69i59.2351j0j7&amp;sourceid=chrome&amp;ie=UTF-8</a></li>
+</ul>
+<h4 id="Response-Status"><a href="#Response-Status" class="headerlink" title="Response Status"></a>Response Status</h4><hr>
+<h4 id="Status-Category"><a href="#Status-Category" class="headerlink" title="Status Category"></a>Status Category</h4><ul>
+<li>2xx: 성공</li>
+<li>3xx: 추가 작업이 필요함</li>
+<li>4xx: 실패 - 클라이언트 책임</li>
+<li>5xx: 실패 - 서버 책임</li>
+</ul>
+<hr>
+<h5 id="Status-Code-2xx"><a href="#Status-Code-2xx" class="headerlink" title="Status Code - 2xx"></a>Status Code - 2xx</h5><ul>
+<li>200 OK: 성공</li>
+<li>201 Created: 자료가 성공적으로 생성됨</li>
+</ul>
+<hr>
+<h5 id="Status-Code-3xx"><a href="#Status-Code-3xx" class="headerlink" title="Status Code - 3xx"></a>Status Code - 3xx</h5><p><code>301 Moved Permanently (Redirection)</code></p>
+<ul>
+<li><strong>자료가 완전히 다른 곳으로 이동했음</strong></li>
+<li>서버가 여기에 없고 완전히 이동했다고 서버가 브라우저에 응답을 줌.</li>
+</ul>
+<p><code>302 Found (Redirection)</code></p>
+<ul>
+<li><strong>자료가 일시적으로 다른 곳에 있음</strong></li>
+<li>302는 일시적으로 이동했다는 뜻이기 때문에 서버가 다른 곳으로 이동하라고 해도 다시 사용자에게 요청을 함.</li>
+</ul>
+<p><code>304 Not Modified (Cache)</code></p>
+<ul>
+<li><strong>클라이언트가 이미 가지고 있던 자료가 수정되지 않았음 (그대로 사용하면 됨)</strong></li>
+<li><p>어떤 웹사이트들은 다운 받았던 이미지를 그대로 사용하는 경우가 있음. -&gt; <code>캐시(Cache)</code>라고 한다.</p>
+</li>
+<li><p>이미지별로 <code>식별번호</code>가 있어서 서버가 브라우저로 <code>이미지</code>와 <code>식별번호</code>를 보내게 된다.</p>
+</li>
+<li>ex) 똑같은 주소에 이미지를 요청한다. -&gt; 식별번호와 이미지를 브라우저가 가지고 있음.<br>-&gt; 브라우저가 서버에 내가 이 식별번호와 이미지를 가지고 있는데, 바뀐 사항이 있는지 물어봄.<br>-&gt; ‘브라우저 네가 가지고 있는 그대로 사용하면 돼~’ 라고 알려주는 게 <code>304 Not Modified</code>임.</li>
+<li>cf) Network에 Preserve log에 체크표시하면, 그 전 기록도 남게 됨.</li>
+</ul>
+<hr>
+<h5 id="Status-Code-4xx"><a href="#Status-Code-4xx" class="headerlink" title="Status Code - 4xx"></a>Status Code - 4xx</h5><ul>
+<li><strong>클라이언트</strong>의 책임이다.</li>
+<li><code>400 Bad Request</code><ul>
+<li>요청의 형태가 잘못되어 응답할 수 없음</li>
+</ul>
+</li>
+<li><code>403 Forbidden</code><ul>
+<li>요청한 자료에 접근할 권한이 없음</li>
+</ul>
+</li>
+<li><code>404 Not Found</code><ul>
+<li>요청한 자료가 없음</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="Status-Code-5xx"><a href="#Status-Code-5xx" class="headerlink" title="Status Code - 5xx"></a>Status Code - 5xx</h5><ul>
+<li><strong>서버</strong>의 책임이다.</li>
+<li><code>500 Internal Server Error</code><ul>
+<li>요청을 처리하던 중에 예상치 못한 오류가 발생함</li>
+</ul>
+</li>
+<li><code>503 Service Unavailable</code> -서버가 일시적으로 응답을 할 수 없음</li>
+</ul>
+<hr>
+<h4 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h4><ul>
+<li><code>요청</code>과 <code>응답</code>에 대한 <code>추가 정보</code>를 표현하는 데 사용됨</li>
+<li>인증, 캐싱, 쿠키, 보안, 프록시 등 웹 표준에 정의된 많은 <strong>기능을 제어</strong>하는 데 사용됨</li>
+<li><code>Authorization</code>: 요청의 인증 정보<br><code>- User-Agent</code>: <strong>요청 중인 클라이언트의 정보</strong></li>
+<li><code>Location</code>: <strong>301, 302 응답에서 자료의 위치</strong></li>
+<li><code>Accept</code>: 요청이 어떤 형태의 자료를 원하는지 나타냄</li>
+<li><code>Content-Type</code>: <strong>요청 혹은 응답이 어떤 형태의 자료인지 나타냄</strong></li>
+</ul>
+<hr>
+<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><ul>
+<li><code>Glitch Tutorial</code> 버튼을 클릭 -&gt; github 계정으로 가입</li>
+<li>설치 후, 교재의 Glitch Tutorial 버튼을 다시 클릭해서 들어오기</li>
+<li>오른쪽 상단의 Remix This 버튼을 누르면, fork 됨</li>
+<li><code>Glitch</code>는 서버를 만드는 도구</li>
+<li>우리가 <strong>작성한 서버를 클라우드에 띄운 다음 주소를 붙여주는 기능을 제공</strong>한다.</li>
+<li>좌측 바의 <code>package.json</code>을 클릭 -&gt; <code>add Packag</code>e를 클릭 -&gt;<code>express</code>를 <strong>검색</strong>해서 <strong>설치</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// git bash에 입력</span></span><br><span class="line"><span class="comment">// ~/hello-npm</span></span><br><span class="line"><span class="comment">// FOO라는 환경변수에 BAR라는 값을 넣는다.</span></span><br><span class="line">FOO=BAR node</span><br><span class="line"><span class="comment">// 환경변수 FOO를 호출한다.</span></span><br><span class="line">&gt; process.env.FOO</span><br><span class="line"><span class="comment">// 'BAR'</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Glitch-튜토리얼"><a href="#Glitch-튜토리얼" class="headerlink" title="Glitch 튜토리얼"></a>Glitch 튜토리얼</h4><ul>
+<li>우측 상단의 <code>Sign in</code> 버튼을 눌러 <strong>Github 계정으로 로그인</strong> 해 주세요.</li>
+<li><code>Remix this</code> 버튼을 눌러 프로젝트를 복제하세요.</li>
+<li>현재 <code>express</code>가 설치되지 않아서 프로젝트가 실행되지 않는 상태입니다.<br>좌측 파일 목록에서 <code>package.json</code>을 클릭한 후,<br>문서 상단의 <code>Add package</code> 버튼을 클릭해 <strong>express를 설치</strong>해주세요.</li>
+<li><strong><code>Glitch</code>는 코드가 수정될 때마다 자동으로 <code>npm start</code> 명령을 실행합니다.</strong><br><code>package.json</code>에서 어떤 명령이 실행되는지 확인하고, 해당 파일을 확인한 다음, 상단 <code>Show</code> 버튼을 눌러주세요.<br>Glitch 앱은 기본적으로 HTTPS로 작동합니다.</li>
+<li><code>server.js</code>에서 NAME이라는 환경변수를 불러와 표시해주고 있습니다.<br>환경변수는 <code>.env</code> 파일에서 설정할 수 있으며,<br>이 파일의 내용은 소유자와 공동작업자밖에 볼 수 없습니다.<br>외부에 노출하면 안 되는 설정사항을 저장하기에 적합합니다.<br><code>.env</code>에서 NAME 환경변수를 자신의 이름으로 수정하고, 앱이 잘 업데이트 되었는지 확인하세요.</li>
+<li>좌측 최상단의 프로젝트 이름을 클릭하면, <strong>프로젝트와 관련된 여러가지 설정</strong>을 할 수 있습니다.<br>프로젝트 이름을 수정해주세요.<br><strong>그에 따라 앱의 url도 변경</strong>됩니다.</li>
+<li>우측 최상단의 아이콘을 클릭하고 <strong><code>Keyboard Shortcuts</code>를 확인</strong>해보세요.</li>
+</ul>
+<hr>
+<ul>
+<li><code>Glitch</code>를 사용하면 환경 변수 설정, 코드 작성 후<br>-&gt; 서버에서 어떤 응답을 해주는 지 볼 수 있다.</li>
+<li>1주일 간, <code>Glitch</code>를 이용해서 서버 코드를 작성할 예정</li>
+<li>Node.js 생태계에서 가장 널리 쓰이는 웹 프레임워크</li>
+<li>내장하고 있는 기능은 매우 적으나,<br>미들웨어를 주입하는 방식으로 기능을 확장하는 생태계를 가지고 있음</li>
+</ul>
+<hr>
+<ul>
+<li>자바스크립트 교재- JAVASCRIPT 심화2</li>
+</ul>
+<h1 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h1><ul>
+<li>반복 가능한 객체(iterable object)는 <code>for...of</code> 구문과 함께 ES2015에서 도입됨.</li>
+<li>반복 가능한 객체를 다른 객체와 구분짓는 특징은,<br>객체의 <code>Symbol.iterator</code> 속성에 <strong>특별한 형태의 함수</strong>가 들어있다는 것이다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">"hello"</span>;</span><br><span class="line">str[<span class="built_in">Symbol</span>.iterator]; <span class="comment">// [Function]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Symbol</code>은 <strong>객체의 속성 key</strong>로 사용할 수 있는 <strong>원시타입의 값</strong></li>
+<li><code>for...of</code> 구문은 <code>iterable</code>에 대해서 사용하는 함수이다.</li>
+<li>내장된 생성자 중 <code>iterable</code> 객체를 만들어내는 생성자에는 아래와 같은 것들이 있다.<ul>
+<li>String</li>
+<li>Array</li>
+<li>TypedArray</li>
+<li>Map</li>
+<li>Set</li>
+</ul>
+</li>
+</ul>
+<h2 id="Iterable의-사용"><a href="#Iterable의-사용" class="headerlink" title="Iterable의 사용"></a>Iterable의 사용</h2><ul>
+<li>객체가 <code>Iterable</code>이라면, 그 객체에 대해서 아래의 기능들을 사용할 수 있다.<ul>
+<li>for…of 루프</li>
+<li>spread 연산자 (…)</li>
+<li>분해대입(destructuring assignment)</li>
+<li>기타 iterable을 인수로 받는 함수</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// `for...of`</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> c <span class="keyword">of</span> <span class="string">"hello"</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// spread 연산자</span></span><br><span class="line"><span class="keyword">const</span> chars = [...<span class="string">"hello"</span>];</span><br><span class="line"><span class="comment">// const chars = 'hello'.split('')으로도 가능함</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(chars);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 분해대입</span></span><br><span class="line"><span class="comment">// 배열처럼 분해대입이 가능하다.</span></span><br><span class="line"><span class="keyword">const</span> [c1, c2] = <span class="string">"hello"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c1, c2);</span><br><span class="line"><span class="comment">// h e</span></span><br><span class="line"><span class="comment">// `Array.from`은 iterable 혹은 array-like 객체를 인수로 받습니다.</span></span><br><span class="line"><span class="built_in">Array</span>.from(<span class="string">"hello"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">const</span> [c1, c2] = s;</span><br><span class="line"><span class="built_in">console</span>.log(c1, c2); <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
+<h2 id="Generator-함수"><a href="#Generator-함수" class="headerlink" title="Generator 함수"></a>Generator 함수</h2><ul>
+<li><code>Iterable</code>을 구현하는 가장 쉬운 방법은 ES2015에 도입된 <code>generator 함수</code>를 사용하는 것이다.</li>
+<li><code>Gererator</code> 함수는 만드는 개발자가 반환값을 만들지 않아도 객체를 반환한다.</li>
+<li><code>Generator</code> 함수를 호출하면, 무조건 객체를 반환한다.</li>
+<li><code>Generator</code> 함수를 호출하면 객체가 생성되는데, 이 객체는 iterable protocol을 만족한다.<br>-&gt; 즉, <code>Symbol.iterator</code> 속성을 갖고 있다.</li>
+<li><code>Generator</code> 함수를 실행하면, <code>iterable</code> 객체를 만들 수 있다.</li>
+<li><code>Generator</code> 함수는 <strong>일시정지</strong>가 가능하다.</li>
+<li>실무에서는 보통 루프 사용할 때는 거의 사용하지 않고, <strong>일시정지 기능을 사용하고 싶을 때 많이 활용한다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// generator 함수 선언하기</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 표현식으로 사용하기</span></span><br><span class="line"><span class="keyword">const</span> gen2 = <span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 메소드 문법으로 사용하기</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  *gen3() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Generator</code> 함수 안에서는 <code>yield</code>라는 특별한 키워드를 사용할 수 있다.</li>
+<li><code>Generator</code> 함수 안에서 <code>yield</code> 키워드는 <code>return</code>과 유사한 역할을 하며,<br><code>iterable</code>의 기능을 사용할 때 <code>yield</code> 키워드 뒤에 있는 값들을 순서대로 넘겨준다.</li>
+<li>yeild(양보하다)</li>
+<li>yield는 바깥으로 함수 <strong>여러 번 값을 반환</strong>한다.(cf) return은 1번만 반환함.)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// yield 뒤에 붙어있는 숫자를 차례대로 반환한다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">numberGen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1, 2, 3이 순서대로 출력됩니다.</span></span><br><span class="line"><span class="comment">// 첫 번째 실행시: 1이 들어감</span></span><br><span class="line"><span class="comment">// 두 번째 실행시: 2가 들어감</span></span><br><span class="line"><span class="comment">// 세 번째 실행시: 3이 들어감</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> n <span class="keyword">of</span> numberGen()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>yield* 표현식을 사용하면, 다른 generator 함수에서 넘겨준 값을 대신 넘겨줄 수도 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">numberGen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">numberGen2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span>* numberGen();</span><br><span class="line">  <span class="keyword">yield</span>* numberGen();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1, 2, 3, 1, 2, 3이 순서대로 출력됩니다.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> n <span class="keyword">of</span> numberGen2()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>사용자가 루프를 돌리고 싶을 때, 함수를 만들어서 루프를 돌릴 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 등차수열 생성하기</span></span><br><span class="line"><span class="comment">// start=0 , end= Infinity는 매개변수의 기본값(인자가 들어오지 않으면, 기본값으로 사용)</span></span><br><span class="line"><span class="comment">// start= 0, end= 5, step=1로 실행됨</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">range</span>(<span class="params">start = <span class="number">0</span>, end = Infinity, step = <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = start; i &lt; end; i += step) &#123;</span><br><span class="line">    <span class="keyword">yield</span> i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for (const item of range(0, 5)) &#123;</span></span><br><span class="line"><span class="comment">//   console.log(item);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 피보나치 수열 생성하기</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fibonacci</span>(<span class="params">count = Infinity</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">    <span class="keyword">yield</span> x;</span><br><span class="line">    [x, y] = [y, x + y];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> fibonacci(<span class="number">10</span>)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 8</span></span><br><span class="line"><span class="comment">// 13</span></span><br><span class="line"><span class="comment">// 21</span></span><br><span class="line"><span class="comment">// 34</span></span><br><span class="line"><span class="comment">// 55</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>배열과의 차이점: Generator 함수는 순서대로 무한히 값을 반환해주는 무한 배열을 만들 수 있다.</li>
+<li>루프를 값으로 다룰 수 있게 된다.</li>
+<li><code>Generator</code>로 루프를 값으로 만들면, <strong>조합을 하기 쉬워지고 변경을 하기 자유로워진다.</strong></li>
+</ul>
+<ul>
+<li>Generator 함수를 사용할 때 주의할 점</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Generator 함수로부터 생성된 iterable은 한 번만 사용될 수 있다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> iter = gen();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> n <span class="keyword">of</span> iter) &#123;</span><br><span class="line">  <span class="comment">// 잘 출력됩니다.</span></span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Generate 함수는 1번만 순회가 가능하므로 이 코드는 무시됨.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> n <span class="keyword">of</span> iter) &#123;</span><br><span class="line">  <span class="comment">// `iter`는 한 번 사용되었으므로, 이 코드는 실행되지 않습니다.</span></span><br><span class="line">  <span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Generator 함수 내부에서 정의된 일반 함수에서는 `yield` 키워드를 사용할 수 없다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 아예 문법 오류가 난다. (Unexpected token)</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fakeGen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  fakeGen();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Generate 함수의 특징<ul>
+<li>값을 <strong>여러 번</strong> 뱉어낼 수 있는 함수</li>
+<li>일반 함수와는 다르게 <strong>일시정지</strong>가 가능한 함수</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  Generate로부터 만들어진 함수는 next라는 메소드가 들어있고,</span></span><br><span class="line"><span class="comment">// 이 next 메소드를 이용해서 함수를 일시정지 할 수 있다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> iterable = gen();</span><br><span class="line"></span><br><span class="line"><span class="comment">//  다음 yield를 만날 때까지 함수가 실행됨</span></span><br><span class="line"><span class="comment">// value는 yield뒤에 붙어있는 숫자</span></span><br><span class="line"><span class="comment">// done은 함수가 끝까지 실행되면 ture가 나옴.</span></span><br><span class="line">iterable.next(); <span class="comment">// &#123; value: 1, done: false &#125;</span></span><br><span class="line">iterable.next(); <span class="comment">// &#123; value: 2, done: false &#125;</span></span><br><span class="line">iterable.next(); <span class="comment">// &#123; value: 3, done: false &#125;</span></span><br><span class="line">iterable.next(); <span class="comment">// &#123; value: undefined, done: true &#125;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "자바스크립트 12일차",
+        "image": "https://JihyeHwang09.github.iohttps://cascadingmedia.com/assets/images/insites/2015/02/url-anatomy/url-anatomy-55598c24.png",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
+        "datePublished": "2019-01-26",
+        "dateCreated": "2019-01-26",
+        "dateModified": "2019-01-26",
+        "url": "https://JihyeHwang09.github.io/2019/01/26/javascript12/",
+        "description": "Node.js + HTTPhttp: 통신 규약 이름
+처음 만나는 Node.jsREST API 실습
+POSTMAN 설치
+서버와 통신을 할 때는 주로 JASON 형식으로 주고 받는다.
+REST API: 통신 규약에 관한 용어
+Authentication: 통신을 할 때 내가 누군지를 밝히는 절차 (인증)
+내가 누군지를 밝혀야 나에 관한 자료를 받을 수 있다.
+
+"
+        "wordCount": 3005
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/01/25/javascript11/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">자바스크립트 11일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/26/javascript12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cascadingmedia.com/assets/images/insites/2015/02/url-anatomy/url-anatomy-55598c24.png)" alt="자바스크립트 12일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/26/javascript12/" class="title">자바스크립트 12일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-26T11:26:48.000Z" itemprop="datePublished">2019-01-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/25/javascript11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51750128-76dfd380-20f4-11e9-94fc-7e3c8b6efdf8.png)" alt="자바스크립트 11일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/25/javascript11/" class="title">자바스크립트 11일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-25T13:52:53.097Z" itemprop="datePublished">2019-01-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/24/javascript10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51664478-d490f480-1ffc-11e9-8202-462f0a875e6e.png)" alt="자바스크립트 10일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/24/javascript10/" class="title">자바스크립트 10일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-24T08:21:30.791Z" itemprop="datePublished">2019-01-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/23/javascript9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51548884-97b5e800-1eac-11e9-8b2d-2871ef18e65d.png)" alt="자바스크립트 9일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/23/javascript9/" class="title">자바스크립트 9일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-22T15:41:52.969Z" itemprop="datePublished">2019-01-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/22/javascript8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51489808-b48ae680-1dec-11e9-8cf0-d5007041c48f.png)" alt="자바스크립트 8일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/22/javascript8/" class="title">자바스크립트 8일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-21T17:01:07.000Z" itemprop="datePublished">2019-01-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">12</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">5</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">28</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 12px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 12px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 12px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 12px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 12px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 12px;">framework</a> <a href="/tags/front-end/" style="font-size: 18px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 12px;">platform</a> <a href="/tags/recursion/" style="font-size: 12px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 14px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 12px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 12px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 14px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 16px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 14px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 14px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/01/26/javascript12/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
