@@ -21,7 +21,7 @@
 <meta property="og:description" content="클래스 프로토타입은 기능을 재사용하기 위해서 사용한다. 클래스는 객체가 공유해서 써야 하는 기능들을 모아둔다.  클래스 상속 (Class Inheritance) 클래스 상속(class inheritance, subclassing) 기능을 통해한 클래스의 기능을 다른 클래스에서 재사용할 수 있다.  1234567class Parent &amp;#123;  // ..">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://helloworldjavascript.net/images/class-inheritance-prototype-chain.svg">
-<meta property="og:updated_time" content="2019-01-27T17:03:25.039Z">
+<meta property="og:updated_time" content="2019-01-27T17:27:02.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 14일차">
 <meta name="twitter:description" content="클래스 프로토타입은 기능을 재사용하기 위해서 사용한다. 클래스는 객체가 공유해서 써야 하는 기능들을 모아둔다.  클래스 상속 (Class Inheritance) 클래스 상속(class inheritance, subclassing) 기능을 통해한 클래스의 기능을 다른 클래스에서 재사용할 수 있다.  1234567class Parent &amp;#123;  // ..">
@@ -219,7 +219,7 @@ ga('send', 'pageview');
 <ul>
 <li><p><code>super</code> 키워드의 동작 방식은 다음과 같다.</p>
 </li>
-<li><p>생성자 내부에서 <code>super</code>를 함수처럼 호출하면, 부모 클래스의 생성자가 호출됩니다.</p>
+<li><p>생성자 내부에서 <code>super</code>를 함수처럼 호출하면, 부모 클래스의 생성자가 호출된다.</p>
 </li>
 <li>정적 메소드 내부에서는 <code>super.prop</code>과 같이 써서 부모 클래스의 <code>prop</code> 정적 속성에 접근할 수 있다.</li>
 <li>인스턴스 메소드 내부에서는 <code>super.prop</code>과 같이 써서 부모 클래스의 <code>prop</code> 인스턴스 속성에 접근할 수 있다.</li>
@@ -276,6 +276,7 @@ ga('send', 'pageview');
 <li><code>트리(tree)</code>는 여러 데이터가 <strong>계층 구조</strong> 안에서 서로 연결된 형태를 나타낼 때 사용된다.</li>
 <li><code>부모-자식</code> 관계가 있는 구조를 트리라고 부른다.</li>
 </ul>
+<hr>
 <h1 id="비동기-프로그래밍"><a href="#비동기-프로그래밍" class="headerlink" title="비동기 프로그래밍"></a>비동기 프로그래밍</h1><ul>
 <li>한 번에 촥~ 실행되는 게 아니라<br>시간을 나눠서 조금씩 실행되는 프로그래밍을 비동기 프로그래밍이라고 한다.</li>
 <li>순서 뿐만 아니라 시간에 대해서도 생각해야 한다.</li>
@@ -283,14 +284,15 @@ ga('send', 'pageview');
 <h2 id="Motivation-타이머-API"><a href="#Motivation-타이머-API" class="headerlink" title="Motivation - 타이머 API"></a>Motivation - 타이머 API</h2><ul>
 <li>웹 브라우저에는 <strong>함수를 특정 시간이 지난 뒤에 실행</strong>시키거나,<br>혹은 <strong>함수를 주기적으로 실행</strong>시키는 작업을 할 수 있게 해 주는 함수가 내장되어 있다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"setTimeout이 실행된 지 2초가 지났습니다."</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 특정 간격마다 주기적으로 실행</span></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"3초마다 출력됩니다."</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"setTimeout이 실행된 지 2초가 지났습니다."</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 특정 간격마다 주기적으로 실행</span></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"3초마다 출력된다."</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>setTimeout과 setInterval은 각각 <strong>타이머 식별자</strong>를 반환한다.</li>
 <li>이 식별자를 가지고 실행 중인 타이머를 취소할 수 있다.</li>
 <li>setTimeout - clearTimeout</li>
 <li>setInterval - clearInterval</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> timeoutId = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"setTimeout이 실행된 지 2초가 지났습니다."</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> intervalId = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"3초마다 출력됩니다."</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">clearTimeout(timeoutId);</span><br><span class="line">clearInterval(intervalId);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 아무것도 출력되지 않습니다.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> timeoutId = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"setTimeout이 실행된 지 2초가 지났습니다."</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> intervalId = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"3초마다 출력된다."</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">clearTimeout(timeoutId);</span><br><span class="line">clearInterval(intervalId);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 아무것도 출력되지 않습니다.</span></span><br></pre></td></tr></table></figure>
+<hr>
 <h3 id="타이머-사용-시-주의할-점"><a href="#타이머-사용-시-주의할-점" class="headerlink" title="타이머 사용 시 주의할 점"></a>타이머 사용 시 주의할 점</h3><ul>
 <li><code>setTimeout</code>과 <code>setInterval</code>은 정확한 지연시간을 보장해 주지 않는다.</li>
 </ul>
@@ -324,10 +326,11 @@ ga('send', 'pageview');
 </li>
 <li>브라우저는 대개 60fps로 동작하기 때문에,<br>대략 16ms 안에 코드의 실행을 완료하지 못하면 브라우저의 애니메이션이 뚝뚝 끊기는 현상이 나타난다.<br>이는 사용자 경험에 악영향을 미칠 수 있다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 특정 시간동안 계속 루프를 도는 코드</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">milliseconds</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Data.now()는 유닉스 시간</span></span><br><span class="line">  <span class="keyword">const</span> start = <span class="built_in">Date</span>.now();</span><br><span class="line">  <span class="comment">// Data.now()가 실행된 시점의 유닉스 시간(이거는 안 바뀌는 것임)</span></span><br><span class="line">  <span class="comment">//- 현재 Data.now()실행한 유닉스 시간(시간이 흘렀으니까 start보다는 큰 숫자를 반환함)</span></span><br><span class="line">  <span class="comment">// while (10, 20, 30........ &lt; 5000)</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">Date</span>.now() - start &lt; milliseconds);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">5000</span>);</span><br><span class="line"><span class="comment">// 5초 동안 while 루프가 실행되므로, 호출 스택이 비워지지 않고 브라우저는 먹통이 됩니다.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 특정 시간동안 계속 루프를 도는 코드</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">milliseconds</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Data.now()는 유닉스 시간</span></span><br><span class="line">  <span class="keyword">const</span> start = <span class="built_in">Date</span>.now();</span><br><span class="line">  <span class="comment">// Data.now()가 실행된 시점의 유닉스 시간(이거는 안 바뀌는 것임)</span></span><br><span class="line">  <span class="comment">//- 현재 Data.now()실행한 유닉스 시간(시간이 흘렀으니까 start보다는 큰 숫자를 반환함)</span></span><br><span class="line">  <span class="comment">// while (10, 20, 30........ &lt; 5000)</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">Date</span>.now() - start &lt; milliseconds);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">5000</span>);</span><br><span class="line"><span class="comment">// 5초 동안 while 루프가 실행되므로, 호출 스택이 비워지지 않고 브라우저는 먹통이 된다.</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>따라서, 브라우저에서 동작하는 JavaScript 코드,<br>특히 사용자와의 상호작용을 위한 코드를 작성할 때에는<br>코드의 실행 시간이 얼마나 될지를 항상 염두에 두어야 한다.</li>
 </ul>
+<hr>
 <h3 id="작업-큐-Task-Queue"><a href="#작업-큐-Task-Queue" class="headerlink" title="작업 큐 (Task Queue)"></a>작업 큐 (Task Queue)</h3><ul>
 <li><p>하지만 모든 작업을 16ms 안에 처리할 수는 없습니다.<br><strong>어떤 사건(event)이 일어날 때까지</strong> 기다리거나, 혹은 <strong>큰 데이터에 대한 계산이 완료될 때까지</strong><br>기다리는 데에는 시간이 오래 걸리기 마련이다.</p>
 </li>
@@ -340,8 +343,8 @@ ga('send', 'pageview');
 </li>
 <li><p>JavaScript 코드를 작성할 때에는, 호출 스택과 작업 큐의 성질을 반드시 염두에 두어야 한다.</p>
 <ul>
-<li>각 작업은 작업 큐에 쌓인 순서대로 실행됩니다.</li>
-<li>이미 작업 큐에 작업이 쌓여있다면, 뒤늦게 추가된 작업은 앞서 추가된 작업이 모두 실행된 다음에,<br>즉 호출 스택이 비워진 다음에야 실행됩니다.</li>
+<li>각 작업은 작업 큐에 쌓인 순서대로 실행된다.</li>
+<li>이미 작업 큐에 작업이 쌓여있다면, 뒤늦게 추가된 작업은 앞서 추가된 작업이 모두 실행된 다음에,<br>즉 호출 스택이 비워진 다음에야 실행된다.</li>
 <li>호출 스택이 비워지지 않는다면, 작업 큐에 쌓여있는 작업을 처리할 수 없습니다.</li>
 <li><strong>각 작업 사이에 브라우저는 화면을 새로 그릴 수 있다.</strong><br>즉, 호출 스택이 비워지지 않는다면 브라우저는 화면을 새로 그릴 수 없습니다.</li>
 </ul>
@@ -352,6 +355,7 @@ ga('send', 'pageview');
 <li>cf) request Animation Frame: 다음 번 화면을 그릴 때, 함수를 실행시켜달라는 함수(브라우저 내장 기능)</li>
 <li>작업큐에 부탁하고 넘어가는 것이라는 개념을 이해할 것</li>
 </ul>
+<hr>
 <h2 id="비동기-프로그래밍-Asyncronous-Programming"><a href="#비동기-프로그래밍-Asyncronous-Programming" class="headerlink" title="비동기 프로그래밍 (Asyncronous Programming)"></a>비동기 프로그래밍 (Asyncronous Programming)</h2><ul>
 <li>이처럼 어떤 일이 완료되기를 기다리지 않고 다음 코드를 실행해 나가는 프로그래밍 방식을<br>일러 <strong>비동기 프로그래밍(asynchronous programming)</strong>이라고 한다.</li>
 <li>반대로 어떤 일이 완료될 때까지 코드의 실행을 멈추고 기다리는 프로그래밍 방식을<br><strong>동기식 프로그래밍(synchronous programming)</strong>이라고 부릅니다.</li>
@@ -378,11 +382,11 @@ ga('send', 'pageview');
 <li>콜백은 동기식 or 비동기식으로 호출된다.</li>
 </ul>
 <ul>
-<li><p>예제에서 <code>$.get</code> 메소드의 두 번째 인수로 콜백을 넘겨주었습니다.<br><code>$.get</code> 메소드는 비동기식으로 동작하며, <strong>Github API</strong> 서버와 통신하는 일을 브라우저에 위임한 후 바로 종료됩니다.<br>통신이 끝나면, 그 결과를 첫 번째 인수로 해서 콜백을 호출하게 됩니다.</p>
+<li><p>예제에서 <code>$.get</code> 메소드의 두 번째 인수로 콜백을 넘겨주었다.<br><code>$.get</code> 메소드는 비동기식으로 동작하며, <strong>Github API</strong> 서버와 통신하는 일을 브라우저에 위임한 후 바로 종료된다.<br>통신이 끝나면, 그 결과를 첫 번째 인수로 해서 콜백을 호출하게 된다.</p>
 </li>
-<li><p>여기서 주의할 것이 있다.<br>콜백을 인수로 받는 함수가 항상 비동기식으로 동작하는 것은 아닙니다.<br>위 예제의 map, forEach의 인수로 넘겨준 것 역시 콜백이지만,<br>이 때에는 <strong>콜백이 동기식으로 호출됩니다.</strong><br>즉, 콜백의 실행이 끝날때까지 코드의 실행 흐름이 다음으로 넘어가지 않습니다.<br>예제 코드를 직접 실행해본 후, 어떤 순서로 출력이 되었는지 살펴보세요.</p>
+<li><p>여기서 주의할 것이 있다.<br>콜백을 인수로 받는 함수가 항상 비동기식으로 동작하는 것은 아닙니다.<br>위 예제의 map, forEach의 인수로 넘겨준 것 역시 콜백이지만,<br>이 때에는 <strong>콜백이 동기식으로 호출된다.</strong><br>즉, 콜백의 실행이 끝날때까지 코드의 실행 흐름이 다음으로 넘어가지 않습니다.<br>예제 코드를 직접 실행해본 후, 어떤 순서로 출력이 되었는지 살펴보세요.</p>
 </li>
-<li><p>콜백은 JavaScript가 고차함수를 잘 지원한다는 특징 때문에 가장 많이 사용되는 비동기 프로그래밍 양식이었습니다.<br>하지만 콜백만으로는 복잡한 비동기 데이터 흐름를 표현하기가 어려워서 많은 프로그래머들이 힘들어했고,<br>결국 <strong>콜백 지옥(callback hell)</strong>이라는 용어까지 생겨났습니다.</p>
+<li><p>콜백은 JavaScript가 고차함수를 잘 지원한다는 특징 때문에 가장 많이 사용되는 비동기 프로그래밍 양식이었다.<br>하지만 콜백만으로는 복잡한 비동기 데이터 흐름를 표현하기가 어려워서 많은 프로그래머들이 힘들어했고,<br>결국 <strong>콜백 지옥(callback hell)</strong>이라는 용어까지 생겨났습니다.</p>
 </li>
 <li><p>예를 들어, 아래의 흐름대로 데이터를 가져오기 위해서는 복잡한 형태로 콜백을 사용해야 한다.</p>
 </li>
@@ -400,6 +404,7 @@ ga('send', 'pageview');
 <li><p>이처럼 순수하게 콜백만 사용했을 때는, 데이터 흐름이 조금만 복잡해져도 코드가 복잡해지는 문제가 생긴다.</p>
 </li>
 </ul>
+<hr>
 <h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><ul>
 <li><p>위에서 설명한 콜백의 문제를 해결하기 위해 여러 라이브러리들이 등장했고,<br>그 중에서 개발자들에게 널리 선택받은 것이 바로 Promise 패턴을 사용한 라이브러리들(jQuery Deffered, Q, Bluebird)이었다.<br>이 라이브러리들이 표준화되어, 결국 ES2015에 이르러 JavaScript 언어 자체에 포함되게 되었다.</p>
 </li>
@@ -482,13 +487,14 @@ ga('send', 'pageview');
 </li>
 <li>But 회사에 입사했을 때, 로그인 정보를 유지하는 기능을 구현할 때, 쿠키를 써야 할 수도 있음</li>
 </ul>
+<hr>
 <h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><h3 id="HTTP-methods-복습"><a href="#HTTP-methods-복습" class="headerlink" title="HTTP methods 복습"></a>HTTP methods 복습</h3><ul>
 <li>자주 사용할 것: GET, POST, PUT, PATCH, DELETE</li>
 <li>CRUD</li>
 </ul>
-<hr>
+<blockquote>
 <p>C(Create) - POST (만들 때)<br>R(Read) - GET(읽을 때)<br>U(Update) - PUT, PATCH(수정)<br>D(Delete) - DELETE</p>
-<hr>
+</blockquote>
 <h3 id="Ajax-1"><a href="#Ajax-1" class="headerlink" title="Ajax"></a>Ajax</h3><ul>
 <li><strong>비동기적인 웹 어플리케이션</strong>의 제작을 위한 클라이언트 측 웹 개발 기법…을 뜻하나</li>
 <li>요즈음은 의미가 변형되어 <strong>웹 브라우저</strong>에서 <strong>XMLHttpRequest</strong><br>혹은 <strong>fetch</strong>를 이용해서 보내는 <strong>HTTP 요청</strong>을 통칭하기도 함</li>
@@ -607,6 +613,445 @@ ga('send', 'pageview');
 <li>토큰이란, <strong>사용자의 자격증명</strong>(아이디, 패스워드 등)을 통해 인증이 이루어진 후,<br><strong>특정 자원에 대한 자격증명</strong>으로서 <strong>대신 사용</strong>되는 인증 수단</li>
 <li>서버에 요청을 할 때마다 <strong>토큰을 요청에 직접 포함</strong>시켜서 전송 (주로 Authorization 헤더에 넣어서 전송)</li>
 </ul>
+<hr>
+<p>title: 자바스크립트 14일차<br>date:<br>categories:</p>
+<ul>
+<li>front-end</li>
+<li>javaScript<br>tags:</li>
+<li>javaScript</li>
+</ul>
+<hr>
+<h1 id="클래스-1"><a href="#클래스-1" class="headerlink" title="클래스"></a>클래스</h1><ul>
+<li>프로토타입은 기능을 재사용하기 위해서 사용한다.</li>
+<li>클래스는 객체가 공유해서 써야 하는 기능들을 모아둔다.</li>
+</ul>
+<h2 id="클래스-상속-Class-Inheritance-1"><a href="#클래스-상속-Class-Inheritance-1" class="headerlink" title="클래스 상속 (Class Inheritance)"></a>클래스 상속 (Class Inheritance)</h2><ul>
+<li>클래스 상속(class inheritance, subclassing) 기능을 통해<br>한 클래스의 기능을 다른 클래스에서 <strong>재사용</strong>할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>위 코드에서, <code>extends</code> 키워드를 통해 <code>Child</code> 클래스가 <code>Parent</code> 클래스를 상속했다.<br>이 관계를 보고 ‘부모 클래스-자식 클래스 관계’<br>혹은 ‘슈퍼 클래스(superclass)-서브 클래스(subclass) 관계’라고 말하기도 한다.</p>
+</li>
+<li><p>어떤 클래스 A가 다른 클래스 B를 상속받으면, 다음과 같은 일들이 가능해집니다.</p>
+</li>
+<li><p>자식 클래스 A를 통해 부모 클래스 B의 <strong>정적 메소드와 정적 속성</strong>을 사용할 수 있다.</p>
+</li>
+<li>부모 클래스 B의 <strong>인스턴스 메소드와 인스턴스 속성</strong>을 자식 클래스 A의 인스턴스에서 사용할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> staticProp = <span class="string">"staticProp"</span>;</span><br><span class="line">  <span class="keyword">static</span> staticMethod() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"I'm a static method."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  instanceProp = <span class="string">"instanceProp"</span>;</span><br><span class="line">  instanceMethod() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"I'm a instance method."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Child.staticProp); <span class="comment">// staticProp</span></span><br><span class="line"><span class="built_in">console</span>.log(Child.staticMethod()); <span class="comment">// I'm a static method.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="built_in">console</span>.log(c.instanceProp); <span class="comment">// instanceProp</span></span><br><span class="line"><span class="built_in">console</span>.log(c.instanceMethod()); <span class="comment">// I'm a instance method.</span></span><br></pre></td></tr></table></figure>
+<h3 id="super-1"><a href="#super-1" class="headerlink" title="super"></a>super</h3><ul>
+<li>앞서 봤듯이, 자식 클래스에서 부모 클래스의 정적 속성과 인스턴스 속성에 접근할 수 있었다.<br>하지만, 자식 클래스에 <strong>같은 이름의 속성</strong>을 정의한 경우 문제가 생긴다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Melon</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 인스턴스 메소드</span></span><br><span class="line">  getColor() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"제 색깔은 초록색이다."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WaterMelon</span> <span class="keyword">extends</span> <span class="title">Melon</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 인스턴스 메소드</span></span><br><span class="line">  getColor() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"속은 빨강색이다."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> waterMelon = <span class="keyword">new</span> WaterMelon();</span><br><span class="line">waterMelon.getColor(); <span class="comment">// 속은 빨강색이다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>메소드 오버라이딩</code>: 부모 클래스의 기능을 확장해서 사용하고 싶은 경우,<br>일부러 부모 클래스의 메소드와 같은 이름으로 메소드를 만들어서 사용한다.</li>
+<li>이런 경우에, <code>super</code> 키워드를 통해 부모 클래스의 메소드에 직접 접근할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Melon</span> </span>&#123;</span><br><span class="line">  getColor() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"제 색깔은 초록색이다."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WaterMelon</span> <span class="keyword">extends</span> <span class="title">Melon</span> </span>&#123;</span><br><span class="line">  getColor() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.getColor() + <span class="string">" 하지만 속은 빨강색이다."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> waterMelon = <span class="keyword">new</span> WaterMelon();</span><br><span class="line">waterMelon.getColor(); <span class="comment">// 제 색깔은 초록색이다. 하지만 속은 빨강색이다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>super</code> 키워드의 동작 방식은 다음과 같다.</p>
+</li>
+<li><p>생성자 내부에서 <code>super</code>를 함수처럼 호출하면, 부모 클래스의 생성자가 호출된다.</p>
+</li>
+<li>정적 메소드 내부에서는 <code>super.prop</code>과 같이 써서 부모 클래스의 <code>prop</code> 정적 속성에 접근할 수 있다.</li>
+<li>인스턴스 메소드 내부에서는 <code>super.prop</code>과 같이 써서 부모 클래스의 <code>prop</code> 인스턴스 속성에 접근할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(&#123; name, age &#125;) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  introduce() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`제 이름은 <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>이다.`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 분해 대입과 나머지 속성</span></span><br><span class="line">  <span class="comment">// grade = 3, rest에는 객체가 들어감. 그 객체에는 name: '윤아준', age: 19가 들어있음</span></span><br><span class="line">  <span class="keyword">constructor</span>(&#123; grade, ...rest &#125;) &#123;</span><br><span class="line">    <span class="comment">// 부모 클래스의 생성자를 호출할 수 있다.</span></span><br><span class="line">    <span class="keyword">super</span>(rest);</span><br><span class="line">    <span class="keyword">this</span>.grade = grade;</span><br><span class="line">  &#125;</span><br><span class="line">  introduce() &#123;</span><br><span class="line">    <span class="comment">// 부모 클래스의 `introduce` 메소드를 호출할 수 있다.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.introduce() + <span class="string">` 저는 <span class="subst">$&#123;<span class="keyword">this</span>.grade&#125;</span>학년이다.`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// this는 그때 그때 다른 걸 가리킬 수 있다.</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> Person(&#123; <span class="attr">name</span>: <span class="string">"신하경"</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;);</span><br><span class="line">p.introduce();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> q = <span class="keyword">new</span> Person(&#123; <span class="attr">name</span>: <span class="string">"신하경"</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;);</span><br><span class="line">p.introduce();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> Student(&#123; <span class="attr">grade</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">"윤아준"</span>, <span class="attr">age</span>: <span class="number">19</span> &#125;);</span><br><span class="line">s.introduce(); <span class="comment">// 제 이름은 윤아준이다. 저는 3학년이다.</span></span><br></pre></td></tr></table></figure>
+<h2 id="클래스-상속과-프로토타입-상속-1"><a href="#클래스-상속과-프로토타입-상속-1" class="headerlink" title="클래스 상속과 프로토타입 상속"></a>클래스 상속과 프로토타입 상속</h2><ul>
+<li>클래스 상속은 내부적으로 프로토타입 상속 기능을 활용하고 있다.</li>
+<li>아래 코드의 클래스 상속에 대한 프로토타입 체인을 그림으로 나타내보면 다음과 같이 된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span>(</span>&#123;&#125;</span><br><span class="line"><span class="keyword">const</span> student = <span class="keyword">new</span> Student();</span><br></pre></td></tr></table></figure>
+<p><img src="https://helloworldjavascript.net/images/class-inheritance-prototype-chain.svg" alt="클래스 상속에 대한 프로토타입 체인"></p>
+<blockquote>
+<p>이와 같이 부모 클래스의 메소드와 이름이 같은 메소드를 자식 클래스에<br>정의하는 것을 보고 <code>메소드 오버라이딩(method overriding)</code>이라고 한다.</p>
+</blockquote>
+<ul>
+<li>자바스크립트에서 클래스는 부모를 하나만 줄 수 있다. (다중 상속이 불가능하다.)</li>
+</ul>
+<h1 id="큐-스택-트리-1"><a href="#큐-스택-트리-1" class="headerlink" title="큐, 스택, 트리"></a>큐, 스택, 트리</h1><ul>
+<li>어떤 데이터의 구체적인 구현 방식은 생략한 채,<br>데이터의 추상적 형태와 그 데이터를 다루는 방법만을 정해놓은 것을 가지고<br><code>ADT(Abstract Data Type)</code> 혹은 <code>추상 자료형</code>이라고 한다.</li>
+<li>이 챕터에서는 널리 사용되는 ADT인 <code>큐</code>, <code>스택</code>, <code>트리</code>에 대해 배운다.</li>
+</ul>
+<hr>
+<h2 id="큐-Queue-1"><a href="#큐-Queue-1" class="headerlink" title="큐 (Queue)"></a>큐 (Queue)</h2><ul>
+<li><code>큐(Queue)</code>는 <strong>한 줄의 파이프</strong>라고 생각하면 된다.</li>
+<li>데이터를 집어넣을 수 있는 <code>선형(linear) 자료형</code>이다.</li>
+<li><strong>먼저 집어넣은 데이터가 먼저 나온다.</strong><br>-&gt; 이 특징을 줄여서 <code>FIFO(First In First Out)</code>라고 부른다.</li>
+<li>데이터를 집어넣는 <code>enqueue</code>, 데이터를 추출하는 <code>dequeue</code> 등의 작업을 할 수 있다.</li>
+<li>JavaScript에서는 배열을 이용해서 간단하게 큐를 구현할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>._arr = [];</span><br><span class="line">  &#125;</span><br><span class="line">  enqueue(item) &#123;</span><br><span class="line">    <span class="keyword">this</span>._arr.push(item);</span><br><span class="line">  &#125;</span><br><span class="line">  dequeue() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._arr.shift();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line">queue.enqueue(<span class="number">1</span>);</span><br><span class="line">queue.enqueue(<span class="number">2</span>);</span><br><span class="line">queue.enqueue(<span class="number">3</span>);</span><br><span class="line">queue.dequeue(); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>큐</code>는 <strong>순서대로 처리해야 하는 작업을 임시로 저장해두는 버퍼(buffer)</strong>로서 많이 사용된다.</li>
+<li>ex) 스트리밍을 할 때, 임시저장소(buffer)에서 대개 큐(Queue)가 사용된다.</li>
+</ul>
+<hr>
+<h2 id="스택-Stack-1"><a href="#스택-Stack-1" class="headerlink" title="스택(Stack)"></a>스택(Stack)</h2><ul>
+<li><code>스택(stack)</code>은 다음과 같은 성질을 갖는 자료형이다.</li>
+<li>데이터를 집어넣을 수 있는 <code>선형(linear)</code> 자료형이다.</li>
+<li><strong>나중에 집어넣은 데이터가 먼저 나온다.</strong><br>-&gt; 이 특징을 줄여서 <code>LIFO(Last In First Out)</code>라고 부른다.</li>
+<li>데이터를 집어넣는 <code>push</code>, 데이터를 추출하는 <code>pop</code>,<br>맨 나중에 집어넣은 데이터를 확인하는 <code>peek</code> 등의 작업을 할 수 있다.</li>
+<li>JavaScript에서는 배열을 이용해서 간단하게 스택을 구현할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>._arr = [];</span><br><span class="line">  &#125;</span><br><span class="line">  push(item) &#123;</span><br><span class="line">    <span class="keyword">this</span>._arr.push(item);</span><br><span class="line">  &#125;</span><br><span class="line">  pop() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._arr.pop();</span><br><span class="line">  &#125;</span><br><span class="line">  peek() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._arr[<span class="keyword">this</span>._arr.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> stack = <span class="keyword">new</span> Stack();</span><br><span class="line">stack.push(<span class="number">1</span>);</span><br><span class="line">stack.push(<span class="number">2</span>);</span><br><span class="line">stack.push(<span class="number">3</span>);</span><br><span class="line">stack.pop(); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>스택</code>은 서로 관계가 있는 여러 작업을 연달아 수행하면서<br>이전의 작업 내용을 저장해 둘 필요가 있을 때 널리 사용된다.</li>
+<li>ex) <code>ctrl + z</code> 되돌리기 기능을 <code>스택</code>을 이용해서 만든다.</li>
+<li>import를 입력한다.</li>
+<li>i를 입력했다면, i를 저장했다는 사실이 스택에 저장된다.</li>
+<li>m를 입력했다면, m를 저장했다는 사실이 스택에 저장된다.</li>
+<li>p를 입력했다면, p를 저장했다는 사실이 스택에 저장된다.</li>
+<li>지우는건 p부터 지운다. (스택에서는 나중에 들어온 p가 먼저 나온다. -&gt; 먼저 지워진다. )</li>
+</ul>
+<hr>
+<h2 id="트리-Tree-1"><a href="#트리-Tree-1" class="headerlink" title="트리 (Tree)"></a>트리 (Tree)</h2><ul>
+<li><code>트리(tree)</code>는 여러 데이터가 <strong>계층 구조</strong> 안에서 서로 연결된 형태를 나타낼 때 사용된다.</li>
+<li><code>부모-자식</code> 관계가 있는 구조를 트리라고 부른다.</li>
+</ul>
+<hr>
+<h1 id="비동기-프로그래밍-1"><a href="#비동기-프로그래밍-1" class="headerlink" title="비동기 프로그래밍"></a>비동기 프로그래밍</h1><ul>
+<li>한 번에 촥~ 실행되는 게 아니라<br>시간을 나눠서 조금씩 실행되는 프로그래밍을 비동기 프로그래밍이라고 한다.</li>
+<li>순서 뿐만 아니라 시간에 대해서도 생각해야 한다.</li>
+</ul>
+<h2 id="Motivation-타이머-API-1"><a href="#Motivation-타이머-API-1" class="headerlink" title="Motivation - 타이머 API"></a>Motivation - 타이머 API</h2><ul>
+<li>웹 브라우저에는 <strong>함수를 특정 시간이 지난 뒤에 실행</strong>시키거나,<br>혹은 <strong>함수를 주기적으로 실행</strong>시키는 작업을 할 수 있게 해 주는 함수가 내장되어 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"setTimeout이 실행된 지 2초가 지났다."</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 특정 간격마다 주기적으로 실행</span></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"3초마다 출력된다."</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>setTimeout과 setInterval은 각각 <strong>타이머 식별자</strong>를 반환한다.</li>
+<li>이 식별자를 가지고 실행 중인 타이머를 취소할 수 있다.</li>
+<li>setTimeout - clearTimeout</li>
+<li>setInterval - clearInterval</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> timeoutId = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"setTimeout이 실행된 지 2초가 지났다."</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> intervalId = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"3초마다 출력된다."</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">clearTimeout(timeoutId);</span><br><span class="line">clearInterval(intervalId);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 아무것도 출력되지 않다.</span></span><br></pre></td></tr></table></figure>
+<h3 id="타이머-사용-시-주의할-점-1"><a href="#타이머-사용-시-주의할-점-1" class="headerlink" title="타이머 사용 시 주의할 점"></a>타이머 사용 시 주의할 점</h3><ul>
+<li><code>setTimeout</code>과 <code>setInterval</code>은 정확한 지연시간을 보장해 주지 않는다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>() - start);</span><br><span class="line">&#125;, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 실제 지연시간과 약간의 차이가 존재한다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>주식 거래나 게임 같은 경우에는 자바스크립트를 사용하지 않는다.<br>아주 빠르게 반응하는 c언어 같은 언어를 사용해야 한다.</p>
+</li>
+<li><p>또한 <strong>지연시간을 0으로 주었을 때</strong>는 코드가 기대한대로 동작하지 않는다.<br><code>setTimeout</code> 호출 시 지연시간으로 0을 넘기면 어떻게 되는지 확인해보자.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 지연시간을 0으로 준다고 해서 코드가 바로 실행이 되지 않는다.</span></span><br><span class="line"><span class="comment">// -&gt; 코드 실행 순서가 뒤죽박죽이 된다.</span></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"world"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 출력 결과:</span></span><br><span class="line"><span class="comment">// world</span></span><br><span class="line"><span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>분명 지연시간을 0으로 주었는데도 코드가 뒤늦게 실행되었다.<br>어떻게 된 일일까?<br>이를 이해하기 위해서는 먼저 <strong>브라우저에서 JavaScript 코드가 실행되는 과정</strong>을 알아야 할 필요가 있다.</li>
+</ul>
+<h2 id="브라우저의-JavaScript-코드-실행-과정-1"><a href="#브라우저의-JavaScript-코드-실행-과정-1" class="headerlink" title="브라우저의 JavaScript 코드 실행 과정"></a>브라우저의 JavaScript 코드 실행 과정</h2><h3 id="호출-스택-Call-Stack-1"><a href="#호출-스택-Call-Stack-1" class="headerlink" title="호출 스택 (Call Stack)"></a>호출 스택 (Call Stack)</h3><ul>
+<li><code>호출 스택(call stack)</code>은 스택 형태의 저장소로,<br>JavaScript 엔진은 <strong>함수 호출과 관련된 정보</strong>를 이 곳에서 관리한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> add(x, <span class="number">2</span>); <span class="comment">// `add`를 호출</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2AndPrint</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> result = add2(x); <span class="comment">// `add2`를 호출</span></span><br><span class="line">  <span class="built_in">console</span>.log(result); <span class="comment">// `console.log`를 호출</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add2AndPrint(<span class="number">3</span>); <span class="comment">// `add2AndPrint`를 호출</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>호출 스택</code>에 저장되는 각 항목을 <strong>실행 맥락(execution context)</strong>이라고 부른다.<br>실행 맥락에는 아래와 같은 정보들이 저장된다.</li>
+</ul>
+<ul>
+<li>함수 내부에서 사용되는 변수 - 스코프 체인 - this가 가리키는 객체</li>
+<li><p>브라우저가 JavaScript 코드를 실행시킬 때, 호출 스택을 다음과 같이 조작한다.</p>
+<ul>
+<li>스크립트를 불러올 때, 전역 실행 맥락(global execution context)을 호출 스택에 추가한다.</li>
+<li>함수가 호출되면, 해당 호출에 대한 실행 맥락을 생성해서 호출 스택에 추가(push)한다.</li>
+<li>변수에 대입이 일어나면, 호출 스택에 저장되어 있는 변수의 내용을 변경한다.</li>
+<li>함수의 실행이 끝나면, 결과값을 반환하고 호출 스택 가장 위에 있는 실행 맥락을 제거(pop)한다.</li>
+<li>스크립트의 실행이 모두 끝나면, 전역 실행 맥락을 호출 스택에서 제거(pop)한다.</li>
+</ul>
+</li>
+<li><p>이를 통해, 변수에 값을 대입한다거나,<br>함수가 여러 번 중첩되어 호출되는 등의 <strong>복잡한 코드의 동작을 단순한 자료구조로 표현할 수 있게 된다.</strong></p>
+</li>
+<li><p>웹 브라우저는 <strong>호출 스택에 실행 맥락이 존재하는 동안,</strong><br>즉 실행 중인 함수가 존재하는 동안에는 먹통이 되어 버린다.</p>
+</li>
+<li>브라우저는 대개 60fps로 동작하기 때문에,<br>대략 16ms 안에 코드의 실행을 완료하지 못하면 브라우저의 애니메이션이 뚝뚝 끊기는 현상이 나타난다.<br>이는 사용자 경험에 악영향을 미칠 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 특정 시간동안 계속 루프를 도는 코드</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">milliseconds</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Data.now()는 유닉스 시간</span></span><br><span class="line">  <span class="keyword">const</span> start = <span class="built_in">Date</span>.now();</span><br><span class="line">  <span class="comment">// Data.now()가 실행된 시점의 유닉스 시간(이거는 안 바뀌는 것임)</span></span><br><span class="line">  <span class="comment">//- 현재 Data.now()실행한 유닉스 시간(시간이 흘렀으니까 start보다는 큰 숫자를 반환함)</span></span><br><span class="line">  <span class="comment">// while (10, 20, 30........ &lt; 5000)</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">Date</span>.now() - start &lt; milliseconds);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">5000</span>);</span><br><span class="line"><span class="comment">// 5초 동안 while 루프가 실행되므로, 호출 스택이 비워지지 않고 브라우저는 먹통이 된다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>따라서, 브라우저에서 동작하는 JavaScript 코드,<br>특히 사용자와의 상호작용을 위한 코드를 작성할 때에는<br>코드의 실행 시간이 얼마나 될지를 항상 염두에 두어야 한다.</li>
+</ul>
+<hr>
+<h3 id="작업-큐-Task-Queue-1"><a href="#작업-큐-Task-Queue-1" class="headerlink" title="작업 큐 (Task Queue)"></a>작업 큐 (Task Queue)</h3><ul>
+<li><p>하지만 모든 작업을 16ms 안에 처리할 수는 없다.<br><strong>어떤 사건(event)이 일어날 때까지</strong> 기다리거나, 혹은 <strong>큰 데이터에 대한 계산이 완료될 때까지</strong><br>기다리는 데에는 시간이 오래 걸리기 마련이다.</p>
+</li>
+<li><p>이런 경우, 브라우저에서는 다음과 같은 절차를 통해 <strong>오래 기다려야 하는 일</strong>을 처리할 수 있다.</p>
+<ul>
+<li>기다려야 하는 일을 JavaScript 엔진에서 직접 처리하는 것이 아니라 API를 통해 브라우저에 위임한다.<br>이 때, 일이 끝나면 실행시킬 콜백을 같이 등록한다.</li>
+<li>위임된 일이 끝나면, 그 결과와 콜백을 작업 큐(task queue)에 추가한다.</li>
+<li>JavaScript 엔진은 호출 스택이 비워질 때마다<br>작업 큐에서 가장 오래된 작업을 꺼내와서 해당 작업에 대한 콜백을 실행시킨다.<br>브라우저는 이 과정을 끊임없이 반복하는데, 이를 이벤트 루프(event loop)라고 부른다.</li>
+</ul>
+</li>
+<li><p>JavaScript 코드를 작성할 때에는, 호출 스택과 작업 큐의 성질을 반드시 염두에 두어야 한다.</p>
+<ul>
+<li>각 작업은 작업 큐에 쌓인 순서대로 실행된다.</li>
+<li>이미 작업 큐에 작업이 쌓여있다면, 뒤늦게 추가된 작업은 앞서 추가된 작업이 모두 실행된 다음에,<br>즉 호출 스택이 비워진 다음에야 실행된다.</li>
+<li>호출 스택이 비워지지 않는다면, 작업 큐에 쌓여있는 작업을 처리할 수 없다.</li>
+<li><strong>각 작업 사이에 브라우저는 화면을 새로 그릴 수 있다.</strong><br>즉, 호출 스택이 비워지지 않는다면 브라우저는 화면을 새로 그릴 수 없다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span><br><span class="line">&#125;, <span class="number">0</span>); <span class="comment">// 작업 큐에 콜백이 추가됨</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 콜백은 () =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log('hello');</span></span><br><span class="line"><span class="comment">// &#125;, 0</span></span><br><span class="line"><span class="comment">// 를 의미함</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"world"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cf) request Animation Frame: 다음 번 화면을 그릴 때, 함수를 실행시켜달라는 함수(브라우저 내장 기능)</li>
+<li>작업큐에 부탁하고 넘어가는 것이라는 개념을 이해할 것</li>
+</ul>
+<hr>
+<h2 id="비동기-프로그래밍-Asyncronous-Programming-1"><a href="#비동기-프로그래밍-Asyncronous-Programming-1" class="headerlink" title="비동기 프로그래밍 (Asyncronous Programming)"></a>비동기 프로그래밍 (Asyncronous Programming)</h2><ul>
+<li>이처럼 어떤 일이 완료되기를 기다리지 않고 다음 코드를 실행해 나가는 프로그래밍 방식을<br>일러 <strong>비동기 프로그래밍(asynchronous programming)</strong>이라고 한다.</li>
+<li>반대로 어떤 일이 완료될 때까지 코드의 실행을 멈추고 기다리는 프로그래밍 방식을<br><strong>동기식 프로그래밍(synchronous programming)</strong>이라고 부른다.</li>
+</ul>
+<ul>
+<li>브라우저에서의 비동기 프로그래밍은 주로 <strong>통신</strong>과 같이 오래 걸리는 작업들을 브라우저에 위임할 때 이루어진다.</li>
+</ul>
+<ul>
+<li>비동기 프로그래밍 방식은 대개 프로그램의 성능과 응답성을 높이는 데에 도움을 준다.</li>
+<li>하지만 <strong>코드가 실제로 실행되는 순서가 뒤죽박죽이 되므로,</strong> 코드의 가독성을 해치고 디버깅을 어렵게 만든다는 비판을 받아왔다.</li>
+<li>이런 문제를 해결하기 위해 비동기 프로그래밍을 위한 여러 기법이 생겨났고,<br>또 어떤 것들은 JavaScript 언어 자체에 포함되기도 했다.</li>
+<li>여기에서는 근래 JavaScript 생태계에서 자주 사용되는 몇 가지 비동기 프로그래밍 기법들을 살펴 보자.</li>
+<li>몇몇 예제 코드에서 사용한 Github REST API v3에는 API 사용량 제한이 있어서,<br>이를 초과하면 코드 실행 중에 에러가 날 수도 있다. 이 때에는 한 시간 정도 흐른 뒤에 다시 코드를 실행해보자.</li>
+</ul>
+<hr>
+<h3 id="콜백-Callback-1"><a href="#콜백-Callback-1" class="headerlink" title="콜백 (Callback)"></a>콜백 (Callback)</h3><ul>
+<li><p>콜백은 다른 함수의 인수로 넘기는 함수를 말하는데, 이 콜백을 가지고 비동기 프로그래밍을 할 수 있다.</p>
+</li>
+<li><p>아래 예제는 유명한 JavaScript 라이브러리인 jQuery를 이용해,<br>Github의 create-react-app 프로젝트에 등록되어 있는 이슈 목록을 가져와서 출력하는 코드이다. (여기에서 코드를 직접 실행해볼 것.)</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> $ = <span class="built_in">require</span>(<span class="string">"jquery"</span>);</span><br><span class="line"><span class="keyword">const</span> API_URL =</span><br><span class="line">  <span class="string">"https://api.github.com/repos/facebookincubator/create-react-app/issues?per_page=10"</span>;</span><br><span class="line"></span><br><span class="line">$.ajaxSetup(&#123;</span><br><span class="line">  dataType: <span class="string">"json"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$.get(API_URL, issues =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"최근 10개의 이슈:"</span>);</span><br><span class="line">  issues.map(<span class="function"><span class="params">issue</span> =&gt;</span> issue.title).forEach(<span class="function"><span class="params">title</span> =&gt;</span> <span class="built_in">console</span>.log(title));</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"출력이 끝났다."</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"받아오는 중..."</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>콜백이라고 해서 항상 비동기식으로 호출되는 것은 X</li>
+<li>콜백은 동기식 or 비동기식으로 호출된다.</li>
+</ul>
+<ul>
+<li><p>예제에서 <code>$.get</code> 메소드의 두 번째 인수로 콜백을 넘겨주었다.<br><code>$.get</code> 메소드는 비동기식으로 동작하며, <strong>Github API</strong> 서버와 통신하는 일을 브라우저에 위임한 후 바로 종료된다.<br>통신이 끝나면, 그 결과를 첫 번째 인수로 해서 콜백을 호출하게 된다.</p>
+</li>
+<li><p>여기서 주의할 것이 있다.<br>콜백을 인수로 받는 함수가 항상 비동기식으로 동작하는 것은 아닙니다.<br>위 예제의 map, forEach의 인수로 넘겨준 것 역시 콜백이지만,<br>이 때에는 <strong>콜백이 동기식으로 호출된다.</strong><br>즉, 콜백의 실행이 끝날때까지 코드의 실행 흐름이 다음으로 넘어가지 않다.<br>예제 코드를 직접 실행해본 후, 어떤 순서로 출력이 되었는지 살펴보세요.</p>
+</li>
+<li><p>콜백은 JavaScript가 고차함수를 잘 지원한다는 특징 때문에 가장 많이 사용되는 비동기 프로그래밍 양식이었다.<br>하지만 콜백만으로는 복잡한 비동기 데이터 흐름를 표현하기가 어려워서 많은 프로그래머들이 힘들어했고,<br>결국 <strong>콜백 지옥(callback hell)</strong>이라는 용어까지 생겨났다.</p>
+</li>
+<li><p>예를 들어, 아래의 흐름대로 데이터를 가져오기 위해서는 복잡한 형태로 콜백을 사용해야 한다.</p>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>Github에 공개되어있는 저장소 중, 언어가 JavaScript이고 별표를 가장 많이 받은 저장소를 불러온다.</li>
+<li>위 저장소에 가장 많이 기여한 기여자 5명의 정보를 불러온다.</li>
+<li>해당 기여자들이 최근에 Github에서 별표를 한 저장소를 각각 10개씩 불러온다.</li>
+<li>불러온 저장소를 모두 모아, 개수를 센 후 저장소의 이름을 개수와 함께 출력한다.</li>
+</ol>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> $ = <span class="built_in">require</span>(<span class="string">"jquery"</span>);</span><br><span class="line"><span class="keyword">const</span> API_URL = <span class="string">"https://api.github.com"</span>;</span><br><span class="line"><span class="keyword">const</span> starCount = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">$.ajaxSetup(&#123;</span><br><span class="line">  dataType: <span class="string">"json"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. Github에 공개되어있는 저장소 중, 언어가 JavaScript이고 별표를 가장 많이 받은 저장소를 불러온다.</span></span><br><span class="line">$.get(</span><br><span class="line">  <span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/search/repositories?q=language:javascript&amp;sort=stars&amp;per_page=1`</span>,</span><br><span class="line">  result =&gt; &#123;</span><br><span class="line">    <span class="comment">// 2. 위 저장소에 가장 많이 기여한 기여자 5명의 정보를 불러온다.</span></span><br><span class="line">    $.get(</span><br><span class="line">      <span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/repos/<span class="subst">$&#123;result.items[<span class="number">0</span>].full_name&#125;</span>/contributors?per_page=5`</span>,</span><br><span class="line">      users =&gt; &#123;</span><br><span class="line">        <span class="keyword">let</span> repoArrs = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> user <span class="keyword">of</span> users) &#123;</span><br><span class="line">          <span class="comment">// 3. 해당 기여자들이 최근에 Github에서 별표를 한 저장소를 각 기여자마다 10개씩 불러온다.</span></span><br><span class="line">          $.get(<span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/users/<span class="subst">$&#123;user.login&#125;</span>/starred?per_page=10`</span>, repos =&gt; &#123;</span><br><span class="line">            repoArrs.push(repos);</span><br><span class="line">            <span class="comment">// 4. 불러온 저장소를 모두 모아, 개수를 센 후 저장소의 이름을 개수와 함께 출력한다.</span></span><br><span class="line">            <span class="keyword">if</span> (repoArrs.length === <span class="number">5</span>) &#123;</span><br><span class="line">              <span class="keyword">for</span> (<span class="keyword">let</span> repoArr <span class="keyword">of</span> repoArrs) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> repo <span class="keyword">of</span> repoArr) &#123;</span><br><span class="line">                  <span class="keyword">if</span> (repo.full_name <span class="keyword">in</span> starCount) &#123;</span><br><span class="line">                    starCount[repo.full_name]++;</span><br><span class="line">                  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    starCount[repo.full_name] = <span class="number">1</span>;</span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="built_in">console</span>.log(starCount);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"fetching..."</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>위의 2, 3번 과정은 한 비동기 작업이 끝난 후 다른 비동기 작업을 시작하고 있고,<br>이를 위해 콜백 안에서 다시 콜백을 사용하고 있다.<br>또한 4번 과정을 실행하기 위해서는 앞서 3번 과정에서 실행된 10개의 비동기 작업이 모두 끝나는 시점을 알아야 할 필요가 있기 때문에,<br>repoArrs 배열의 길이를 체크하고 있다.</p>
+</li>
+<li><p>이처럼 순수하게 콜백만 사용했을 때는, 데이터 흐름이 조금만 복잡해져도 코드가 복잡해지는 문제가 생긴다.</p>
+</li>
+</ul>
+<hr>
+<h3 id="Promise-1"><a href="#Promise-1" class="headerlink" title="Promise"></a>Promise</h3><ul>
+<li><p>위에서 설명한 콜백의 문제를 해결하기 위해 여러 라이브러리들이 등장했고,<br>그 중에서 개발자들에게 널리 선택받은 것이 바로 Promise 패턴을 사용한 라이브러리들(jQuery Deffered, Q, Bluebird)이었다.<br>이 라이브러리들이 표준화되어, 결국 ES2015에 이르러 JavaScript 언어 자체에 포함되게 되었다.</p>
+</li>
+<li><p>Promise는 <strong>언젠가 끝나는 작업의 결과값을 담는 통과 같은 객체</strong>이다.<br>Promise 객체가 만들어지는 시점에는 그 통 안에 무엇이 들어갈지 모를 수도 있다.<br>대신 then 메소드를 통해 콜백을 등록해서, 작업이 끝났을 때 결과값을 가지고 추가 작업을 할 수 있다.</p>
+</li>
+<li><p>Promise 객체를 생성하는 가장 쉬운 방법은 Promise.resolve 정적 메소드를 사용하는 것이다.</p>
+</li>
+<li><p>10번 예제는 보면 수강생들이 헷갈려해서 안보고 넘어감</p>
+</li>
+<li><p>비동기 작업을 하는 Promise 객체는 Promise 생성자를 통해 만들 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  자바스크립트가 resolve, reject라는 함수를 준다.</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"2초가 지났다."</span>);</span><br><span class="line">    resolve(<span class="string">"hello"</span>);</span><br><span class="line">  &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>Promise</code> 생성자는 콜백을 인수로 받다. 이 콜백의 첫 번째 인수로 <code>resolve</code> 함수가 들어오는데,<br>콜백 안에서 <code>resolve</code>를 호출하면 <code>resolve</code>에 인수로 준 값이 곧 Promise 객체의 궁극적인 결과값이 된다.</p>
+</li>
+<li><p>두 번째 인수로 들어오는 <code>reject</code> 함수는 비동기 작업에서 에러가 발생했을 때 호출하는 함수인데,<br>여기에서는 소개만 하고 넘어가고 예외 처리 챕터에서 자세히 다루도록 할 것이다.</p>
+</li>
+<li><p>위 예제에서는 <code>setTimeout</code>을 이용해 2초가 지난 뒤에 콜백이 실행되도록 했다.<br>즉, p 변수에 저장된 <code>Promise</code> 객체는 2초 동안은 결과값이 없는 상태가 된다.<br>그리고 2초가 지나면, <code>resolve</code> 함수가 호출되어 <code>p</code> 객체는 결과값을 갖는 객체가 된다.</p>
+</li>
+<li><p>Promise 객체의 <strong>결과값을 사용해 추가 작업</strong>을 하려면 <code>then</code> 메소드를 호출해야 한다.<br>then 메소드에 콜백을 넘겨서, 첫 번째 인수로 들어온 결과값을 가지고 추가 작업을 할 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p.then(<span class="function"><span class="params">msg</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(msg); <span class="comment">// hello</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>금요일부터! Promise를 써서 통신할 것임!</li>
+</ul>
+<hr>
+<h1 id="모던-웹-서비스의-구성요소-1"><a href="#모던-웹-서비스의-구성요소-1" class="headerlink" title="모던 웹 서비스의 구성요소"></a>모던 웹 서비스의 구성요소</h1><ul>
+<li>모던 웹 서비스의 구성요소에서 배우는 것들은 통신할 때 중요한 것들이기 때문에 반드시 알아야 함!!! 실무에서 잘 써야 함!</li>
+</ul>
+<h2 id="Cookie-1"><a href="#Cookie-1" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="쿠키의-필요성-1"><a href="#쿠키의-필요성-1" class="headerlink" title="쿠키의 필요성"></a>쿠키의 필요성</h3><ul>
+<li>개별 클라이언트의 여러 요청에 걸친 정보의 유지 - 장바구니 - 로그인/로그아웃 - 방문 기록<br>…</li>
+</ul>
+<h3 id="HTTP-Cookie-1"><a href="#HTTP-Cookie-1" class="headerlink" title="HTTP Cookie"></a>HTTP Cookie</h3><ul>
+<li><strong>서버가 응답을 통해 웹 브라우저에 저장하는</strong> 이름+값 형태의 정보</li>
+<li>웹 브라우저는 쿠키를 저장하기 위한 <strong>저장소</strong>를 가지고 있음</li>
+<li>저장소는 <strong>*자료의 유효기간</strong>과 <strong>접근 권한</strong>에 대한 <strong>다양한 옵션</strong>을 제공</li>
+</ul>
+<h3 id="쿠키-전송-절차-1"><a href="#쿠키-전송-절차-1" class="headerlink" title="쿠키 전송 절차"></a>쿠키 전송 절차</h3><ol>
+<li><code>서버</code>는 브라우저에 저장하고 싶은 <strong>정보를 응답과 같이 실어 보낸다</strong> (Set-Cookie 헤더)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Set-Cookie: cookieName=cookieValue; Secure; Max-Age=60000</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>브라우저는 <strong>같은 서버에 요청이 일어날 때마다</strong> 해당 <strong>정보를 요청에 같이 실어서</strong> 서버에 보낸다 (Cookie 헤더)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Cookie: cookieName=cookieValue; anotherName=anotherValue</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="Set-Cookie-Options-쿠키를-저장하는-서버에서-1"><a href="#Set-Cookie-Options-쿠키를-저장하는-서버에서-1" class="headerlink" title="Set-Cookie Options(쿠키를 저장하는 서버에서)"></a>Set-Cookie Options(쿠키를 저장하는 서버에서)</h3><ul>
+<li>Expires, Max-Age: 쿠키의 지속 시간 설정(ex) 10분간만 로그인이 유지되는 사이트)</li>
+<li>Secure: HTTPS를 통해서만 쿠키가 전송되도록 설정</li>
+<li>HttpOnly: 자바스크립트에서 쿠키를 읽지 못하도록 설정<ul>
+<li>자바스크립트를 통해서 Cookie를 건드리지 않는 것이 좋다.</li>
+<li>ex) 게시판을 만들었을 때, 쿠키를 읽어와서 해커에게 전송할 수도 있다.</li>
+<li>-&gt; HttpOnly 속성을 사용해서 자바스크립트에서 쿠키를 읽지 못하게 만드는 게 좋다.</li>
+</ul>
+</li>
+<li>Domain, Path: 쿠키의 scope 설정 (쿠키가 전송되는 URL을 제한)</li>
+</ul>
+<h4 id="Express-Cookie-1"><a href="#Express-Cookie-1" class="headerlink" title="Express + Cookie"></a>Express + Cookie</h4><ul>
+<li>이 내용은 강사님이 그냥 넘어가심(내용을 읽지 않고 넘어가심)</li>
+<li>Express에도 Cookie 기능이 내장되어 있다.</li>
+<li>쿠키 읽기 - req.cookies: 요청에 실려온 쿠키가 객체로 변환되어 req.cookies에 저장됨 (cookie-parser 미들웨어 필요)</li>
+<li><p>쿠키 쓰기 - res.cookie(name, value): 쿠키의 생성 혹은 수정</p>
+</li>
+<li><p><a href="https://glitch.com/edit/#!/wiry-reward?path=server.js:63:27" target="_blank" rel="noopener">쿠키 예제</a></p>
+</li>
+</ul>
+<h4 id="JavaScript-Cookie-1"><a href="#JavaScript-Cookie-1" class="headerlink" title="JavaScript + Cookie"></a>JavaScript + Cookie</h4><ul>
+<li><p><strong>자바스크립트로도 쿠키를 읽고 쓰는 방법이 존재</strong><br>하지만, 보안 상 문제를 일으킬 수 있으므로 이런 접근 방식은 거의 사용되지 않는다.</p>
+</li>
+<li><p>자바스크립트에서 쿠키에 접근하지 못하도록 <strong>HttpOnly를 항상 설정하는 것이 best practice</strong></p>
+</li>
+</ul>
+<h4 id="쿠키의-한계점-1"><a href="#쿠키의-한계점-1" class="headerlink" title="쿠키의 한계점"></a>쿠키의 한계점</h4><ul>
+<li>US-ASCII 밖에 저장하지 못함. <strong>보통 percent encoding을 사용</strong></li>
+<li>4000 바이트 내외(영문 4000자, percent encoding 된 한글 444자 가량)밖에 저장하지 못함</li>
+<li>브라우저에 저장됨.</li>
+<li>-&gt; 즉, <strong>여러 브라우저에 걸쳐 공유되어야 하는 정보</strong>,<br>혹은 <strong>웹 브라우저가 아닌 클라이언트(모바일 앱)</strong>에 저장되어야 하는 정보를 다루기에는 부적절하다.</li>
+<li><p>ex) 보통 이 사람이 누구인지를 쿠키에 저장함. 인증 토큰을 보통 쿠키에 저장한다.</p>
+</li>
+<li><p>우리는 최종 프로젝트에서는 쿠키를 사용하지 않을 것임</p>
+</li>
+<li>But 회사에 입사했을 때, 로그인 정보를 유지하는 기능을 구현할 때, 쿠키를 써야 할 수도 있음</li>
+</ul>
+<h2 id="Ajax-2"><a href="#Ajax-2" class="headerlink" title="Ajax"></a>Ajax</h2><h3 id="HTTP-methods-복습-1"><a href="#HTTP-methods-복습-1" class="headerlink" title="HTTP methods 복습"></a>HTTP methods 복습</h3><ul>
+<li>자주 사용할 것: GET, POST, PUT, PATCH, DELETE</li>
+<li>CRUD</li>
+</ul>
+<hr>
+<p>C(Create) - POST (만들 때)<br>R(Read) - GET(읽을 때)<br>U(Update) - PUT, PATCH(수정)<br>D(Delete) - DELETE</p>
+<hr>
+<h3 id="Ajax-3"><a href="#Ajax-3" class="headerlink" title="Ajax"></a>Ajax</h3><ul>
+<li><strong>비동기적인 웹 어플리케이션</strong>의 제작을 위한 클라이언트 측 웹 개발 기법…을 뜻하나</li>
+<li>요즈음은 의미가 변형되어 <strong>웹 브라우저</strong>에서 <strong>XMLHttpRequest</strong><br>혹은 <strong>fetch</strong>를 이용해서 보내는 <strong>HTTP 요청</strong>을 통칭하기도 함</li>
+<li><p>서버에서 필요한 부분만 받아서 브라우저의 필요한 부분만 수정한다.</p>
+</li>
+<li><p><img src="http://javascript-coder.com/wp-content/uploads/2014/11/ajax-block-diagram1.jpg" alt="Ajax model"></p>
+</li>
+</ul>
+<h4 id="Ajax의-장점-1"><a href="#Ajax의-장점-1" class="headerlink" title="Ajax의 장점"></a>Ajax의 장점</h4><ul>
+<li>화면 전체를 다시 로드하지 않고도 내용을 갱신할 수 있어 더 나은 사용자 경험 제공</li>
+<li>서버의 응답을 기다리는 동안에도 여전히 웹 어플리케이션을 사용 가능</li>
+<li>필요한 자원만 서버에서 받아오게 되므로 트래픽이 줄어듬</li>
+</ul>
+<h4 id="Ajax의-단점-1"><a href="#Ajax의-단점-1" class="headerlink" title="Ajax의 단점"></a>Ajax의 단점</h4><ul>
+<li>클라이언트 구현이 <strong>굉장히</strong> 복잡해짐</li>
+<li><a href="http://i.imgur.com/ANJ9h3o.png" target="_blank" rel="noopener">Ajax Library Comparison</a></li>
+</ul>
+<h3 id="Axios-1"><a href="#Axios-1" class="headerlink" title="Axios"></a>Axios</h3><ul>
+<li><strong>Promise based</strong> HTTP client</li>
+<li>브라우저와 Node.js에서 <strong>모두 사용 가능</strong></li>
+<li>XMLHttpRequest, fetch에 비해 사용하기 편하고 기능이 더 많음(브라우저 내장 기능이라서 쓰기에는 불편함이 있음)</li>
+<li>참고글: 내가 fetch API를 쓰지 못했던 이유</li>
+<li><a href="https://glitch.com/edit/#!/wiry-reward?path=server.js:1:0" target="_blank" rel="noopener">Axios + json-server 예제</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GET</span></span><br><span class="line">axios</span><br><span class="line">  .get(<span class="string">"/api/todos"</span>)</span><br><span class="line">  <span class="comment">// 통신이 끝나면 응답 객체를 넣어서 콜백을 실행시킨다.</span></span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//   prettyPrint는 강사님이 미리 만들어둔 함수</span></span><br><span class="line">    prettyPrint(res.data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// POST: 자료를 등록할 때 사용</span></span><br><span class="line">axios.post(<span class="string">"/api/todos"</span>, &#123; <span class="attr">title</span>: <span class="string">"ajax 공부"</span> &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  prettyPrint(res.data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>put, patch는 수정할 때 사용. (But 미묘하게 다름)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// PATCH</span></span><br><span class="line"><span class="comment">//  보통, 수정하고 싶은 자료의 식별자를 뒤에 붙여서 주소를 만든다.</span></span><br><span class="line"><span class="comment">//  이런 식으로 주소를 만드는 방법은 restAPI라고 한다.</span></span><br><span class="line">axios.patch(<span class="string">"/api/todos/3"</span>, &#123; <span class="attr">title</span>: <span class="string">"axios 공부"</span> &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  prettyPrint(res.data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<p>GET /api/todos/?title=react<br>axios 요청 메소드의 두 번째 인자로 config 객체를 넘길 수 있다.<br>config 객체를 통해 요청의 쿼리 스트링, 요청 헤더, 쿠키 포함 여부 등 많은 것들을 설정할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config 객체</span></span><br><span class="line">axios</span><br><span class="line">  .get(<span class="string">"/api/todos"</span>, &#123;</span><br><span class="line">    params: &#123;</span><br><span class="line">      <span class="comment">// query string</span></span><br><span class="line">      title: <span class="string">"react 공부"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    headers: &#123;</span><br><span class="line">      <span class="comment">// 요청 헤더</span></span><br><span class="line">      <span class="string">"X-Api-Key"</span>: <span class="string">"my-api-key"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    timeout: <span class="number">1000</span> <span class="comment">// 1초 이내에 응답이 오지 않으면 에러로 간주</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    prettyPrint(res.data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="응답-객체-1"><a href="#응답-객체-1" class="headerlink" title="응답 객체"></a>응답 객체</h3><ul>
+<li>응답 객체를 통해 응답의 여러 정보에 접근할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config.params</span></span><br><span class="line">axios.get(<span class="string">"/api/todos/1"</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`status code: <span class="subst">$&#123;res.status&#125;</span>`</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"headers:"</span>);</span><br><span class="line">  prettyPrint(res.headers);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"data:"</span>);</span><br><span class="line">  prettyPrint(res.data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://glitch.com/edit/#!/plant-property?path=server.js:1:0" target="_blank" rel="noopener">쿠키를 통한 인증 예제</a></li>
+<li><a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios 공식 문서</a></li>
+</ul>
+<h2 id="CORS-1"><a href="#CORS-1" class="headerlink" title="CORS"></a>CORS</h2><h3 id="Same-origin-Policy-동일-출처-정책-1"><a href="#Same-origin-Policy-동일-출처-정책-1" class="headerlink" title="Same-origin Policy(동일 출처 정책)"></a>Same-origin Policy(동일 출처 정책)</h3><ul>
+<li>웹페이지에서 리소스를 불러올 때,<br>리소스의 출처가 웹페이지의 출처와 같으면 안전하다고 보고,<br>출처가 다르면 해당 리소스는 안전하지 않다고 보는 원칙</li>
+<li>여기서 ‘출처’란 ‘프로토콜 + 도메인 + 포트번호’의 결합을 가리킴.<br>즉, <strong>세 개가 다 같아야 동일 출처</strong>라고 할 수 있고, 셋 중에 하나라도 다르면 동일 출처로 간주되지 않음</li>
+<li>웹 보안의 기본 원칙으로, 웹 브라우저의 많은 요소에 적용됨</li>
+</ul>
+<p>[Same-origin Policy 실습]</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 크롬 개발자 도구에서 코드 넣기</span></span><br><span class="line">&gt; <span class="keyword">const</span> child = <span class="built_in">window</span>.open(<span class="string">'http://www.fastcampus.co.kr'</span>)</span><br><span class="line"><span class="comment">// 새로 열린 웹 페이지의 콘솔에서</span></span><br><span class="line">&gt; <span class="built_in">window</span>.foo = <span class="string">'bar'</span></span><br><span class="line"><span class="comment">// 이전 웹 페이지의 콘솔에서</span></span><br><span class="line">&gt; child.foo</span><br><span class="line"><span class="comment">// 출처가 같다면 접근 가능, 아니면 불가</span></span><br></pre></td></tr></table></figure>
+<h3 id="Content-Security-Policy-1"><a href="#Content-Security-Policy-1" class="headerlink" title="Content-Security-Policy"></a>Content-Security-Policy</h3><ul>
+<li>Content-Security-Policy 헤더를 이용하면, <strong>동일하지 않은 출처에 대한 리소스를 불러올지 말지</strong> 결정할 수 있음</li>
+</ul>
+<h3 id="CORS-Cross-Origin-Resource-Sharing-1"><a href="#CORS-Cross-Origin-Resource-Sharing-1" class="headerlink" title="CORS(Cross-Origin Resource Sharing)"></a>CORS(Cross-Origin Resource Sharing)</h3><ul>
+<li><strong>클라이언트 측 cross-origin 요청</strong>을 <strong>안전하게 보낼 수 있는 방법</strong>을 정한 표준</li>
+<li><p>쉽게 말하면,<br><strong>스크립트가 전혀 다른 출처를 갖는 API 서버를 사용하려고 하는 상황</strong>에서는<br>뭔가 <strong>추가적인 처리</strong>를 해주어야 한다는 것!</p>
+</li>
+<li><p>ex1) abc.com에서 abc.com/api/todos로 요청 -&gt; 브라우저가 막지 X.</p>
+</li>
+<li>ex2) abc.com에서 cdf.com/api/todos로 요청 -&gt; 브라우저가 막음. 추가적인 처리를 해주어야 요청할 수 있음.</li>
+</ul>
+<h4 id="Cross-origin-요청의-위험성-1"><a href="#Cross-origin-요청의-위험성-1" class="headerlink" title="Cross-origin 요청의 위험성"></a>Cross-origin 요청의 위험성</h4><ul>
+<li><p>아래 상황을 가정해보자.</p>
+</li>
+<li><p><strong>mywebsite.com</strong>에서 서비스 중인 웹 사이트는 mywebsite.com/api 에서<br>REST API를 통해 필요한 정보를 얻는다.<br>mywebsite.com/api 경로에 대한 <strong>인증은 쿠키</strong>로 이루어지고 있다.</p>
+</li>
+<li><p>그런데 만약 <strong>evil.com</strong> 웹 사이트의 스크립트에서 <strong>mywebsite.com</strong> API에 요청을 마음대로 보낼 수 있다면,<br>이미 my-website.com 도메인에 대해 브라우저에 저장된 쿠키를 이용해서 API를 마음대로 호출할 수 있을 것이다.</p>
+</li>
+</ul>
+<h4 id="Cross-origin-요청-예제-1"><a href="#Cross-origin-요청-예제-1" class="headerlink" title="Cross-origin 요청 예제"></a>Cross-origin 요청 예제</h4><ul>
+<li>IE8 이상의 모던 웹 브라우저는 <strong>cross-origin 요청에 대해 여러가지 제한</strong>을 두고 있음</li>
+<li>cross-origin 요청을 허용하려면, 서버가 특별한 형태의 응답을 전송해야 함</li>
+<li>만약 서버가 cross-origin 요청을 허용하지 않으면, 웹 브라우저는 에러를 발생시킴</li>
+<li><a href="https://glitch.com/edit/#!/bitter-chinchilla?path=README.md:1:0" target="_blank" rel="noopener">Cross-origin 요청 예제</a></li>
+</ul>
+<h4 id="CORS에-관여하는-응답-헤더-1"><a href="#CORS에-관여하는-응답-헤더-1" class="headerlink" title="CORS에 관여하는 응답 헤더"></a>CORS에 관여하는 응답 헤더</h4><ul>
+<li>Access-Control-Allow-Origin</li>
+<li>Access-Control-Expose-Headers</li>
+<li>Access-Control-Max-Age</li>
+<li>Access-Control-Allow-Credentials</li>
+<li>Access-Control-Allow-Methods</li>
+<li>Access-Control-Allow-Headers</li>
+</ul>
+<h4 id="CORS에-관여하는-요청-헤더-1"><a href="#CORS에-관여하는-요청-헤더-1" class="headerlink" title="CORS에 관여하는 요청 헤더"></a>CORS에 관여하는 요청 헤더</h4><ul>
+<li>Origin</li>
+<li>Access-Control-Request-Method (preflighted 전용)</li>
+<li>Access-Control-Request-Headers (preflighted 전용)</li>
+</ul>
+<h4 id="CORS-Safe-Unsafe-1"><a href="#CORS-Safe-Unsafe-1" class="headerlink" title="CORS - Safe, Unsafe"></a>CORS - Safe, Unsafe</h4><ul>
+<li>GET, HEAD 요청은 <strong>safe(읽기 전용)</strong>이기 때문에<br>서버에 요청이 도달한다고 해서 서버의 상태에 영향을 미칠 일은 없으므로,<br><strong>웹 브라우저는 일단 해당 요청을 보내본다.</strong><br>만약 서버가 cross-origin 요청을 허용한다고 응답하면 응답을 그대로 사용하고, 그렇지 않으면 <strong>에러를 낸다.</strong></li>
+<li><p>POST, PUT, PATCH, DELETE 등의 메소드는 요청이 서버에 <strong>전송되는 것 자체가 위험</strong>하므로,<br>실제 요청을 보내기 전에 서버가 cross-origin 요청을 허용하는지를 알아보기 위해 <strong>시험적으로 요청을 한 번 보내본다.</strong><br>이 요청을 <strong>preflighted request</strong>라고 한다.</p>
+</li>
+<li><p>(단, 기존 HTML form의 동작방식인 application/x-www-form-urlencoded<br>혹은 multipart/form-data 형태의 POST 요청은 preflighted request가 발생하지 않음)</p>
+</li>
+<li><p>safe, unsafe 말고도 다른 원인에 의해 preflighted request가 발생하는 경우가 있는데, 자세한 사항은 MDN 문서를 참고해주세요.</p>
+</li>
+</ul>
+<h4 id="CORS-with-credentials-1"><a href="#CORS-with-credentials-1" class="headerlink" title="CORS with credentials"></a>CORS with credentials</h4><ul>
+<li><p><strong>cross-origin 요청에는 기본적으로 쿠키가 포함되지 않으나,</strong><br>XMLHttpRequest 혹은 fetch를 통해서 요청을 보낼 때<br><strong>쿠키를 포함시키는 옵션</strong>을 줄 수 있고 이 때 <strong>CORS 요건이 더 엄격해짐</strong></p>
+</li>
+<li><p>(Access-Control-Allow-Credentials 헤더 설정 필요, Access-Control-Allow-Origin 헤더에 와일드카드 허용 안됨)</p>
+</li>
+</ul>
+<h4 id="복잡하면-그냥…-1"><a href="#복잡하면-그냥…-1" class="headerlink" title="복잡하면 그냥…"></a>복잡하면 그냥…</h4><ol>
+<li>프론트엔드와 API 서버를 <strong>같은 도메인</strong>으로 제공한다.</li>
+<li>불가피하게 둘을 다른 도메인으로 제공해야 한다면<ul>
+<li>CORS를 허용한다 (cors 미들웨어를 사용하면 간단함)</li>
+<li>CORS를 허용하는 경우, 쿠키를 쓸 수는 있으나 보안 상 허점이 생기기 쉽고 사용하기도 불편하므로<br>보통 JWT와 같은 <strong>토큰 방식의 인증</strong>을 사용한다.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Access-Token-amp-JWT-1"><a href="#Access-Token-amp-JWT-1" class="headerlink" title="Access Token &amp; JWT"></a>Access Token &amp; JWT</h2><h3 id="쿠키의-단점-1"><a href="#쿠키의-단점-1" class="headerlink" title="쿠키의 단점"></a>쿠키의 단점</h3><ul>
+<li><strong>쿠키를 지원하는 클라이언트</strong>에서 밖에 사용할 수 없음</li>
+<li>적절히 관리되지 않은 쿠키는 <strong>보안에 취약</strong>하며, 관리를 하려고 해도 <strong>CORS 대응이 복잡함</strong></li>
+</ul>
+<h3 id="Token-Based-Auth-1"><a href="#Token-Based-Auth-1" class="headerlink" title="Token Based Auth"></a>Token Based Auth</h3><ul>
+<li>토큰이란, <strong>사용자의 자격증명</strong>(아이디, 패스워드 등)을 통해 인증이 이루어진 후,<br><strong>특정 자원에 대한 자격증명</strong>으로서 <strong>대신 사용</strong>되는 인증 수단</li>
+<li>서버에 요청을 할 때마다 <strong>토큰을 요청에 직접 포함</strong>시켜서 전송 (주로 Authorization 헤더에 넣어서 전송)</li>
+</ul>
 <h3 id="Cookie-vs-Token"><a href="#Cookie-vs-Token" class="headerlink" title="Cookie vs Token"></a>Cookie vs Token</h3><p><img src="https://cdn.auth0.com/blog/cookies-vs-tokens/cookie-token-auth.png" alt="Cookie vs Token"></p>
 <h3 id="토큰-사용의-장점"><a href="#토큰-사용의-장점" class="headerlink" title="토큰 사용의 장점"></a>토큰 사용의 장점</h3><ul>
 <li>쿠키를 지원하지 않는 클라이언트에서도 편하게 사용할 수 있음</li>
@@ -629,6 +1074,33 @@ ga('send', 'pageview');
 <li>토큰을 localStorage에 저장하게 되면 자바스크립트로 토큰을 탈취할 수 있게 되므로,<br><strong>웹사이트에 악성 스크립트를 삽입하는 공격(XSS)</strong>에 노출되지 않도록 신경써야 함</li>
 </ul>
 <h3 id="JSON-Web-Token"><a href="#JSON-Web-Token" class="headerlink" title="JSON Web Token"></a>JSON Web Token</h3><ul>
+<li>최근 널리 사용되고 있는 <strong>토큰 형식의 표준</strong></li>
+<li>토큰 안에 <strong>JSON 형식</strong>으로 정보를 저장함</li>
+<li>보안을 위해 서명 또는 암호화를 사용할 수 있음</li>
+</ul>
+<p><a href="https://jwt.io/" target="_blank" rel="noopener">JWT 실습(jwt.io)</a></p>
+<h3 id="Cookie-vs-Token-1"><a href="#Cookie-vs-Token-1" class="headerlink" title="Cookie vs Token"></a>Cookie vs Token</h3><p><img src="https://cdn.auth0.com/blog/cookies-vs-tokens/cookie-token-auth.png" alt="Cookie vs Token"></p>
+<h3 id="토큰-사용의-장점-1"><a href="#토큰-사용의-장점-1" class="headerlink" title="토큰 사용의 장점"></a>토큰 사용의 장점</h3><ul>
+<li>쿠키를 지원하지 않는 클라이언트에서도 편하게 사용할 수 있음</li>
+<li>쿠키를 사용하지 않음으로써 <strong>CORS 관련 문제를 회피</strong>할 수 있음</li>
+</ul>
+<h3 id="토큰-사용의-단점-1"><a href="#토큰-사용의-단점-1" class="headerlink" title="토큰 사용의 단점"></a>토큰 사용의 단점</h3><ul>
+<li>매 요청에 토큰이 포함되게 되므로 <strong>적당히 짧은 길이</strong>를 유지해야 함</li>
+<li><strong>토큰 유출</strong>에 대한 대비책이 필요 (토큰에 유효기간을 두거나, 유출된 토큰을 강제로 무효화하는 등의 방법을 사용)<br>-&gt; 백엔드 개발자가 신경써야 하는 요소임</li>
+<li>쿠키와는 다르게, <strong>클라이언트 개발자가 직접 토큰을 저장하고 관리</strong>해야 함</li>
+</ul>
+<h3 id="Web-Storage-1"><a href="#Web-Storage-1" class="headerlink" title="Web Storage"></a>Web Storage</h3><ul>
+<li>브라우저에서 키-값 쌍을 저장할 수 있는 저장소</li>
+<li>쿠키에 비해 사용하기 편리하고 저장 가능한 용량도 큼(10MB 가량)</li>
+<li>브라우저 탭이 닫히면 내용이 삭제되는 <strong>sessionStorage</strong>,<br>브라우저 탭이 닫혀도 내용이 유지되는 <strong>localStroage</strong>가 있음</li>
+<li>[Web Storage 실습] - 크롬 개발자 도구에서 실습함</li>
+<li>우리는 앞으로 로그인 유지되는 사이트만 만들 거라서 localStorage를 사용할 것임</li>
+</ul>
+<h4 id="보안-상-주의사항-1"><a href="#보안-상-주의사항-1" class="headerlink" title="보안 상 주의사항"></a>보안 상 주의사항</h4><ul>
+<li>(당연히) HTTPS를 사용해야 함</li>
+<li>토큰을 localStorage에 저장하게 되면 자바스크립트로 토큰을 탈취할 수 있게 되므로,<br><strong>웹사이트에 악성 스크립트를 삽입하는 공격(XSS)</strong>에 노출되지 않도록 신경써야 함</li>
+</ul>
+<h3 id="JSON-Web-Token-1"><a href="#JSON-Web-Token-1" class="headerlink" title="JSON Web Token"></a>JSON Web Token</h3><ul>
 <li>최근 널리 사용되고 있는 <strong>토큰 형식의 표준</strong></li>
 <li>토큰 안에 <strong>JSON 형식</strong>으로 정보를 저장함</li>
 <li>보안을 위해 서명 또는 암호화를 사용할 수 있음</li>
@@ -720,7 +1192,7 @@ ga('send', 'pageview');
 클래스 상속(class inheritance, subclassing) 기능을 통해한 클래스의 기능을 다른 클래스에서 재사용할 수 있다.
 
 1234567class Parent &#123;  // .."
-        "wordCount": 5199
+        "wordCount": 10397
     }
 </script>
 
