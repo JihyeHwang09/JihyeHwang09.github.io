@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>자바스크립트 15일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="javaScript">
+    
+    <meta name="description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트 15일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/29/javascript15/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cdn.auth0.com/blog/legacy-app-auth/legacy-app-auth-5.png">
+<meta property="og:updated_time" content="2019-01-28T15:17:19.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자바스크립트 15일차">
+<meta name="twitter:description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios">
+<meta name="twitter:image" content="https://cdn.auth0.com/blog/legacy-app-auth/legacy-app-auth-5.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-javascript15" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자바스크립트 15일차
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/01/29/javascript15/" class="article-date">
+            <time datetime="2019-01-28T15:13:16.694Z" itemprop="datePublished">2019-01-29</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="모던-웹-서비스의-구성요소"><a href="#모던-웹-서비스의-구성요소" class="headerlink" title="모던 웹 서비스의 구성요소"></a>모던 웹 서비스의 구성요소</h1><h2 id="Access-Token-amp-JWT"><a href="#Access-Token-amp-JWT" class="headerlink" title="Access Token &amp; JWT"></a>Access Token &amp; JWT</h2><h3 id="JWT-실습"><a href="#JWT-실습" class="headerlink" title="JWT 실습"></a>JWT 실습</h3><ul>
+<li><img src="https://user-images.githubusercontent.com/37353837/51845563-16060480-235b-11e9-8ae1-1931e26e07c8.png" alt="Token Based Auth"></li>
+<li>JWT는 서버가 만들어주는 토큰</li>
+<li><a href="https://tidy-week.glitch.me/" target="_blank" rel="noopener">JWT 실습</a></li>
+</ul>
+<ul>
+<li>토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게</li>
+<li>get 요청을 읽기전용, 정보를 보낼때는 post로 요청!</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 토큰 받아오기</span></span><br><span class="line"><span class="keyword">let</span> token;</span><br><span class="line">axios</span><br><span class="line">  .post(<span class="string">"/auth"</span>, &#123;</span><br><span class="line">    username: <span class="string">"fast"</span>,</span><br><span class="line">    password: <span class="string">"campus"</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    token = res.data.token;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`token: <span class="subst">$&#123;token&#125;</span>`</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">//  axios에 post로 요청 보냄</span></span><br><span class="line"><span class="comment">// axios.post('/auth', &#123;</span></span><br><span class="line"><span class="comment">//   username: 'fast',</span></span><br><span class="line"><span class="comment">//   password: 'campus'</span></span><br><span class="line"><span class="comment">// &#125;).</span></span><br><span class="line"><span class="comment">// 까지 실행하면 promise 객체가 반환됨.</span></span><br><span class="line"><span class="comment">// 지금은 promise 객체가 비어있는 상태</span></span><br><span class="line"><span class="comment">// .then(res =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   token = res.data.token</span></span><br><span class="line"><span class="comment">//   console.log(`token: $&#123;token&#125;`)</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"><span class="comment">//then이후에 실행되면 promise 객체가 채워짐</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 토큰으로 요청하기 1</span></span><br><span class="line">axios</span><br><span class="line">  .get(<span class="string">"/auth"</span>, &#123;</span><br><span class="line">    headers: &#123;</span><br><span class="line">      Authorization: <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//  promise에 값이 채워지면(작업이 끝나면) 할 일</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    prettyPrint(res.data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>토큰은 사람마다 달라야 한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 토큰으로 요청하기 2</span></span><br><span class="line"><span class="comment">// 로그인 안하면, 정보를 가져올 수 없게 한다.</span></span><br><span class="line">axios</span><br><span class="line">  .get(<span class="string">"/some-api"</span>, &#123;</span><br><span class="line">    headers: &#123;</span><br><span class="line">      Authorization: <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    prettyPrint(res.data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 토큰으로 요청하기 3</span></span><br><span class="line">axios</span><br><span class="line">  .post(<span class="string">"/count"</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">    headers: &#123;</span><br><span class="line">      Authorization: <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    prettyPrint(res.data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>토큰을 포함시키지 않고 요청을 보내면, 401 에러가 난다.</li>
+<li>postman이든 axios든 정해진 방법으로 요청을 보내면, 정보를 가져올 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 개발자 도구에서 입력한 코드들</span></span><br><span class="line"><span class="comment">// 토큰 받아오기</span></span><br><span class="line"><span class="keyword">let</span> token;</span><br><span class="line">axios.post(<span class="string">'/auth'</span>, &#123;</span><br><span class="line">  username: <span class="string">'fast'</span>,</span><br><span class="line">  password: <span class="string">'campus'</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  token = res.data.token</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`token: <span class="subst">$&#123;token&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Promise</span> &#123;&lt;pending&gt;&#125;</span><br><span class="line">VM138:<span class="number">8</span> token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhc3QiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE1NDExMjU3MTh9.FGx5UZwqhz1QY30vwoGpcVnCpQmOgVuOAQSly87maGI</span><br><span class="line">token</span><br><span class="line"><span class="string">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhc3QiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE1NDExMjU3MTh9.FGx5UZwqhz1QY30vwoGpcVnCpQmOgVuOAQSly87maGI"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 토큰으로 요청하기 2</span></span><br><span class="line">axios.get(<span class="string">'/some-api'</span>, &#123;</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">'Authorization'</span>: <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  prettyPrint(res.data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Promise</span> &#123;&lt;pending&gt;&#125;</span><br><span class="line">(index):<span class="number">102</span> &#123;</span><br><span class="line">  <span class="string">"ok"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"message"</span>: <span class="string">"Hello JWT!"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 토큰으로 요청하기 3</span></span><br><span class="line">axios.post(<span class="string">'/count'</span>, <span class="literal">null</span>, &#123;</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="string">'Authorization'</span>: <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  prettyPrint(res.data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Promise</span> &#123;&lt;pending&gt;&#125;</span><br><span class="line">(index):<span class="number">102</span> &#123;</span><br><span class="line">  <span class="string">"ok"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"count"</span>: <span class="number">74</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Axios-Instance"><a href="#Axios-Instance" class="headerlink" title="Axios Instance"></a>Axios Instance</h3><ul>
+<li>Axios에서는 편의기능을 내장하고 있다.</li>
+<li><p>위의 예제에서는 토큰이 포함된 요청을 보낼 때마다<br>매번 config 객체(axios.get의 두 번째 인자, axios.post의 세 번째 인자)를 통해 헤더를 설정해주고 있습니다.<br>모든 요청에 똑같은 식으로 헤더를 넣어주는 일은 번거롭고, 또 에러를 일으키기 쉽겠죠? (Don’t Repeat Yourself!)</p>
+</li>
+<li><p>Axios는 이렇게 중복된 설정을 하지 않도록 해주는 편의도구를 제공하고 있습니다.<br>그것을 Axios instance라고 부르는데,<br>한 번 config 객체를 넘겨서 Axios instance를 생성하면<br>해당 instance를 통해 보내는 요청에는 config 객체가 자동으로 설정됩니다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Axios.create</span></span><br><span class="line"><span class="keyword">const</span> authedAxios = axios.create(&#123;</span><br><span class="line">  <span class="comment">// header를 여기서 설정해주면,</span></span><br><span class="line">  <span class="comment">// 인스턴스를 실행할 때마다 매번 이 헤더가 자동으로 요청을 보낼 때 포함됨</span></span><br><span class="line">  headers: &#123;</span><br><span class="line">    Authorization: <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">authedAxios.get(<span class="string">"/auth"</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  prettyPrint(res.data);</span><br><span class="line">&#125;);</span><br><span class="line">authedAxios.get(<span class="string">"/some-api"</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  prettyPrint(res.data);</span><br><span class="line">&#125;);</span><br><span class="line">authedAxios.post(<span class="string">"/count"</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  prettyPrint(res.data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>참고 링크</li>
+<li>(<a href="https://blog.outsider.ne.kr/1160" target="_blank" rel="noopener">https://blog.outsider.ne.kr/1160</a>)</li>
+<li><a href="https://velopert.com/2448" target="_blank" rel="noopener">react관련 강의 하시는 분 블로그</a></li>
+</ul>
+<ul>
+<li><a href="https://swalloow.github.io/implement-jwt" target="_blank" rel="noopener">출처 url</a><br><img src="https://cdn.auth0.com/blog/legacy-app-auth/legacy-app-auth-5.png" alt="JWT Web Token"></li>
+<li><p>JWT에 대한 소개는 생략하고 Token이 어떻게 구성되어 있는지 간략하게 알아보겠습니다.<br>JSON Web Token은 세 파트로 나뉘어지며, 각 파트는 점(.)에 의해 구분됩니다. 이를 테면 xxxxx.yyyyy.zzzzz 이런식입니다.</p>
+</li>
+<li><p>Header는 토큰의 타입과 해시 암호화 알고리즘으로 구성되어 있습니다.</p>
+</li>
+<li>Payload는 claim 정보를 포함하고 있습니다. userId, expire, scope 등이 여기에 해당합니다.</li>
+<li>마지막으로 Signature는 secret key를 포함하여 암호화되어 있습니다.</li>
+<li><img src="https://cdn.auth0.com/content/jwt/jwt-diagram.png" alt="JWT Process"></li>
+<li>일반적으로 JWT 토큰 기반의 인증 시스템은 위와 같은 프로세스로 이루어집니다.</li>
+</ul>
+<ul>
+<li>처음 사용자를 등록할 때 Access token과 Refresh token이 모두 발급되어야 합니다.</li>
+</ul>
+<hr>
+<ol>
+<li>먼저 사용자가 id와 password를 입력하여 로그인을 시도합니다.</li>
+<li>서버는 요청을 확인하고 secret key를 통해 Access token을 발급합니다.</li>
+<li>이후 JWT가 요구되는 API를 요청할 때는 클라이언트가 Authorization header에 Access token을 담아서 보냅니다.</li>
+<li>서버는 JWT Signature를 체크하고 Payload로부터 user 정보를 확인해 데이터를 리턴합니다.</li>
+</ol>
+<hr>
+<ul>
+<li>jwt는 토큰의 한 가지 형식일 뿐이다.</li>
+<li>다른 토큰 형식을 사용할 수 있다.</li>
+<li>항상 똑같은 형식으로 토큰을 주고 받는 건 아니다.</li>
+<li>세부적인 토큰 형식이나 토큰을 포함시키는 방식은 서버마다 다를 수 있다.</li>
+<li><strong>토큰을 어떻게 포함시켜야 하는지 서버 개발자에게 물어봐야 한다.</strong></li>
+<li><strong>서버 개발자가 토큰을 어떻게 포함시킬지 설명서를 줄 것이다.</strong></li>
+</ul>
+<h3 id="쿠키와-토큰의-차이점"><a href="#쿠키와-토큰의-차이점" class="headerlink" title="쿠키와 토큰의 차이점"></a>쿠키와 토큰의 차이점</h3><ul>
+<li><code>인증 토큰(Authentication Token)</code></li>
+<li>인증 토큰 저장소로 어떤 서버는 쿠키를 사용하는 경우</li>
+<li>쿠키를 만들어내고 쿠키를 저장하는 것도 서버 개발자가 하는 일이다.</li>
+<li>직접 관리하는 경우<ul>
+<li>여러 가지 방법 중 하나는 localStorage를 사용한다.</li>
+<li>But 새로고침 버튼을 누르면 정보가 날아간다. (이유: 변수에 정보를 저장했기 때문에)</li>
+</ul>
+</li>
+<li>쿠키는 저장소이고, 토큰은 내가 누구인지 나타내는 값을 의미한다.</li>
+</ul>
+<h3 id="토큰의-유효기간을-정하는-방법"><a href="#토큰의-유효기간을-정하는-방법" class="headerlink" title="토큰의 유효기간을 정하는 방법"></a>토큰의 유효기간을 정하는 방법</h3><ul>
+<li>김승하, abcd라는 토큰, 2018-11-07일 이라는 정보를 서버에 저장해 둔다.</li>
+<li>토큰의 유효기간이 지났으면, 서버에서 토큰이 유효하지 않다는 응답을 준다.</li>
+<li>토큰의 유효기간이 얼마 남지 않은 경우, 브라우저에 알려준다.</li>
+<li>오랜만에 어떤 사이트에 접속하면 토큰이 유효하지 않다고 뜰 수 있다.</li>
+</ul>
+<h1 id="비동기-프로그래밍"><a href="#비동기-프로그래밍" class="headerlink" title="비동기 프로그래밍"></a>비동기 프로그래밍</h1><ul>
+<li>이 작업을 해달라고 부탁하고 넘어가는 것</li>
+<li>그리고 작업이 끝나면, 이 통에 작업 결과물을 담아줄래?</li>
+</ul>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><ul>
+<li>Promise는 ‘언젠가 끝나는 작업’의 결과값’을 담는 통과 같은 객체이다.</li>
+<li>Promise 객체가 만들어지는 시점에는 그 통 안에 무엇이 들어갈지 모를 수도 있다.</li>
+<li><p>대신 then 메소드를 통해 콜백을 등록해서, 작업이 끝났을 때 결과값을 가지고 추가 작업을 할 수 있다.</p>
+</li>
+<li><p>Promise 객체를 생성하는 가장 쉬운 방법은 <code>Promise.resolve</code> 정적 메소드를 사용하는 것이다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.resolve(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>위 코드에서 <code>1</code>이라는 결과값을 갖는 Promise 객체를 생성했다.</li>
+<li><p>그러나 이 코드는 비동기 작업을 하고 있지는 않다.</p>
+</li>
+<li><p>비동기 작업을 하는 Promise객체는 <code>Promise</code>생성자를 통해 만들 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 생성자 Promise에 new를 붙여줘서 인스턴스를 생성한다.</span></span><br><span class="line"><span class="comment">// new Promise할 때는, 값을 반환하기 위해 resolve를 사용함</span></span><br><span class="line"><span class="comment">// then을 쓸 때는 그냥 return해주면 된다.</span></span><br><span class="line"><span class="comment">// 브라우저에 부탁할 수도 있지만,</span></span><br><span class="line"><span class="comment">// resolve: 작업이 성공했을 때 실행할 것</span></span><br><span class="line"><span class="comment">// reject: 작업이 실패했을 때 에러 반환</span></span><br><span class="line"><span class="comment">//  new Promise((resolve, reject) =&gt; &#123;&#125;) 우리가 직접 Promise를 생성할 수 있다.</span></span><br><span class="line"><span class="comment">// resolve, reject 자리에는 각각 함수가 들어온다.</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 이 자리에는 동기, 비동기 코드 둘 다 올 수 있다.</span></span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 2초 뒤에 작업큐에 등록됨. -&gt; 호출 스택으로 옮겨져서 실행됨</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'2초가 지났습니다.'</span>);</span><br><span class="line">    <span class="comment">// resolve('hello');</span></span><br><span class="line">    <span class="comment">// 작업이 성공했을 때 hello라는 문자열이 promise통에 들어감.</span></span><br><span class="line">    <span class="comment">// 그때! 작업큐에 then메소드로 등록해둔 콜백이 작업큐에 들어감.</span></span><br><span class="line">    resolve(<span class="string">'hello'</span>);</span><br><span class="line">  &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// p.then(msg =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log(msg); // hello</span></span><br><span class="line"><span class="comment">// &#125;)이 표현식의 결과도 promise객체를 반환한다.</span></span><br><span class="line"><span class="comment">// 함수 매개변수 이름인 msg는 내 마음대로 바꿔도 됨. But 사람들이 보통 많이 쓰는 msg로 썼음</span></span><br><span class="line"><span class="comment">// 그 전의 promise통이 채워지면, 그때! 작업큐에 이 콜백이 등록된다.</span></span><br><span class="line">p.then(<span class="function"><span class="params">msg</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(msg); <span class="comment">// hello</span></span><br><span class="line">  <span class="comment">// 윗 줄의 promise통이 채워지면, 그때 이 then메소드에 있는 콜백 함수가 등록되고,</span></span><br><span class="line">  <span class="comment">// 이 promise통이 채워지면, 다음 then메소드가 실행된다.</span></span><br><span class="line">&#125;).then((=&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)).then((=&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)).then((=&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">//에러가 발생하면 catch라는 메소드가 실행됨</span></span><br><span class="line">&#125;)).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// then메소드를 쓰면, 값이 채워졌을 때 실행할 코드를 등록할 수 있다.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 실행 순서: 먼저 Promise통이 생기고,</span></span><br><span class="line"><span class="comment">// p.then 안에 있는 console.log(msg)가 실행된 후, Promise안에 있는 코드가 실행됨</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>then 메소드에는 아주 중요한 특징이 있는데, 바로 then 메소드 자체도 Promise 객체를 반환한다는 것입니다.<br>이 때, 콜백에서 반환한 값이 곧 Promise의 결과값이 됩니다.</p>
+</li>
+<li><p>then메소드를 사용하면 연이어 실행할 콜백 함수를 중첩해서 쓰지 않고(cf) 장풍 날리는 그림)<br>깔끔하게 콜백 함수를 쓸 수 있다.</p>
+</li>
+<li><p>이어붙이는 과정을 체이닝이라고 한다.</p>
+</li>
+<li><p>then 메소드에는 아주 중요한 특징이 있는데, 바로 then 메소드 자체도 Promise 객체를 반환한다는 것입니다.<br>이 때, 콜백에서 반환한 값이 곧 Promise의 결과값이 됩니다.</p>
+</li>
+<li><p>반환값이 다음 promise에 채워진다.</p>
+</li>
+<li>만일, 반환값이 promise라면(통 자체를 넘기면) -&gt; 그 통을 열어서 안에 있는 내용물이 다음통에 들어간다.</li>
+</ul>
+<blockquote>
+<p>15번 예제 코드(delya-promise-exmaple)는 슬랙에 강사님이 올려주시면, 붙여넣기!</p>
+</blockquote>
+<ul>
+<li>이제 HTTP 통신을 할 때 Promise가 어떻게 사용되는지 살펴보겠습니다.<br>아래에 사용된 axios는 JavaScript를 통해 직접 요청을 보내기 위해 널리 사용되는 라이브러리입니다.<br>GET 메소드로 요청을 보내기 위해 axios.get() 함수를 사용할 수 있는데, 이 때 Promise 객체가 반환됩니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 반환된 값이 promise 객체임</span></span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">"axios"</span>);</span><br><span class="line"><span class="keyword">const</span> API_URL = <span class="string">"https://api.github.com"</span>;</span><br><span class="line"></span><br><span class="line">axios</span><br><span class="line">  .get(<span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/repos/facebookincubator/create-react-app/issues?per_page=10`</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"최근 10개의 이슈:"</span>);</span><br><span class="line">    res.data.map(<span class="function"><span class="params">issue</span> =&gt;</span> issue.title).forEach(<span class="function"><span class="params">title</span> =&gt;</span> <span class="built_in">console</span>.log(title));</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"출력이 끝났습니다."</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>9번 예제와 17번 예제가 같은 동작을 하는 코드임</li>
+<li>promise의 핵심은 비동기 작업을 값으로 변환했다는 것이다.</li>
+<li>비동기 작업을 값으로 바꾸면,</li>
+<li>9번 예제 - 콜백으로 하는 방법</li>
+<li><h2 id="17번-예제-promise-이용"><a href="#17번-예제-promise-이용" class="headerlink" title="17번 예제 - promise 이용"></a>17번 예제 - promise 이용</h2></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> API_URL = <span class="string">"https://api.github.com"</span>;</span><br><span class="line"><span class="keyword">const</span> starCount = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">"axios"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. Github에 공개되어있는 저장소 중, 언어가 JavaScript이고 별표를 가장 많이 받은 저장소를 불러온다.</span></span><br><span class="line">axios</span><br><span class="line">  .get(</span><br><span class="line">    <span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/search/repositories?q=language:javascript&amp;sort=stars&amp;per_page=1`</span></span><br><span class="line">  )</span><br><span class="line">  <span class="comment">// 2. 위 저장소에 가장 많이 기여한 기여자 5명의 정보를 불러온다.</span></span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span></span><br><span class="line">    axios.get(</span><br><span class="line">      <span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/repos/<span class="subst">$&#123;res.data.items[<span class="number">0</span>].full_name&#125;</span>/contributors?per_page=5`</span></span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">  <span class="comment">// 3. 해당 기여자들이 최근에 Github에서 별표를 한 저장소를 각각 10개씩 불러온다.</span></span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//   ps는 promise로 이루어진 배열</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> ps = res.data.map(<span class="function"><span class="params">user</span> =&gt;</span></span><br><span class="line">      axios.get(<span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/users/<span class="subst">$&#123;user.login&#125;</span>/starred?per_page=10`</span>)</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.all(ps);</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// promise를 이용함</span></span><br><span class="line">  .then(<span class="function"><span class="params">ress</span> =&gt;</span> <span class="built_in">Promise</span>.all(ress.map(<span class="function"><span class="params">r</span> =&gt;</span> r.data)))</span><br><span class="line">  <span class="comment">// 아래의 코드처럼 콜백으로만 나타냈을 때는 엄청 길고 복잡함</span></span><br><span class="line">  <span class="comment">//   if (repoArrs.length === 5) &#123;</span></span><br><span class="line">  <span class="comment">//           for (let repoArr of repoArrs) &#123;</span></span><br><span class="line">  <span class="comment">//             for (let repo of repoArr) &#123;</span></span><br><span class="line">  <span class="comment">//               if (repo.full_name in starCount) &#123;</span></span><br><span class="line">  <span class="comment">//                 starCount[repo.full_name]++;</span></span><br><span class="line">  <span class="comment">//               &#125; else &#123;</span></span><br><span class="line">  <span class="comment">//                 starCount[repo.full_name] = 1;</span></span><br><span class="line">  <span class="comment">//               &#125;</span></span><br><span class="line">  <span class="comment">//             &#125;</span></span><br><span class="line">  <span class="comment">//           &#125;</span></span><br><span class="line">  <span class="comment">//           console.log(starCount);</span></span><br><span class="line">  <span class="comment">//         &#125;</span></span><br><span class="line">  <span class="comment">//       &#125;);</span></span><br><span class="line">  <span class="comment">//     &#125;</span></span><br><span class="line">  <span class="comment">// 와 같은 코드임</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 불러온 저장소를 모두 모아, 개수를 센 후 저장소의 이름을 개수와 함께 출력한다.</span></span><br><span class="line">  .then(<span class="function"><span class="params">repoArrs</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> repoArr <span class="keyword">of</span> repoArrs) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> repo <span class="keyword">of</span> repoArr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (repo.full_name <span class="keyword">in</span> starCount) &#123;</span><br><span class="line">          starCount[repo.full_name]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          starCount[repo.full_name] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(starCount);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"fetching..."</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>then 메소드보다 더 밑에 있는 문법을 더 자주 사용함</li>
+</ul>
+<h3 id="비동기-함수-Async-Function"><a href="#비동기-함수-Async-Function" class="headerlink" title="비동기 함수 (Async Function)"></a>비동기 함수 (Async Function)</h3><ul>
+<li><p>C#에 있는 async라는 문법을 빌려옴(ES2017에서 도입됨)</p>
+</li>
+<li><p>비동기 함수(async function)를 사용하면,<br>동기식 코드와 거의 같은 구조를 갖는 비동기식 코드를 짤 수 있다.</p>
+</li>
+<li>async 키워드를 붙이면, 이 함수는 비동기 함수가 된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 비동기 함수</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 비동기 화살표 함수</span></span><br><span class="line"><span class="keyword">const</span> func2 = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 비동기 메소드</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">  <span class="keyword">async</span> myMethod() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>비동기 함수는 항상 Promise 객체를 반환한다는 특징을 갖습니다.<br>이 Promise의 결과값은 비동기 함수 내에서 무엇을 반환하느냐에 따라 결정되며,<br>then 메소드와 똑같은 방식으로 동작합니다.</li>
+<li>안에서 return을 하든 안하든 항상 Promise 객체를 반환한다.<br>(cf) Generate 함수는 iterator객체를 항상 반환함)(함수에 반환하는 코드를 쓰든 안쓰든)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    &gt; 질문: 통이 언제 만들어지는것인지?????</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 2가 채워진 통을 바로 생성하는 문법</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// func1()은 1이 들어있는 promise 객체</span></span><br><span class="line">func1().then(<span class="built_in">console</span>.log); <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// func2()는 2가 채워져있는 promise 객체</span></span><br><span class="line">func2().then(<span class="built_in">console</span>.log); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>또 하나의 중요한 특징은 비동기 함수 내에서 await 키워드를 쓸 수 있다는 것입니다.<br>await는 Promise의 then 메소드와 유사한 기능을 하는데,<br>await 키워드 뒤에 오는 Promise가 결과값을 가질 때까지 비동기 함수의 실행을 중단시킵니다.<br>여기서의 ‘중단’은 비동기식이며, 브라우저는 Promise가 완료될 때까지 다른 작업을 처리할 수 있습니다.</p>
+<p>await는 연산자이기도 하며, await 연산의 결과값은 뒤에 오는 Promise 객체의 결과값이 됩니다.</p>
+<p>앞서 then 메소드를 사용했던 예제와 아래의 예제를 비교해보세요.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Promise 객체를 반환하는 함수.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delay</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;ms&#125;</span> 밀리초가 지났습니다.`</span>);</span><br><span class="line">      resolve()</span><br><span class="line">    &#125;, ms);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 실행시키다가 promise통에 값이 채워질 때까지 기다리다가</span></span><br><span class="line">    <span class="comment">// 값이 채워지면 실행</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> str1 = <span class="keyword">await</span> delay(<span class="number">1000.</span> <span class="string">'hello'</span>);</span><br><span class="line"><span class="comment">//  await는 연산자임. 이 함수를 실행시킬 때 1초 뒤에 hello라는 값이 str1에 들어감.</span></span><br><span class="line"><span class="built_in">console</span>.log(str1);</span><br><span class="line"><span class="keyword">const</span> str2 = <span class="keyword">await</span> delay(<span class="number">2000</span>, <span class="string">'world'</span>);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'끝'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>await를 이용하면 기다렸다가 함수를 실행할 수 있다.</li>
+<li>await의 역할 2가지<ul>
+<li>promise가 값이 채워질 때까지 기다리는 것</li>
+<li>promise 안의 결과값을 반환하는 것</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>비동기 함수의 가장 큰 장점은 동기식 코드를 짜듯이 비동기식 코드를 짤 수 있다는 것입니다.<br>아래 예제는 Github 데이터를 불러오는 예제를 비동기 함수를 사용해 다시 작성한 것입니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 21번 예제 코드가 3가지 방법중에 가장 간단</span></span><br><span class="line"><span class="comment">// 9, 17, 21번 예제 코드 비교</span></span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">"axios"</span>);</span><br><span class="line"><span class="keyword">const</span> API_URL = <span class="string">"https://api.github.com"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchStarCount</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> starCount = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. Github에 공개되어있는 저장소 중, 언어가 JavaScript이고 별표를 가장 많이 받은 저장소를 불러온다.</span></span><br><span class="line">  <span class="keyword">const</span> topRepoRes = <span class="keyword">await</span> axios.get(</span><br><span class="line">    <span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/search/repositories?q=language:javascript&amp;sort=stars&amp;per_page=1`</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 위 저장소에 가장 많이 기여한 기여자 5명의 정보를 불러온다.</span></span><br><span class="line">  <span class="keyword">const</span> topMemberRes = <span class="keyword">await</span> axios.get(</span><br><span class="line">    <span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/repos/<span class="subst">$&#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">      topRepoRes.data.items[<span class="number">0</span>].full_name</span></span></span><br><span class="line"><span class="string"><span class="subst">    &#125;</span>/contributors?per_page=5`</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 해당 기여자들이 최근에 Github에서 별표를 한 저장소를 각각 10개씩 불러온다.</span></span><br><span class="line">  <span class="keyword">const</span> ps = topMemberRes.data.map(<span class="function"><span class="params">user</span> =&gt;</span></span><br><span class="line">    axios.get(<span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/users/<span class="subst">$&#123;user.login&#125;</span>/starred?per_page=10`</span>)</span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">const</span> starredReposRess = <span class="keyword">await</span> <span class="built_in">Promise</span>.all(ps);</span><br><span class="line">  <span class="keyword">const</span> starredReposData = starredReposRess.map(<span class="function"><span class="params">r</span> =&gt;</span> r.data);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 불러온 저장소를 모두 모아, 개수를 센 후 저장소의 이름을 개수와 함께 출력한다.</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> repoArr <span class="keyword">of</span> starredReposData) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> repo <span class="keyword">of</span> repoArr) &#123;</span><br><span class="line">      <span class="keyword">if</span> (repo.full_name <span class="keyword">in</span> starCount) &#123;</span><br><span class="line">        starCount[repo.full_name]++;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        starCount[repo.full_name] = <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> starCount;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetchStarCount().then(<span class="built_in">console</span>.log);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>then 메소드를 사용한 버전과 비교했을 때,<br>비동기 작업을 위해 콜백을 사용하는 부분이 모두 사라졌습니다.</p>
+</li>
+<li><p>await 키워드는 for, if와 같은 제어 구문 안에서도 쓰일 수 있기 때문에,<br>then 메소드를 사용할 때보다 복잡한 비동기 데이터 흐름을 아주 쉽게 표현할 수 있다는 장점이 있습니다.<br>다만, <strong>비동기 함수 역시 Promise를 사용하기 때문에,</strong></p>
+<p><br> <strong>비동기 함수를 잘 쓰기 위해서는 여전히 Promise에 대해 잘 알고 있어야 합니다.</strong></p>
+</li>
+<li><p>비동기 함수는 await 도중 에러가 났을 때 이를 편하게 처리할 수 있는 방법도 지원하는데,<br>이에 대해서는 예외 처리 챕터에서 자세히 살펴보겠습니다.</p>
+</li>
+<li>Generate 함수로도 비동기 처리를 할 수 있다.</li>
+<li>promise가 나오고 async,<br>await가 나오기 전 그 사이에 Generate 함수로 비동기 프로그래밍을 구현했었다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> co = <span class="built_in">require</span>(<span class="string">"co"</span>);</span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">"axios"</span>);</span><br><span class="line"><span class="keyword">const</span> API_URL = <span class="string">"https://api.github.com"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fetchStarCount</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> starCount = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. Github에 공개되어있는 저장소 중, 언어가 JavaScript이고 별표를 가장 많이 받은 저장소를 불러온다.</span></span><br><span class="line">  <span class="keyword">const</span> topRepoRes = <span class="keyword">yield</span> axios.get(</span><br><span class="line">    <span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/search/repositories?q=language:javascript&amp;sort=stars&amp;per_page=1`</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 위 저장소에 가장 많이 기여한 기여자 5명의 정보를 불러온다.</span></span><br><span class="line">  <span class="keyword">const</span> topMemberRes = <span class="keyword">yield</span> axios.get(</span><br><span class="line">    <span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/repos/<span class="subst">$&#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">      topRepoRes.data.items[<span class="number">0</span>].full_name</span></span></span><br><span class="line"><span class="string"><span class="subst">    &#125;</span>/contributors?per_page=5`</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 해당 기여자들이 최근에 Github에서 별표를 한 저장소를 각각 10개씩 불러온다.</span></span><br><span class="line">  <span class="keyword">const</span> ps = topMemberRes.data.map(<span class="function"><span class="params">user</span> =&gt;</span></span><br><span class="line">    axios.get(<span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/users/<span class="subst">$&#123;user.login&#125;</span>/starred?per_page=10`</span>)</span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">const</span> starredReposRess = <span class="keyword">yield</span> <span class="built_in">Promise</span>.all(ps);</span><br><span class="line">  <span class="keyword">const</span> starredReposData = starredReposRess.map(<span class="function"><span class="params">r</span> =&gt;</span> r.data);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 불러온 저장소를 모두 모아, 개수를 센 후 저장소의 이름을 개수와 함께 출력한다.</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> repoArr <span class="keyword">of</span> starredReposData) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> repo <span class="keyword">of</span> repoArr) &#123;</span><br><span class="line">      <span class="keyword">if</span> (repo.full_name <span class="keyword">in</span> starCount) &#123;</span><br><span class="line">        starCount[repo.full_name]++;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        starCount[repo.full_name] = <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> starCount;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">co(fetchStarCount).then(<span class="built_in">console</span>.log);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>어떤 회사에서는 Async와 await가 아니라<br>일부러 Generate함수와 yield를 사용하는 경우가 있다.</li>
+<li>그 이유는, Generate 함수로 비동기 프로그래밍을 구현하면,<br>yield를 이용해서 일시정지 구간을 개발자가 세밀하게 컨트롤할 수 있어서이다.</li>
+</ul>
+<hr>
+<h3 id="개발자의-영어-문서-읽는-습관의-중요성"><a href="#개발자의-영어-문서-읽는-습관의-중요성" class="headerlink" title="개발자의 영어 문서 읽는 습관의 중요성"></a>개발자의 영어 문서 읽는 습관의 중요성</h3><ul>
+<li>opensource 기술들이 특히 다 영어로 되어있음.</li>
+<li>angular는 구글에서 만든 것임</li>
+<li>react는 여러 가지 조합을 해서 써야 함.<br>(그 여러가지는 대개 오픈소스이고 그 오픈소스는 다 영어로 되어있음.)</li>
+<li>단어 단위로라도 영어로 된 공식 문설르 읽어야 정확하게 개발할 수 있다.</li>
+<li>파파고 등을 이용해서 최대한 번역해서라도 읽기</li>
+<li>개발자들이 쓰는 어투가 있다.</li>
+<li><p>개발 문서들이 쓰는 단어가 다 비슷하다.</p>
+</li>
+<li><ul>
+<li>공식 문서 영어로 된 문서를 하루에 10~20분 정도 매일 투자해서 읽기</li>
+</ul>
+</li>
+<li>-&gt; 영어 표현 정리해두기</li>
+<li>원본 공식 문서를 읽고 쓸 수 있으면 연봉이 달라진다.</li>
+<li>새로운 기술을 빠르고 정확하게 사용할 수 있기 때문에</li>
+</ul>
+<hr>
+<ul>
+<li>예제 코드만 잘 읽어도 사용법을 알 수 있다.</li>
+<li>axios(config)<ul>
+<li>axops는 config라는 객체를 받는다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Send a POST request</span></span><br><span class="line">axios(&#123;</span><br><span class="line">  method: <span class="string">"post"</span>,</span><br><span class="line">  url: <span class="string">"/user/12345"</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">"Fred"</span>,</span><br><span class="line">    lastName: <span class="string">"Flintstone"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>axios(url[, config])<ul>
+<li>개발문서에 대괄호[]가 나오면, 배열이 X.</li>
+<li>[]는 생략 가능하다는 뜻으로 널리 사용되는 표기법임.</li>
+<li>[]안에 있는 내용은 써도 되고 안 써도 된다.</li>
+<li>axios에 config객체를 넣어도, 안 넣어도 잘 작동한다는 의미임</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Send a GET request (default method)</span></span><br><span class="line">axios(<span class="string">"/user/12345"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Request method aliases<ul>
+<li>aliase는 별명이라는 뜻임</li>
+<li>For convenience aliases have been provided for all supported request methods.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">axios.request(config)</span><br><span class="line">axios.get(url[, config])<span class="comment">// 설정 객체는 생략할 수 있다.</span></span><br><span class="line">- axios.delete(url[, config])</span><br><span class="line">axios.head(url[, config])</span><br><span class="line">axios.options(url[, config])</span><br><span class="line">- axios.post(url[, data[, config]])</span><br><span class="line"><span class="comment">// : 1. url만</span></span><br><span class="line"><span class="comment">// 2. url, data 이 2가지를 넘겨줄 수 있다.</span></span><br><span class="line"><span class="comment">// 3. url, data, config를 넘겨줄 수 있다.</span></span><br><span class="line">axios.put(url[, data[, config]])</span><br><span class="line">- axios.patch(url[, data[, config]])</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>get과 post의 넘겨주는 객체가 다르다는 걸 기억!</p>
+</li>
+<li><p>Request Config</p>
+<ul>
+<li>These are the available config options for making requests.<br>Only the url is required. Requests will default to GET if method is not specified.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// `params` are the URL parameters to be sent with the request</span></span><br><span class="line"> <span class="comment">// Must be a plain object or a URLSearchParams object</span></span><br><span class="line"> ...</span><br><span class="line"> params: &#123;</span><br><span class="line">   ID: <span class="number">12345</span></span><br><span class="line"> &#125;,</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Response Schema</p>
+<ul>
+<li>The response for a request contains the following information.</li>
+<li>응답의 본문, 헤더, 상태 코드를 다 볼 수 있는 방법이 있다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>json-server는 node.js로 만들어져 있음 -&gt; npm install로 설치할 수 있음</li>
+<li>json-server는 json파일만 만들면 서버를 띄울 수 있다.</li>
+<li>json-server는 로그인 기능이 X</li>
+</ul>
+<h3 id="json-server"><a href="#json-server" class="headerlink" title="json-server"></a>json-server</h3><ul>
+<li>토큰을 암호화하기 위한 문자열이 필요하다</li>
+<li>암호화를 위한 환경변수 설정이 필요</li>
+<li>환경변수 설정하기</li>
+<li><p>토큰을 생성할 때 사용할 비밀 키를 JWT_SECRET 환경변수로 설정해주어야 합니다.</p>
+</li>
+<li><p>혹은 .env 파일을 통해서 비밀 키를 설정해줄 수도 있습니다.<br>프로젝트 폴더에 .env 파일을 생성하고 아래와 같이 작성해주세요.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JWT_SECRET = mysecret;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>내 생각대로 서버가 동작하는지 서버 사용하는 코드를 작성 후에는 postman으로 꼭 확인해보기</strong></li>
+</ul>
+<hr>
+<h3 id="Single-Source-of-Truth"><a href="#Single-Source-of-Truth" class="headerlink" title="Single Source of Truth"></a>Single Source of Truth</h3><ul>
+<li>상태를 저장하는 저장소가 여러 개 있는 경우에는 상태가 불일치하는 문제가 생길 수 있다.</li>
+<li>-&gt; 따라서 믿을 수 있는 상태 저장소는 딱 하나만 두는 게 좋다.</li>
+<li>이런 원칙을 <strong>Single source of Truth</strong> 진리의 유일한 원천.이라고 한다.</li>
+<li>그래야 동기화가 잘 됨</li>
+<li>매번 Single Source로부터 상태를 가져와서 매번 그려주는 게 좋다.</li>
+<li>-&gt; 동기화해서 변경사항을 적용하고 버그를 줄일 수 있다.</li>
+</ul>
+<hr>
+<h3 id="실시간-웹"><a href="#실시간-웹" class="headerlink" title="실시간 웹"></a>실시간 웹</h3><ul>
+<li>slack이나 trello같은 사이트</li>
+<li>-&gt; 다른 사람이 글 올리면 실시간으로 바로 볼 수 있음</li>
+<li><ul>
+<li>실시간 웹을 구현하기 위해 사용할 수 있는 기능이 여러가지 있는데,</li>
+</ul>
+</li>
+<li>그 중에 한 가지가 ‘웹소켓’이다. 웹소켓을 쓰면, 내가 요청을 보내지 않아도 응답을 받을 수 있다.<br>(cf) 그냥 http를 쓰면 내가 요청을 보내야만 응답을 받을 수 있다.)</li>
+<li>웹소켓 연결이 맺어져 있으면 실시간으로 변경 사항이 반영됨</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "자바스크립트 15일차",
+        "image": "https://JihyeHwang09.github.iohttps://cdn.auth0.com/blog/legacy-app-auth/legacy-app-auth-5.png",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
+        "datePublished": "2019-01-29",
+        "dateCreated": "2019-01-29",
+        "dateModified": "2019-01-29",
+        "url": "https://JihyeHwang09.github.io/2019/01/29/javascript15/",
+        "description": "모던 웹 서비스의 구성요소Access Token &amp; JWTJWT 실습
+
+JWT는 서버가 만들어주는 토큰
+JWT 실습
+
+
+토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게
+get 요청을 읽기전용, 정보를 보낼때는 post로 요청!
+
+1234567891011121314151617181920212223// 토큰 받아오기let token;axios"
+        "wordCount": 4320
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/01/28/javascript14/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">자바스크립트 14일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/29/javascript15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn.auth0.com/blog/legacy-app-auth/legacy-app-auth-5.png)" alt="자바스크립트 15일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/29/javascript15/" class="title">자바스크립트 15일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-28T15:13:16.694Z" itemprop="datePublished">2019-01-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/28/javascript14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://helloworldjavascript.net/images/class-inheritance-prototype-chain.svg)" alt="자바스크립트 14일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/28/javascript14/" class="title">자바스크립트 14일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-27T16:59:12.654Z" itemprop="datePublished">2019-01-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/27/javascript13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51800186-11642200-226f-11e9-87f3-7faef89a91cb.png)" alt="자바스크립트 13일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/27/javascript13/" class="title">자바스크립트 13일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-27T10:54:29.000Z" itemprop="datePublished">2019-01-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/26/javascript12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cascadingmedia.com/assets/images/insites/2015/02/url-anatomy/url-anatomy-55598c24.png)" alt="자바스크립트 12일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/26/javascript12/" class="title">자바스크립트 12일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-26T11:26:48.000Z" itemprop="datePublished">2019-01-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/25/javascript11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/51750128-76dfd380-20f4-11e9-94fc-7e3c8b6efdf8.png)" alt="자바스크립트 11일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/25/javascript11/" class="title">자바스크립트 11일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-25T13:52:53.097Z" itemprop="datePublished">2019-01-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">15</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">5</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">31</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 12px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 12px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 12px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 12px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 12px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 12px;">framework</a> <a href="/tags/front-end/" style="font-size: 18px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 12px;">platform</a> <a href="/tags/recursion/" style="font-size: 12px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 14px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 12px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 12px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 14px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 16px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 14px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 14px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/01/29/javascript15/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
