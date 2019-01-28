@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="javaScript">
     
-    <meta name="description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios">
+    <meta name="description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios  .">
 <meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="자바스크립트 15일차">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/29/javascript15/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios">
+<meta property="og:description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios  .">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://cdn.auth0.com/content/jwt/jwt-diagram.png">
-<meta property="og:updated_time" content="2019-01-28T15:20:54.345Z">
+<meta property="og:updated_time" content="2019-01-28T15:21:58.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 15일차">
-<meta name="twitter:description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios">
+<meta name="twitter:description" content="모던 웹 서비스의 구성요소Access Token &amp;amp; JWTJWT 실습  JWT는 서버가 만들어주는 토큰 JWT 실습   토큰 요청하기2로그인 안하면, 정보를 가져올 수 없게 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!  1234567891011121314151617181920212223// 토큰 받아오기let token;axios  .">
 <meta name="twitter:image" content="https://cdn.auth0.com/content/jwt/jwt-diagram.png">
     
 
@@ -195,7 +195,7 @@ ga('send', 'pageview');
 <li><a href="https://tidy-week.glitch.me/" target="_blank" rel="noopener">JWT 실습</a></li>
 </ul>
 <ul>
-<li>토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게</li>
+<li>토큰 요청하기2<br>로그인 안하면, 정보를 가져올 수 없게</li>
 <li>get 요청을 읽기전용, 정보를 보낼때는 post로 요청!</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 토큰 받아오기</span></span><br><span class="line"><span class="keyword">let</span> token;</span><br><span class="line">axios</span><br><span class="line">  .post(<span class="string">"/auth"</span>, &#123;</span><br><span class="line">    username: <span class="string">"fast"</span>,</span><br><span class="line">    password: <span class="string">"campus"</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    token = res.data.token;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`token: <span class="subst">$&#123;token&#125;</span>`</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">//  axios에 post로 요청 보냄</span></span><br><span class="line"><span class="comment">// axios.post('/auth', &#123;</span></span><br><span class="line"><span class="comment">//   username: 'fast',</span></span><br><span class="line"><span class="comment">//   password: 'campus'</span></span><br><span class="line"><span class="comment">// &#125;).</span></span><br><span class="line"><span class="comment">// 까지 실행하면 promise 객체가 반환됨.</span></span><br><span class="line"><span class="comment">// 지금은 promise 객체가 비어있는 상태</span></span><br><span class="line"><span class="comment">// .then(res =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   token = res.data.token</span></span><br><span class="line"><span class="comment">//   console.log(`token: $&#123;token&#125;`)</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"><span class="comment">//then이후에 실행되면 promise 객체가 채워짐</span></span><br></pre></td></tr></table></figure>
@@ -554,11 +554,11 @@ JWT는 서버가 만들어주는 토큰
 JWT 실습
 
 
-토큰 요청하기2// 로그인 안하면, 정보를 가져올 수 없게
+토큰 요청하기2로그인 안하면, 정보를 가져올 수 없게
 get 요청을 읽기전용, 정보를 보낼때는 post로 요청!
 
-1234567891011121314151617181920212223// 토큰 받아오기let token;axios"
-        "wordCount": 4321
+1234567891011121314151617181920212223// 토큰 받아오기let token;axios  ."
+        "wordCount": 4320
     }
 </script>
 
