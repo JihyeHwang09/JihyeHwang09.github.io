@@ -20,10 +20,12 @@
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
 <meta property="og:description" content="예외 처리동기식 코드에서의 예외 처리 JavaScript 코드에서 발생할 수 있는 에러에는 다양한 것들이 있습니다.문법 에러와 같이 프로그래머의 실수로 인해 에러가 발생하는 경우도 있지만,네트워크 에러와 같이 코드와는 무관한 이유로 발생하는 에러도 있습니다.  코드 실행 중에 에러가 발생하면,코드의 실행이 중단되어 그 시점에 실행 중이었던 작업을 완료할 수">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-31T15:14:15.119Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/52063808-a55b2400-25b6-11e9-8ef1-2802b00f4c00.png">
+<meta property="og:updated_time" content="2019-01-31T15:18:20.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="자바스크립트 18일차">
 <meta name="twitter:description" content="예외 처리동기식 코드에서의 예외 처리 JavaScript 코드에서 발생할 수 있는 에러에는 다양한 것들이 있습니다.문법 에러와 같이 프로그래머의 실수로 인해 에러가 발생하는 경우도 있지만,네트워크 에러와 같이 코드와는 무관한 이유로 발생하는 에러도 있습니다.  코드 실행 중에 에러가 발생하면,코드의 실행이 중단되어 그 시점에 실행 중이었던 작업을 완료할 수">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/52063808-a55b2400-25b6-11e9-8ef1-2802b00f4c00.png">
     
 
     
@@ -198,11 +200,11 @@ ga('send', 'pageview');
 <ul>
 <li><p><strong>에러가 났을 때 원상복구를 시도할 코드</strong>를 <code>try 블록</code> 내부에 작성하면,<br>에러가 발생했을 때 코드의 실행 흐름이 <code>try 블록</code>에서 <code>catch 블록</code>으로 옮겨갑니다.<br>이 때, <code>catch 블록</code> 안에서는<br>에러에 대한 정보를 담고 있는 객체(위 코드의 e)를 사용할 수 있습니다.</p>
 </li>
-<li><p><code>try 블록</code>은 예외 처리를 위해서만 쓰이는 것은 아닙니다.<br><code>try 블록</code> 바로 뒤에 <code>finally 블록</code>이 오면,<br><code>finally 블록</code>에 있는 코드는 <strong><code>try 블록</code> 안에서의 에러 발생 여부와 관계 없이</strong> <strong>무조건 실행</strong>됩니다.<br>심지어 <code>try 블록</code> 내에서 return, break, continue 등으로 인해<br><strong>코드의 실행 흐름이 즉시 이동될 때</strong>에도 마찬가지로 <strong>무조건 실행</strong>됩니다.</p>
+<li><p><code>try 블록</code>은 예외 처리를 위해서만 쓰이는 것은 아닙니다.<br><code>try 블록</code> 바로 뒤에 <code>finally 블록</code>이 오면,<br><code>finally 블록</code>에 있는 코드는 <strong><code>try 블록</code> 안에서의 에러 발생 여부와 관계 없이</strong><br><strong>무조건 실행</strong>됩니다.<br>심지어 <code>try 블록</code> 내에서 return, break, continue 등으로 인해<br><strong>코드의 실행 흐름이 즉시 이동될 때</strong>에도 마찬가지로 <strong>무조건 실행</strong>됩니다.</p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//   i = 1</span></span><br><span class="line">    <span class="comment">//   i = 2</span></span><br><span class="line">    <span class="comment">//   i = 3</span></span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="comment">// break를 만나면, 코드의 실행 흐름이 루프를 빠져나오게 되는데!!</span></span><br><span class="line">      <span class="comment">// for루프 안에 finally가 있으므로 -&gt; finally 안의 코드를 실행한 후에!!</span></span><br><span class="line">      <span class="comment">// 루프를 빠져나온다.</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// finally는 무조건 실행되어야 하므로 break를 만나서</span></span><br><span class="line">    루프를 빠져나가기 전에 <span class="keyword">finally</span>를 실행한 후 빠져나간다.</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`현재 i의 값: <span class="subst">$&#123;i&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code></code>finally 블록<code>은</code>catch 블록`과도 같이 사용됩니다.<br>이 때 코드의 실행 순서를 정리해 보면 다음과 같습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//   i = 1</span></span><br><span class="line">    <span class="comment">//   i = 2</span></span><br><span class="line">    <span class="comment">//   i = 3</span></span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="comment">// break를 만나면, 코드의 실행 흐름이 루프를 빠져나오게 되는데!!</span></span><br><span class="line">      <span class="comment">// for루프 안에 finally가 있으므로 -&gt; finally 안의 코드를 실행한 후에!!</span></span><br><span class="line">      <span class="comment">// 루프를 빠져나온다.</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// finally는 무조건 실행되어야 하므로 break를 만나서</span></span><br><span class="line">    루프를 빠져나가기 전에 <span class="string">`finally`</span>를 실행한 후 빠져나간다.</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`현재 i의 값: <span class="subst">$&#123;i&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>finally 블록</code>은<code>catch 블록</code>과도 같이 사용됩니다.<br>이 때 코드의 실행 순서를 정리해 보면 다음과 같습니다.</p>
 <p>에러가 안 났을 때: <code>try</code> - <code>finally</code><br>에러가 났을 때: <code>try</code> - <strong>에러 발생</strong> - <code>catch</code> - <code>finally</code><br>아래 코드를 통해 코드의 실행 순서를 시험해보세요.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"try"</span>);</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>); <span class="comment">// RangeError: Invalid array length</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"catch"</span>);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"finally"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// try</span></span><br><span class="line"><span class="comment">// catch</span></span><br><span class="line"><span class="comment">// finally</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> length = prompt(<span class="string">"배열의 길이를 입력하세요."</span>);</span><br><span class="line">  <span class="comment">//prompt로 입력받은 값은 문자열이므로 parseInt로 정수를 써야 한다.</span></span><br><span class="line">  <span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="built_in">parseInt</span>(length));</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  alert(<span class="string">"제대로 된 숫자를 입력하세요."</span>);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"finally"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -311,7 +313,7 @@ ga('send', 'pageview');
             "name": "Phang"
         },
         "headline": "자바스크립트 18일차",
-        "image": "https://JihyeHwang09.github.io",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/52063808-a55b2400-25b6-11e9-8ef1-2802b00f4c00.png",
         "keywords": "javaScript",
         "genre": "front-end javaScript",
         "datePublished": "2019-02-01",
@@ -322,7 +324,7 @@ ga('send', 'pageview');
 JavaScript 코드에서 발생할 수 있는 에러에는 다양한 것들이 있습니다.문법 에러와 같이 프로그래머의 실수로 인해 에러가 발생하는 경우도 있지만,네트워크 에러와 같이 코드와는 무관한 이유로 발생하는 에러도 있습니다.
 
 코드 실행 중에 에러가 발생하면,코드의 실행이 중단되어 그 시점에 실행 중이었던 작업을 완료할 수"
-        "wordCount": 1876
+        "wordCount": 1875
     }
 </script>
 
@@ -395,7 +397,7 @@ JavaScript 코드에서 발생할 수 있는 에러에는 다양한 것들이 �
                             <a href="/2019/02/01/javascript18/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52063808-a55b2400-25b6-11e9-8ef1-2802b00f4c00.png)" alt="자바스크립트 18일차" class="thumbnail-image"></span>
     
     
 </a>
