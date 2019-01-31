@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>자바스크립트 18일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="javaScript">
+    
+    <meta name="description" content="예외 처리동기식 코드에서의 예외 처리 JavaScript 코드에서 발생할 수 있는 에러에는 다양한 것들이 있습니다.문법 에러와 같이 프로그래머의 실수로 인해 에러가 발생하는 경우도 있지만,네트워크 에러와 같이 코드와는 무관한 이유로 발생하는 에러도 있습니다.  코드 실행 중에 에러가 발생하면,코드의 실행이 중단되어 그 시점에 실행 중이었던 작업을 완료할 수">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트 18일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/01/javascript18/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="예외 처리동기식 코드에서의 예외 처리 JavaScript 코드에서 발생할 수 있는 에러에는 다양한 것들이 있습니다.문법 에러와 같이 프로그래머의 실수로 인해 에러가 발생하는 경우도 있지만,네트워크 에러와 같이 코드와는 무관한 이유로 발생하는 에러도 있습니다.  코드 실행 중에 에러가 발생하면,코드의 실행이 중단되어 그 시점에 실행 중이었던 작업을 완료할 수">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-31T15:12:45.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자바스크립트 18일차">
+<meta name="twitter:description" content="예외 처리동기식 코드에서의 예외 처리 JavaScript 코드에서 발생할 수 있는 에러에는 다양한 것들이 있습니다.문법 에러와 같이 프로그래머의 실수로 인해 에러가 발생하는 경우도 있지만,네트워크 에러와 같이 코드와는 무관한 이유로 발생하는 에러도 있습니다.  코드 실행 중에 에러가 발생하면,코드의 실행이 중단되어 그 시점에 실행 중이었던 작업을 완료할 수">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-javascript18" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자바스크립트 18일차
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/01/javascript18/" class="article-date">
+            <time datetime="2019-01-31T15:01:40.000Z" itemprop="datePublished">2019-02-01</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="예외-처리"><a href="#예외-처리" class="headerlink" title="예외 처리"></a>예외 처리</h1><h2 id="동기식-코드에서의-예외-처리"><a href="#동기식-코드에서의-예외-처리" class="headerlink" title="동기식 코드에서의 예외 처리"></a>동기식 코드에서의 예외 처리</h2><ul>
+<li><p><code>JavaScript</code> 코드에서 발생할 수 있는 에러에는 다양한 것들이 있습니다.<br><strong>문법 에러</strong>와 같이 프로그래머의 실수로 인해 에러가 발생하는 경우도 있지만,<br><strong>네트워크 에러</strong>와 같이 <strong>코드와는 무관한 이유로 발생하는 에러</strong>도 있습니다.</p>
+</li>
+<li><p>코드 실행 중에 에러가 발생하면,<br>코드의 실행이 중단되어 그 시점에 실행 중이었던 작업을 완료할 수 없게 됩니다.</p>
+<p><code>JavaScript</code>는 이로부터 <strong>코드의 실행 흐름을 원상복구할 수 있는 기능을 제공</strong>하며,<br><code>try...catch...finally</code> 구문을 사용하면<br><strong>에러가 나더라도 코드의 실행을 지속할 수 있습니다.</strong></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"에러가 나기 직전까지의 코드는 잘 실행됩니다."</span>);</span><br><span class="line">  <span class="comment">// Array 생성자는 배열의 길이를 인수로 받는다. -1이 들어가서 에러가 남</span></span><br><span class="line">  <span class="comment">// try문 안에서 에러가 나지 않으면, catch문 안에 있는 코드는 실행이 되지 X</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>); <span class="comment">// RangeError: Invalid array length</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"에러가 난 이후의 코드는 실행되지 않습니다."</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"코드의 실행 흐름이 catch 블록으로 옮겨집니다."</span>);</span><br><span class="line">  alert(<span class="string">`다음과 같은 에러가 발생했습니다: <span class="subst">$&#123;e.name&#125;</span>: <span class="subst">$&#123;e.message&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// try -catch문으로 에러를 잡지 않았다면, 아래 코드는 실행되지 X.</span></span><br><span class="line"><span class="comment">// 에러가 잡혀야만 그 후의 코드가 실행됨</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"에러가 잡혔다면, 다음에 나오는 코드도 문제없이 실행됩니다."</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 에러가 나기 직전까지의 코드는 잘 실행됩니다.</span></span><br><span class="line"><span class="comment">// 코드의 실행 흐름이 catch 블록으로 옮겨집니다.</span></span><br><span class="line"><span class="comment">// 에러가 잡혔다면, 다음에 나오는 코드도 문제없이 실행됩니다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>에러가 났을 때 원상복구를 시도할 코드</strong>를 <code>try 블록</code> 내부에 작성하면,<br>에러가 발생했을 때 코드의 실행 흐름이 <code>try 블록</code>에서 <code>catch 블록</code>으로 옮겨갑니다.<br>이 때, <code>catch 블록</code> 안에서는<br>에러에 대한 정보를 담고 있는 객체(위 코드의 e)를 사용할 수 있습니다.</p>
+</li>
+<li><p><code>try 블록</code>은 예외 처리를 위해서만 쓰이는 것은 아닙니다.<br><code>try 블록</code> 바로 뒤에 <code>finally 블록</code>이 오면,<br><code>finally 블록</code>에 있는 코드는 <strong><code>try 블록</code> 안에서의 에러 발생 여부와 관계 없이</strong> <strong>무조건 실행</strong>됩니다.<br>심지어 <code>try 블록</code> 내에서 return, break, continue 등으로 인해<br><strong>코드의 실행 흐름이 즉시 이동될 때</strong>에도 마찬가지로 <strong>무조건 실행</strong>됩니다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//   i = 1</span></span><br><span class="line">    <span class="comment">//   i = 2</span></span><br><span class="line">    <span class="comment">//   i = 3</span></span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="comment">// break를 만나면, 코드의 실행 흐름이 루프를 빠져나오게 되는데!!</span></span><br><span class="line">      <span class="comment">// for루프 안에 finally가 있으므로 -&gt; finally 안의 코드를 실행한 후에!!</span></span><br><span class="line">      <span class="comment">// 루프를 빠져나온다.</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// finally는 무조건 실행되어야 하므로 break를 만나서</span></span><br><span class="line">    루프를 빠져나가기 전에 <span class="keyword">finally</span>를 실행한 후 빠져나간다.</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`현재 i의 값: <span class="subst">$&#123;i&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code></code>finally 블록<code>은</code>catch 블록`과도 같이 사용됩니다.<br>이 때 코드의 실행 순서를 정리해 보면 다음과 같습니다.</p>
+<p>에러가 안 났을 때: <code>try</code> - <code>finally</code><br>에러가 났을 때: <code>try</code> - <strong>에러 발생</strong> - <code>catch</code> - <code>finally</code><br>아래 코드를 통해 코드의 실행 순서를 시험해보세요.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"try"</span>);</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>); <span class="comment">// RangeError: Invalid array length</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"catch"</span>);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"finally"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// try</span></span><br><span class="line"><span class="comment">// catch</span></span><br><span class="line"><span class="comment">// finally</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> length = prompt(<span class="string">"배열의 길이를 입력하세요."</span>);</span><br><span class="line">  <span class="comment">//prompt로 입력받은 값은 문자열이므로 parseInt로 정수를 써야 한다.</span></span><br><span class="line">  <span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="built_in">parseInt</span>(length));</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  alert(<span class="string">"제대로 된 숫자를 입력하세요."</span>);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"finally"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="직접-에러-발생시키기"><a href="#직접-에러-발생시키기" class="headerlink" title="직접 에러 발생시키기"></a>직접 에러 발생시키기</h2><ul>
+<li>Error 생성자와 throw 구문을 사용해서 프로그래머가 직접 에러를 발생시킬 수 있습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 에러 생성자는 자바스크립트 자체에 내장되어 있는 생성자</span></span><br><span class="line"><span class="comment">// new Error 에러 객체를 throw한다.</span></span><br><span class="line"><span class="keyword">const</span> err = <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"짝수가 아닙니다."</span>);</span><br><span class="line"><span class="comment">// 에러 객체만 throw할 수 있다.</span></span><br><span class="line"><span class="comment">// 아래 코드는 에러가 발생하지 X</span></span><br><span class="line"><span class="keyword">throw</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 우리만의 Error 클래스를 만들고, 그 클래스를 이용해서 에러 처리를 할 수 있다.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyError</span> <span class="keyword">extends</span> <span class="title">Error</span> </span>&#123;</span><br><span class="line">  <span class="comment">//...params는 나머지 매개변수 문법</span></span><br><span class="line">  <span class="comment">// 나머지 매개변수들이 배열로 담긴다</span></span><br><span class="line">  <span class="keyword">constructor</span>(value, ...params) &#123;</span><br><span class="line">    <span class="keyword">super</span>(...params);</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">    <span class="comment">// name속성은 매개변수의 속성을 나타낸다.</span></span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"MyError"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> even = <span class="built_in">parseInt</span>(prompt(<span class="string">"짝수를 입력하세요"</span>));</span><br><span class="line">  <span class="keyword">if</span> (even % <span class="number">2</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> MyError(even, <span class="string">"짝수가 아닙니다."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="keyword">if</span> (e <span class="keyword">instanceof</span> MyError) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="비동기식-코드에서의-예외-처리"><a href="#비동기식-코드에서의-예외-처리" class="headerlink" title="비동기식 코드에서의 예외 처리"></a>비동기식 코드에서의 예외 처리</h2><h3 id="비동기-콜백"><a href="#비동기-콜백" class="headerlink" title="비동기 콜백"></a>비동기 콜백</h3><ul>
+<li>비동기식으로 작동하는 콜백의 내부에서 발생한 에러는,<br>콜백 바깥에 있는 <code>try 블록</code>으로는 잡아낼 수 없습니다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// setTimeout()은 작업큐에 이따가 실행해달라고 부탁하고 넘어가는 거므로</span></span><br><span class="line">    <span class="comment">// setTimeout()바깥에 try문으로 감싸고 있더라도</span></span><br><span class="line">    <span class="comment">// func1이 실행될 때는 setTimeout()이 실행되는 게 아니므로 에러가 잡히지 X</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"에러!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>JavaScript 엔진은 에러가 발생하는 순간 호출 스택을 되감는 과정을 거칩니다.<br>이 과정 중에 <code>try 블록</code>을 만나야 코드의 실행 흐름을 원상복구시킬 수 있습니다.<br>위 예제에서 setTimeout에 넘겨진 콜백에서 에러가 발생하면,<br>호출 스택을 따라 올라가도 <code>try 블록</code>을 만나는 것이 아니므로,<br>코드의 실행 흐름이 <code>catch 블록</code>으로 옮겨지지 않는 것입니다.</p>
+<p>따라서, 위 예제의 <code>try 블록</code>을 비동기 콜백 내부에 작성해주어야 합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 콜백 바깥이 아니라 안에 작성해야 에러를 잡을 수 있다.</span></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"에러!"</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><ul>
+<li><code>Promise 객체</code>는 세 가지 상태를 가질 수 있습니다.</li>
+</ul>
+<p><code>pending</code> - Promise 객체에 결과값이 채워지지 않은 상태<br><code>fulfilled</code> - Promise 객체에 결과값이 채워진 상태(resolved라고도 함)<br><code>rejected</code> - Promise 객체에 결과값을 채우려고 시도하다가 에러가 난 상태</p>
+<p><code>Promise 객체</code>가 <strong><code>rejected</code> 상태가 되면</strong>,<br>이 Promise에 대해서는 then 메소드에 첫 번째 인수로 넘겨준 콜백이 실행되지 않고,<br>두 번째 인수로 넘겨준 콜백이 대신 실행됩니다.<br>그리고 이 콜백에는 에러 객체가 첫 번째 인수로 주어집니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> even = <span class="built_in">parseInt</span>(prompt(<span class="string">"짝수를 입력하세요"</span>));</span><br><span class="line">  <span class="keyword">if</span> (even % <span class="number">2</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"짝수가 아닙니다."</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    resolve(even);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">p.then(</span><br><span class="line">  even =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"짝수입니다."</span>;</span><br><span class="line">    <span class="comment">// 에러가 발생했을 때, 이 콜백이 실행된다</span></span><br><span class="line">    <span class="comment">//then 메소드의 2번째 인수로 에러 콜백을 넘겨준다</span></span><br><span class="line">  &#125;,</span><br><span class="line">  e =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> e.message;</span><br><span class="line">  &#125;</span><br><span class="line">).then(alert);</span><br></pre></td></tr></table></figure>
+<p>혹은, catch 메소드를 통해 에러 처리 콜백을 지정해줄 수도 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p.then(<span class="function"><span class="params">even</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"짝수입니다."</span>;</span><br><span class="line">&#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> e.message;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(alert);</span><br></pre></td></tr></table></figure>
+<p>만약, then 메소드의 연쇄 안에서 에러가 발생하면,<br><code>try...catch 구문</code>과 유사하게 처음 만나는 에러 처리 콜백으로<br>코드의 실행 흐름이 건너뛰는 결과를 낳게 됩니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// undefined가 full filled 되어있는 Promise를 생성</span></span><br><span class="line"><span class="built_in">Promise</span>.resolve()</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// then 안에서 에러가 발생하면, 다음 then이 실행되는 게 X</span></span><br><span class="line">    <span class="comment">// catch콜백으로 실행 흐름이 건너뜀</span></span><br><span class="line">    <span class="comment">// try -catch처럼 Promise에서는 then ~catch를 사용할 수 있음</span></span><br><span class="line">    <span class="comment">// 우리가 이런 코드를 작성하지는 않더라도, 코드를 보고 해석할 수는 있어야 한다.</span></span><br><span class="line">    <span class="comment">// Promise에 finally 메소드는 지금은 없으나 곧 추가될 예정임</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"catch 메소드를 통해 예외 처리를 할 수 있습니다."</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"이 코드는 실행되지 않습니다."</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> e.message;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="built_in">console</span>.log);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="비동기-함수"><a href="#비동기-함수" class="headerlink" title="비동기 함수"></a>비동기 함수</h3><p>앞에서 봤던 Promise 객체의 예외 처리 방식은,<br>일반적인 동기식 예외 처리 방식과 다르게 콜백을 사용하고 있어서<br>코드를 복잡하게 만드는 원인이 됩니다.</p>
+<p>비동기 함수 내부에서는,<br>rejected 상태가 된 Promise 객체를 동기식 예외 처리 방식과 동일하게<br><code>try...catch...finally 구문</code>으로 처리할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 비동기 함수인 경우 -&gt; rejected 상태인 함수를 await하면 에러가 발생하고,</span></span><br><span class="line"><span class="comment">// 그 에러는 try ~catch ~finally 구문으로 잡을 수 있다.</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 'https://nonexistent-domain.nowhere'이런 도메인이 없으므로 요청이 에러가 남</span></span><br><span class="line">    <span class="comment">// 이에 대한 에러 처리를 try catch로 할 수 있음</span></span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(<span class="string">"https://nonexistent-domain.nowhere"</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(); <span class="comment">// 출력 결과: Failed to fetch</span></span><br></pre></td></tr></table></figure>
+<p>단, <code>Promise 객체</code>에 대해 <code>await 구문</code>을 사용하지 <strong>않는</strong> 경우,<br>에러가 발생해도 <code>catch 블록</code>으로 코드의 실행 흐름이 이동하지 않는다는 사실을 기억하세요.</p>
+<ul>
+<li><strong>비동기 함수</strong>인 경우<br>-&gt; rejected 상태인 함수를 <strong>await구문을 사용하지 않으면</strong>,<br>에러가 발생해도 <code>catch 블록</code>으로 코드의 실행 흐름이 이동하지 않는 다는 걸 기억할 것!</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    fetch(<span class="string">"https://nonexistent-domain.nowhere"</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(); <span class="comment">// 아무것도 출력되지 않습니다.</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "자바스크립트 18일차",
+        "image": "https://JihyeHwang09.github.io",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
+        "datePublished": "2019-02-01",
+        "dateCreated": "2019-02-01",
+        "dateModified": "2019-02-01",
+        "url": "https://JihyeHwang09.github.io/2019/02/01/javascript18/",
+        "description": "예외 처리동기식 코드에서의 예외 처리
+JavaScript 코드에서 발생할 수 있는 에러에는 다양한 것들이 있습니다.문법 에러와 같이 프로그래머의 실수로 인해 에러가 발생하는 경우도 있지만,네트워크 에러와 같이 코드와는 무관한 이유로 발생하는 에러도 있습니다.
+
+코드 실행 중에 에러가 발생하면,코드의 실행이 중단되어 그 시점에 실행 중이었던 작업을 완료할 수"
+        "wordCount": 1877
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/01/31/javascript17/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">자바스크립트 17일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/01/javascript18/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/01/javascript18/" class="title">자바스크립트 18일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-31T15:01:40.000Z" itemprop="datePublished">2019-02-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/31/javascript17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52062496-f9183e00-25b3-11e9-8e84-a80a22bea292.png)" alt="자바스크립트 17일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/31/javascript17/" class="title">자바스크립트 17일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-31T14:50:15.000Z" itemprop="datePublished">2019-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/30/javascript16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/HEDlwPSl.png)" alt="자바스크립트 16일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/30/javascript16/" class="title">자바스크립트 16일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-30T14:39:21.093Z" itemprop="datePublished">2019-01-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/29/javascript15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn.auth0.com/content/jwt/jwt-diagram.png)" alt="자바스크립트 15일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/29/javascript15/" class="title">자바스크립트 15일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-28T15:13:16.694Z" itemprop="datePublished">2019-01-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/28/javascript14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://helloworldjavascript.net/images/class-inheritance-prototype-chain.svg)" alt="자바스크립트 14일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/28/javascript14/" class="title">자바스크립트 14일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-27T16:59:12.654Z" itemprop="datePublished">2019-01-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">5</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 12px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 12px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 12px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 12px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 12px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 12px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/framework/" style="font-size: 12px;">framework</a> <a href="/tags/front-end/" style="font-size: 18px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 12px;">platform</a> <a href="/tags/recursion/" style="font-size: 12px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 14px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 12px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 12px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 14px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 16px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 14px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 14px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/02/01/javascript18/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
