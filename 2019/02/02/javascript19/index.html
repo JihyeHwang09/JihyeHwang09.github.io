@@ -6,20 +6,24 @@
     
 
     
-    <title>Category: 전자계산기 구조 | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>자바스크립트 19일차 | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Phang&apos;s IT Blog using Hexo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:url" content="https://JihyeHwang09.github.io/categories/정보처리기사/전자계산기-구조/index.html">
+        <meta name="keywords" content="javaScript">
+    
+    <meta name="description" content="모듈 역사DOM Tree  라이브러리require.js모듈 번들러Browserify CommonJS  require()함수를 이용해서 모듈을 이용 Node.js 모듈  UMD  define()함수를 이용해서 모듈을 이용  많은 모듈 시스템이 있었다. 기존의 자바스크립트 함수를 사용하는 모듈 시스템들이 사용되었다.  예전 모듈 시스템은 자바스크립트 함수를 사">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바스크립트 19일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/02/javascript19/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Phang&apos;s IT Blog using Hexo">
+<meta property="og:description" content="모듈 역사DOM Tree  라이브러리require.js모듈 번들러Browserify CommonJS  require()함수를 이용해서 모듈을 이용 Node.js 모듈  UMD  define()함수를 이용해서 모듈을 이용  많은 모듈 시스템이 있었다. 기존의 자바스크립트 함수를 사용하는 모듈 시스템들이 사용되었다.  예전 모듈 시스템은 자바스크립트 함수를 사">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-02-01T17:16:19.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta name="twitter:description" content="Phang&apos;s IT Blog using Hexo">
+<meta name="twitter:title" content="자바스크립트 19일차">
+<meta name="twitter:description" content="모듈 역사DOM Tree  라이브러리require.js모듈 번들러Browserify CommonJS  require()함수를 이용해서 모듈을 이용 Node.js 모듈  UMD  define()함수를 이용해서 모듈을 이용  많은 모듈 시스템이 있었다. 기존의 자바스크립트 함수를 사용하는 모듈 시스템들이 사용되었다.  예전 모듈 시스템은 자바스크립트 함수를 사">
     
 
     
@@ -144,200 +148,247 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-folder-open"></i>Category: <em class="page-title-link">전자계산기 구조</em>
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-javascript19" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/01/06/karnaugh-map/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50763182-70f39100-12b2-11e9-939d-26b39b0ae98f.png)" alt="카르노 도표(KARNAUGH MAP)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/01/06/karnaugh-map/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a>
-            </div>
-            <div class="date"><time datetime="2019-01-06T13:53:35.896Z" itemprop="datePublished">2019-01-06</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/01/06/karnaugh-map/">카르노 도표(KARNAUGH MAP)</a>
+        자바스크립트 19일차
         </h1>
     
 
-        <p class="article-excerpt">
-            
-부울함수의 간소화 방법 중의 하나인 카르노 도표(KARNAUGH MAP)에 대해 알아봅시다.
-카르노 도표 방법
-
-카르노 도표는 여러 개의 사각형으로 된 다이어그램
-사각형은 각각 하나의 최소항이나 최대항을 의미
-여섯 개 이하의 변수를 가진 부울함수에 사용
-카르노 도표는 부울함수의 입력변수의 수에 따라서 기본 도표의 형태가 결정됨
-입력변수의 수가 n인 경우를
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/02/javascript19/" class="article-date">
+            <time datetime="2019-02-01T17:12:59.000Z" itemprop="datePublished">2019-02-02</time>
+        </a>
     </div>
-</article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/01/05/logic-gate/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50723400-9a7cb300-1120-11e9-9a75-602b551e2229.png)" alt="논리게이트(LOGIC GATE)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/01/05/logic-gate/">0</span>
-    
-</span>
+		
 
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
 
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a>
             </div>
-            <div class="date"><time datetime="2019-01-05T09:18:57.757Z" itemprop="datePublished">2019-01-05</time></div>
-        </div>
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/01/05/logic-gate/">논리게이트(LOGIC GATE)</a>
-        </h1>
-    
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="모듈"><a href="#모듈" class="headerlink" title="모듈"></a>모듈</h1><ul>
+<li>역사<br>DOM Tree</li>
+</ul>
+<p>라이브러리<br>require.js<br>모듈 번들러<br>Browserify</p>
+<p>CommonJS</p>
+<ul>
+<li>require()함수를 이용해서 모듈을 이용</li>
+<li>Node.js 모듈</li>
+</ul>
+<p>UMD</p>
+<ul>
+<li><p>define()함수를 이용해서 모듈을 이용</p>
+</li>
+<li><p>많은 모듈 시스템이 있었다. 기존의 자바스크립트 함수를 사용하는 모듈 시스템들이 사용되었다.</p>
+</li>
+<li><p><strong>예전 모듈 시스템은 자바스크립트 함수를 사용했지만,지금의 모듈 시스템은 새롭게 추가된 문법을 사용한다.</strong></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"module"</span> src=<span class="string">"index.mjs"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>위의 예시처럼 사용할 수는 있지만,<br>ES2015모듈을 사용하지 않는 사용자가 있기 때문에 모듈 번들러를 통해 변환과정을 거친 뒤,<br>브라우저에는 일반적인 JavaScript 파일로서 불러오는 방법이 널리 사용되고 있는 추세이다.</li>
+</ul>
+<h2 id="모듈이란"><a href="#모듈이란" class="headerlink" title="모듈이란?"></a>모듈이란?</h2><ul>
+<li>특수한 방식(…???? or 코드 변환 방식)을 이용해야 하는 방식을 모듈이라고 한다.</li>
+</ul>
+<ul>
+<li>import 혹은 export 구문을 사용할 수 있습니다.</li>
+<li>별다른 처리를 해주지 않아도 <code>엄격 모드(strict mode)</code>로 동작합니다.</li>
+<li>모듈의 가장 바깥쪽에서 선언된 이름은 전역 스코프가 아니라 <strong>모듈 스코프</strong>에서 선언됩니다.</li>
+</ul>
+<h2 id="모듈-스코프"><a href="#모듈-스코프" class="headerlink" title="모듈 스코프"></a>모듈 스코프</h2><ul>
+<li>모듈 스코프에서 선언된 이름은 모듈 안에서만 사용할 수 있다. (전역 스코프가 아니라)</li>
+<li><p>모듈 스코프에 선언된 이름은 (export 해주지 않는다면) 해당 모듈 내부에서만 접근할 수 있다.</p>
+</li>
+<li><p>cf) 전역 변수는 편하긴 한데, 오염될 가능성이 높다. ex) 강남역 한복판의 사물함</p>
+</li>
+<li><p>-&gt; 따라서 여러 모듈의 가장 바깥쪽에서 같은 이름으로 변수, 함수, 클래스를 선언하더라도,<br>서로 다른 스코프에서 선언되기 때문에 이름의 충돌이 생길 일이 없다.</p>
+</li>
+</ul>
+<h2 id="export-amp-import"><a href="#export-amp-import" class="headerlink" title="export &amp; import"></a>export &amp; import</h2><h3 id="export의-2가지-종류"><a href="#export의-2가지-종류" class="headerlink" title="export의 2가지 종류"></a>export의 2가지 종류</h3><ul>
+<li>named export</li>
+<li>default export</li>
+</ul>
+<h3 id="선언과-동시에-export-하기"><a href="#선언과-동시에-export-하기" class="headerlink" title="선언과 동시에 export 하기"></a>선언과 동시에 export 하기</h3><ul>
+<li>실무에서 named export를 사용하고 싶을 때, 선언부 앞에 export를 붙여준다.</li>
+<li>변수 이름을 수출하는 거지, 값을 수출하는 게 X</li>
+</ul>
+<h3 id="default-export"><a href="#default-export" class="headerlink" title="default export"></a>default export</h3><ul>
+<li>모듈마다 하나의 값을 지정해서 그 값을 export할 수 있다.</li>
+<li>모듈을 대표하는 값이 이거다!라는 걸 지정해서<br>그 값을 다른 모듈에서 편하게 불러와서 사용할 수 있다.</li>
+<li>import받는 쪽에서 중괄호로 감싸주지 않고 써준다.</li>
+<li><p>import할 때, export할 때의 변수 이름과 통일할 필요 X.<br>import 받는 쪽에서 값에 내가 쓰고 싶은 이름을 붙여서 쓰면 된다.<br>(이유: 값을 export하는 것이기 때문에)</p>
+</li>
+<li><p>클래스도 값이다.</p>
+</li>
+<li>익명 클래스도 만들 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> </span>&#123;</span><br><span class="line">  render() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>표현식이 와야하는 자리에 이름이 있는 클래스를 써도 되고, 익명 클래스를 써도 된다.</li>
+<li>class명 앞에 export 써도 되고, export default 써도 된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// `React`라는 이름의 default export와,</span></span><br><span class="line"><span class="comment">// Component, Fragment라는 일반적인 export를 동시에 가져오기</span></span><br><span class="line"><span class="comment">// 굳이 2줄로 나눠서 import할 필요 X</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component, Fragment &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// named export는 여러 개 있을 수 있다.</span></span><br><span class="line"><span class="comment">// defualt export는 0개 or 하나 있을 수 있다. (여러 개 있을 수 X)</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Component = <span class="string">"..."</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Fragment = <span class="string">"..."</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="다른-이름으로-export-amp-import-하기"><a href="#다른-이름으로-export-amp-import-하기" class="headerlink" title="다른 이름으로 export &amp; import 하기"></a>다른 이름으로 export &amp; import 하기</h3><ul>
+<li>export 혹은 import 하는 이름의 뒤에 as를 붙여서,<br>다른 이름이 대신 사용되게 할 수 있습니다.</li>
+<li>import하는 쪽에서 같은 이름의 변수들이 넘어올 경우,<br>충돌을 막기 위해서 as를 사용해서 이름을 바꿔서 사용할 수 있다.</li>
+</ul>
+<h3 id="모듈-사용-시-주의할-점"><a href="#모듈-사용-시-주의할-점" class="headerlink" title="모듈 사용 시 주의할 점"></a>모듈 사용 시 주의할 점</h3><ul>
+<li>어려워서 넘어가심.</li>
+<li><p>주의할 점이 한 가지 있습니다.<br>import 구문과 export 구문은 모듈 간 의존 관계를 나타내는 것일 뿐,<br>코드를 실행시키라는 명령이 아니라는 것입니다.</p>
+</li>
+<li><p>같은 모듈을 여러 다른 모듈에서 불러와도, 모듈 내부의 코드는 단 한 번만 실행된다.</p>
+</li>
+<li><p>import를 한다고 해서 그 당시에 코드가 반드시 실행된다는 보장이 없다.</p>
+</li>
+<li>여러 파일에서 그 모듈을 불러와서 실행한다고 해서 여러 번 실행되는게 아니라,<br>딱 1번만 실행된다.</li>
+<li>import를 여러 번 했는데, 딱 한 번 실행되는 것이다.</li>
+<li>import명령을 한 줄 한 줄 실행하라는 의미가 아니다.</li>
+</ul>
+<ul>
+<li>cf1) 폴더를 import할 경우, 그 안에 있는 index.js를 import하는 것과 같다.<br>import TodoList from ‘./TodoList’<br>import TodoList from ‘./TodoList/index.js</li>
+<li>위, 아래는 같게 작동함</li>
+</ul>
+<ul>
+<li>cf) export * from …</li>
+<li>export, import를 같이 해주는 구문</li>
+<li><p>…에 적혀있는 모든 모듈을 export해서 바로 import하겠다.</p>
+</li>
+<li><p>export {name1, name2, …, nameN} from …;</p>
+</li>
+<li>…이 모듈에서 이 nam e들을 export해서 바로 import하겠다.</li>
+</ul>
 
-        <p class="article-excerpt">
+        </div>
+        <footer class="article-footer">
             
-논리게이트(LOGIC GATE)의 종류에는 어떤 것들이 있는지와 각 논리게이트에 대한 기호, 진리표, 입출력 파형에 대해 알아봅시다.
-논리게이트(LOGIC GATE)의 종류기본 논리게이트
-AND 게이트
-
-OR 게이트
-
-NOT 게이트
-
-NAND 게이트와 NOR 게이트
-NAN 게이트
-
-NOR 게이트
 
 
-XOR 게이트와 XNOR 게이트
-XOR 게이트
-XNOR 
-        </p>
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
     </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "자바스크립트 19일차",
+        "image": "https://JihyeHwang09.github.io",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
+        "datePublished": "2019-02-02",
+        "dateCreated": "2019-02-02",
+        "dateModified": "2019-02-02",
+        "url": "https://JihyeHwang09.github.io/2019/02/02/javascript19/",
+        "description": "모듈
+역사DOM Tree
+
+라이브러리require.js모듈 번들러Browserify
+CommonJS
+
+require()함수를 이용해서 모듈을 이용
+Node.js 모듈
+
+UMD
+
+define()함수를 이용해서 모듈을 이용
+
+많은 모듈 시스템이 있었다. 기존의 자바스크립트 함수를 사용하는 모듈 시스템들이 사용되었다.
+
+예전 모듈 시스템은 자바스크립트 함수를 사"
+        "wordCount": 576
+    }
+</script>
+
 </article>
-    
-        </div>
-    
 
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/01/04/boolean-algebra/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50653266-46f95080-0fcc-11e9-82ef-3c6228bdbabd.png)" alt="불 대수(Boolean algebra)" class="thumbnail-image"></span>
-    
+    <section id="comments">
     
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/01/04/boolean-algebra/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a>
-            </div>
-            <div class="date"><time datetime="2019-01-03T17:20:57.925Z" itemprop="datePublished">2019-01-04</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/01/04/boolean-algebra/">불 대수(Boolean algebra)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-2진 디지털 시스템에서 입출력 관계를 표현하는 방법과 불 대수의 기본 개념 및 공식에 대해서 알아보고, 불 함수의 대수적 간소화에 대해서 공부해봅시다.
-1. 2진 디지털 시스템에서 입출력 관계를 표현하는 방법1) 그래프나 진리표로 표시
-2) 논리함수로 표시
-입력에 따라 변수가 어떻게 변하는지를 나타내는 함수로 표현
-입력이 2진 논리값이므로 논리함수로 나타
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-</article>
+
     
-        </div>
-    
-
-
-    </div></section>
-
+    </section>
 
 
 
@@ -367,6 +418,19 @@ XNOR
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/01/javascript18/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">자바스크립트 18일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -562,11 +626,13 @@ XNOR
     var disqus_shortname = 'Phang';
     
     
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/02/02/javascript19/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
