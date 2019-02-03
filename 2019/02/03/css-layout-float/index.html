@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>CSS 레이아웃 핵심속성 float | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="front-end,CSS,float,[object Object]">
+    
+    <meta name="description" content="4일차1교시float로 가로배치 하기가로배치는 소박한 꿈이다.그러나 공식적으로 지원되는 게 없다.float도 가로 배치를 위한 속성이 아니다. 공식적인 방법이 아닌 방식으로 가로배치를 하려고 하기 때문에문제가 발생한다. 박스가 위로 떠있어야만이 그 박스 주위로 Dummy Text들이 그 주위로 흐른다.(같은 선상에 있지 않아야 한다.) float의 목적은">
+<meta name="keywords" content="front-end,CSS,float,[object Object]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 레이아웃 핵심속성 float">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/03/css-layout-float/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="4일차1교시float로 가로배치 하기가로배치는 소박한 꿈이다.그러나 공식적으로 지원되는 게 없다.float도 가로 배치를 위한 속성이 아니다. 공식적인 방법이 아닌 방식으로 가로배치를 하려고 하기 때문에문제가 발생한다. 박스가 위로 떠있어야만이 그 박스 주위로 Dummy Text들이 그 주위로 흐른다.(같은 선상에 있지 않아야 한다.) float의 목적은">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/52177909-1430bb00-280b-11e9-9905-039a3786a531.png">
+<meta property="og:updated_time" content="2019-02-03T14:44:07.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 레이아웃 핵심속성 float">
+<meta name="twitter:description" content="4일차1교시float로 가로배치 하기가로배치는 소박한 꿈이다.그러나 공식적으로 지원되는 게 없다.float도 가로 배치를 위한 속성이 아니다. 공식적인 방법이 아닌 방식으로 가로배치를 하려고 하기 때문에문제가 발생한다. 박스가 위로 떠있어야만이 그 박스 주위로 Dummy Text들이 그 주위로 흐른다.(같은 선상에 있지 않아야 한다.) float의 목적은">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/52177909-1430bb00-280b-11e9-9905-039a3786a531.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/css/">CSS</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-css-layout-float" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        CSS 레이아웃 핵심속성 float
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/03/css-layout-float/" class="article-date">
+            <time datetime="2019-02-03T14:11:20.000Z" itemprop="datePublished">2019-02-03</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/css/">CSS</a>, <a class="tag-link" href="/tags/object-object/">[object Object]</a>, <a class="tag-link" href="/tags/float/">float</a>, <a class="tag-link" href="/tags/front-end/">front-end</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="4일차"><a href="#4일차" class="headerlink" title="4일차"></a>4일차</h1><h2 id="1교시"><a href="#1교시" class="headerlink" title="1교시"></a>1교시</h2><h3 id="float로-가로배치-하기"><a href="#float로-가로배치-하기" class="headerlink" title="float로 가로배치 하기"></a>float로 가로배치 하기</h3><p><strong>가로배치</strong>는 소박한 꿈이다.<br>그러나 공식적으로 지원되는 게 <strong>없다.</strong><br><code>float</code>도 가로 배치를 위한 속성이 아니다.</p>
+<p>공식적인 방법이 아닌 방식으로 가로배치를 하려고 하기 때문에<br>문제가 발생한다.</p>
+<p>박스가 위로 떠있어야만이 그 박스 주위로 Dummy Text들이 그 주위로 흐른다.<br>(같은 선상에 있지 않아야 한다.)</p>
+<p><code>float</code>의 목적은 이미지와 텍스트가 어우러지게끔 하고 싶은 것이며,<br>이미지는 공간을 차지 않도록 한다.</p>
+<p>부모 요소가 아닌 <code>body</code>영역은 <strong>float된 요소의 높이 조차도 인식하고 있다.</strong><br><code>body</code>를 root요소라고 한다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">부모 &#123;</span><br><span class="line">  <span class="attribute">display</span>: flow-root;</span><br><span class="line">  <span class="comment">/* overflow: hidden과 관련되어 있음 */</span></span><br><span class="line">  <span class="comment">/* 실무에서는 부모요소에 clearfix를 주는 방법을 많이 사용 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">자식 &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="1번-예제"><a href="#1번-예제" class="headerlink" title="1번 예제"></a>1번 예제</h4><blockquote>
+<p>이제 float로 박스 2개를 양 옆으로 나누어 보자.</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://user-images.githubusercontent.com/37353837/51887295-80a85600-23d6-11e9-9e8d-2a484dbe4ce0.png" alt=""></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>float로 양옆 나누기<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      body &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="undefined">        color: dodgerblue;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 500px;</span></span><br><span class="line"><span class="undefined">        background-color: white;</span></span><br><span class="line"><span class="undefined">        border: 1px solid;</span></span><br><span class="line"><span class="undefined">        margin: 50px auto;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">box-shadow</span>: 0 0 5<span class="selector-tag">px</span> <span class="selector-tag">rgba</span>(0, 0, 0, 0<span class="selector-class">.3</span>);</span></span><br><span class="line"><span class="undefined">        padding: 10px;</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="css">        <span class="comment">/* body요소를 따라서 흐른다.  */</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="undefined">        font-family: "arial";</span></span><br><span class="line"><span class="undefined">        font-weight: bold;</span></span><br><span class="line"><span class="undefined">        font-size: 50px;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        line-height: 100px;</span></span><br><span class="line"><span class="undefined">        text-align: center;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#c7e1fd</span>;</span></span><br><span class="line"><span class="undefined">        box-shadow: inset 0 0 1px;</span></span><br><span class="line"><span class="undefined">        display: inline-block;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.box</span><span class="selector-class">.right</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- .box의 디자인은 유지된 상태에서 </span></span><br><span class="line"><span class="comment">        float: right를 추가해야하므로 </span></span><br><span class="line"><span class="comment">        1) class에 box는 그대로 두고,</span></span><br><span class="line"><span class="comment">        right라는 클래스를 추가</span></span><br><span class="line"><span class="comment">        -&gt; 2) float: right를 주기</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box right"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- &lt;div class="box"&gt;3&lt;/div&gt;</span></span><br><span class="line"><span class="comment">      &lt;div class="box"&gt;4&lt;/div&gt;</span></span><br><span class="line"><span class="comment">      &lt;div class="box"&gt;5&lt;/div&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2교시"><a href="#2교시" class="headerlink" title="2교시"></a>2교시</h2><h3 id="2번-예제"><a href="#2번-예제" class="headerlink" title="2번 예제"></a>2번 예제</h3><p>유지보수에 최적화하는 습관을 들여야 한다.</p>
+<p>sidebar에 margin-right: 20px를 주면 되지만,<br>유지보수를 위해서는</p>
+<p>float된 요소는 마크업 순서가 중요하다.<br>float되는 요소는 마크업 순서가 contents보다 더 앞에 와야 한다.<br>float는 상단에서 float가 이루어지고 그 후에 다른 요소가 그 주위로 흐르는 거니까<br><strong>float 요소는 마크업 순서가 먼저 와야 한다!!!</strong></p>
+<p><strong>float는 시각적인 위치랑 마크업 위치가 다르다!!!</strong></p>
+<p><strong>이 특성 때문에 많이들 고생한다!!</strong></p>
+<blockquote>
+<p>이제 float로 사이드바를 만들어보자.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/37353837/52177770-6375ec00-2809-11e9-8511-f6978877f03c.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>float로 사이드바 만들기<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      p &#123;</span></span><br><span class="line"><span class="undefined">        margin: 0;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      body &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="undefined">        color: dodgerblue;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 800px;</span></span><br><span class="line"><span class="undefined">        margin: 50px auto;</span></span><br><span class="line"><span class="undefined">        background-color: white;</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.sidebar</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#c7e1fd</span>;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">        /* float가 적용되면, 왼쪽이든 오른쪽이든 컨텐츠가 붙어야하니까 </span></span><br><span class="line"><span class="undefined">        contents 크기만큼 크기가 줄어버림 */</span></span><br><span class="line"><span class="undefined">        /* sidebar랑 contents는 시작점이 같음</span></span><br><span class="line"><span class="undefined">        sidebar랑 contents랑 겹치면 안되니까 contents가 오른쪽으로 밀린 것임  </span></span><br><span class="line"><span class="undefined">         */</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 300px;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 보통, height는 사이즈르 주지 않는 게 좋다. */</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.contents</span> &#123;</span></span><br><span class="line"><span class="undefined">        /* 1) 부모요소인 sidebar에 margin-right: 20px를 주면 된다.</span></span><br><span class="line"><span class="undefined">          margin-left: 100px;(비추천!)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">2) 유지보수를 위해서는 자식 요소인 contents에 margin-left: 100px을 주면 된다. </span></span><br><span class="line"><span class="undefined">-&gt; 좋은 방법은 X (sidebar의 너비를 모르면 사용할 수 X)</span></span><br><span class="line"><span class="undefined">3) flow-root는 가장 최상위 요소처럼 보여지게 하라는 뜻</span></span><br><span class="line"><span class="undefined">float된 요소랑 float되지 않은 요소랑 독립되게 하려면, 자식 요소인 contents에</span></span><br><span class="line"><span class="undefined">display: flow-root;를 준다.</span></span><br><span class="line"><span class="undefined">*/</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="undefined">        /* 장점: sidebar의 너비가 줄거나 늘어나도, </span></span><br><span class="line"><span class="undefined">    wrapper의 너비가 줄거나 늘어나도</span></span><br><span class="line"><span class="undefined">    수정할 게 X</span></span><br><span class="line"><span class="undefined">     */</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        border: 5px solid mediumpurple;</span></span><br><span class="line"><span class="undefined">        padding: 20px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.sidebar</span><span class="selector-class">.right</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sidebar"</span>&gt;</span>Sidebar<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sidebar right"</span>&gt;</span>Sidebar<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"contents"</span>&gt;</span></span><br><span class="line">        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo</span><br><span class="line">        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis</span><br><span class="line">        dis parturient montes, nascetur ridiculus mus. Donec quam felis,</span><br><span class="line">        ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa</span><br><span class="line">        quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,</span><br><span class="line">        arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</span><br><span class="line">        Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras</span><br><span class="line">        dapibus. Vivamus elementum semper nisi. Aenean vulputate ele</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- &lt;div class="sidebar right"&gt;Sidebar&lt;/div&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3번-예제"><a href="#3번-예제" class="headerlink" title="3번 예제"></a>3번 예제</h3><p>자식이 float가 되면, 부모 기준에서 정리를 하지 않으면 안된다.<br>부모 기준에서 정리를 하지 않으면, 뒤따라오던 content와 엉켜버린다.</p>
+<blockquote>
+<p>float로 이미지와 텍스트가 어우러지게 만들어보자!<br><img src="https://user-images.githubusercontent.com/37353837/52177909-1430bb00-280b-11e9-9905-039a3786a531.png" alt=""></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>float로 이미지와 텍스트가 어우러지게!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      p &#123;</span></span><br><span class="line"><span class="undefined">        margin: 0;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      body &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="undefined">        color: dodgerblue;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 600px;</span></span><br><span class="line"><span class="undefined">        margin: 50px auto;</span></span><br><span class="line"><span class="undefined">        padding: 50px;</span></span><br><span class="line"><span class="undefined">        background-color: white;</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#efefef</span>;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">        margin: 20px;</span></span><br><span class="line"><span class="undefined">        margin-bottom: 20px;</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 자식이 float가 되면, 부모 기준에서 정리를 하지 않으면 안된다. */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* 부모 기준에서 정리를 하지 않으면, 뒤따라오던 content와 엉켜버린다. */</span></span></span><br><span class="line"><span class="css">        <span class="comment">/* -&gt; 따라서, 부모 요소인 .section에 display: flow-root;를 준다. */</span></span></span><br><span class="line"><span class="undefined">        border: 10px solid;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 색깔을 안주면, 전경색으로 자동으로 들어감 */</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-pseudo">:last-child</span> &#123;</span></span><br><span class="line"><span class="undefined">        margin-bottom: 0px;</span></span><br><span class="line"><span class="undefined">        /* 마지막 section아래에 margin 20px이 들어가면 맨 위와 대칭이 맞지 않으므로</span></span><br><span class="line"><span class="undefined">          가상 선택자를 써서 마지막 margin-bottom을 주지 않도록 만들기</span></span><br><span class="line"><span class="undefined">          */</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="undefined">        padding: 20px;</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-class">.right</span> &#123;</span></span><br><span class="line"><span class="undefined">        text-align: right;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-class">.right</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-class">.mario</span> &#123;</span></span><br><span class="line"><span class="undefined">        color: dodgerblue;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-class">.luigi</span> &#123;</span></span><br><span class="line"><span class="undefined">        color: mediumorchid;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-class">.toad</span> &#123;</span></span><br><span class="line"><span class="undefined">        color: orange;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="comment">/* 내가 작성한 코드 */</span></span></span><br><span class="line"><span class="undefined">      /* .section img &#123;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.seciton</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">        padding: 10px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.first</span> &#123;</span></span><br><span class="line"><span class="undefined">        border: 2px solid blue;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.second</span> &#123;</span></span><br><span class="line"><span class="undefined">        border: 2px solid purple;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.second</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: right;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.second</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.third</span> &#123;</span></span><br><span class="line"><span class="undefined">        border: 2px solid yellow;</span></span><br><span class="line"><span class="undefined">      &#125; */</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section mario"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/mario2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Mario<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section luigi right"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/luigi2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>lugi<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section toad"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/toad2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>toad<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- border 색깔이 다름 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- lugi만 오른쪽으로 --&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="4번-예제"><a href="#4번-예제" class="headerlink" title="4번 예제"></a>4번 예제</h3><h4 id="display-flow-root-를-대체하는-방법"><a href="#display-flow-root-를-대체하는-방법" class="headerlink" title="display: flow-root;를 대체하는 방법"></a><code>display: flow-root</code>;를 대체하는 방법</h4><ul>
+<li>CSS를 공부한 사람들도 왜 <code>display: flow-root</code>;를 처음 보는 경우가 많은가?<ul>
+<li>생긴지 얼마 안 된 속성이며, 비교적 최근에 만들어진 속성이기 때문이다.</li>
+<li>호환성이 좋지 않기 때문에 이 속성보다는 <strong><code>overflow: hidden;</code>이나 <code>clearfix</code>를 이용하는 걸 추천한다.</strong></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://caniuse.com/#search=flow-root" target="_blank" rel="noopener">caniuse.com에서 flow-root 검색한 내용</a></p>
+<p>쓸 수 없는 브라우저의 경우에는<br><code>display: flow-root;</code>의 대용품이 있다.<br><code>overflow: hidden;</code>이다.<br>cf) margin 겹침 현상이 있을 때, 부모에게 overflow: hidden;을 사용함</p>
+<p>위의 예제에서 <code>display: flow-root;</code>를 줬던 속성 자리에 <br><code>overflow: hidden;</code>을 주는 게 좋다.</p>
+<ul>
+<li>이유: 이 두 가지가 성질이 똑같기 때문이다.</li>
+</ul>
+<p><strong>Block Formating Context(BFC)</strong>라는 성질을<br><code>overflow: hidden;</code>과<br><code>display: flow-root;</code> 둘 다 가지고 있다.</p>
+<p>overflow: hidden; 넘쳐 흐르는 게 잘리는 속성</p>
+<p><code>transition</code>과 <code>transform</code> 속성은<br>ie 크로스브라우징을 어느 정도 무시해야 한다는 생각이 있을 때 사용한다.<br>(6-9버전)에서 사용할 수 없기 때문이다.</p>
+<blockquote>
+<p>실무에서는 ie9버전을 맞춰야 하기 떄문에 float를 배우는 것이다.</p>
+</blockquote>
+<blockquote>
+<p>이제 float 속성과 overflow: hidden;을 이용하여 그리드를 만들어 보자.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/37353837/52178069-1e53b900-280d-11e9-9d4a-af9c047a1b8f.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>float로 그리드 만들기<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"style.css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      p &#123;</span></span><br><span class="line"><span class="undefined">        margin: 0;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      body &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="undefined">        color: dodgerblue;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 640px;</span></span><br><span class="line"><span class="undefined">        padding: 20px;</span></span><br><span class="line"><span class="undefined">        background-color: white;</span></span><br><span class="line"><span class="undefined">        border: 1px solid;</span></span><br><span class="line"><span class="undefined">        margin: 50px auto;</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#efefef</span>;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">        width: 200px;</span></span><br><span class="line"><span class="css">        <span class="comment">/*cf) width값을 %로 주는게 더 효율적임 */</span></span></span><br><span class="line"><span class="undefined">        margin-right: 20px;</span></span><br><span class="line"><span class="css">        <span class="comment">/* width값을 주지 않으면, 가로로 배치할 수 X */</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-pseudo">:last-child</span> &#123;</span></span><br><span class="line"><span class="undefined">        margin-right: 0px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="undefined">        padding: 20px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="undefined">        transition: transform 1s;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> <span class="selector-class">.cover</span> &#123;</span></span><br><span class="line"><span class="undefined">        overflow: hidden;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">transform</span>: <span class="selector-tag">scale</span>(1<span class="selector-class">.2</span>);</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section mario"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/mario2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Mario<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section luigi right"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/luigi2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Luigi<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section toad"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/toad2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Toad<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "CSS 레이아웃 핵심속성 float",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/52177909-1430bb00-280b-11e9-9905-039a3786a531.png",
+        "keywords": "front-end CSS float [object Object]",
+        "genre": "front-end CSS",
+        "datePublished": "2019-02-03",
+        "dateCreated": "2019-02-03",
+        "dateModified": "2019-02-03",
+        "url": "https://JihyeHwang09.github.io/2019/02/03/css-layout-float/",
+        "description": "4일차1교시float로 가로배치 하기가로배치는 소박한 꿈이다.그러나 공식적으로 지원되는 게 없다.float도 가로 배치를 위한 속성이 아니다.
+공식적인 방법이 아닌 방식으로 가로배치를 하려고 하기 때문에문제가 발생한다.
+박스가 위로 떠있어야만이 그 박스 주위로 Dummy Text들이 그 주위로 흐른다.(같은 선상에 있지 않아야 한다.)
+float의 목적은 "
+        "wordCount": 4298
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/02/javascript19/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">자바스크립트 19일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/03/css-layout-float/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52177909-1430bb00-280b-11e9-9905-039a3786a531.png)" alt="CSS 레이아웃 핵심속성 float" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/css/">CSS</a></p>
+                            <p class="item-title"><a href="/2019/02/03/css-layout-float/" class="title">CSS 레이아웃 핵심속성 float</a></p>
+                            <p class="item-date"><time datetime="2019-02-03T14:11:20.000Z" itemprop="datePublished">2019-02-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/02/javascript19/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/02/javascript19/" class="title">자바스크립트 19일차</a></p>
+                            <p class="item-date"><time datetime="2019-02-01T17:12:59.000Z" itemprop="datePublished">2019-02-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/01/javascript18/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52063808-a55b2400-25b6-11e9-8ef1-2802b00f4c00.png)" alt="자바스크립트 18일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/01/javascript18/" class="title">자바스크립트 18일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-31T15:01:40.000Z" itemprop="datePublished">2019-02-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/31/javascript17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52062496-f9183e00-25b3-11e9-8e84-a80a22bea292.png)" alt="자바스크립트 17일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/31/javascript17/" class="title">자바스크립트 17일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-31T14:50:15.000Z" itemprop="datePublished">2019-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/30/javascript16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/HEDlwPSl.png)" alt="자바스크립트 16일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/01/30/javascript16/" class="title">자바스크립트 16일차</a></p>
+                            <p class="item-date"><time datetime="2019-01-30T14:39:21.093Z" itemprop="datePublished">2019-01-30</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">25</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">19</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">5</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 11.67px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16.67px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 11.67px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 11.67px;">Mathematical Induction</a> <a href="/tags/recursion-function/" style="font-size: 11.67px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 11.67px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/object-object/" style="font-size: 10px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 11.67px;">framework</a> <a href="/tags/front-end/" style="font-size: 18.33px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 11.67px;">platform</a> <a href="/tags/recursion/" style="font-size: 11.67px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 13.33px;">논리회로</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 11.67px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11.67px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 13.33px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 11.67px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 15px;">재귀 함수</a> <a href="/tags/전자계산기-구조/" style="font-size: 13.33px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 13.33px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 11.67px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/02/03/css-layout-float/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
