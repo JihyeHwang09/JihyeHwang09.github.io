@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>전송 제어의 기본 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="정보처리기사,데이터 통신,data-communication,전송 제어의 기본,HDLC,High-level Data LInk Control">
+    
+    <meta name="description" content="오늘은 데이터 통신에 자주 출제되는 전송 제어의 기본과 HDLC(High-level Data LInk Control)의 특징에 대해 알아봅시다. 본 포스팅은 2019 시나공 정보처리기사 필기의 자료를 인용하였음을 알려드립니다.   전송 제어의 기본1. 전송 제어 데이터의 원활한 흐름을 위하여 입.출력 제어, 회선 제어, 동기 제어, 오류 제어, 흐름 제어">
+<meta name="keywords" content="정보처리기사,데이터 통신,data-communication,전송 제어의 기본,HDLC,High-level Data LInk Control">
+<meta property="og:type" content="article">
+<meta property="og:title" content="전송 제어의 기본">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/10/data-communication4/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="오늘은 데이터 통신에 자주 출제되는 전송 제어의 기본과 HDLC(High-level Data LInk Control)의 특징에 대해 알아봅시다. 본 포스팅은 2019 시나공 정보처리기사 필기의 자료를 인용하였음을 알려드립니다.   전송 제어의 기본1. 전송 제어 데이터의 원활한 흐름을 위하여 입.출력 제어, 회선 제어, 동기 제어, 오류 제어, 흐름 제어">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/52516333-773bab00-2c6c-11e9-835e-86551bc7c7ef.png">
+<meta property="og:updated_time" content="2019-02-10T00:34:23.697Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="전송 제어의 기본">
+<meta name="twitter:description" content="오늘은 데이터 통신에 자주 출제되는 전송 제어의 기본과 HDLC(High-level Data LInk Control)의 특징에 대해 알아봅시다. 본 포스팅은 2019 시나공 정보처리기사 필기의 자료를 인용하였음을 알려드립니다.   전송 제어의 기본1. 전송 제어 데이터의 원활한 흐름을 위하여 입.출력 제어, 회선 제어, 동기 제어, 오류 제어, 흐름 제어">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/52516333-773bab00-2c6c-11e9-835e-86551bc7c7ef.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-data-communication4" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        전송 제어의 기본
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/10/data-communication4/" class="article-date">
+            <time datetime="2019-02-10T00:28:40.000Z" itemprop="datePublished">2019-02-10</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hdlc/">HDLC</a>, <a class="tag-link" href="/tags/high-level-data-link-control/">High-level Data LInk Control</a>, <a class="tag-link" href="/tags/data-communication/">data-communication</a>, <a class="tag-link" href="/tags/데이터-통신/">데이터 통신</a>, <a class="tag-link" href="/tags/전송-제어의-기본/">전송 제어의 기본</a>, <a class="tag-link" href="/tags/정보처리기사/">정보처리기사</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h4 id="오늘은-데이터-통신에-자주-출제되는-전송-제어의-기본과-HDLC-High-level-Data-LInk-Control-의-특징에-대해-알아봅시다"><a href="#오늘은-데이터-통신에-자주-출제되는-전송-제어의-기본과-HDLC-High-level-Data-LInk-Control-의-특징에-대해-알아봅시다" class="headerlink" title="오늘은 데이터 통신에 자주 출제되는 전송 제어의 기본과 HDLC(High-level Data LInk Control)의 특징에 대해 알아봅시다."></a>오늘은 데이터 통신에 자주 출제되는 <code>전송 제어의 기본</code>과 <code>HDLC(High-level Data LInk Control)의 특징</code>에 대해 알아봅시다.</h4><blockquote>
+<p><strong>본 포스팅은</strong> <a href="https://sinagong.gilbut.co.kr/it" target="_blank" rel="noopener">2019 시나공 정보처리기사 필기</a>의 <strong>자료를 인용하였음을 알려드립니다.</strong></p>
+</blockquote>
+<hr>
+<h2 id="전송-제어의-기본"><a href="#전송-제어의-기본" class="headerlink" title="전송 제어의 기본"></a>전송 제어의 기본</h2><h3 id="1-전송-제어"><a href="#1-전송-제어" class="headerlink" title="1. 전송 제어"></a>1. 전송 제어</h3><blockquote>
+<p>데이터의 원활한 흐름을 위하여 입.출력 제어, 회선 제어, 동기 제어, 오류 제어, 흐름 제어 등을 수행하는 것</p>
+</blockquote>
+<ul>
+<li>OSI 7 참조 모델의 데이터 링크 계층(2계층)에서 수행하는 기능이다.</li>
+</ul>
+<h3 id="2-전송-제어-절차"><a href="#2-전송-제어-절차" class="headerlink" title="2. 전송 제어 절차"></a>2. 전송 제어 절차</h3><p>데이터 통신 회선의 접속 -&gt; 데이터 링크 설정(확립)<br>-&gt; 정보 메시지 전송 -&gt; 데이터 링크 종결 -&gt; 데이터 통신 회선의 절단</p>
+<hr>
+<p>다음은 전송 제어 절차를 순서 없이 나열한 것이다.<br>알맞은 답을 고르시오.(1~2번)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a. 통신 회선 접속</span><br><span class="line">b. 정보 전송</span><br><span class="line">c. 데이터 링크 해제</span><br><span class="line">d. 데이터 링크 확립</span><br><span class="line">e. 통신 회선 절단</span><br></pre></td></tr></table></figure>
+<ol>
+<li>전송 제어 절차를 순서에 맞게 나열하시오.<br><code>(a -&gt; d -&gt; b -&gt; c -&gt; e)</code><br><br></li>
+<li>접속된 통신 회선 상에서 송신 측과 수신 측 간의 확실한 데이터 전송을 수행하기 위해<br>논리적 경로를 구성하는 단계는 <code>(d)</code>이다.</li>
+</ol>
+<hr>
+<h2 id="HDLC-High-level-Data-LInk-Control-의-특징"><a href="#HDLC-High-level-Data-LInk-Control-의-특징" class="headerlink" title="HDLC(High-level Data LInk Control)의 특징"></a>HDLC(High-level Data LInk Control)의 특징</h2><ul>
+<li>비트(Bit) 위주의 프로토콜로, 각 프레임에 데이터의 흐름을 제어하고<br>오류를 검출할 수 잇는 비트 열을 삽입하여 전송한다.<br><br></li>
+<li>포인트 투 포인트 및 멀티 포인트, 루프 방식에서 모두 사용 가능하다.<br><br></li>
+<li>단방향, 반이중, 전이중 통신을 모두 지원하며,<br>동기식 전송 방식을 사용한다.<br><br></li>
+<li>오류 제어를 위해 Go-Back-N과 선택적 재전송(Selective Repeat) ARQ를 사용한다.<br><br></li>
+<li>흐름 제어를 위해 슬라이딩 윈도우 방식을 사용한다.<br><br></li>
+<li>전송 제어상의 제한을 받지 않고 자유로이 비트 정보를 전송할 수 있는 것을 비트 투과성(투명성)이라고 한다.<br><br></li>
+<li>비트 투과성(투명성)을 보장하기 위한 기능으로 비트 스터핑(Bit Stuffing)이 사용된다.<br><br></li>
+<li>전송 효율과 신뢰성이 높다.<br><br></li>
+<li><strong>HDLC 프레임 구조</strong><br><img src="https://user-images.githubusercontent.com/37353837/52516333-773bab00-2c6c-11e9-835e-86551bc7c7ef.png" alt=""></li>
+</ul>
+<p><a href="https://m.blog.naver.com/c_18/220687580321" target="_blank" rel="noopener">HDLC 프레임 구조 - 이미지 출처</a></p>
+<hr>
+<ol>
+<li>HDLC의 프레임 구조를 순서대로 나열하면,<br><code>(주소부)</code> -&gt; <code>(제어부)</code> -&gt; <code>(정보부)</code> -&gt; FCS -&gt; 플래그 순이 된다.<br><br></li>
+<li>데이터 링크 프로토콜인 HDLC(High level Data Link Control)에서<br>프레임의 동기를 제공하기 위해 사용되는 것으로<br>항상 ‘01111110’의 형태를 보이는 구성 요소는 <code>(플래그(Flag))</code>이다.<br><br></li>
+<li>데이터 링크 제어 프로토콜 중 전송 효율과 신뢰성이 높고<br>정보 전송 단위가 프레임인 전송 제어 방식은 <code>(HDLC)</code>이다.<br><br></li>
+<li>다음 중 HDLC 프로토콜의 특징이 아닌 것을 모두 고르시오.<br><code>(c, e, f, g)</code><br><br></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a. 점대점 링크 및 멀티포인트 링크를 위한 프로토콜이다.</span><br><span class="line">b. 반이중 통신과 전이중 통신을 모두 지원한다.</span><br><span class="line">c. 비동기식 전송 방식을 사용한다.</span><br><span class="line">d. 슬라이딩 윈도우 방식에 의해 흐름 제어를 제공한다.</span><br><span class="line">e. 에러 제어를 위해 Stop-and-Wait 방식을 사용한다.</span><br><span class="line">f. 문자 지향형 전송 프로토콜이다.</span><br><span class="line">g. FCS 영역의 길이는 64비트이다.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[해설]</span><br><span class="line">c. HDLC 프로토콜은 동기식 전송 방식을 사용합니다.</span><br><span class="line">e. HDLC 프로토콜은 에러 제어를 위해 Go-Back-N ARQ와</span><br><span class="line">선택적 재전송 ARQ를 사용합니다.</span><br><span class="line">f. HDLC는 비트 지향형 전송 프로토콜 입니다.</span><br><span class="line">g. FCS 영역의 길이는 16 비트 또는 32비트 입니다.</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>HDLC에서 비트 스터핑(Bit Stuffing)을 수행하는 목적은<br>데이터의 투명성을 보장하기 위해서이다.<code>(O)</code><br><br></li>
+<li>HDLC 프레임의 시작과 긑을 정의하는 것은 <code>(플래그)</code>이다.<br><br></li>
+<li>HDLC 프레임 형식 중 프레임의 종류를 식별하기 위해 사용되는 것은<br><code>(제어부)</code>이다.<br><br></li>
+<li>HDLC 프레임 구성에서 프레임 검사 시퀀스(FCS) 영역의 기능은<br><code>(전송 오류 검출)</code>이다.</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "전송 제어의 기본",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/52516333-773bab00-2c6c-11e9-835e-86551bc7c7ef.png",
+        "keywords": "정보처리기사 데이터 통신 data-communication 전송 제어의 기본 HDLC High-level Data LInk Control",
+        "genre": "정보처리기사 데이터 통신",
+        "datePublished": "2019-02-10",
+        "dateCreated": "2019-02-10",
+        "dateModified": "2019-02-10",
+        "url": "https://JihyeHwang09.github.io/2019/02/10/data-communication4/",
+        "description": "오늘은 데이터 통신에 자주 출제되는 전송 제어의 기본과 HDLC(High-level Data LInk Control)의 특징에 대해 알아봅시다.
+본 포스팅은 2019 시나공 정보처리기사 필기의 자료를 인용하였음을 알려드립니다.
+
+
+전송 제어의 기본1. 전송 제어
+데이터의 원활한 흐름을 위하여 입.출력 제어, 회선 제어, 동기 제어, 오류 제어, 흐름 제어 "
+        "wordCount": 468
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/09/data-communication3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">통신 속도와 통신 용량</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/10/data-communication4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52516333-773bab00-2c6c-11e9-835e-86551bc7c7ef.png)" alt="전송 제어의 기본" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></p>
+                            <p class="item-title"><a href="/2019/02/10/data-communication4/" class="title">전송 제어의 기본</a></p>
+                            <p class="item-date"><time datetime="2019-02-10T00:28:40.000Z" itemprop="datePublished">2019-02-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/09/data-communication3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52495454-0ec0df80-2c14-11e9-9b3e-67862e0aae54.png)" alt="통신 속도와 통신 용량" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></p>
+                            <p class="item-title"><a href="/2019/02/09/data-communication3/" class="title">통신 속도와 통신 용량</a></p>
+                            <p class="item-date"><time datetime="2019-02-08T16:50:22.000Z" itemprop="datePublished">2019-02-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/08/data-communication2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52463992-6f243280-2bbc-11e9-9486-56ced7eaf306.png)" alt="펄스 코드 변조(PCM)와 다중화기(Multiplexer)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></p>
+                            <p class="item-title"><a href="/2019/02/08/data-communication2/" class="title">펄스 코드 변조(PCM)와 다중화기(Multiplexer)</a></p>
+                            <p class="item-date"><time datetime="2019-02-08T06:39:50.000Z" itemprop="datePublished">2019-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/07/data-communication1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52418994-87e80600-2b32-11e9-98db-843fd8e9738c.png)" alt="전송 방식" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></p>
+                            <p class="item-title"><a href="/2019/02/07/data-communication1/" class="title">전송 방식</a></p>
+                            <p class="item-date"><time datetime="2019-02-07T14:06:21.000Z" itemprop="datePublished">2019-02-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/06/engineer-information-processing/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52350804-b69ba900-2a6c-11e9-9d2b-5821ce06f63e.png)" alt="정보처리기사 시험에 자주 출제되는 주제" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a></p>
+                            <p class="item-title"><a href="/2019/02/06/engineer-information-processing/" class="title">정보처리기사 시험에 자주 출제되는 주제</a></p>
+                            <p class="item-date"><time datetime="2019-02-06T14:48:35.000Z" itemprop="datePublished">2019-02-06</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">19</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 11.43px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 17.14px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 11.43px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hdlc/" style="font-size: 10px;">HDLC</a> <a href="/tags/hash/" style="font-size: 10px;">Hash</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 11.43px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/recursion-function/" style="font-size: 11.43px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 11.43px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/object-object/" style="font-size: 11.43px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 11.43px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/data-communication/" style="font-size: 14.29px;">data-communication</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/front-end/" style="font-size: 18.57px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 11.43px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 11.43px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/recursion/" style="font-size: 11.43px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 12.86px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/데이터-통신/" style="font-size: 14.29px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 11.43px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11.43px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 12.86px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 11.43px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 15.71px;">재귀 함수</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 12.86px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 18.57px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 11.43px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/해시/" style="font-size: 10px;">해시</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/02/10/data-communication4/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
