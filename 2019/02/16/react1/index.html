@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>React 1일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="React">
+    
+    <meta name="description" content="React공부 방법에 대한 tip 한글 번역판보다는 영문판이 최신 버전이므로영문판으로 공부하면 가장 최신 버전의 React를 접할 수 있다.  개요React가 무엇인가요? React는 선언적이고, 효율적이며, 유연한 JavaScript 라이브러리이다.  명령형 프로그래밍 ex) Dom API처럼 일일히 속성을 지정해서 값을 넣으라고 명령하는 것 코드를 실행">
+<meta name="keywords" content="React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 1일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/16/react1/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="React공부 방법에 대한 tip 한글 번역판보다는 영문판이 최신 버전이므로영문판으로 공부하면 가장 최신 버전의 React를 접할 수 있다.  개요React가 무엇인가요? React는 선언적이고, 효율적이며, 유연한 JavaScript 라이브러리이다.  명령형 프로그래밍 ex) Dom API처럼 일일히 속성을 지정해서 값을 넣으라고 명령하는 것 코드를 실행">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/52869273-a2505e00-3188-11e9-91e3-18ab64823218.png">
+<meta property="og:updated_time" content="2019-02-15T16:17:50.114Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 1일차">
+<meta name="twitter:description" content="React공부 방법에 대한 tip 한글 번역판보다는 영문판이 최신 버전이므로영문판으로 공부하면 가장 최신 버전의 React를 접할 수 있다.  개요React가 무엇인가요? React는 선언적이고, 효율적이며, 유연한 JavaScript 라이브러리이다.  명령형 프로그래밍 ex) Dom API처럼 일일히 속성을 지정해서 값을 넣으라고 명령하는 것 코드를 실행">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/52869273-a2505e00-3188-11e9-91e3-18ab64823218.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/react/">React</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-react1" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        React 1일차
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/16/react1/" class="article-date">
+            <time datetime="2019-02-15T16:08:36.000Z" itemprop="datePublished">2019-02-16</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/react/">React</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><h2 id="공부-방법에-대한-tip"><a href="#공부-방법에-대한-tip" class="headerlink" title="공부 방법에 대한 tip"></a>공부 방법에 대한 tip</h2><blockquote>
+<p>한글 번역판보다는 영문판이 최신 버전이므로<br>영문판으로 공부하면 가장 최신 버전의 React를 접할 수 있다.</p>
+</blockquote>
+<h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><h2 id="React가-무엇인가요"><a href="#React가-무엇인가요" class="headerlink" title="React가 무엇인가요?"></a>React가 무엇인가요?</h2><ul>
+<li>React는 선언적이고, 효율적이며, 유연한 JavaScript 라이브러리이다.</li>
+</ul>
+<h3 id="명령형-프로그래밍"><a href="#명령형-프로그래밍" class="headerlink" title="명령형 프로그래밍"></a>명령형 프로그래밍</h3><ul>
+<li>ex) Dom API처럼 일일히 속성을 지정해서 값을 넣으라고 명령하는 것<ul>
+<li>코드를 실행하지 않고 결과를 알아보려면 어렵다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="선언적-프로그래밍"><a href="#선언적-프로그래밍" class="headerlink" title="선언적 프로그래밍"></a>선언적 프로그래밍</h3><ul>
+<li><p>HTML은 이렇게 코드 짰으니까 네가 알아서 그려줘. 순서를 지정해줄 필요 X</p>
+<ul>
+<li>코드가 생긴대로 결과물이 나온다는 특징이 있다.</li>
+<li>코드가 결과물의 특징을 잘 반영하고 있다는 특징이 있다.</li>
+</ul>
+</li>
+<li><p>-&gt; React는 선언적 프로그래밍이 가능하다.</p>
+</li>
+</ul>
+<ul>
+<li>React는 효율적이다.<ul>
+<li>React는 UI를 값으로 다룬다는 특징이 있다.</li>
+</ul>
+</li>
+</ul>
+<p>React를 사용하면, “컴포넌트”라 불리는 여러 격리된 코드 조각을 조합해서, 복잡한 UI를 쉽게 만들 수 있다.</p>
+<p>React의 컴포넌트에는 두 가지 종류가 있다. 일단은 React.Component의 서브클래스부터 보자.:</p>
+<ul>
+<li><strong>컴포넌트는 클래스이다.</strong></li>
+<li><strong>컴포넌트는 UI를 그려주는 render메소드는 가지고 있다.</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShoppingList</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">//rendor()는 메소드</span></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">//   UI를 나타내는 값을 만들어준 다음 return해준다.</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="comment">// HTML코드처럼 생겼지만, HTML이 아니다.</span></span><br><span class="line">      <span class="comment">// 뷰를 만들어내는 특별한 표현식이다.</span></span><br><span class="line">      <span class="comment">//   &lt;div&gt;으로 감싸져 있는 코드는 React div엘리먼트라고 부른다.</span></span><br><span class="line">      <span class="comment">// 각각의 요소들은 객체로 되어 있다.</span></span><br><span class="line">      <span class="comment">// 문서 사이에 어떤 컨텐츠를 표시하고 싶다. JSX 안에는 &#123;&#125;를 쓴 다음 그 안에 값을 넣어주면, 그 값이 화면에 그려지게 된다.</span></span><br><span class="line">      &lt;div className=<span class="string">"shopping-list"</span>&gt;</span><br><span class="line">        &lt;h1&gt;Shopping List <span class="keyword">for</span> &#123;<span class="keyword">this</span>.props.name&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">        &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">          &lt;li&gt;Instagram&lt;/</span>li&gt;</span><br><span class="line">          &lt;li&gt;WhatsApp&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">          &lt;li&gt;Oculus&lt;/</span>li&gt;</span><br><span class="line">        &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 사용 예제: &lt;ShoppingList name="Mark" /&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>XML과 비슷하게 생긴 위 태그의 사용법을 곧 살펴볼 것이다.<br>우리는 화면을 어떻게 그릴지를 React에게 알려주기 위해 컴포넌트를 사용한다.<br>데이터가 변경되면, React는 컴포넌트를 효율적으로 갱신한다.(즉, 다시 그린다.)</p>
+</li>
+<li><p>위에서 본 ShoppingList는 React 컴포넌트 클래스이다.<br>컴포넌트는 props (“properties”의 줄임말)이라 불리는 매개변수를 받아서,<br><code>render</code> 메소드에서 뷰의 계층 구조를 반환한다.(화면을 어떻게 그릴 지에 대한 계층 구조를 반환한다.)</p>
+</li>
+<li><p>cf) 어떻게 그릴 건지를 설명하는 값을 ‘뷰’라고 한다.</p>
+</li>
+<li><p><code>render</code> 메소드는 무엇을 그릴지에 대한 설명을 반환한다.<br>그러면 React는 그것을 받아 화면에 그려준다.<br>여기서 render가 반환하는 것은 <strong>React 엘리먼트</strong>로, <strong>‘무엇을 그릴지’에 대한 정보를 담고있는 객체</strong>이다.<br>대부분의 React 개발자들은 이러한 구조를 쉽게 표현할 수 있는 JSX라는 특별한 문법을 사용한다.<br>(JavaScript Extended) <div>라는 JSX 코드는, 빌드 과정에서 React.createElement(‘div’)로 변환된다.<br>위 예제는 사실 아래 코드와 같다:</div></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> React.createElement(</span><br><span class="line">  <span class="string">"div"</span>,</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">"shopping-list"</span> &#125;,</span><br><span class="line">  React.createElement(<span class="string">"h1"</span> <span class="comment">/* ... h1 children ... */</span>),</span><br><span class="line">  React.createElement(<span class="string">"ul"</span> <span class="comment">/* ... ul children ... */</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>좀 더 알고싶으시다면, API reference에서 createElement()에 대한 자세한 설명을 읽어보자.<br>하지만 이 튜토리얼에서는 이 함수를 직접 사용하지 않을 것이다. 대신, 우리는 JSX를 계속 사용해보자.</p>
+</li>
+<li><p>JSX 안에서는 JavaScript를 자유롭게 활용할 수 있다.<br>JSX 중괄호 안에는 어떤 JavaScript 표현식도 넣을 수 있다.<br>그리고 React 엘리먼트는 JavaScript 객체로, 변수에 담거나 프로그램의 다른 부분으로 넘기는 것이 가능하다.</p>
+</li>
+<li><p>위 예제의 ShoppingList 컴포넌트는 브라우저에 내장된 DOM 컴포넌트(<div>, <li>)만 그려주고 있다.<br>하지만 React 컴포넌트를 조합해서 그리는 것도 가능하다.<br>예를 들어, 우리는 전체 쇼핑 목록을 그리기 위해 <shoppinglist>와 같이 쓸 수 있다.<br>각각의 React 컴포넌트는 독립적이며 캡슐화되어 있다.<br>이 성질은 우리가 단순한 컴포넌트로부터 복잡한 UI를 만드는 일을 가능하게 해준다.</shoppinglist></li></div></p>
+</li>
+<li><p><strong>컴포넌트를 태그 이름처럼 사용할 수 있다.</strong></p>
+</li>
+<li><p>React에서 컴포넌트를 사용하면 큰 HTML을 조각으로 나눠서 <productlist>로 사용하면 코드 수를 줄일 수 있다.</productlist></p>
+</li>
+</ul>
+<hr>
+<h2 id="2교시"><a href="#2교시" class="headerlink" title="2교시"></a>2교시</h2><ul>
+<li>정보가 폭포수처럼 위에서 아래로 흐른다.</li>
+<li>이벤트 리스너 다는 방법: onClick, onChange, onSubmit, onMouseMove 등에 함수를 넘겨줘야 한다.</li>
+<li>Square Component에 alert(this.props.value)를 사용하면, 현재 넘어온 칸에 있는 숫자가 뜬다.</li>
+<li>Board Component의 name=”Square”을 넣고,Square Component에 alert(this.props.name)를 사용하면, alert으로 “Square”라고 뜬다.</li>
+</ul>
+<ul>
+<li>JavaScript 클래스를 사용할 때,<br>서브클래스의 생성자를 정의할 때는 반드시 super를 호출해주어야 한다.</li>
+<li>생성자를 갖는 모든 React 컴포넌트 클래스는 그 생성자가 반드시 super(props)로 시작해야 한다.</li>
+</ul>
+<ul>
+<li>Constructor(생성자) 만들 때는 React Component를 생성할 때는 super(props)는 반드시 맨 위에 있어야 한다.</li>
+<li>super를 맨 윗줄에 안 써주면, 에러가 발생한다.</li>
+</ul>
+<ul>
+<li>super(props);</li>
+<li>어떤 부모 생성자의 코드를 호출하는 것</li>
+</ul>
+<p>this.props.value : 부모로부터 내려받은 값<br>this.state.value: 내가 기억하고 있는 값</p>
+<p>onClick={() =&gt; this.setState({value: ‘X’})}<br>클릭했을 때, 기억하고 있는 값을 ‘X’를 바꿔준다.<br>setState({})로 {}안의 상태를 바꿔준다.</p>
+<h3 id="React의-가장-핵심적인-부분"><a href="#React의-가장-핵심적인-부분" class="headerlink" title="React의 가장 핵심적인 부분"></a><strong>React의 가장 핵심적인 부분</strong></h3><ul>
+<li><strong>React를 사용하면서, 반드시 setState라는 메소드를 통해서 상태를 변경해야 한다!</strong><br>-&gt; 그래야 <strong>상태가 변경될 때마다 화면이 갱신될 수 있다.</strong></li>
+</ul>
+<h3 id="this-setState의-기능-2가지"><a href="#this-setState의-기능-2가지" class="headerlink" title="this.setState의 기능 2가지"></a>this.setState의 기능 2가지</h3><pre><code>- 상태 변경
+- 화면 갱신
+</code></pre><ul>
+<li>React에서는 상태를 바꾸면, 무조건 화면이 갱신된다.</li>
+<li><p>React에서 화면을 다시 그리는 방법이 <code>setState</code>밖에 없다.(상태를 변경해주면 자동으로 화면 갱신하게 만듦)</p>
+</li>
+<li><p>render라는 메소드는 React 라이브러리가 알아서 호출해줌. (개발자가 render메소드를 호출할 일이 없음)</p>
+</li>
+<li><p>setState할 때마다 React 라이브러리가 render메소드를 실행해서 화면이 바뀔 게 있는지 확인한다.</p>
+</li>
+<li>화면을 다시 그려야할 때마다 render메소드가 매번 호출된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      value: <span class="literal">null</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;button className=<span class="string">"square"</span> onClick=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">value</span>: <span class="string">"X"</span> &#125;)&#125;&gt;</span><br><span class="line">        &#123;<span class="keyword">this</span>.state.value&#125;</span><br><span class="line">      &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Square의 render 메소드 안에 있는 onClick 핸들러 안에서 this.setState를 호출하면,<br><button>이 클릭될 때마다 화면을 다시 그려야 한다는 사실을 React에게 알려줄 수 있다.</button></li>
+<li><p>그 뒤, this.state.value는 ‘X’가 될 것이고, 이로 인해 게임판에 X가 표시된다.<br>이제 사각형을 클릭해서, X가 표시되는지 확인해보자.</p>
+</li>
+<li><p>컴포넌트 안에서 setState를 호출하면, React는 해당 컴포넌트가 품고 있는 자식 컴포넌트까지 모두 새로 그려준다.<br>-&gt; 부모 컴포넌트의 상태가 바뀌면, 자식 컴포넌트가 각각 가지고 render메소드가 다 호출된다.</p>
+</li>
+</ul>
+<h3 id="게임-완성하기"><a href="#게임-완성하기" class="headerlink" title="게임 완성하기"></a>게임 완성하기</h3><h3 id="상태-끌어올리기"><a href="#상태-끌어올리기" class="headerlink" title="상태 끌어올리기"></a>상태 끌어올리기</h3><ul>
+<li><p>Square Component가 9개 있고, 각각이 상태를 가지고 있다.</p>
+</li>
+<li><p>prop을 통해서 부모 컴포넌트에서 자식 컴포넌트로 상태를 보내는 건 쉽다.</p>
+</li>
+<li>자식 컴포넌트의 상태를 부모 컴포넌트로 끌어 올린다.</li>
+<li>상태를 가장 가까운 공통 조상에 저장한다. -&gt; 상태 끌어올리기</li>
+<li><strong>여러 자식 컴포넌트에 저장되어 있는 데이터를 읽어와야 할 때,<br>혹은 자식 컴포넌트끼리 통신을 해야 할 필요가 있을 때는
+</strong>부모 컴포넌트에서 상태를 공유하자.<strong><br>부모 컴포넌트에서는 prop을 통해 자식 컴포넌트에게 상태를 내려줄 수 있다.<br>이 방법을 통해 </strong>부모 컴포넌트와 자식 컴포넌트가 따로 놀지 않게 만들 수 있다.**</li>
+<li>상태의 불일치 문제를 피하기 위해서 <strong>상태는 하나로 두는 게 좋다.</strong></li>
+</ul>
+<p>이제 사각형을 클릭했을 때의 처리를 해주어야 한다.<br>Board 컴포넌트가 게임 상태를 저장하고 있으므로, Square 컴포넌트에서 Board 컴포넌트의 상태를 변경할 방법이 필요하다.<br>컴포넌트의 상태에는 자기 자신만 접근할 수 있으므로,<br>Square 컴포넌트에서 Board 컴포넌트의 상태를 직접 변경할 수 있는 방법은 없다.</p>
+<p>이런 경우, 부모 컴포넌트인 Board에서 상태를 바꾸는 함수를 만들어 Square에 내려줌으로써 문제를 해결할 수 있다.<br>이 함수를 Square가 클릭되는 순간 호출해주자.<br>일단 Board 컴포넌트의 renderSquare 메소드를 고쳐보자. (참고: 아래 코드는 아직 동작하지 않습니다.)</p>
+<ul>
+<li>부모 컴포넌트의 상태를 직접적으로 바꿀 수 있는 방법은 없다.</li>
+<li>But 부모 컴포넌트에서 상태를 바꿀 수 있는 함수를 자식 컴포넌트에게 내려준다면, -&gt; 부모 컴포넌트의 상태를 <strong>간접적으로</strong> 바꿀 수 있다.</li>
+<li><p>부모 컴포넌트에서 각각의 값과 상태를 바꿀 수 있는 함수를 자식 컴포넌트에게 내려줘야 한다.</p>
+</li>
+<li><p>renderSquare함수는 Board 컴포넌트 안에 있는 함수이다.</p>
+</li>
+<li><p>props는 부모로부터 내려주는 함수</p>
+</li>
+</ul>
+<ul>
+<li>button도 컴포넌트. 내장 Dom 컴포넌트라고 부른다.</li>
+<li><p>Square, board 등은 사용자 정의 컴포넌트(Custom Component)라고 부른다.</p>
+</li>
+<li><p><strong>setState하면, render 메소드를 실행시킨다.</strong></p>
+</li>
+<li><p>-&gt; 그래서 화면이 다시 그려진다.</p>
+</li>
+<li><p>cf)</p>
+</li>
+<li><code>제어되는 컴포넌트(Controlled Component)</code>: 자기 스스로의 상태를 갖고 있는 컴포넌트</li>
+<li>제어되지 않는 컴포넌트: 자기 스스로의 상태를 갖고 있지 않은 컴포넌트</li>
+</ul>
+<h4 id="컴포넌트를-사용하는-방법-2가지"><a href="#컴포넌트를-사용하는-방법-2가지" class="headerlink" title="컴포넌트를 사용하는 방법 2가지"></a>컴포넌트를 사용하는 방법 2가지</h4><ul>
+<li>클래스로 사용하는 방법</li>
+<li><p>함수로 사용하는 방법</p>
+</li>
+<li><p>클래스 컴포넌트: class가 부모로부터 내려 받은 값은 this.props에 저장된다.</p>
+</li>
+<li>함수형 컴포넌트: props라는 매개변수에 객체가 들어온다. props객체의 속성에 부모로부터 내려받은 값이 저장되어 있다.<ul>
+<li>render 메소드를 쓰지 않는다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="턴-넘기기"><a href="#턴-넘기기" class="headerlink" title="턴 넘기기"></a>턴 넘기기</h3><h3 id="Declaring-a-Winner"><a href="#Declaring-a-Winner" class="headerlink" title="Declaring a Winner"></a>Declaring a Winner</h3><ul>
+<li>return만을 이용해서 함수를 종료시키는 기법이 많이 사용된다.</li>
+</ul>
+<hr>
+<h3 id="오늘-배운-내용-정리"><a href="#오늘-배운-내용-정리" class="headerlink" title="오늘 배운 내용 정리"></a>오늘 배운 내용 정리</h3><ul>
+<li>하나의 컴포넌트로부터 수많은 엘리먼트가 만들어질 수 있다.</li>
+<li>컴포넌트와 엘리먼트는 React 엘리먼트는 Dom 객체가 아니다. React 객체는 Dom 객체와 전혀 상관이 없다.</li>
+<li><p>ex) React 엘리먼트에 .textContent해서 값을 집어넣고 싶어서 아무 반응이 없다.</p>
+</li>
+<li><p>props는 부모로부터 값을 내려받는 통로이다.</p>
+</li>
+<li>직접 자식 컴포넌트에서 부모 컴포넌트에게 값을 넘겨줄 수 없다.</li>
+<li>addEventListener를 쓸 필요가 없다.</li>
+<li>컴포넌트는 상태를 가질 수 있고, 꼭 setStatus를 통해서만 바꿔야 한다는 약속이 있다.</li>
+<li>상태를 처음 만들어줄 때는 생성자 안에서 만들어주는 게 원칙이다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      value: <span class="literal">null</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>setStatus는 상태 변경, 화면 갱신이라는 2가지 효과가 있다.</li>
+<li><p>부모 컴포넌트에서 상태를 공유하세요. 부모 컴포넌트에서는 prop을 통해 자식 컴포넌트에게 상태를 내려줄 수 있다.<br>이 방법을 통해 부모 컴포넌트와 자식 컴포넌트가 따로 놀지 않게 만들 수 있다.</p>
+</li>
+<li><p>부모 컴포넌트는 상태를 바꾸는 함수를 만들어서 자식 컴포넌트에게 내려준다.</p>
+</li>
+<li>이 함수를 이용해서 자식 컴포넌트에서 부모 컴포넌트의 상태를 간접적으로 바꿔줄 수 있다.</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "React 1일차",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/52869273-a2505e00-3188-11e9-91e3-18ab64823218.png",
+        "keywords": "React",
+        "genre": "front-end React",
+        "datePublished": "2019-02-16",
+        "dateCreated": "2019-02-16",
+        "dateModified": "2019-02-16",
+        "url": "https://JihyeHwang09.github.io/2019/02/16/react1/",
+        "description": "React공부 방법에 대한 tip
+한글 번역판보다는 영문판이 최신 버전이므로영문판으로 공부하면 가장 최신 버전의 React를 접할 수 있다.
+
+개요React가 무엇인가요?
+React는 선언적이고, 효율적이며, 유연한 JavaScript 라이브러리이다.
+
+명령형 프로그래밍
+ex) Dom API처럼 일일히 속성을 지정해서 값을 넣으라고 명령하는 것
+코드를 실행"
+        "wordCount": 1484
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/15/programmers-second-mock-exam1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/16/react1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52869273-a2505e00-3188-11e9-91e3-18ab64823218.png)" alt="React 1일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/react/">React</a></p>
+                            <p class="item-title"><a href="/2019/02/16/react1/" class="title">React 1일차</a></p>
+                            <p class="item-date"><time datetime="2019-02-15T16:08:36.000Z" itemprop="datePublished">2019-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/15/programmers-second-mock-exam1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52057862-82764300-25a9-11e9-8203-171f68a3ad06.png)" alt="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2019/02/15/programmers-second-mock-exam1/" class="title">2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회</a></p>
+                            <p class="item-date"><time datetime="2019-02-15T14:45:52.000Z" itemprop="datePublished">2019-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/14/js-zerocho2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52783293-d34f6680-3094-11e9-8b32-eef5f9a8d69c.png)" alt="반복문(while, for)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/14/js-zerocho2/" class="title">반복문(while, for)</a></p>
+                            <p class="item-date"><time datetime="2019-02-14T10:30:22.000Z" itemprop="datePublished">2019-02-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/13/js-zerocho1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52707714-b13de180-2fcb-11e9-93e2-2fd32cb39d66.png)" alt="자바스크립트 기초" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/13/js-zerocho1/" class="title">자바스크립트 기초</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T09:48:34.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/12/data-communication6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52637756-855f2500-2f13-11e9-8124-c983734c5a0b.png)" alt="전송 오류 제어 방식" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></p>
+                            <p class="item-title"><a href="/2019/02/12/data-communication6/" class="title">전송 오류 제어 방식</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T12:59:23.000Z" itemprop="datePublished">2019-02-12</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 11.11px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16.67px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 11.11px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hdlc/" style="font-size: 11.11px;">HDLC</a> <a href="/tags/hash/" style="font-size: 10px;">Hash</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 11.11px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/react/" style="font-size: 10px;">React</a> <a href="/tags/recursion-function/" style="font-size: 11.11px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 11.11px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/object-object/" style="font-size: 11.11px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/data-communication/" style="font-size: 13.33px;">data-communication</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 11.11px;">framework</a> <a href="/tags/front-end/" style="font-size: 17.78px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 11.11px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 11.11px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/recursion/" style="font-size: 11.11px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 12.22px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 15.56px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 11.11px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11.11px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 12.22px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12.22px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 14.44px;">재귀 함수</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 12.22px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 18.89px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12.22px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/해시/" style="font-size: 10px;">해시</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/02/16/react1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
