@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="컴퓨터 과학,알고리즘,프로그래머스,코딩테스트">
+    
+    <meta name="description" content="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회 참고 사이트 빅오표기법  1. 배열 회전배열의 회전이란 모든 원소를 오른쪽으로 한 칸씩 이동시키고,마지막 원소는 배열의 맨 앞에 넣는 것을 말합니다.두 배열 arrA와 arrB가 매개변수로 주어질 때,arrA를 회전해 arrB로 만들 수 있으면 true를,그렇지 않으면 false를 return 하는">
+<meta name="keywords" content="컴퓨터 과학,알고리즘,프로그래머스,코딩테스트">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/15/programmers-second-mock-exam1/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회 참고 사이트 빅오표기법  1. 배열 회전배열의 회전이란 모든 원소를 오른쪽으로 한 칸씩 이동시키고,마지막 원소는 배열의 맨 앞에 넣는 것을 말합니다.두 배열 arrA와 arrB가 매개변수로 주어질 때,arrA를 회전해 arrB로 만들 수 있으면 true를,그렇지 않으면 false를 return 하는">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/52057862-82764300-25a9-11e9-8203-171f68a3ad06.png">
+<meta property="og:updated_time" content="2019-02-15T14:54:05.518Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회">
+<meta name="twitter:description" content="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회 참고 사이트 빅오표기법  1. 배열 회전배열의 회전이란 모든 원소를 오른쪽으로 한 칸씩 이동시키고,마지막 원소는 배열의 맨 앞에 넣는 것을 말합니다.두 배열 arrA와 arrB가 매개변수로 주어질 때,arrA를 회전해 arrB로 만들 수 있으면 true를,그렇지 않으면 false를 return 하는">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/52057862-82764300-25a9-11e9-8203-171f68a3ad06.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-programmers-second-mock-exam1" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/15/programmers-second-mock-exam1/" class="article-date">
+            <time datetime="2019-02-15T14:45:52.000Z" itemprop="datePublished">2019-02-15</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/알고리즘/">알고리즘</a>, <a class="tag-link" href="/tags/컴퓨터-과학/">컴퓨터 과학</a>, <a class="tag-link" href="/tags/코딩테스트/">코딩테스트</a>, <a class="tag-link" href="/tags/프로그래머스/">프로그래머스</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="2019-상반기-공채-대비-코딩테스트-실전-모의고사-2회"><a href="#2019-상반기-공채-대비-코딩테스트-실전-모의고사-2회" class="headerlink" title="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회"></a>2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회</h1><ul>
+<li>참고 사이트</li>
+<li><a href="https://www.youtube.com/watch?v=6Iq5iMCVsXA" target="_blank" rel="noopener">빅오표기법</a></li>
+</ul>
+<h2 id="1-배열-회전"><a href="#1-배열-회전" class="headerlink" title="1. 배열 회전"></a>1. 배열 회전</h2><p>배열의 회전이란 모든 원소를 오른쪽으로 한 칸씩 이동시키고,마지막 원소는 배열의 맨 앞에 넣는 것을 말합니다.<br>두 배열 arrA와 arrB가 매개변수로 주어질 때,<br>arrA를 회전해 arrB로 만들 수 있으면 true를,그렇지 않으면 false를 return 하는 solution 함수를 작성해주세요.</p>
+<blockquote>
+<p>반복문을 사용할 수 있는지 물어보는 문제</p>
+</blockquote>
+<blockquote>
+<p>아주 기초적인 문제이니 어렵지 않게 풀 수 있었을거에요.</p>
+</blockquote>
+<h2 id="Python-코드"><a href="#Python-코드" class="headerlink" title="Python 코드"></a><code>Python</code> 코드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># def는 함수 정의</span></span><br><span class="line"><span class="comment"># rotate는 함수 이름</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rotate</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">-1</span>:] + arr[:<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># python array modules</span></span><br><span class="line"><span class="comment"># slice notation(:)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># solution이라는 이름을 가진 함수를 정의</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(arrA, arrB)</span>:</span></span><br><span class="line">    arrA_len = len(arrA)</span><br><span class="line">    arrB_len = len(arrB)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 길이가 다른 배열은 회전해도 같아질 수 없으므로, early return</span></span><br><span class="line">    <span class="keyword">if</span>(arrA_len!=arrB_len):</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># arrA를 한칸씩 회전하며, arrB와 같은지 확인</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(arrA_len):</span><br><span class="line">        <span class="keyword">if</span> arrA == arrB:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        arrA = rotate(arrA)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Python-관련-내-해석"><a href="#Python-관련-내-해석" class="headerlink" title="Python 관련 내 해석"></a>Python 관련 내 해석</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># def는 함수 정의</span></span><br><span class="line"><span class="comment"># rotate는 함수 이름</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rotate</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">-1</span>:] + arr[:<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># python array modules</span></span><br><span class="line"><span class="comment"># slice notation(:)</span></span><br><span class="line"><span class="comment"># arr[-1:]배열의 끝부터 첫번째까지의 item</span></span><br><span class="line"><span class="comment"># arr[-1:]배열의 처음부터 끝까지의 item</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> 함수이름<span class="params">()</span>:</span>   <span class="comment"># 1. 첫 행</span></span><br><span class="line">    본문          <span class="comment"># 2. 함수를 호출했을 때 실행할 코드 블록</span></span><br></pre></td></tr></table></figure>
+<p>파이썬에서는<br>끝에서부터 index를 매길때는 <code>음수</code>를 사용한다.<br><img src="https://user-images.githubusercontent.com/37353837/52057862-82764300-25a9-11e9-8203-171f68a3ad06.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ex)</span><br><span class="line"> word = <span class="string">'Python'</span></span><br><span class="line"></span><br><span class="line">word[<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># last chracter</span></span><br><span class="line"><span class="comment"># 출력값 'n'</span></span><br><span class="line">word[<span class="number">-6</span>]</span><br><span class="line"><span class="comment"># sixth-last character</span></span><br><span class="line"><span class="comment"># 출력값 'P'</span></span><br></pre></td></tr></table></figure>
+<h3 id="Pytoh에서의-slice"><a href="#Pytoh에서의-slice" class="headerlink" title="Pytoh에서의 slice"></a>Pytoh에서의 slice</h3><h4 id="step을-명시하지-않을-경우"><a href="#step을-명시하지-않을-경우" class="headerlink" title="step을 명시하지 않을 경우"></a>step을 명시하지 않을 경우</h4><p><strong>start:stop[:step]</strong></p>
+<blockquote>
+<p>여기서 [:step]은 써도 되고 안써도 된다.</p>
+</blockquote>
+<ol>
+<li>a[start:end] # start부터 end-1까지의 item</li>
+<li>a[start:] # start부터 리스트 끝까지 item</li>
+<li>a[:end] # 처음부터 end-1까지의 item</li>
+<li>a[:] # 리스트의 모든 item</li>
+</ol>
+<h4 id="step을-명시하는-경우"><a href="#step을-명시하는-경우" class="headerlink" title="step을 명시하는 경우"></a>step을 명시하는 경우</h4><ol>
+<li>a[start:end:step]# start부터 end-1까지 step만큼 인덱스 증가시키면서<br>step을 지정할 때 :end에 유의하세요 end는 end부터 포함시키지 않겠다는 의미이지 end가 꼭 포함된다는 의미는 아닙니다.</li>
+</ol>
+<p>또 start나 end가 음수가 음수인 경우에는 리스트의 끝에서부터 카운트하겠다는 의미입니다.</p>
+<ol>
+<li>a[-1] # 맨 뒤의 item</li>
+<li>a[-2:] # 맨 뒤에서부터 item2개</li>
+<li>a[:-n] # 맨 뒤의 item n개 빼고 전부</li>
+</ol>
+<p>예제를 보여드릴게요</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"a ="</span>, a</span><br><span class="line"><span class="keyword">print</span> <span class="string">"a[0:1]:"</span>, a[<span class="number">0</span>:<span class="number">1</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">"a[0:1]:"</span>, a[<span class="number">0</span>:<span class="number">10</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">"a[0:1]:"</span>, a[<span class="number">0</span>:<span class="number">20</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">"a[0:1]:"</span>, a[<span class="number">0</span>:<span class="number">10</span>:<span class="number">2</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">"a[0:1]:"</span>, a[:<span class="number">-2</span>]</span><br><span class="line"><span class="keyword">print</span> <span class="string">"a[0:1]:"</span>, a[:<span class="number">-30</span>]</span><br></pre></td></tr></table></figure>
+<p>의 결과는</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>]</span><br><span class="line">a[<span class="number">0</span>:<span class="number">1</span>]: [<span class="number">10</span>]</span><br><span class="line">a[<span class="number">0</span>:<span class="number">1</span>]: [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>]</span><br><span class="line">a[<span class="number">0</span>:<span class="number">1</span>]: [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>]</span><br><span class="line">a[<span class="number">0</span>:<span class="number">1</span>]: [<span class="number">10</span>, <span class="number">12</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">18</span>]</span><br><span class="line">a[<span class="number">0</span>:<span class="number">1</span>]: [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>]</span><br><span class="line">a[<span class="number">0</span>:<span class="number">1</span>]: []</span><br><span class="line">입니다.</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a[start:end] <span class="comment"># start부터 end-1까지의 item</span></span><br><span class="line">a[start:] <span class="comment"># start부터 리스트 끝까지 item</span></span><br><span class="line">a[:end] <span class="comment"># 처음부터 end-1까지의 item</span></span><br><span class="line">a[:] <span class="comment"># 리스트의 모든 item</span></span><br></pre></td></tr></table></figure>
+<p>즉, rotate라는 함수는 arr를 받아서 배열의 끝부터 맨앞까지 검사하는 함수이다.</p>
+<hr>
+<h2 id="Python-gt-JavaScript로-바꾸기"><a href="#Python-gt-JavaScript로-바꾸기" class="headerlink" title="Python -&gt; JavaScript로 바꾸기"></a>Python -&gt; JavaScript로 바꾸기</h2><p>참고</p>
+<ul>
+<li><a href="https://helloworldjavascript.net/pages/190-array.html" target="_blank" rel="noopener">김승하 선생님 교재 JAVASCRIPT로 만나는 세상- 배열</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="noopener">MDN Array.prototype.slice()</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotate(arr) &#123;</span><br><span class="line"> <span class="comment">// 배열로부터 새로운 값 생성</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// * slice 메소드</span></span><br><span class="line"><span class="comment">// 배열의 일부분에 해당하는 새로운 배열을 반환한다.</span></span><br><span class="line"><span class="comment">// 원본 배열에 아무런 영향을 미치지 않는다.</span></span><br><span class="line"><span class="comment">//  얕은 복사(shallow copy)를 하므로, 배열 안에 배열 또는 객체가 들어있을 때는 주의해서 사용해야 한다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 인덱스 arr의 마지막 번째부터 arr의 맨 앞까지의 요소들을 가지고 새로운 배열을 생성한다.</span></span><br><span class="line"><span class="comment">// 2.</span></span><br><span class="line">    <span class="keyword">return</span> arr.slice(<span class="number">-1</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// # solution이라는 이름을 가진 함수를 정의</span></span><br><span class="line">def solution(arrA, arrB):</span><br><span class="line">    arrA_len = len(arrA)</span><br><span class="line">    arrB_len = len(arrB)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// # 길이가 다른 배열은 회전해도 같아질 수 없으므로, early return</span></span><br><span class="line">    <span class="keyword">if</span>(arrA_len!=arrB_len):</span><br><span class="line">        <span class="keyword">return</span> False</span><br><span class="line"></span><br><span class="line">    <span class="comment">// # arrA를 한칸씩 회전하며, arrB와 같은지 확인</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(arrA_len):</span><br><span class="line">        <span class="keyword">if</span> arrA == arrB:</span><br><span class="line">            <span class="keyword">return</span> True</span><br><span class="line">        arrA = rotate(arrA)</span><br><span class="line">    <span class="keyword">return</span> False</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rotate</span><span class="params">(arr)</span>:</span></span><br><span class="line"><span class="keyword">return</span> arr[<span class="number">-1</span>:] + arr[:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(arrA, arrB)</span>:</span></span><br><span class="line"><span class="comment">#  len()은 리스트에 들어있는 원소 개수</span></span><br><span class="line"><span class="comment">#  -&gt; 즉, 리스트의 크기를 알려주는 함수</span></span><br><span class="line">arrA_len = len(arrA)</span><br><span class="line">arrB_len = len(arrB)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotate(arr)&#123;</span><br><span class="line"><span class="keyword">return</span> arr.slice(<span class="number">-1</span>, <span class="number">0</span>) +arr(<span class="number">0</span>, <span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> solution(arrA, arrB)&#123;</span><br><span class="line"><span class="keyword">let</span> arrA_len = arrA.length;</span><br><span class="line"><span class="keyword">let</span> arrB_len = arrB.length;</span><br><span class="line"><span class="comment">// 첫 번째 base case</span></span><br><span class="line"><span class="comment">// 배열의 길이가 다르면, 회전해도 같아질 수 없으므로</span></span><br><span class="line"><span class="comment">// return하고 함수를 종료한다.</span></span><br><span class="line"><span class="keyword">if</span> (arrA_len !== arrB_len) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 두 번째 base case</span></span><br><span class="line"><span class="comment">// arrA를 한칸씩 회전하면서, arrB와 같은지를 확인한다.</span></span><br><span class="line">    <span class="comment">// for _ in range(arrA_len):</span></span><br><span class="line">    <span class="comment">//     if arrA == arrB:</span></span><br><span class="line">    <span class="comment">//         return True</span></span><br><span class="line">    <span class="comment">//     arrA = rotate(arrA)</span></span><br><span class="line">    <span class="comment">// return False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/52057862-82764300-25a9-11e9-8203-171f68a3ad06.png",
+        "keywords": "컴퓨터 과학 알고리즘 프로그래머스 코딩테스트",
+        "genre": "컴퓨터 과학 알고리즘",
+        "datePublished": "2019-02-15",
+        "dateCreated": "2019-02-15",
+        "dateModified": "2019-02-15",
+        "url": "https://JihyeHwang09.github.io/2019/02/15/programmers-second-mock-exam1/",
+        "description": "2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회
+참고 사이트
+빅오표기법
+
+1. 배열 회전배열의 회전이란 모든 원소를 오른쪽으로 한 칸씩 이동시키고,마지막 원소는 배열의 맨 앞에 넣는 것을 말합니다.두 배열 arrA와 arrB가 매개변수로 주어질 때,arrA를 회전해 arrB로 만들 수 있으면 true를,그렇지 않으면 false를 return 하는 "
+        "wordCount": 1257
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/14/js-zerocho2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">반복문(while, for)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/15/programmers-second-mock-exam1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52057862-82764300-25a9-11e9-8203-171f68a3ad06.png)" alt="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2019/02/15/programmers-second-mock-exam1/" class="title">2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회</a></p>
+                            <p class="item-date"><time datetime="2019-02-15T14:45:52.000Z" itemprop="datePublished">2019-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/14/js-zerocho2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52783293-d34f6680-3094-11e9-8b32-eef5f9a8d69c.png)" alt="반복문(while, for)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/14/js-zerocho2/" class="title">반복문(while, for)</a></p>
+                            <p class="item-date"><time datetime="2019-02-14T10:30:22.000Z" itemprop="datePublished">2019-02-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/13/js-zerocho1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52707714-b13de180-2fcb-11e9-93e2-2fd32cb39d66.png)" alt="자바스크립트 기초" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/13/js-zerocho1/" class="title">자바스크립트 기초</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T09:48:34.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/12/data-communication6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52637756-855f2500-2f13-11e9-8124-c983734c5a0b.png)" alt="전송 오류 제어 방식" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></p>
+                            <p class="item-title"><a href="/2019/02/12/data-communication6/" class="title">전송 오류 제어 방식</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T12:59:23.000Z" itemprop="datePublished">2019-02-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/11/data-communication5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52568745-fdb1e180-2e52-11e9-9982-126d8f6d4abc.png)" alt="HDLC의 프레임 및 데이터 전송 모드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></p>
+                            <p class="item-title"><a href="/2019/02/11/data-communication5/" class="title">HDLC의 프레임 및 데이터 전송 모드</a></p>
+                            <p class="item-date"><time datetime="2019-02-11T13:50:04.000Z" itemprop="datePublished">2019-02-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">28</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 11.11px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16.67px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 11.11px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hdlc/" style="font-size: 11.11px;">HDLC</a> <a href="/tags/hash/" style="font-size: 10px;">Hash</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 11.11px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/recursion-function/" style="font-size: 11.11px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 11.11px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/object-object/" style="font-size: 11.11px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/data-communication/" style="font-size: 13.33px;">data-communication</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 11.11px;">framework</a> <a href="/tags/front-end/" style="font-size: 17.78px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 11.11px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/platform/" style="font-size: 11.11px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/recursion/" style="font-size: 11.11px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 12.22px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 15.56px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 11.11px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11.11px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 12.22px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12.22px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 14.44px;">재귀 함수</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 12.22px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 18.89px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12.22px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/해시/" style="font-size: 10px;">해시</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/02/15/programmers-second-mock-exam1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
