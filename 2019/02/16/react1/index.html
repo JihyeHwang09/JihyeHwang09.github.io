@@ -21,7 +21,7 @@
 <meta property="og:description" content="React공부 방법에 대한 tip 한글 번역판보다는 영문판이 최신 버전이므로영문판으로 공부하면 가장 최신 버전의 React를 접할 수 있다.  개요React가 무엇인가요? React는 선언적이고, 효율적이며, 유연한 JavaScript 라이브러리이다.  명령형 프로그래밍 ex) Dom API처럼 일일히 속성을 지정해서 값을 넣으라고 명령하는 것 코드를 실행">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/52869273-a2505e00-3188-11e9-91e3-18ab64823218.png">
-<meta property="og:updated_time" content="2019-02-15T16:21:35.482Z">
+<meta property="og:updated_time" content="2019-02-15T16:24:28.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 1일차">
 <meta name="twitter:description" content="React공부 방법에 대한 tip 한글 번역판보다는 영문판이 최신 버전이므로영문판으로 공부하면 가장 최신 버전의 React를 접할 수 있다.  개요React가 무엇인가요? React는 선언적이고, 효율적이며, 유연한 JavaScript 라이브러리이다.  명령형 프로그래밍 ex) Dom API처럼 일일히 속성을 지정해서 값을 넣으라고 명령하는 것 코드를 실행">
@@ -285,7 +285,7 @@ ga('send', 'pageview');
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      value: <span class="literal">null</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;button className=<span class="string">"square"</span> onClick=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">value</span>: <span class="string">"X"</span> &#125;)&#125;&gt;</span><br><span class="line">        &#123;<span class="keyword">this</span>.state.value&#125;</span><br><span class="line">      &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>Square의 render 메소드 안에 있는 onClick 핸들러 안에서 this.setState를 호출하면,<br><button>이 클릭될 때마다 화면을 다시 그려야 한다는 사실을 React에게 알려줄 수 있다.</button></li>
+<li>Square의 render 메소드 안에 있는 onClick 핸들러 안에서 this.setState를 호출하면,<br><code>&lt;button&gt;</code>이 클릭될 때마다 화면을 다시 그려야 한다는 사실을 React에게 알려줄 수 있다.</li>
 <li><p>그 뒤, this.state.value는 ‘X’가 될 것이고, 이로 인해 게임판에 X가 표시된다.<br>이제 사각형을 클릭해서, X가 표시되는지 확인해보자.</p>
 </li>
 <li><p>컴포넌트 안에서 setState를 호출하면, React는 해당 컴포넌트가 품고 있는 자식 컴포넌트까지 모두 새로 그려준다.<br>-&gt; 부모 컴포넌트의 상태가 바뀌면, 자식 컴포넌트가 각각 가지고 render메소드가 다 호출된다.</p>
