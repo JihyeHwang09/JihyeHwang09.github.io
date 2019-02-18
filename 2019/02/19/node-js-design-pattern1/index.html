@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>Node.js 철학 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="node.js">
+    
+    <meta name="description" content="1.1 Node.js 철학 본 포스팅은 도서 &amp;lt;Node.js 디자인 패턴&amp;gt;을 공부하며 정리한 내용입니다.   1.1.1 경량 코어 Node.js 코어 자체는 몇 가지 원칙에 근거한 기반을 가지고 있다. 코어를 최소의 기능 세트로 하고,나머지를 사용자의 몫(사용자 영역)으로 해서, 핵심 모듈의 바깥 영역 모듈들을 생태계에 맡기는 것이 이 원칙들 중">
+<meta name="keywords" content="node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js 철학">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/19/node-js-design-pattern1/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="1.1 Node.js 철학 본 포스팅은 도서 &amp;lt;Node.js 디자인 패턴&amp;gt;을 공부하며 정리한 내용입니다.   1.1.1 경량 코어 Node.js 코어 자체는 몇 가지 원칙에 근거한 기반을 가지고 있다. 코어를 최소의 기능 세트로 하고,나머지를 사용자의 몫(사용자 영역)으로 해서, 핵심 모듈의 바깥 영역 모듈들을 생태계에 맡기는 것이 이 원칙들 중">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/52960899-1c792080-33dd-11e9-99a1-100b7670cb21.png">
+<meta property="og:updated_time" content="2019-02-18T15:27:38.684Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js 철학">
+<meta name="twitter:description" content="1.1 Node.js 철학 본 포스팅은 도서 &amp;lt;Node.js 디자인 패턴&amp;gt;을 공부하며 정리한 내용입니다.   1.1.1 경량 코어 Node.js 코어 자체는 몇 가지 원칙에 근거한 기반을 가지고 있다. 코어를 최소의 기능 세트로 하고,나머지를 사용자의 몫(사용자 영역)으로 해서, 핵심 모듈의 바깥 영역 모듈들을 생태계에 맡기는 것이 이 원칙들 중">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/52960899-1c792080-33dd-11e9-99a1-100b7670cb21.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/back-end/">back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/node-js/">node.js</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-node-js-design-pattern1" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Node.js 철학
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/19/node-js-design-pattern1/" class="article-date">
+            <time datetime="2019-02-18T15:01:17.000Z" itemprop="datePublished">2019-02-19</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/node-js/">node.js</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="1-1-Node-js-철학"><a href="#1-1-Node-js-철학" class="headerlink" title="1.1 Node.js 철학"></a>1.1 Node.js 철학</h1><blockquote>
+<p>본 포스팅은 도서 &lt;Node.js 디자인 패턴&gt;을 공부하며 정리한 내용입니다.</p>
+</blockquote>
+<hr>
+<h2 id="1-1-1-경량-코어"><a href="#1-1-1-경량-코어" class="headerlink" title="1.1.1 경량 코어"></a>1.1.1 경량 코어</h2><ul>
+<li>Node.js 코어 자체는 몇 가지 원칙에 근거한 기반을 가지고 있다.</li>
+<li><p><code>코어</code>를 <strong>최소의 기능 세트</strong>로 하고,<br>나머지를 사용자의 몫(사용자 영역)으로 해서, 핵심 모듈의 바깥 영역 모듈들을 생태계에 맡기는 것이 이 원칙들 중에 하나이다.</p>
+</li>
+<li><p>-&gt; 장점: <strong>유지 보수 측면</strong>에서 편리할 뿐만 아니라<br>전체 생태계의 발전에 긍정적인 문화적 영향을 가져올 수 있다.</p>
+</li>
+</ul>
+<h2 id="1-1-2-경량-모듈"><a href="#1-1-2-경량-모듈" class="headerlink" title="1.1.2 경량 모듈"></a>1.1.2 경량 모듈</h2><ul>
+<li><p><code>Node.js</code>는 <strong>모듈 개념</strong>을 프로그램 코드를 구성하는 기본 수단으로 사용한다.</p>
+</li>
+<li><p>어플리케이션과 패키지라고 하는 재사용 가능한 라이버리를 만들기 위한 <strong>조립용 블록</strong></p>
+</li>
+</ul>
+<h3 id="Node-js에서-가장-널리-퍼친-원칙-중-하나"><a href="#Node-js에서-가장-널리-퍼친-원칙-중-하나" class="headerlink" title="Node.js에서 가장 널리 퍼친 원칙 중 하나"></a><code>Node.js</code>에서 가장 널리 퍼친 원칙 중 하나</h3><blockquote>
+<p>코드 크기 뿐만 아니라 범위적인 면세어도 작은 모듈을 설계하는 것</p>
+</blockquote>
+<h3 id="유닉스-철학에-뿌리를-두는-두-가지-계율"><a href="#유닉스-철학에-뿌리를-두는-두-가지-계율" class="headerlink" title="유닉스 철학에 뿌리를 두는 두 가지 계율"></a>유닉스 철학에 뿌리를 두는 두 가지 계율</h3><blockquote>
+<p>작은 것이 아름답다<br>각 프로그램이 각기 한 가지 역할을 잘 하도록 만든다</p>
+</blockquote>
+<h3 id="작은-모듈이-가지는-장점"><a href="#작은-모듈이-가지는-장점" class="headerlink" title="작은 모듈이 가지는 장점"></a><strong>작은</strong> 모듈이 가지는 장점</h3><ul>
+<li>재사용성</li>
+<li>이해하기 쉽고 사용하기 쉽다.</li>
+<li>테스트 및 유지보수가 훨씬 간단하다.</li>
+<li>브라우저와 완벽한 공유가 가능하다.</li>
+</ul>
+<blockquote>
+<p>더 작고 집중된 모듈을 사용하면 작은 코드 조각이라도 모두가 공유하거나 재사용할 수 있다.</p>
+</blockquote>
+<ul>
+<li><code>DRY</code>(<strong>Don’t Repeat Yourself, 같은 것을 반복하지 말라.</strong>)원칙에 대한 새로운 적용이다.</li>
+</ul>
+<h2 id="1-1-3-작은-외부-인터페이스"><a href="#1-1-3-작은-외부-인터페이스" class="headerlink" title="1.1.3 작은 외부 인터페이스"></a>1.1.3 작은 외부 인터페이스</h2><ul>
+<li><code>Node.js 모듈</code>은 대개 <strong>최소한의 기능을 노출</strong>하는 특성이 있다.<br>-&gt; 가장 큰 이점: API의 사용이 보다 명확해지고 잘못된 사용에 덜 노출된다.<br>cf) 대부분의 경우 컴포넌트 사용자는<br>기능을 확장하거나 부가적인 고급 기능의 활용이 필요 없는,<br>매우 제한되고 집중된 기능에만 관심이 있다.</li>
+</ul>
+<h3 id="Node-js에서-가장-일반적인-패턴"><a href="#Node-js에서-가장-일반적인-패턴" class="headerlink" title="Node.js에서 가장 일반적인 패턴"></a>Node.js에서 가장 일반적인 패턴</h3><ul>
+<li>함수나 생성자와 같이 하나의 핵심 기능을 표현하는 동시에,<br>더 많은 고급 기능이나 보조 기능은 노출된 함수나 생성자의 속성이 되도록 하는 것<ul>
+<li>이를 통해, 사용자는 <strong>중요한 내용</strong>과 <strong>부수적인 내용</strong>을 <strong>구분</strong>할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Node-js-모듈의-또-다른-특성"><a href="#Node-js-모듈의-또-다른-특성" class="headerlink" title="Node.js 모듈의 또 다른 특성"></a>Node.js 모듈의 또 다른 특성</h3><ul>
+<li>확장 용도보다는 <strong>실제 사용하도록</strong> 만들어진다는 것이다.</li>
+<li>얻는 효과<ul>
+<li>유스케이스를 줄인다.</li>
+<li>구현을 단순화</li>
+<li>유지 관리를 용이하게 한다.</li>
+<li>가용성을 높인다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-1-4-간결함과-실용주의"><a href="#1-1-4-간결함과-실용주의" class="headerlink" title="1.1.4 간결함과 실용주의"></a>1.1.4 간결함과 실용주의</h2><p>-<code>KISS(Keep It Simple, Stupid)</code>원칙</p>
+<blockquote>
+<p>단순함이야말로 궁극의 정교함이다.</p>
+</blockquote>
+<ul>
+<li><p>디자인은 구현과 인터페이스 모두에서 단순해야 한다.<br>구현이 인터페이스보다 단순해야 하는 것이 더 중요하다.</p>
+</li>
+<li><p>단순함은 설계에서 가장 중요한 고려 사항이다.</p>
+</li>
+<li><p>단순한 설계 <code>&gt;</code> 완벽한 모든 기능을 가진 소프트웨어</p>
+</li>
+<li>이유?<ul>
+<li>구현하는데 소요되는 노력과 자원을 적게 사용하여 더 빨리 보급할 수 있다.</li>
+<li>적응과 유지보수 및 이해가 쉽다.</li>
+<li>-&gt; 커뮤니티의 기여도를 높이고, 소프트웨어 자체가 성장하고 향상될 수 있도록 한다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>복잡하지 않고 실용적인 접근법(대부분의 경우)이 원칙적이고 완벽한 디자인보다 더 선호된다.</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "Node.js 철학",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/52960899-1c792080-33dd-11e9-99a1-100b7670cb21.png",
+        "keywords": "node.js",
+        "genre": "back-end node.js",
+        "datePublished": "2019-02-19",
+        "dateCreated": "2019-02-19",
+        "dateModified": "2019-02-19",
+        "url": "https://JihyeHwang09.github.io/2019/02/19/node-js-design-pattern1/",
+        "description": "1.1 Node.js 철학
+본 포스팅은 도서 &lt;Node.js 디자인 패턴&gt;을 공부하며 정리한 내용입니다.
+
+
+1.1.1 경량 코어
+Node.js 코어 자체는 몇 가지 원칙에 근거한 기반을 가지고 있다.
+코어를 최소의 기능 세트로 하고,나머지를 사용자의 몫(사용자 영역)으로 해서, 핵심 모듈의 바깥 영역 모듈들을 생태계에 맡기는 것이 이 원칙들 중"
+        "wordCount": 361
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/18/js-zerocho4/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">문자열 심화 &amp; 객체 기본</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/19/node-js-design-pattern1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52960899-1c792080-33dd-11e9-99a1-100b7670cb21.png)" alt="Node.js 철학" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/node-js/">node.js</a></p>
+                            <p class="item-title"><a href="/2019/02/19/node-js-design-pattern1/" class="title">Node.js 철학</a></p>
+                            <p class="item-date"><time datetime="2019-02-18T15:01:17.000Z" itemprop="datePublished">2019-02-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/18/js-zerocho4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52956343-4b3dc980-33d2-11e9-9dc9-30d174ac0ba3.png)" alt="문자열 심화 &amp; 객체 기본" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/18/js-zerocho4/" class="title">문자열 심화 &amp; 객체 기본</a></p>
+                            <p class="item-date"><time datetime="2019-02-18T13:27:34.000Z" itemprop="datePublished">2019-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/17/js-zerocho3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52914925-406f3000-3311-11e9-8935-7d449856a207.png)" alt="끝말잇기 구현" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/02/17/js-zerocho3/" class="title">끝말잇기 구현</a></p>
+                            <p class="item-date"><time datetime="2019-02-17T14:19:42.000Z" itemprop="datePublished">2019-02-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/16/react1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52869273-a2505e00-3188-11e9-91e3-18ab64823218.png)" alt="React 1일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/react/">React</a></p>
+                            <p class="item-title"><a href="/2019/02/16/react1/" class="title">React 1일차</a></p>
+                            <p class="item-date"><time datetime="2019-02-15T16:08:36.000Z" itemprop="datePublished">2019-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/15/programmers-second-mock-exam1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52057862-82764300-25a9-11e9-8203-171f68a3ad06.png)" alt="2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2019/02/15/programmers-second-mock-exam1/" class="title">2019 상반기 공채 대비 코딩테스트 실전 모의고사 2회</a></p>
+                            <p class="item-date"><time datetime="2019-02-15T14:45:52.000Z" itemprop="datePublished">2019-02-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">back-end</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">node.js</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">31</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">23</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 11.11px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16.67px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 11.11px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hdlc/" style="font-size: 11.11px;">HDLC</a> <a href="/tags/hash/" style="font-size: 10px;">Hash</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 11.11px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/react/" style="font-size: 10px;">React</a> <a href="/tags/recursion-function/" style="font-size: 11.11px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 11.11px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/object-object/" style="font-size: 11.11px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/data-communication/" style="font-size: 13.33px;">data-communication</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 11.11px;">framework</a> <a href="/tags/front-end/" style="font-size: 17.78px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 11.11px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 11.11px;">node.js</a> <a href="/tags/platform/" style="font-size: 11.11px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/recursion/" style="font-size: 11.11px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/객체/" style="font-size: 10px;">객체</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 12.22px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 15.56px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/문자열/" style="font-size: 10px;">문자열</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 11.11px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11.11px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 12.22px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12.22px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 14.44px;">재귀 함수</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 12.22px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 18.89px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12.22px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/해시/" style="font-size: 10px;">해시</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/02/19/node-js-design-pattern1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
