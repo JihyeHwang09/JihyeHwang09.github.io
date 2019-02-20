@@ -12,18 +12,20 @@
     
         <meta name="keywords" content="React">
     
-    <meta name="description" content="JSX 소개 JSX로 만든 엘리먼트는 변수에 담을 수 있고, 함수의 매개변수로도 사용할 수 있다.  왜 JSX인가?JSX에 표현식 포함하기 JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 수 있다. 예를 들어, 2 + 2, user.firstName, formatName(user) 를 유효한 표현식으로 표현하면 아래와 같이 표현한다.  1234">
+    <meta name="description" content="JSX 소개 JSX로 만든 엘리먼트는 변수에 담을 수 있고, 함수의 매개변수로도 사용할 수 있다.  왜 JSX인가?JSX에 표현식 포함하기 JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 수 있다. 예를 들어, 2 + 2, user.firstName, formatName(user) 를유효한 표현식으로 표현하면 아래와 같이 표현한다.  12345">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React 2일차">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/20/react2/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="JSX 소개 JSX로 만든 엘리먼트는 변수에 담을 수 있고, 함수의 매개변수로도 사용할 수 있다.  왜 JSX인가?JSX에 표현식 포함하기 JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 수 있다. 예를 들어, 2 + 2, user.firstName, formatName(user) 를 유효한 표현식으로 표현하면 아래와 같이 표현한다.  1234">
+<meta property="og:description" content="JSX 소개 JSX로 만든 엘리먼트는 변수에 담을 수 있고, 함수의 매개변수로도 사용할 수 있다.  왜 JSX인가?JSX에 표현식 포함하기 JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 수 있다. 예를 들어, 2 + 2, user.firstName, formatName(user) 를유효한 표현식으로 표현하면 아래와 같이 표현한다.  12345">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-20T14:53:24.531Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/53100564-5415d300-356b-11e9-8e59-77679258d0b1.png">
+<meta property="og:updated_time" content="2019-02-20T14:58:25.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 2일차">
-<meta name="twitter:description" content="JSX 소개 JSX로 만든 엘리먼트는 변수에 담을 수 있고, 함수의 매개변수로도 사용할 수 있다.  왜 JSX인가?JSX에 표현식 포함하기 JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 수 있다. 예를 들어, 2 + 2, user.firstName, formatName(user) 를 유효한 표현식으로 표현하면 아래와 같이 표현한다.  1234">
+<meta name="twitter:description" content="JSX 소개 JSX로 만든 엘리먼트는 변수에 담을 수 있고, 함수의 매개변수로도 사용할 수 있다.  왜 JSX인가?JSX에 표현식 포함하기 JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 수 있다. 예를 들어, 2 + 2, user.firstName, formatName(user) 를유효한 표현식으로 표현하면 아래와 같이 표현한다.  12345">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/53100564-5415d300-356b-11e9-8e59-77679258d0b1.png">
     
 
     
@@ -192,37 +194,37 @@ ga('send', 'pageview');
 </ul>
 <h3 id="왜-JSX인가"><a href="#왜-JSX인가" class="headerlink" title="왜 JSX인가?"></a>왜 JSX인가?</h3><h3 id="JSX에-표현식-포함하기"><a href="#JSX에-표현식-포함하기" class="headerlink" title="JSX에 표현식 포함하기"></a>JSX에 표현식 포함하기</h3><ul>
 <li>JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 수 있다.</li>
-<li>예를 들어, <code>2 + 2</code>, <code>user.firstName</code>, <code>formatName(user)</code> 를 유효한 표현식으로 표현하면 아래와 같이 표현한다.</li>
+<li>예를 들어, <code>2 + 2</code>, <code>user.firstName</code>, <code>formatName(user)</code> 를<br>유효한 표현식으로 표현하면 아래와 같이 표현한다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatName</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> user.firstName + <span class="string">" "</span> + user.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">"Harper"</span>,</span><br><span class="line">  lastName: <span class="string">"Perez"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;formatName(user)&#125;!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(element, <span class="built_in">document</span>.getElementById(<span class="string">"root"</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatName</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> user.firstName + <span class="string">" "</span> + user.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  firstName: <span class="string">"Harper"</span>,</span><br><span class="line">  lastName: <span class="string">"Perez"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;Hello, &#123;formatName(user)&#125;!&lt;/h1&gt;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(element, <span class="built_in">document</span>.getElementById(<span class="string">"root"</span>));</span><br></pre></td></tr></table></figure>
 <ul>
 <li>가독성을 좋게 하기 위해 JSX를 여러줄로 나눴습니다. 필수는 아니지만,<br>이 작업을 수행할 때는 자동 세미콜론 삽입의 함정을 피하기 위해 괄호로 묶는 것이 좋다.</li>
 </ul>
 <h3 id="JSX-또한-표현식이다"><a href="#JSX-또한-표현식이다" class="headerlink" title="JSX 또한 표현식이다"></a>JSX 또한 표현식이다</h3><ul>
-<li><p>컴파일이 끝나면, JSX 표현식이 일반적인 자바스크립트 함수 호출이 되고, 결과적으로 자바스크립트 객체로 평가된다.</p>
+<li><p>컴파일이 끝나면, JSX 표현식이 일반적인 자바스크립트 함수 호출이 되고,<br>결과적으로 자바스크립트 객체로 평가된다.</p>
 </li>
 <li><p>이 말은 if 문이나 for 문 내에서 JSX를 사용할 수 있다.</p>
 </li>
 <li>-&gt; 변수에 할당하거나 매개변수로 전달하거나 함수에서 반환할 수 있음을 의미한다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getGreeting</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;formatName(user)&#125;!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, Stranger.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getGreeting</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;h1&gt;Hello, &#123;formatName(user)&#125;!&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="JSX-어트리뷰트-정의"><a href="#JSX-어트리뷰트-정의" class="headerlink" title="JSX 어트리뷰트 정의"></a>JSX 어트리뷰트 정의</h3><ul>
 <li>어트리뷰트에서 <code>따옴표</code>를 사용해서 <code>문자열 리터럴</code>을 정의할 수 있다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">tabIndex</span>=<span class="string">"0"</span> /&gt;</span>;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;div tabIndex="0" /&gt;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>어트리뷰트에 <code>중괄호</code>를 사용하면, <code>자바스크립트 표현식</code>을 포함시킬 수 있습니다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;user.avtarUrl&#125;</span> /&gt;</span>;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img src=&#123;user.avtarUrl&#125; /&gt;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>어트리뷰트에 자바스크립트 표현식을 포함시킬 때 중괄호를 따옴표로 묶지 말아야 한다.<ul>
 <li>따옴표 (문자열 값인 경우) 또는 중괄호 (표현식인 경우) 중 하나를 사용해야 하며,<br>하나의 어트리뷰트에 둘 다 사용할 수 있는 것이 아니다.</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">이렇게 하면, user.avatarUrl에 들어있는 값이 넘어가는 게 아니라 문자열이 넘어감</span><br><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&#123;user.avatarUrl&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span>;</span><br><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"user.avatarUrl"</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">이렇게 하면, user.avatarUrl에 들어있는 값이 넘어가는 게 아니라 문자열이 넘어감</span><br><span class="line"><span class="keyword">const</span> element = &lt;img src="&#123;user.avatarUrl&#125;"&gt;&lt;/img&gt;;</span><br><span class="line"><span class="keyword">const</span> element = &lt;img src="user.avatarUrl"&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure>
 <hr>
-<p>경고:<br><strong>HTML에서 사용하던 어트리뷰트 이름을 JSX에서 그대로 사용할 수 없다.</strong><br>JSX는 HTML보다는 자바스크립트에 가깝기 때문에, React DOM은 HTML 어트리뷰트 이름 대신 <code>camelCase</code> 어트리뷰트 이름 컨벤션을 사용합니다.</p>
+<p>경고:<br><strong>HTML에서 사용하던 어트리뷰트 이름을 JSX에서 그대로 사용할 수 없다.</strong><br>JSX는 HTML보다는 자바스크립트에 가깝기 때문에,<br>React DOM은 HTML 어트리뷰트 이름 대신 <code>camelCase</code> 어트리뷰트 이름 컨벤션을 사용합니다.</p>
 <p>ex1) React에서는 tabIndex를 camelCase로 써준다.<br>React 라이브러리를 통해 tabindex라고 변환되어 HTML에 들어가는 것이다.</p>
 <p>ex2) HTML에서는 label for를 React에서는 label htmlFor로 써야한다.<br>예를 들어, JSX에서 <code>class</code> 는 <code>className</code> 이 되며, <code>tabindex</code> 는 <code>tabIndex</code> 가 됩니다.</p>
 <hr>
@@ -230,42 +232,37 @@ ga('send', 'pageview');
 <li>만약 태그가 비어있다면, XML 처럼 /&gt; 를 이용해 닫아주어야 한다.</li>
 <li><strong>React에서는 HTML에서 여는 태그만 있는 태그들을 꼭 닫아주는 태그도 써줘야 한다.</strong><br>ex) img, link</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;user.avatarUrl&#125;</span> /&gt;</span>;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img src=&#123;user.avatarUrl&#125; /&gt;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>JSX 태그는 자식을 가질 수 있다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;Hello!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">    &lt;h2&gt;Good to see you here.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;Hello!&lt;/h1&gt;</span><br><span class="line">    &lt;h2&gt;Good to see you here.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <h3 id="JSX-인젝션-공격-예방"><a href="#JSX-인젝션-공격-예방" class="headerlink" title="JSX 인젝션 공격 예방"></a>JSX 인젝션 공격 예방</h3><ul>
 <li>사용자가 입력한 내용을 JSX 내에 포함시켜도 안전하다.<ul>
 <li>React에 XSS(cross-site-scripting)공격에 대한 보안 기능이 내장되어 있기 때문이다.</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> title = response.potentiallyMaliciousInput;</span><br><span class="line"><span class="comment">// This is safe:</span></span><br><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;title&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> title = response.potentiallyMaliciousInput;</span><br><span class="line"><span class="comment">// This is safe:</span></span><br><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;&#123;title&#125;&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>기본적으로, React DOM은 렌더링 되기 전에 JSX 내에 포함된 모든 값을 이스케이프 한다.</li>
 <li>따라서 어플리케이션에 명시적으로 작성되지 않은 내용은 절대 삽입할 수 없습니다.</li>
-<li>모든 것은 렌더링 되기 전에 문자열로 변환된다. 이렇게 하면 XSS (cross-site-scripting) 공격을 막을 수 있다.</li>
+<li>모든 것은 렌더링 되기 전에 문자열로 변환된다.<br>이렇게 하면 XSS (cross-site-scripting) 공격을 막을 수 있다.</li>
 </ul>
 <h3 id="JSX-객체-표현"><a href="#JSX-객체-표현" class="headerlink" title="JSX 객체 표현"></a>JSX 객체 표현</h3><ul>
-<li><p>사용자의 브라우저는 자바스크립트 코드만 해석할 수 있으므로 JSX 코드를 자바스크립트 코드로 컴파일한 후 전달해야 한다.</p>
+<li><p>사용자의 브라우저는 자바스크립트 코드만 해석할 수 있으므로<br>JSX 코드를 자바스크립트 코드로 컴파일한 후 전달해야 한다.</p>
 </li>
 <li><p>Babel은 JSX를 React.createElement() 호출로 컴파일한다.</p>
 </li>
 <li><p>아래 두 예제는 동일하다.</p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">"greeting"</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;h1 className="greeting"&gt;Hello, world!&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = React.createElement(</span><br><span class="line">  <span class="string">"h1"</span>,</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">"greeting"</span> &#125;,</span><br><span class="line">  <span class="string">"Hello, world!"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>React.createElement() 는 버그 없는 코드를 작성하는 데 도움을 주는 몇 가지 체크를 하긴 하지만,<br>기본적으로는 아래와 같은 객체를 생성한다.</li>
+<li>React.createElement() 는 버그 없는 코드를 작성하는 데<br>S도움을 주는 몇 가지 체크를 하긴 하지만,<br>기본적으로는 아래와 같은 객체를 생성한다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Note: this structure is simplified</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">"h1"</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">"greeting"</span>,</span><br><span class="line">    children: <span class="string">"Hello, world"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>이 객체를 “React”요소라고 부른다.</li>
-<li>React요소는 화면에서 보고자 하는 내용에 대한 설명 내지 서술로 생각할 수 있다.</li>
-<li>React는 이 객체를 읽어들이고 이를 사용하여 DOM을 만들어낸 뒤 최신 상태로 유지한다.</li>
-</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Note: this structure is simplified</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">"h1"</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">"greeting"</span>,</span><br><span class="line">    children: <span class="string">"Hello, world"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;S</span><br><span class="line"></span><br><span class="line">- 이 객체를 <span class="string">"React"</span>요소라고 부른다.</span><br><span class="line">- React요소는 화면에서 보고자 하는 내용에 대한 설명 내지 서술로 생각할 수 있다.</span><br><span class="line">- React는 이 객체를 읽어들이고 이를 사용하여 DOM을 만들어낸 뒤 최신 상태로 유지한다.</span><br></pre></td></tr></table></figure>
 
         </div>
         <footer class="article-footer">
@@ -337,7 +334,7 @@ ga('send', 'pageview');
             "name": "Phang"
         },
         "headline": "React 2일차",
-        "image": "https://JihyeHwang09.github.io",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/53100564-5415d300-356b-11e9-8e59-77679258d0b1.png",
         "keywords": "React",
         "genre": "front-end React",
         "datePublished": "2019-02-20",
@@ -349,10 +346,10 @@ JSX로 만든 엘리먼트는 변수에 담을 수 있고, 함수의 매개변�
 
 왜 JSX인가?JSX에 표현식 포함하기
 JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 수 있다.
-예를 들어, 2 + 2, user.firstName, formatName(user) 를 유효한 표현식으로 표현하면 아래와 같이 표현한다.
+예를 들어, 2 + 2, user.firstName, formatName(user) 를유효한 표현식으로 표현하면 아래와 같이 표현한다.
 
-1234"
-        "wordCount": 767
+12345"
+        "wordCount": 714
     }
 </script>
 
@@ -425,7 +422,7 @@ JSX 안에 자바스크립트 표현식 을 중괄호로 묶어서 포함시킬 
                             <a href="/2019/02/20/react2/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53100564-5415d300-356b-11e9-8e59-77679258d0b1.png)" alt="React 2일차" class="thumbnail-image"></span>
     
     
 </a>
