@@ -20,10 +20,12 @@
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
 <meta property="og:description" content="요소(element) 렌더링요소는 React 앱에서 가장 작은 단위의 재료입니다. 요소는 화면에 표시하고자 하는 내용을 서술합니다.  React는 element를 받아서 화면에 그려주는 기능을 하는 라이브러리  브라우저 DOM 요소와 달리, React 요소는 순수한 객체이며 생성 비용이 저렴합니다. 생성 비용? ex) video태그, img태그 등은 비용이">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-20T15:22:05.800Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/53102836-d7392800-356f-11e9-8429-c3206fa05c89.png">
+<meta property="og:updated_time" content="2019-02-20T15:47:10.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="리액트 3일차">
 <meta name="twitter:description" content="요소(element) 렌더링요소는 React 앱에서 가장 작은 단위의 재료입니다. 요소는 화면에 표시하고자 하는 내용을 서술합니다.  React는 element를 받아서 화면에 그려주는 기능을 하는 라이브러리  브라우저 DOM 요소와 달리, React 요소는 순수한 객체이며 생성 비용이 저렴합니다. 생성 비용? ex) video태그, img태그 등은 비용이">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/53102836-d7392800-356f-11e9-8429-c3206fa05c89.png">
     
 
     
@@ -236,7 +238,7 @@ ga('send', 'pageview');
 <ul>
 <li>보통 실무에서는 setState로 상태를 변경한다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 실무에서 활용되는 방법은 X</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// toLocaleTimeString()는 사용자가 사용하는 시간으로 만들어주는 메소드</span></span><br><span class="line">  <span class="keyword">const</span> element = (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &lt;h2&gt;It is &#123;<span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">  ReactDOM.render(element, <span class="built_in">document</span>.getElementById(<span class="string">"root"</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// tick이라는 함수가 1초에 한 번씩 실행됨</span></span><br><span class="line">setInterval(tick, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 실무에서 활용되는 방법은 X</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// toLocaleTimeString()는 사용자가 사용하는 시간으로 만들어주는 메소드</span></span><br><span class="line">  <span class="keyword">const</span> element = (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line">      &lt;h2&gt;It is &#123;<span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleTimeString()&#125;.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">  ReactDOM.render(element, <span class="built_in">document</span>.getElementById(<span class="string">"root"</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// tick이라는 함수가 1초에 한 번씩 실행됨</span></span><br><span class="line">setInterval(tick, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
 <p>이 예제는 setInterval() 콜백을 이용해 매 초마다 ReactDOM.render() 를 호출하고 있습니다.</p>
 <p>Note:</p>
 <p>실무에서, 대부분의 React 어플리케이션은 ReactDOM.render() 를 한 번만 호출합니다. 다음 섹션에서는 이러한 코드가 어떻게 상태를 갖는 컴포넌트 로 캡슐화 되는 지 배울 것입니다.</p>
@@ -257,7 +259,7 @@ ga('send', 'pageview');
 <li><p>긴 엘리먼트를 생성하는 컴포넌트에 <strong>이름을 붙여서</strong> 사용할 수 잇는 것임</p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 컴포넌트 안에 많은 엘리먼트들이 들어있지만 모든 내용을 개발자가 기억하고 사용하는 게 X</span></span><br><span class="line"><span class="comment">// 사용자 정의 컴포넌트의 이름을 그 기능을 잘 나타내주는 이름으로 붙여주어 사용한다.</span></span><br><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">"Sara"</span> /&gt;</span>;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 컴포넌트 안에 많은 엘리먼트들이 들어있지만 모든 내용을 개발자가 기억하고 사용하는 게 X</span></span><br><span class="line"><span class="comment">// 사용자 정의 컴포넌트의 이름을 그 기능을 잘 나타내주는 이름으로 붙여주어 사용한다.</span></span><br><span class="line"><span class="keyword">const</span> element = &lt;Welcome name="Sara" /&gt;;</span><br></pre></td></tr></table></figure>
 <h3 id="컴포넌트-조립하기"><a href="#컴포넌트-조립하기" class="headerlink" title="컴포넌트 조립하기"></a>컴포넌트 조립하기</h3><ul>
 <li>제일 위에 있는 컴포넌트를 App이라고 부르는 게 관례이다.</li>
 </ul>
@@ -275,7 +277,6 @@ ga('send', 'pageview');
 <li>React에서 render 메소드가 호출되는 것을 개발자가 컨트롤할 수 없다.</li>
 <li>render 메소드 안에 Math.random()을 사용하면, 화면이 다시 그려질 때마다 출력이 계속 달라지기 때문에 화면이 예상치 못한 순간에 이상하게 나오는 버그가 발생할 수 있다.</li>
 </ul>
-<hr>
 
         </div>
         <footer class="article-footer">
@@ -347,7 +348,7 @@ ga('send', 'pageview');
             "name": "Phang"
         },
         "headline": "리액트 3일차",
-        "image": "https://JihyeHwang09.github.io",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/53102836-d7392800-356f-11e9-8429-c3206fa05c89.png",
         "keywords": "React",
         "genre": "front-end React",
         "datePublished": "2019-02-21",
@@ -362,7 +363,7 @@ React는 element를 받아서 화면에 그려주는 기능을 하는 라이브�
 브라우저 DOM 요소와 달리, React 요소는 순수한 객체이며 생성 비용이 저렴합니다.
 생성 비용?
 ex) video태그, img태그 등은 비용이"
-        "wordCount": 719
+        "wordCount": 711
     }
 </script>
 
@@ -435,7 +436,7 @@ ex) video태그, img태그 등은 비용이"
                             <a href="/2019/02/21/react3/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53102836-d7392800-356f-11e9-8429-c3206fa05c89.png)" alt="리액트 3일차" class="thumbnail-image"></span>
     
     
 </a>
