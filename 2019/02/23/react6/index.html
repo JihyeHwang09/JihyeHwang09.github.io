@@ -6,7 +6,7 @@
     
 
     
-    <title>react 6일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>React 6일차 | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -15,15 +15,15 @@
     <meta name="description" content="조건부 렌더링&amp;amp;&amp;amp; 논리 연산자를 사용해 if를 인라인으로 넣기 React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화면에 안 그려준다. &amp;amp;&amp;amp;는 앞의 코드가 falsy이면 앞의 걸 반환하고, 앞의 코드가 true이면 뒤의 걸 반환한다.  12345678910111213141516171819202122">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react 6일차">
+<meta property="og:title" content="React 6일차">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/23/react6/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
 <meta property="og:description" content="조건부 렌더링&amp;amp;&amp;amp; 논리 연산자를 사용해 if를 인라인으로 넣기 React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화면에 안 그려준다. &amp;amp;&amp;amp;는 앞의 코드가 falsy이면 앞의 걸 반환하고, 앞의 코드가 true이면 뒤의 걸 반환한다.  12345678910111213141516171819202122">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/53257915-a5aa9300-370e-11e9-8c68-04ed0139d854.png">
-<meta property="og:updated_time" content="2019-02-22T17:01:48.357Z">
+<meta property="og:updated_time" content="2019-02-24T16:29:43.127Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react 6일차">
+<meta name="twitter:title" content="React 6일차">
 <meta name="twitter:description" content="조건부 렌더링&amp;amp;&amp;amp; 논리 연산자를 사용해 if를 인라인으로 넣기 React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화면에 안 그려준다. &amp;amp;&amp;amp;는 앞의 코드가 falsy이면 앞의 걸 반환하고, 앞의 코드가 true이면 뒤의 걸 반환한다.  12345678910111213141516171819202122">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/53257915-a5aa9300-370e-11e9-8c68-04ed0139d854.png">
     
@@ -162,7 +162,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        react 6일차
+        React 6일차
         </h1>
     
 
@@ -193,9 +193,9 @@ ga('send', 'pageview');
 <li>React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화면에 안 그려준다.</li>
 <li>&amp;&amp;는 앞의 코드가 falsy이면 앞의 걸 반환하고, 앞의 코드가 true이면 뒤의 걸 반환한다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Mailbox</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// unreadMessages.length는 안 읽는 메시지가 있으면 true, 안 읽은 메시지가 없으면 false가 됨</span></span><br><span class="line">  <span class="comment">// &amp;&amp;는 앞의 코드가 falsy이면 앞의 걸 반환하고, 앞의 코드가 true이면 뒤의 걸 반환한다.</span></span><br><span class="line">  <span class="comment">// 앞의 코드가 falsy라서 false를 반환하면, React는 아무것도 화면에 그리지 않기 때문에 if - else의 느낌으로 사용할 수 있다.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//if ~else를 React에서 사용할 수 있으나 복잡한 UI를 그리기에 불편해서 이렇게 &amp;&amp;를 이용함</span></span><br><span class="line">  <span class="keyword">const</span> unreadMessages = props.unreadMessages;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Hello!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">      &#123;unreadMessages.length &gt; <span class="number">0</span> &amp;&amp; (</span><br><span class="line">        &lt;h2&gt;You have &#123;unreadMessages.length&#125; unread messages.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">      )&#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> messages = [<span class="string">"React"</span>, <span class="string">"Re: React"</span>, <span class="string">"Re:Re: React"</span>];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Mailbox unreadMessages=&#123;messages&#125; /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"root"</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Mailbox</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// unreadMessages.length는 안 읽는 메시지가 있으면 true, 안 읽은 메시지가 없으면 false가 됨</span></span><br><span class="line">  <span class="comment">// &amp;&amp;는 앞의 코드가 falsy이면 앞의 걸 반환하고, 앞의 코드가 true이면 뒤의 걸 반환한다.</span></span><br><span class="line">  <span class="comment">// 앞의 코드가 falsy라서 false를 반환하면, React는 아무것도 화면에 그리지 않기 때문에 if - else의 느낌으로 사용할 수 있다.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//if ~else를 React에서 사용할 수 있으나 복잡한 UI를 그리기에 불편해서 이렇게 &amp;&amp;를 이용함</span></span><br><span class="line">  <span class="keyword">const</span> unreadMessages = props.unreadMessages;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Hello!&lt;/h1&gt;</span><br><span class="line">      &#123;unreadMessages.length &gt; <span class="number">0</span> &amp;&amp; (</span><br><span class="line">        &lt;h2&gt;You have &#123;unreadMessages.length&#125; unread messages.&lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">      )&#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> messages = [<span class="string">"React"</span>, <span class="string">"Re: React"</span>, <span class="string">"Re:Re: React"</span>];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Mailbox unreadMessages=&#123;messages&#125; /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"root"</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <h3 id="조건부-연산자를-사용해-if-else-인라인으로-넣기"><a href="#조건부-연산자를-사용해-if-else-인라인으로-넣기" class="headerlink" title="조건부 연산자를 사용해 if-else 인라인으로 넣기"></a>조건부 연산자를 사용해 if-else 인라인으로 넣기</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if ~else 느낌으로 삼항 연산자를 쓸 수 있다.</span></span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">const</span> isLoggedIn = <span class="keyword">this</span>.state.isLoggedIn;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      The user is &lt;b&gt;&#123;isLoggedIn ? <span class="string">'currently'</span> : <span class="string">'not'</span>&#125;&lt;<span class="regexp">/b&gt; logged in.</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="컴포넌트가-렌더링-되지-못하도록-방지"><a href="#컴포넌트가-렌더링-되지-못하도록-방지" class="headerlink" title="컴포넌트가 렌더링 되지 못하도록 방지"></a>컴포넌트가 렌더링 되지 못하도록 방지</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 경고 메시지가 있으면 그려라.</span></span><br><span class="line"><span class="comment">// 경고 메시지가 없으면, 아무것도 그리지 말고</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">WarningBanner</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!props.warn) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"warning"</span>&gt;</span>Warning!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="컴포넌트가-렌더링-되지-못하도록-방지"><a href="#컴포넌트가-렌더링-되지-못하도록-방지" class="headerlink" title="컴포넌트가 렌더링 되지 못하도록 방지"></a>컴포넌트가 렌더링 되지 못하도록 방지</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 경고 메시지가 있으면 그려라.</span></span><br><span class="line"><span class="comment">// 경고 메시지가 없으면, 아무것도 그리지 말고</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">WarningBanner</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!props.warn) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &lt;div className="warning"&gt;Warning!&lt;/div&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
         <footer class="article-footer">
@@ -266,20 +266,20 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Phang"
         },
-        "headline": "react 6일차",
+        "headline": "React 6일차",
         "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/53257915-a5aa9300-370e-11e9-8c68-04ed0139d854.png",
         "keywords": "React",
         "genre": "front-end React",
         "datePublished": "2019-02-23",
         "dateCreated": "2019-02-23",
-        "dateModified": "2019-02-23",
+        "dateModified": "2019-02-25",
         "url": "https://JihyeHwang09.github.io/2019/02/23/react6/",
         "description": "조건부 렌더링&amp;&amp; 논리 연산자를 사용해 if를 인라인으로 넣기
 React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화면에 안 그려준다.
 &amp;&amp;는 앞의 코드가 falsy이면 앞의 걸 반환하고, 앞의 코드가 true이면 뒤의 걸 반환한다.
 
 12345678910111213141516171819202122"
-        "wordCount": 411
+        "wordCount": 401
     }
 </script>
 
@@ -340,7 +340,7 @@ React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화�
     
         <a href="/2019/02/22/react5/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">react 5일차</p>
+        <p class="article-nav-title">React 5일차</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -362,7 +362,7 @@ React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화�
                             <a href="/2019/02/25/react8/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53301971-85104380-389c-11e9-8c3a-6551043b67c7.png)" alt="React 8일차" class="thumbnail-image"></span>
     
     
 </a>
@@ -402,7 +402,7 @@ React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화�
                             <a href="/2019/02/23/react6/" class="thumbnail">
     
     
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53257915-a5aa9300-370e-11e9-8c68-04ed0139d854.png)" alt="react 6일차" class="thumbnail-image"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53257915-a5aa9300-370e-11e9-8c68-04ed0139d854.png)" alt="React 6일차" class="thumbnail-image"></span>
     
     
 </a>
@@ -411,7 +411,7 @@ React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/react/">React</a></p>
-                            <p class="item-title"><a href="/2019/02/23/react6/" class="title">react 6일차</a></p>
+                            <p class="item-title"><a href="/2019/02/23/react6/" class="title">React 6일차</a></p>
                             <p class="item-date"><time datetime="2019-02-22T16:54:23.000Z" itemprop="datePublished">2019-02-23</time></p>
                         </div>
                     </li>
@@ -422,7 +422,7 @@ React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화�
                             <a href="/2019/02/22/react5/" class="thumbnail">
     
     
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53179853-e2578b00-3637-11e9-8d6e-b5d51c9ca000.png)" alt="react 5일차" class="thumbnail-image"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53179853-e2578b00-3637-11e9-8d6e-b5d51c9ca000.png)" alt="React 5일차" class="thumbnail-image"></span>
     
     
 </a>
@@ -431,7 +431,7 @@ React는 문자열, 숫자는 잘 그려주는데, true, false, null 등은 화�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/react/">React</a></p>
-                            <p class="item-title"><a href="/2019/02/22/react5/" class="title">react 5일차</a></p>
+                            <p class="item-title"><a href="/2019/02/22/react5/" class="title">React 5일차</a></p>
                             <p class="item-date"><time datetime="2019-02-21T15:16:28.000Z" itemprop="datePublished">2019-02-22</time></p>
                         </div>
                     </li>
