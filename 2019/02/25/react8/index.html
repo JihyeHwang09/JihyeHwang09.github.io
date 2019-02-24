@@ -6,26 +6,24 @@
     
 
     
-    <title>자바스크립트 11일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>React 8일차 | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="javaScript">
+        <meta name="keywords" content="React">
     
-    <meta name="description" content="previousElementSibling previousElementSibling는 가장 앞에 있는 요소에 주면, null이 반환된다.  insertBefore와 appendChild insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 동작한다.  nextElmentSibling 맨 마지막에 있는 요소의 nextElme">
-<meta name="keywords" content="javaScript">
+    <meta name="description" content="JSX 더 알아보기 문법 설탕(syntatic sugar): 무언가를 문법적으로 쉽게 만든 것  .createElement()의 반환값은 객체다.가 중요   React 엘리먼트의 타입 지정하기&amp;lt;div/&amp;gt;&amp;lt;Div/&amp;gt;는 리액트에서 다르게 동작대문자로 시작하는 타입은 해당 JSX 태그가 React 컴포넌트임을 가리킨다.  그러니까, &amp;lt;">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="자바스크립트 11일차">
-<meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/25/javascript11/index.html">
+<meta property="og:title" content="React 8일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/25/react8/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="previousElementSibling previousElementSibling는 가장 앞에 있는 요소에 주면, null이 반환된다.  insertBefore와 appendChild insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 동작한다.  nextElmentSibling 맨 마지막에 있는 요소의 nextElme">
+<meta property="og:description" content="JSX 더 알아보기 문법 설탕(syntatic sugar): 무언가를 문법적으로 쉽게 만든 것  .createElement()의 반환값은 객체다.가 중요   React 엘리먼트의 타입 지정하기&amp;lt;div/&amp;gt;&amp;lt;Div/&amp;gt;는 리액트에서 다르게 동작대문자로 시작하는 타입은 해당 JSX 태그가 React 컴포넌트임을 가리킨다.  그러니까, &amp;lt;">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/51750128-76dfd380-20f4-11e9-94fc-7e3c8b6efdf8.png">
-<meta property="og:updated_time" content="2019-01-25T14:23:20.508Z">
+<meta property="og:updated_time" content="2019-02-24T16:24:49.135Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="자바스크립트 11일차">
-<meta name="twitter:description" content="previousElementSibling previousElementSibling는 가장 앞에 있는 요소에 주면, null이 반환된다.  insertBefore와 appendChild insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 동작한다.  nextElmentSibling 맨 마지막에 있는 요소의 nextElme">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/51750128-76dfd380-20f4-11e9-94fc-7e3c8b6efdf8.png">
+<meta name="twitter:title" content="React 8일차">
+<meta name="twitter:description" content="JSX 더 알아보기 문법 설탕(syntatic sugar): 무언가를 문법적으로 쉽게 만든 것  .createElement()의 반환값은 객체다.가 중요   React 엘리먼트의 타입 지정하기&amp;lt;div/&amp;gt;&amp;lt;Div/&amp;gt;는 리액트에서 다르게 동작대문자로 시작하는 타입은 해당 JSX 태그가 React 컴포넌트임을 가리킨다.  그러니까, &amp;lt;">
     
 
     
@@ -150,19 +148,19 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/react/">React</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-javascript11" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+                            <article id="post-react8" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        자바스크립트 11일차
+        React 8일차
         </h1>
     
 
@@ -172,8 +170,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/01/25/javascript11/" class="article-date">
-            <time datetime="2019-01-25T13:52:53.097Z" itemprop="datePublished">2019-01-25</time>
+        <a href="/2019/02/25/react8/" class="article-date">
+            <time datetime="2019-02-24T16:21:02.000Z" itemprop="datePublished">2019-02-25</time>
         </a>
     </div>
 
@@ -182,97 +180,106 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+        <a class="tag-link" href="/tags/react/">React</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="previousElementSibling"><a href="#previousElementSibling" class="headerlink" title="previousElementSibling"></a>previousElementSibling</h3><ul>
-<li><code>previousElementSibling</code>는 가장 앞에 있는 요소에 주면, <code>null</code>이 반환된다.</li>
-</ul>
-<h3 id="insertBefore와-appendChild"><a href="#insertBefore와-appendChild" class="headerlink" title="insertBefore와 appendChild"></a>insertBefore와 appendChild</h3><ul>
-<li><code>insertBefore</code>에 2번째 인자로 <code>null</code>이 들어가면 <code>appendChild</code>와 <strong>똑같이 동작한다.</strong></li>
-</ul>
-<h3 id="nextElmentSibling"><a href="#nextElmentSibling" class="headerlink" title="nextElmentSibling"></a>nextElmentSibling</h3><ul>
-<li>맨 마지막에 있는 요소의 <code>nextElmentSibling</code>은 <code>null</code>을 반환한다.<br>따라서, <code>nextElmentSibling.nextElmentSibling</code>은<br><code>null.nextElmentSibling</code>이 되므로 -&gt; <strong>타입 에러가 난다.</strong></li>
-</ul>
-<hr>
-<ul>
-<li>위로 버튼을 눌렀을 때</li>
-<li><code>mouseover</code>는 부모 요소의 경계선을 지날 때 뿐만 아니라,<br><strong>자식 요소의 경계선을 지나쳤을 때도</strong> 부모 요소의 이벤트 리스너가 실행된다.</li>
-</ul>
-<h4 id="이런-현상이-일어나는-이유"><a href="#이런-현상이-일어나는-이유" class="headerlink" title="이런 현상이 일어나는 이유"></a>이런 현상이 일어나는 이유</h4><ul>
-<li><code>mouseover</code>, <code>mouseout</code>은 <strong>버블링이 일어난다.</strong></li>
-<li><code>mouseenter</code>, <code>mouseleave</code>은 <strong>버블링이 일어나지 않는다.</strong></li>
-</ul>
-<hr>
-<h3 id="2가지-방법"><a href="#2가지-방법" class="headerlink" title="2가지 방법"></a>2가지 방법</h3><h4 id="1-DOM-객체를-실제로-만들어서-넣기"><a href="#1-DOM-객체를-실제로-만들어서-넣기" class="headerlink" title="1. DOM 객체를 실제로 만들어서 넣기"></a>1. DOM 객체를 실제로 만들어서 넣기</h4><blockquote>
-<p>HTML 문서에 직접 써넣을 수 없는 경우<br>코드 작성 시점에 정확히 요소가 몇 개 표시될 지 모를 경우</p>
-</blockquote>
-<ul>
-<li>ex) 사용자의 입력을 받아서 할 경우(Todo List 할 일 추가할 때)</li>
-<li>ex) createElement, appendChild, removeChild 등을 사용</li>
-</ul>
-<h4 id="2-CSS-Style을-다르게-먹이는-방법"><a href="#2-CSS-Style을-다르게-먹이는-방법" class="headerlink" title="2. CSS Style을 다르게 먹이는 방법"></a>2. CSS Style을 다르게 먹이는 방법</h4><blockquote>
-<p>코드 작성 시점에 정확히 요소가 몇 개 표시될 지 아는 경우</p>
-</blockquote>
-<ul>
-<li>ex) display: block or none했다가 나타나게 하기</li>
-</ul>
-<blockquote>
-<p><strong>2가지 방법 다 많이 사용되므로 필요에 따라 그때그때 다르게 사용하자.</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>스타일은 CSS에 작성하고, 자바스크립트에서는 클래스를 넣었다 뺐다 해주자.</strong><br>(자바스크립트에서 스타일을 넣고 빼는 건 할 수 있으나 역할과 책임에 맞지 않는다.)</p>
-</blockquote>
-<h2 id="게임을-만들-때-생각하는-절차"><a href="#게임을-만들-때-생각하는-절차" class="headerlink" title="게임을 만들 때 생각하는 절차"></a>게임을 만들 때 생각하는 절차</h2><ul>
-<li><strong>원래 그려져 있던 화면을 시간이 지남에 따라</strong><br>or <strong>사용자의 입력에 따라서</strong>,<br>화면을 바꿔주는 과정을 거친다.(화면을 새로 그려준다.)</li>
-</ul>
-<ul>
-<li>사용자의 입력 시간의 경과</li>
-<li>뭔가 기억하고 있는 것과 화면을 그리는 것이 연관이 있다.</li>
-</ul>
-<h3 id="상태-State"><a href="#상태-State" class="headerlink" title="상태(State)"></a>상태(State)</h3><ul>
-<li>화면을 그리기 위해 기억하고 있는 것을 <code>상태(State)</code>라고 부른다.</li>
-<li>사용자의 입력을 받았을 때 어떤 상태가 될 지, 상태의 구조는 어떻게 될 지</li>
-<li>프로그램이 기억하는 무언가가 모두 <code>상태</code>가 될 수 있다.</li>
-</ul>
-<h4 id="예시1"><a href="#예시1" class="headerlink" title="예시1"></a>예시1</h4><p><code>textContent</code>는 해당 텍스트를 기억해뒀다가 화면을 <code>1초</code>에 약 <code>60번</code>씩 계속 그리고 있는 것이다.</p>
-<ul>
-<li><code>classList.add</code>, <code>textContent</code>의 <code>상태</code>를 바꾸면<br>화면이 자동으로 다시 그려지게 기능이 내장되어 있다.<br>(브라우저 내장 상태이기 때문에)-&gt; 굳이 ‘그리기’라는 절차를 코딩하지 않아도 된다.<blockquote>
-</blockquote>
+            <h1 id="JSX-더-알아보기"><a href="#JSX-더-알아보기" class="headerlink" title="JSX 더 알아보기"></a>JSX 더 알아보기</h1><ul>
+<li><p>문법 설탕(syntatic sugar): 무언가를 문법적으로 쉽게 만든 것</p>
+</li>
+<li><p>.createElement()의 반환값은 객체다.가 중요</p>
 </li>
 </ul>
-<h4 id="예시2"><a href="#예시2" class="headerlink" title="예시2"></a>예시2</h4><p>ex) score라는 상태는 우리가 기억하고 있는 상태이기 때문에<br>개발자가 직접 일일히 화면을 그려주는 작업을 해야 한다.<br>(score를 바꿀 때마다 화면이 다시 그려지는 게 X. )</p>
-<h3 id="React를-이용하기"><a href="#React를-이용하기" class="headerlink" title="React를 이용하기"></a>React를 이용하기</h3><ul>
-<li><code>React</code>를 이용하면, 우리가 만든 상태를 사용할 때도 그 상태를 바꾸면,<br><strong>자동으로 화면을 다시 그려준다.</strong></li>
-<li><code>React</code>는 기술이기도 하지만 사고방식이라고 볼 수 있다.<ul>
-<li>게임에서 사용하던 기술들을 <code>React</code>에 많이 가져왔다. 프로그래밍하기에 편하도록 바꿔준 기술이다.</li>
+<h2 id="React-엘리먼트의-타입-지정하기"><a href="#React-엘리먼트의-타입-지정하기" class="headerlink" title="React 엘리먼트의 타입 지정하기"></a>React 엘리먼트의 타입 지정하기</h2><p><code>&lt;div/&gt;</code><br><code>&lt;Div/&gt;</code><br>는 리액트에서 다르게 동작<br>대문자로 시작하는 타입은 해당 JSX 태그가 React 컴포넌트임을 가리킨다.</p>
+<ul>
+<li>그러니까, <code>&lt;Foo /&gt;</code>와 같은 JSX 표현을 사용하려면 Foo가 반드시 스코프 내에 존재해야 합니다.</li>
 </ul>
+<h2 id="React가-스코프-안에-있어야합니다"><a href="#React가-스코프-안에-있어야합니다" class="headerlink" title="React가 스코프 안에 있어야합니다"></a>React가 스코프 안에 있어야합니다</h2><ul>
+<li><p>JSX는 React.createElement를 호출하는 코드로 컴파일되기 때문에,<br>React 라이브러리가 JSX 코드의 스코프 안에 항상 존재해야만 합니다.</p>
 </li>
-<li><code>Parcel</code>은 자바스크립트가 수정될 때마다 다시 실행된다.</li>
-<li>Style을 수정할 때는 괜찮지만, <strong>자바스크립트를 수정</strong>할 때는 <strong>그 때마다 새로고침을 눌러주는 게 좋다.</strong></li>
+<li><p>-&gt; 리액트 코드를 작성할 때 항상 import React from ‘react’;를 써줘야함</p>
+</li>
+</ul>
+<h2 id="JSX-타입을-위한-점-표기법-사용하기"><a href="#JSX-타입을-위한-점-표기법-사용하기" class="headerlink" title="JSX 타입을 위한 점 표기법 사용하기"></a>JSX 타입을 위한 점 표기법 사용하기</h2><h2 id="사용자-정의-컴포넌트는-‘대문자’로-시작해야합니다"><a href="#사용자-정의-컴포넌트는-‘대문자’로-시작해야합니다" class="headerlink" title="사용자 정의 컴포넌트는 ‘대문자’로 시작해야합니다"></a>사용자 정의 컴포넌트는 ‘대문자’로 시작해야합니다</h2><p>엘리먼트 타입이 소문자로 시작한다는 것은 그것이 <div> or <span>와 같은 내장 컴포넌트라는 것을 뜻합니다.<br>이 컴포넌트들은 결과적으로 ‘div’혹은 ‘span’와 같은 ‘문자열의 형태’로 React.createElement에 전달됩니다.<br>-&gt; JSX에서 소문자 태그는 그 소문자 이름인 태그가 렌더링됨</span></div></p>
+<p><foo>와 같이’ 대문자’로 시작하는 타입은 React.createElement(Foo)와 같이 컴파일되며,<br>따라서 여러분의 JavaScript 파일에 정의되어있거나 혹은 다른 파일에서 import 된 컴포넌트여야 합니다.<br>대문자 -&gt; 대문자</foo></p>
+<h2 id="실행-중에-타입-선택하기"><a href="#실행-중에-타입-선택하기" class="headerlink" title="실행 중에 타입 선택하기"></a>실행 중에 타입 선택하기</h2><ul>
+<li>대문자로 시작하는 변수는 JSX 타입이 될 수 있습니다.</li>
+</ul>
+<p>cf) 컴포넌트를 변수에 담고, 컴포넌트를 반환하기도 함<br>컴포넌트를 받아서 컴포넌트를 반환하는 고차 컴포넌트도 있다.</p>
+<h2 id="JSX-안애서-prop-사용하기"><a href="#JSX-안애서-prop-사용하기" class="headerlink" title="JSX 안애서 prop 사용하기"></a>JSX 안애서 prop 사용하기</h2><ul>
+<li>{}로 둘러싸면 값이 잘 넘어간다</li>
+</ul>
+<h2 id="문자열-리터럴"><a href="#문자열-리터럴" class="headerlink" title="문자열 리터럴"></a>문자열 리터럴</h2><h2 id="Props의-기본값은-“True”"><a href="#Props의-기본값은-“True”" class="headerlink" title="Props의 기본값은 “True”"></a>Props의 기본값은 “True”</h2><h2 id="속성-펼치기"><a href="#속성-펼치기" class="headerlink" title="속성 펼치기"></a>속성 펼치기</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Button = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// other는 객체</span></span><br><span class="line">  <span class="comment">//  Button은 kind만 알면 되므로</span></span><br><span class="line">  <span class="keyword">const</span> &#123; kind, ...other &#125; = props;</span><br><span class="line">  <span class="keyword">const</span> className = kind === <span class="string">"primary"</span> ? <span class="string">"PrimaryButton"</span> : <span class="string">"SecondaryButton"</span>;</span><br><span class="line">  <span class="comment">//props안에 있는(kind빼고)  other에 있는것들을 펼쳐서 버튼에 넣어줌.   onClick이 버튼 태그에 등록됨</span></span><br><span class="line">  <span class="comment">// button쓰듯이 사용자 정의 컴포넌트인  &lt;Button /&gt;을 사용하고 시ㅠ어서</span></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">&#123;className&#125;</span> &#123;<span class="attr">...other</span>&#125; /&gt;</span>;</span></span><br><span class="line"><span class="xml">&#125;;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">const App = () =&gt; &#123;</span></span><br><span class="line"><span class="xml">  return (</span></span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Button kind="primary" onClick=&#123;() =&gt; console.log("clicked!")&#125;&gt;</span><br><span class="line">        Hello World!</span><br><span class="line">      &lt;/Button&gt;</span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  );</span></span><br><span class="line"><span class="xml">&#125;;</span></span><br></pre></td></tr></table></figure>
+<h2 id="JSX에서-자식-다루기"><a href="#JSX에서-자식-다루기" class="headerlink" title="JSX에서 자식 다루기"></a>JSX에서 자식 다루기</h2><h3 id="문자열-리터럴-1"><a href="#문자열-리터럴-1" class="headerlink" title="문자열 리터럴"></a>문자열 리터럴</h3><p>여는 태그와 닫는 태그 사이에 문자열을 써넣을 수 있고, 이 때 props.children는 그냥 문자열이 됩니다.<br>이런 식으로 많은 내장 HTML 엘리먼트를 사용할 수 있습니다:</p>
+<h3 id="JSX를-자식으로-사용하기"><a href="#JSX를-자식으로-사용하기" class="headerlink" title="JSX를 자식으로 사용하기"></a>JSX를 자식으로 사용하기</h3><ul>
+<li>여러 형태의 자식을 섞어서 쓸 수 있습니다.</li>
+<li>React 컴포넌트는 엘리먼트로 이루어진 배열 역시 반환할 수 있습니다.</li>
+</ul>
+<h3 id="JavaScript-표현식을-자식으로-사용하기"><a href="#JavaScript-표현식을-자식으로-사용하기" class="headerlink" title="JavaScript 표현식을 자식으로 사용하기"></a>JavaScript 표현식을 자식으로 사용하기</h3><h3 id="함수를-자식으로-사용하기"><a href="#함수를-자식으로-사용하기" class="headerlink" title="함수를 자식으로 사용하기"></a>함수를 자식으로 사용하기</h3><ul>
+<li>컴포넌트 안에 함수를 사용할 수 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Calls the children callback numTimes to produce a repeated component</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Repeat</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> items = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; props.numTimes; i++) &#123;</span><br><span class="line">    items.push(props.children(i));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;items&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ListOfTenThings</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Repeat numTimes=&#123;<span class="number">10</span>&#125;&gt;</span><br><span class="line">    &lt;!-- &#123;&#125;안에 함수를 넘겨서 화면을 그릴 수 있다 --&gt;</span><br><span class="line">      &#123;(index) =&gt; <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span>&gt;</span>This is item &#123;index&#125; in the list<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>&#125;</span><br><span class="line">    &lt;<span class="regexp">/Repeat&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="진리값-null-undefined는-무시됩니다"><a href="#진리값-null-undefined는-무시됩니다" class="headerlink" title="진리값, null, undefined는 무시됩니다."></a>진리값, null, undefined는 무시됩니다.</h3><ul>
+<li>이 성질은 React 엘리먼트를 조건부 렌더링하고 싶을 때 유용하게 사용할 수<br>있습니다. 아래 JSX는 showHeader가 true일 때에만 <header>를 렌더링합니다:</header></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;showHeader &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">Header</span> /&gt;</span>&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">Content</span> /&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>&amp;&amp;연산자는 왼쪽이 truthy -&gt; 오른쪽 반환<br>오른쪽이 falsy이면 -&gt; 왼쪽 반환</p>
+<p>한 가지 주의해야 할 점은 0과 같은 몇몇 “falsy” 값들이 여전히 React에 의해 렌더링될 수 있다는 것입니다.</p>
+<ul>
+<li>0이나 NaN은 리액트가 그린다.</li>
+<li>-&gt; 리액트 안에서 truthy, falsy 성질을 이용할 때는 주의!</li>
+</ul>
+<h1 id="Proptypes를-이용한-타입-체크"><a href="#Proptypes를-이용한-타입-체크" class="headerlink" title="Proptypes를 이용한 타입 체크"></a>Proptypes를 이용한 타입 체크</h1><ul>
+<li>타입스크립트가 뭔지는 알아야함 -&gt; 면접 질문 나올수도<br>-&gt; 코드 실행하기 전 타입 관련 문제를 찾아낼 수 있는 기술.<br>사용자가 점점 증가하는 추세</li>
+</ul>
+<h1 id="정적-타입-체크"><a href="#정적-타입-체크" class="headerlink" title="정적 타입 체크"></a>정적 타입 체크</h1><h1 id="Ref와-DOM"><a href="#Ref와-DOM" class="headerlink" title="Ref와 DOM"></a>Ref와 DOM</h1><ul>
+<li>prop으로 넘기지 않는 2가지 - Ref와 key</li>
+<li>부모에서 Ref와 key를 prop으로 넘겨줘도 리액트가 가로챔</li>
+</ul>
+<p>어쩔수 없이 DOM객체를 직접 만져야 할 때가 있다<br>ex) 외부 라이브러리를 가져다 쓸 때</p>
+<p>가끔은 전형적인 데이터 흐름 밖에서 자식을 명령형으로 변경해야 할 필요가 있습니다.</p>
+<h3 id="Ref-생성하기"><a href="#Ref-생성하기" class="headerlink" title="Ref 생성하기"></a>Ref 생성하기</h3><ul>
+<li>Ref는 참조의 약자</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DOM객체를 가리키는 화살표를 만들고 싶을 때</span></span><br><span class="line"><span class="comment">// 1. Ref 객체를 만든다</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.myRef = React.createRef();</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">//   2.  Ref 객체를 넣어준다</span></span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ref</span>=<span class="string">&#123;this.myRef&#125;</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Ref-사용하기"><a href="#Ref-사용하기" class="headerlink" title="Ref 사용하기"></a>Ref 사용하기</h3><ul>
+<li>1번 연결시킨 뒤에는 .current속성을 이용해서 연결된 DOM노드를 가져올 수 있다</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// current속성을 이용해서 진짜 DOM객체를 가져온다</span></span><br><span class="line"><span class="keyword">const</span> node = <span class="keyword">this</span>.myRef.current;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>HTML 엘리먼트에 ref 어트리뷰트가 사용되면,<br>ref의 current 속성은 <code>DOM 엘리먼트 객체</code>를 가리킵니다.</li>
+</ul>
+<ul>
+<li>클래스 컴포넌트에 ref 어트리뷰트가 사용되면,<br>ref의 current 속성은 해당 컴포넌트로부터 생성된 <code>인스턴스</code>를 가리킵니다.</li>
+</ul>
+<h3 id="DOM-엘리먼트에-ref-사용하기"><a href="#DOM-엘리먼트에-ref-사용하기" class="headerlink" title="DOM 엘리먼트에 ref 사용하기"></a>DOM 엘리먼트에 ref 사용하기</h3><blockquote>
+<p>노트 필기</p>
+</blockquote>
+<h3 id="클래스-컴포넌트에-ref-사용하기"><a href="#클래스-컴포넌트에-ref-사용하기" class="headerlink" title="클래스 컴포넌트에 ref 사용하기"></a>클래스 컴포넌트에 ref 사용하기</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoFocusTextInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.textInput = React.createRef();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">//   this.textInput.current는 클래스 인스턴스</span></span><br><span class="line">    <span class="comment">// -&gt;</span></span><br><span class="line">    <span class="keyword">this</span>.textInput.current.focusTextInput();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">CustomTextInput</span> <span class="attr">ref</span>=<span class="string">&#123;this.textInput&#125;</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>-&gt; 클래스 인스턴스에 직접 접근할 수 있는 방법이 있고, 그 방법이 ref다.</li>
+<li>React에서 this가 가리키는게 무엇인지를 아는 게 중욧!!!!</li>
+</ul>
+<h3 id="Ref와-함수형-컴포넌트"><a href="#Ref와-함수형-컴포넌트" class="headerlink" title="Ref와 함수형 컴포넌트"></a>Ref와 함수형 컴포넌트</h3><ul>
+<li>함수형 컴포넌트는 인스턴스를 가질 수 없기 때문에 ref 어트리뷰트 역시 사용할 수 없습니다</li>
 </ul>
 <hr>
-<h3 id="Git으로-협업할-때-주의할-점"><a href="#Git으로-협업할-때-주의할-점" class="headerlink" title="Git으로 협업할 때 주의할 점"></a>Git으로 협업할 때 주의할 점</h3><ul>
-<li><code>개행문자</code> 때문에 문제가 생길 수 있다.</li>
-<li>window 사용자는 설정을 해야 한다.</li>
-<li>max: <code>LF(/n)</code></li>
-<li>window: <code>CRLF(/r/n)</code></li>
+<h1 id="create-react-app"><a href="#create-react-app" class="headerlink" title="create-react-app"></a>create-react-app</h1><p>-npx: npm을 다운받아서 바로 실행해줌<br>npx명령을 실행하면 항상 패키지를 새로 다운 받는다 -&gt; 항상 최신 버전의 npm을 사용할 수 있다</p>
+<p>npm start- 개발 서버</p>
+<p>npm run build</p>
+<p>my-app<br>├── README.md<br>├── node_modules<br>├── package.json<br>├── .gitignore<br>├── public<br>│ ├── favicon.ico<br>│ ├── index.html<br>│ └── manifest.json<br>└── src<br>├── App.css<br>├── App.js<br>├── App.test.js<br>├── index.css<br>├── index.js<br>├── logo.svg<br>└── serviceWorker.js</p>
+<pre><code>src - 변환 과정을 거쳐서 사용자에게. 압축이나 트랜스파일링 등
+pulic - 변환 과정을 거치지 X
+</code></pre><p>Internet Explorer 9, 10, and 11는 지원 x<br>(polyfills 사용해야함)</p>
+<ul>
+<li>표준 명세에 적혀있다고 해서 실제 기능으로 사용할 수 있는 게 x</li>
 </ul>
-<h4 id="Window-사용자-개행문자-관련-설정-방법"><a href="#Window-사용자-개행문자-관련-설정-방법" class="headerlink" title="Window 사용자 개행문자 관련 설정 방법"></a>Window 사용자 개행문자 관련 설정 방법</h4><ul>
-<li>자동으로 해결하는 방법이 있음(git에 내장된 기능을 이용)</li>
-<li><code>autocrlf</code>기능을 켜기</li>
-<li>git이 파일을 가져올 때는 <code>LF(/n)</code>를 <code>CRLF(/r/n)</code>로 저장해준다.</li>
-<li>컴퓨터에서 파일을 저장한 걸 git에 커밋하면 <code>LF(/n)</code>로 바꿔줘서 Git에 올려준다.</li>
-</ul>
-<h4 id="Git-Bash에-입력"><a href="#Git-Bash에-입력" class="headerlink" title="Git Bash에 입력"></a>Git Bash에 입력</h4><ul>
-<li><code>git config--global core.autocrlf</code>를 입력한 후에 <code>true</code>가 반환되면 그대로 쓰면 된다.</li>
-<li>아무것도 안 뜨면 설정이 안된 것이므로 -&gt; <code>git config--global core.autocrlf true</code>를 입력</li>
-</ul>
-<h3 id="Git-기본적인-명령어"><a href="#Git-기본적인-명령어" class="headerlink" title="Git 기본적인 명령어"></a>Git 기본적인 명령어</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"커밋 메시지"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h1 id="Styles-and-Assets"><a href="#Styles-and-Assets" class="headerlink" title="Styles and Assets"></a>Styles and Assets</h1><h2 id="Adding-a-Stylesheet"><a href="#Adding-a-Stylesheet" class="headerlink" title="Adding a Stylesheet"></a>Adding a Stylesheet</h2><p>base64 010101로 되어있는 정보를 url에 넣고 싶다<br>-&gt; url은 문자열만 담을 수 있으므로 base64 인코딩을 이용해서 변환</p>
+<h2 id="Adding-Images-Fonts-and-Files"><a href="#Adding-Images-Fonts-and-Files" class="headerlink" title="Adding Images, Fonts, and Files"></a>Adding Images, Fonts, and Files</h2><hr>
+<p>Create React App은 자동으로 깃 저장소로 만들어줌 -&gt; git init 안하고 바로 커밋 가능</p>
 
         </div>
         <footer class="article-footer">
@@ -343,23 +350,24 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Phang"
         },
-        "headline": "자바스크립트 11일차",
-        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/51750128-76dfd380-20f4-11e9-94fc-7e3c8b6efdf8.png",
-        "keywords": "javaScript",
-        "genre": "front-end javaScript",
-        "datePublished": "2019-01-25",
-        "dateCreated": "2019-01-25",
-        "dateModified": "2019-01-25",
-        "url": "https://JihyeHwang09.github.io/2019/01/25/javascript11/",
-        "description": "previousElementSibling
-previousElementSibling는 가장 앞에 있는 요소에 주면, null이 반환된다.
+        "headline": "React 8일차",
+        "image": "https://JihyeHwang09.github.io",
+        "keywords": "React",
+        "genre": "front-end React",
+        "datePublished": "2019-02-25",
+        "dateCreated": "2019-02-25",
+        "dateModified": "2019-02-25",
+        "url": "https://JihyeHwang09.github.io/2019/02/25/react8/",
+        "description": "JSX 더 알아보기
+문법 설탕(syntatic sugar): 무언가를 문법적으로 쉽게 만든 것
 
-insertBefore와 appendChild
-insertBefore에 2번째 인자로 null이 들어가면 appendChild와 똑같이 동작한다.
+.createElement()의 반환값은 객체다.가 중요
 
-nextElmentSibling
-맨 마지막에 있는 요소의 nextElme"
-        "wordCount": 477
+
+React 엘리먼트의 타입 지정하기&lt;div/&gt;&lt;Div/&gt;는 리액트에서 다르게 동작대문자로 시작하는 타입은 해당 JSX 태그가 React 컴포넌트임을 가리킨다.
+
+그러니까, &lt;"
+        "wordCount": 1267
     }
 </script>
 
@@ -407,20 +415,10 @@ nextElmentSibling
         
 <nav id="article-nav">
     
-        <a href="/2019/01/26/javascript12/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            자바스크립트 12일차
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/01/24/javascript10/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/02/24/react7/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">자바스크립트 10일차</p>
+        <p class="article-nav-title">React 7일차</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -621,7 +619,7 @@ nextElmentSibling
     var disqus_shortname = 'Phang';
     
     
-    var disqus_url = 'https://JihyeHwang09.github.io/2019/01/25/javascript11/';
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/02/25/react8/';
     
     (function() {
     var dsq = document.createElement('script');
