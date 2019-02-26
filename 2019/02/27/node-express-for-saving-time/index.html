@@ -21,7 +21,7 @@
 <meta property="og:description" content="익스프레스(Express)로 시간 절약 앞서 노드만을 사용해 단순한 웹 서버를 만드는 방법을 배웠다. 이 장에서는 익스프레스(Express)를 사용해 그 서버를 다시 만든다. 익스프레스의 기본에 대해 이해해 보자.  스캐폴딩(Scaffolding) 프로젝트는 대개 &amp;#39;템플릿&amp;#39; 코드가 일정량 필요하다. 프로젝트의 엉성한 뼈대(템플릿)를 만들어놓고">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/53424648-e95f0e80-3a26-11e9-8b01-4af431236bbf.png">
-<meta property="og:updated_time" content="2019-02-26T15:31:28.656Z">
+<meta property="og:updated_time" content="2019-02-26T15:37:00.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="익스프레스(Express)로 시간 절약">
 <meta name="twitter:description" content="익스프레스(Express)로 시간 절약 앞서 노드만을 사용해 단순한 웹 서버를 만드는 방법을 배웠다. 이 장에서는 익스프레스(Express)를 사용해 그 서버를 다시 만든다. 익스프레스의 기본에 대해 이해해 보자.  스캐폴딩(Scaffolding) 프로젝트는 대개 &amp;#39;템플릿&amp;#39; 코드가 일정량 필요하다. 프로젝트의 엉성한 뼈대(템플릿)를 만들어놓고">
@@ -249,7 +249,7 @@ ga('send', 'pageview');
 <p>NOTE_<br>애플리케이션 포트는 <code>app.set(port, process.env.PORT || 3000)</code>으로 지정했다.<br>이렇게 하면, 서버를 시작하기 전에 환경 값을 설정해 포트를 오버라이드 할 수 있다.<br>이 예제를 실행했을 때, 앱이 포트 3000에서 실행되지 않는다면,<br>PORT 환경 변수가 설정됐는지 체크해보자.</p>
 </blockquote>
 <blockquote>
-<p>TIP<br>HTTP 요청의 상태 코드와 리다이렉션 여부를 보여주는 브라우저 플러그인을 설치하길 권한다.<br>이런 플ㄹ그인을 설치하면, 대개 간과할 수 있는<br><strong>리다이렉션 문제</strong>나 <strong>부정확한 상태 코드</strong>를 찾아내기 쉽다.<br>크롬에서는 아이마(Ayima)의 <strong>Redirect Path</strong>가 좋다.<br>브라우저 대부분에서 개발자 도구의 네트워크 섹션에서 상태 코드를 볼 수 있다.</p>
+<p>TIP<br>HTTP 요청의 상태 코드와 리다이렉션 여부를 보여주는 브라우저 플러그인을 설치하길 권한다.<br>이런 플러그인을 설치하면, 대개 간과할 수 있는<br><strong>리다이렉션 문제</strong>나 <strong>부정확한 상태 코드</strong>를 찾아내기 쉽다.<br>크롬에서는 아이마(Ayima)의 <strong>Redirect Path</strong>가 좋다.<br>브라우저 대부분에서 개발자 도구의 네트워크 섹션에서 상태 코드를 볼 수 있다.</p>
 </blockquote>
 <h4 id="홈페이지와-어바웃-페이지-라우트를-추가해보자"><a href="#홈페이지와-어바웃-페이지-라우트를-추가해보자" class="headerlink" title="홈페이지와 어바웃 페이지 라우트를 추가해보자."></a><strong>홈페이지</strong>와 <strong>어바웃 페이지</strong> <code>라우트</code>를 추가해보자.</h4><ul>
 <li>다음과 같이 404 핸들러 앞에 새 라우트를 2개 추가한다.</li>
