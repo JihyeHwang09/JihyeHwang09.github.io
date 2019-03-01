@@ -20,10 +20,12 @@
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
 <meta property="og:description" content="합성 (composition) vs 상속 (inheritance)다른 컴포넌트를 담기게시판에 적용  헤더의 메뉴바에 하이라이트를 주는 등 페이지별로 달라야하는 부분이 있기 때문에App.js에 레이아웃을 두지 x -&amp;gt; Layout.js를 따로 만들면 확장성이 좋음   헤더, 푸터 뭔가를 감싸는 컴포넌트 만들고 싶을 때 레이아웃 뿐만이 아니라 뭔가 빈칸이">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-01T13:07:26.919Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/53641065-320a0800-3c71-11e9-9db9-a158d9caf6af.png">
+<meta property="og:updated_time" content="2019-03-01T13:28:08.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 10일차">
 <meta name="twitter:description" content="합성 (composition) vs 상속 (inheritance)다른 컴포넌트를 담기게시판에 적용  헤더의 메뉴바에 하이라이트를 주는 등 페이지별로 달라야하는 부분이 있기 때문에App.js에 레이아웃을 두지 x -&amp;gt; Layout.js를 따로 만들면 확장성이 좋음   헤더, 푸터 뭔가를 감싸는 컴포넌트 만들고 싶을 때 레이아웃 뿐만이 아니라 뭔가 빈칸이">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/53641065-320a0800-3c71-11e9-9db9-a158d9caf6af.png">
     
 
     
@@ -189,7 +191,7 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
             <h1 id="합성-composition-vs-상속-inheritance"><a href="#합성-composition-vs-상속-inheritance" class="headerlink" title="합성 (composition) vs 상속 (inheritance)"></a>합성 (composition) vs 상속 (inheritance)</h1><h2 id="다른-컴포넌트를-담기"><a href="#다른-컴포넌트를-담기" class="headerlink" title="다른 컴포넌트를 담기"></a>다른 컴포넌트를 담기</h2><p>게시판에 적용</p>
 <ul>
-<li>헤더의 메뉴바에 하이라이트를 주는 등 페이지별로 달라야하는 부분이 있기 때문에<br>App.js에 레이아웃을 두지 x -&gt; Layout.js를 따로 만들면 확장성이 좋음</li>
+<li>헤더의 메뉴바에 하이라이트를 주는 등 페이지별로 달라야하는 부분이 있기 때문에<br><code>App.js</code>에 레이아웃을 두지 <code>x</code> -&gt; <code>Layout.js</code>를 따로 만들면 확장성이 좋음</li>
 </ul>
 <ul>
 <li>헤더, 푸터<ul>
@@ -200,36 +202,36 @@ ga('send', 'pageview');
 </ul>
 <h1 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h1><ul>
 <li>‘맥락’이라는 의미</li>
-<li>언어 설정(ex) 한국어 버전이면, 앱 전역에서 공유되어야하는 값)</li>
+<li>언어 설정(ex) 한국어 버전이면, 앱 전역에서 공유되어야 하는 값)</li>
 <li>ex) UI 테마 등</li>
 <li>Context API라는 기술이 멀리 사용되지는 않고 있음</li>
 <li>Redux와 사용법은 다르지만, 목적은 비숫함</li>
 </ul>
-<h2 id="언제-Context를-사용해야-할까요"><a href="#언제-Context를-사용해야-할까요" class="headerlink" title="언제 Context를 사용해야 할까요?"></a>언제 Context를 사용해야 할까요?</h2><p>Context를 사용하면, 중간 계층에 위치하는 엘리먼트에 props를 넘겨주는 작업을 피할 수 있습니다:</p>
+<h2 id="언제-Context를-사용해야-할까요"><a href="#언제-Context를-사용해야-할까요" class="headerlink" title="언제 Context를 사용해야 할까요?"></a>언제 Context를 사용해야 할까요?</h2><p><code>Context</code>를 사용하면, 중간 계층에 위치하는 엘리먼트에 <code>props</code>를 넘겨주는 작업을 피할 수 있습니다:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Context를 사용하면 prop을 일일이 엮어주지 않고도</span></span><br><span class="line"><span class="comment">// 컴포넌트 트리의 깊은 곳에 값을 넘겨줄 수 있습니다.</span></span><br><span class="line"><span class="comment">// 테마에 대한 context를 만들어줍시다. ("light"를 기본값으로 합니다.)</span></span><br><span class="line"><span class="keyword">const</span> ThemeContext = React.createContext(<span class="string">"light"</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// Provider를 사용해서 현재 테마를 트리 아래쪽으로 넘겨줍시다.</span></span><br><span class="line">    <span class="comment">// 어떤 컴포넌트든 이 값을 읽을 수 있습니다. 아주 깊은 곳에 위치해있더라도 말이죠.</span></span><br><span class="line">    <span class="comment">// 아래에서는, "dark"라는 값을 넘겨주었습니다.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 정보를 내려주고 싶은 부분을 Provider로 써준다.</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;ThemeContext.Provider value=<span class="string">"dark"</span>&gt;</span><br><span class="line">        &lt;Toolbar /&gt;</span><br><span class="line">      &lt;<span class="regexp">/ThemeContext.Provider&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 이제 더이상 중간 계층에 있는 컴포넌트에서</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ theme prop을 넘겨줄 필요가 없습니다.</span></span><br><span class="line"><span class="regexp">function Toolbar(props) &#123;</span></span><br><span class="line"><span class="regexp">  return (</span></span><br><span class="line"><span class="regexp">    &lt;div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;ThemedButton /</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">function ThemedButton(props) &#123;</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/ 테마 context를 읽어오려면 Consumer를 사용하세요.</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/ React는 가장 가까운 Provider를 찾아서 그 값을 사용할 것입니다.</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/ 이 예제에서, theme 값은 "dark"가 됩니다.</span></span><br><span class="line"><span class="regexp">  return (</span></span><br><span class="line"><span class="regexp">    &lt;ThemeContext.Consumer&gt;</span></span><br><span class="line"><span class="regexp">      &#123;/</span>*  </span><br><span class="line">      화살표 함수의 매개변수인 theme으로 들어온다.*<span class="regexp">/&#125;</span></span><br><span class="line"><span class="regexp">      &#123;theme =&gt; &lt;Button &#123;...props&#125; theme=&#123;theme&#125; /</span>&gt;&#125;</span><br><span class="line">    &lt;<span class="regexp">/ThemeContext.Consumer&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>Provider 하위 컴포넌트라면, 어디서든 Provider가 내려준 값 사용 가능</li>
+<li><code>Provider</code> 하위 컴포넌트라면, 어디서든 <code>Provider</code>가 내려준 값 사용 가능</li>
 </ul>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="React-createContext"><a href="#React-createContext" class="headerlink" title="React.createContext"></a>React.createContext</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; Provider, Consumer &#125; = React.createContext(defaultValue);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>context는 여러 개 사용할 수 있고, { Provider, Consumer } 쌍을 만듭니다</li>
-<li>defaultValue 인수는 오직 상위에 같은 context로부터 생성된 Provider가 없을 경우에만 사용됩니다.<br>(Consumer만 있고, Provider가 없을 때)</li>
+<li><code>context</code>는 여러 개 사용할 수 있고, { Provider, Consumer } 쌍을 만듭니다</li>
+<li><code>defaultValue</code> 인수는 오직 상위에 같은 <code>context</code>로부터 생성된 <code>Provider</code>가 없을 경우에만 사용됩니다.<br>(Consumer만 있고, Provider가 없을 때)</li>
 </ul>
 <h2 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Provider value=&#123;<span class="comment">/* some value */</span>&#125;&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>꼭 value라는 이름 사용해야 함</li>
+<li>꼭 <code>value</code> 라는 이름 사용해야 함</li>
 </ul>
 <ul>
-<li>Provider의 자손인 모든 Consumer는 Provider의 value prop이 바뀔 때마다 다시 렌더링됩니다.<br>–&gt; Provider에서 다른 값을 내려주면 다시 렌더링o</li>
-<li>rovider에서 같은 값을 내려주면 다시 렌더링x<br>xd) setState와 비슷</li>
+<li><code>Provider</code>의 자손인 모든 <code>Consumer</code>는 <code>Provider</code>의 <code>value prop</code>이 <strong>바뀔 때마다 다시 렌더링</strong>됩니다.<br>–&gt; Provider에서 다른 값을 내려주면 다시 렌더링o</li>
+<li><code>Provider</code>에서 같은 값을 내려주면 다시 렌더링x<br>xd) <code>setState</code>와 비슷</li>
 </ul>
-<p>이는 shouldComponentUpdate의 영향을 받지 않으므로,<br>조상 컴포넌트의 업데이트가 무시된 경우라 할지라도 Consumer는 업데이트될 수 있습니다.</p>
+<p>이는 <code>shouldComponentUpdate</code>의 영향을 받지 않으므로,<br>조상 컴포넌트의 업데이트가 무시된 경우라 할지라도 <code>Consumer</code>는 업데이트될 수 있습니다.</p>
 <ul>
-<li>ex) pureComponent같은걸로 렌더링이 막혔더라도 렌더링이 잘 된다.</li>
+<li>ex) <code>pureComponent</code>같은걸로 렌더링이 막혔더라도 렌더링이 잘 된다.</li>
 </ul>
-<p>Object.is 알고리즘을 통해 이전 값과 새 값을 비교함으로써 value prop이 바뀌었는지를 결정합니다.</p>
+<p><code>Object.is</code> 알고리즘을 통해 이전 값과 새 값을 비교함으로써 <code>value prop</code>이 바뀌었는지를 결정합니다.</p>
 <hr>
-<p>게시판에 적용<br>유저정보는 어디서든 접근가능해야 한다.</p>
+<p>예를 들어, 게시판에 적용한다면<br>유저정보는 어디서든 접근가능해야 한다.</p>
 <h3 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h3><ul>
 <li>provider에 상태를 내려보낼 수 있다<br>Provider를 가지고 있는 컴포넌트에 상태를 만들어준다.</li>
 </ul>
@@ -237,8 +239,8 @@ ga('send', 'pageview');
 <li>객체는 값이니까 객체에 상태를 바꿔주는 함수를 넣어서 내려 보내준다.</li>
 <li>함수의 매개변수에서 바로 분해대입 가능</li>
 </ul>
-<p>setState는 비동기식으로 동작하므로 이전 상태를 함수로 넣어줘야 한다.</p>
-<p>게시판에 context 적용<br>로그인과 관련된 외부 세계와 연동하는 코드는 로그인 프로바이더에 넣음.<br>로그인 프로바이더에 넣어두고, 사용자 정보의 캐시라고도 볼 수 있다.<br>(사용자 정보 원본은 멀리 떨어져 있는 서버에 있고, 유저정보를 가까운 로그인 프로바이더에 넣어둠)</p>
+<p><code>setState</code>는 비동기식으로 동작하므로 이전 상태를 함수로 넣어줘야 한다.</p>
+<p>게시판에 <code>context</code> 적용<br>로그인과 관련된 외부 세계와 연동하는 코드는 로그인 프로바이더에 넣음.<br>로그인 프로바이더에 넣어두고, 사용자 정보의 캐시라고도 볼 수 있다.<br>(사용자 정보 원본은 멀리 떨어져 있는 서버에 있고, 유저정보를 가까운 로그인 프로바이더에 넣어둠)</p>
 <p>로그인폼은 가져와서 보여주는 역할</p>
 <p>내가 작성한 글인 경우에만 수정 버튼 보여준다.<br>내 ID 알아내려면, UserConsumer import</p>
 <p>logout(){}<br>캐시를 사용하면, 원본과 달라질 수 있다는 문제가 발생할 수 있다.</p>
@@ -255,14 +257,14 @@ ga('send', 'pageview');
 <ul>
 <li>댓글 추가, 게시물 제거는 직접 만들어보기</li>
 </ul>
-<p>컴포넌트 구조 설계할 때 b가 a컴포넌트의 기능을 필요로 한다.<br>즉, 의존성이 있는 컴포넌트인 b가 아래에 위치해야 한다.</p>
+<p>컴포넌트 구조 설계할 때 <code>b</code>가 <code>a</code>컴포넌트의 기능을 필요로 한다.<br>즉, 의존성이 있는 컴포넌트인 <code>b</code>가 아래에 위치해야 한다.</p>
 <hr>
 <h2 id="라이프사이클-메소드에서-context에-접근하기"><a href="#라이프사이클-메소드에서-context에-접근하기" class="headerlink" title="라이프사이클 메소드에서 context에 접근하기"></a>라이프사이클 메소드에서 context에 접근하기</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// export default가 붙어있지 x</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">// ThemeContext value is this.props.theme</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="comment">// Previous ThemeContext value is prevProps.theme</span></span><br><span class="line">    <span class="comment">// New ThemeContext value is this.props.theme</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; theme, children &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> &lt;button className=&#123;theme ? "dark" : "light"&#125;&gt;&#123;children&#125;&lt;/button&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 화살표 함수이지만, 함수형 컴포넌트임</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> props =&gt; (</span><br><span class="line">  &lt;ThemeContext.Consumer&gt;</span><br><span class="line">    &#123;theme =&gt; &lt;Button &#123;...props&#125; theme=&#123;theme&#125; /&gt;&#125;</span><br><span class="line">  &lt;/ThemeContext.Consumer&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h1 id="Fragments"><a href="#Fragments" class="headerlink" title="Fragments"></a>Fragments</h1><h2 id="짧은-구문"><a href="#짧은-구문" class="headerlink" title="짧은 구문"></a>짧은 구문</h2><p>&lt;&gt;&lt;/&gt; 는 key나 속성을 지원하지 않는다는 점을 제외하면 다른 요소와 같은 방식으로 사용할 수 있습니다.<br>&lt;&gt;&lt;/&gt; 는 Babel7 버전인 경우에 사용 가능</p>
+<h1 id="Fragments"><a href="#Fragments" class="headerlink" title="Fragments"></a>Fragments</h1><h2 id="짧은-구문"><a href="#짧은-구문" class="headerlink" title="짧은 구문"></a>짧은 구문</h2><p><code>&lt;&gt;&lt;/&gt;</code> 는 key나 속성을 지원하지 않는다는 점을 제외하면<br>다른 요소와 같은 방식으로 사용할 수 있습니다.<br><code>&lt;&gt;&lt;/&gt;</code> 는 Babel7 버전인 경우에 사용 가능</p>
 <h2 id="Key가-있는-Fragment"><a href="#Key가-있는-Fragment" class="headerlink" title="Key가 있는 Fragment"></a>Key가 있는 Fragment</h2><h1 id="Portals"><a href="#Portals" class="headerlink" title="Portals"></a>Portals</h1><ul>
 <li><strong>루트 바깥에 모달이 그려지는 게 가능하다.</strong></li>
 </ul>
-<h2 id="Portals를-통한-이벤트-버블링"><a href="#Portals를-통한-이벤트-버블링" class="headerlink" title="Portals를 통한 이벤트 버블링"></a>Portals를 통한 이벤트 버블링</h2><p>리액트는 자체적인 이벤트 시스템을 가지고 있다.</p>
+<h2 id="Portals를-통한-이벤트-버블링"><a href="#Portals를-통한-이벤트-버블링" class="headerlink" title="Portals를 통한 이벤트 버블링"></a>Portals를 통한 이벤트 버블링</h2><p>리액트는 <strong>자체적인 이벤트 시스템</strong>을 가지고 있다.</p>
 <p>상위 컴포넌트의 portal에서 이벤트 버블링을 캐치하면<br>portal에 본질적으로 의존하지않는 보다 유연한 추상화 개발을 할 수 있습니다.</p>
 <p>portal을 쓰든 안 쓰든 사용방법은 같다.</p>
 <p>구상, 추상을 잘 나눠야 한다.</p>
@@ -338,7 +340,7 @@ ga('send', 'pageview');
             "name": "Phang"
         },
         "headline": "React 10일차",
-        "image": "https://JihyeHwang09.github.io",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/53641065-320a0800-3c71-11e9-9db9-a158d9caf6af.png",
         "keywords": "React",
         "genre": "front-end React",
         "datePublished": "2019-03-01",
@@ -353,7 +355,7 @@ ga('send', 'pageview');
 헤더, 푸터
 뭔가를 감싸는 컴포넌트 만들고 싶을 때
 레이아웃 뿐만이 아니라 뭔가 빈칸이"
-        "wordCount": 980
+        "wordCount": 983
     }
 </script>
 
@@ -426,7 +428,7 @@ ga('send', 'pageview');
                             <a href="/2019/03/01/react10/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53641065-320a0800-3c71-11e9-9db9-a158d9caf6af.png)" alt="React 10일차" class="thumbnail-image"></span>
     
     
 </a>
