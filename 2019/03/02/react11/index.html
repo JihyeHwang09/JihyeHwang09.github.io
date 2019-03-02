@@ -6,20 +6,24 @@
     
 
     
-    <title>Tag: High-level Data Link Control | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>React 11일차 | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Phang&apos;s IT Blog using Hexo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:url" content="https://JihyeHwang09.github.io/tags/high-level-data-link-control/index.html">
+        <meta name="keywords" content="React">
+    
+    <meta name="description" content="고차 컴포넌트 (Higher-Order Components) 컴포넌트를 받아서 컴포넌트를 반환하는 그저 함수일 뿐이다 컴포넌트x. 함수가 컴포넌트가 되려면, 컴포넌트가 아니라 엘리먼트를 반환해야 한다.  횡단 관심사(Cross-Cutting Concerns)를 위해 HOC 사용하기코드는 자세히 읽지 x 12345678const CommentListWithS">
+<meta name="keywords" content="React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 11일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/03/02/react11/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Phang&apos;s IT Blog using Hexo">
+<meta property="og:description" content="고차 컴포넌트 (Higher-Order Components) 컴포넌트를 받아서 컴포넌트를 반환하는 그저 함수일 뿐이다 컴포넌트x. 함수가 컴포넌트가 되려면, 컴포넌트가 아니라 엘리먼트를 반환해야 한다.  횡단 관심사(Cross-Cutting Concerns)를 위해 HOC 사용하기코드는 자세히 읽지 x 12345678const CommentListWithS">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-02T14:59:07.701Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta name="twitter:description" content="Phang&apos;s IT Blog using Hexo">
+<meta name="twitter:title" content="React 11일차">
+<meta name="twitter:description" content="고차 컴포넌트 (Higher-Order Components) 컴포넌트를 받아서 컴포넌트를 반환하는 그저 함수일 뿐이다 컴포넌트x. 함수가 컴포넌트가 되려면, 컴포넌트가 아니라 엘리먼트를 반환해야 한다.  횡단 관심사(Cross-Cutting Concerns)를 위해 HOC 사용하기코드는 자세히 읽지 x 12345678const CommentListWithS">
     
 
     
@@ -144,78 +148,197 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>High-level Data Link Control</em>
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/react/">React</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-react11" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/02/10/data-communication4/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/52516333-773bab00-2c6c-11e9-835e-86551bc7c7ef.png)" alt="전송 제어의 기본" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/02/10/data-communication4/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/정보처리기사/">정보처리기사</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a>
-            </div>
-            <div class="date"><time datetime="2019-02-10T00:28:40.000Z" itemprop="datePublished">2019-02-10</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/02/10/data-communication4/">전송 제어의 기본</a>
+        React 11일차
         </h1>
     
 
-        <p class="article-excerpt">
-            오늘은 데이터 통신에 자주 출제되는 전송 제어의 기본과 HDLC(High-level Data Link Control)의 특징에 대해 알아봅시다.
-본 포스팅은 2019 시나공 정보처리기사 필기의 자료를 인용하였음을 알려드립니다.
-
-
-전송 제어의 기본1. 전송 제어
-데이터의 원활한 흐름을 위하여 입.출력 제어, 회선 제어, 동기 제어, 오류 제어, 흐름 제어 
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/03/02/react11/" class="article-date">
+            <time datetime="2019-03-02T14:58:08.000Z" itemprop="datePublished">2019-03-02</time>
+        </a>
     </div>
-</article>
-    
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/react/">React</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="고차-컴포넌트-Higher-Order-Components"><a href="#고차-컴포넌트-Higher-Order-Components" class="headerlink" title="고차 컴포넌트 (Higher-Order Components)"></a>고차 컴포넌트 (Higher-Order Components)</h1><ul>
+<li>컴포넌트를 받아서 컴포넌트를 반환하는 그저 함수일 뿐이다</li>
+<li>컴포넌트x.</li>
+<li>함수가 컴포넌트가 되려면, 컴포넌트가 아니라 엘리먼트를 반환해야 한다.</li>
+</ul>
+<h2 id="횡단-관심사-Cross-Cutting-Concerns-를-위해-HOC-사용하기"><a href="#횡단-관심사-Cross-Cutting-Concerns-를-위해-HOC-사용하기" class="headerlink" title="횡단 관심사(Cross-Cutting Concerns)를 위해 HOC 사용하기"></a>횡단 관심사(Cross-Cutting Concerns)를 위해 HOC 사용하기</h2><p>코드는 자세히 읽지 x</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CommentListWithSubscription = withSubscription(CommentList, DataSource =&gt;</span><br><span class="line">  DataSource.getComments()</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> BlogPostWithSubscription = withSubscription(</span><br><span class="line">  BlogPost,</span><br><span class="line">  (DataSource, props) =&gt; DataSource.getBlogPost(props.id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>첫 번째 인수는 감싸지는 컴포넌트입니다. 두 번째 인수로 주어진 함수는 DataSource 와 props를 이용해 필요한 데이터를 받아옵니다.<br>(데이터를 어떻게 가져올지)</p>
+<ul>
+<li>클래스도 값이니까 매개변수로 넘겨줄 수 있다</li>
+</ul>
+<h2 id="원래-컴포넌트를-변경하지-마세요-합성을-사용하세요"><a href="#원래-컴포넌트를-변경하지-마세요-합성을-사용하세요" class="headerlink" title="원래 컴포넌트를 변경하지 마세요. 합성을 사용하세요."></a>원래 컴포넌트를 변경하지 마세요. 합성을 사용하세요.</h2><ul>
+<li><p>클래스 컴포넌트에서 메소드 문법을 사용하면, 프르토 타입에 들어감 -&gt; But 이렇게 하지 말것. 다른 컴포넌트에도 영향을 끼침. 좋지 x</p>
+</li>
+<li><p>입력받은 컴포넌트를 직접 변경하지 x</p>
+</li>
+</ul>
+<h2 id="관례-HOC와-무관한-prop은-감싸진-컴포넌트에-넘기세요"><a href="#관례-HOC와-무관한-prop은-감싸진-컴포넌트에-넘기세요" class="headerlink" title="관례: HOC와 무관한 prop은 감싸진 컴포넌트에 넘기세요."></a>관례: HOC와 무관한 prop은 감싸진 컴포넌트에 넘기세요.</h2><p>HOC는 컴포넌트에 기능을 추가합니다. 그러므로 컴포넌트의 사용법을 극단적으로 바꾸어서는 안 됩니다.</p>
+<ul>
+<li>컴포넌트를 구현할 때가 아니라, 사용할 때 사용법은 prop이다</li>
+</ul>
+<h2 id="관례-합성을-최대한-활용하세요"><a href="#관례-합성을-최대한-활용하세요" class="headerlink" title="관례: 합성을 최대한 활용하세요."></a>관례: 합성을 최대한 활용하세요.</h2><ul>
+<li>HOC는 여러 가지 인자를 받을 수 있다</li>
+</ul>
+<p>HOC의 가장 일반적인 모양은 이렇게 생겼습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// React Redux's `connect`</span></span><br><span class="line"><span class="comment">// redux와 react를 연결 -&gt; connect</span></span><br><span class="line"><span class="comment">// connect(commentSelector, commentActions)는 redux와 react를 어떻게 연결할 지를 받음. 고차컴포넌트를 반환</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ConnectedComment = connect(</span><br><span class="line">  commentSelector,</span><br><span class="line">  commentActions</span><br><span class="line">)(CommentList);</span><br></pre></td></tr></table></figure>
+<p>다시 말해서, connect는 HOC를 반환하는 고차 함수입니다!</p>
+<ul>
+<li><p>고차 컴포넌트를 사용하는것이 Consumer보다 편한 방법</p>
+</li>
+<li><p>HOC를 사용할 경우, 컴포넌트 계층이 깊어지는 문제가 생김</p>
+</li>
+<li><p>익명 함수를 썼을 때, React 개발자 도구에 Unknown이 표시됨</p>
+</li>
+</ul>
+<h2 id="관례-원활한-디버깅을-위해-displayName도-감싸주세요"><a href="#관례-원활한-디버깅을-위해-displayName도-감싸주세요" class="headerlink" title="관례: 원활한 디버깅을 위해 displayName도 감싸주세요."></a>관례: 원활한 디버깅을 위해 displayName도 감싸주세요.</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withSubscription</span>(<span class="params">WrappedComponent</span>) </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">WithSubscription</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;</span><br><span class="line">  WithSubscription.displayName = <span class="string">`WithSubscription(<span class="subst">$&#123;getDisplayName(</span></span></span><br><span class="line"><span class="string"><span class="subst">    WrappedComponent</span></span></span><br><span class="line"><span class="string"><span class="subst">  )&#125;</span>)`</span>;</span><br><span class="line">  <span class="keyword">return</span> WithSubscription;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDisplayName</span>(<span class="params">WrappedComponent</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// WrappedComponent.displayName가 있으면 그 이름을,</span></span><br><span class="line">  <span class="comment">// WrappedComponent.name가 있으면 그 이름을,</span></span><br><span class="line">  <span class="comment">// 다 없으면 익명으로 써라</span></span><br><span class="line">  <span class="keyword">return</span> WrappedComponent.displayName || WrappedComponent.name || <span class="string">"Component"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="render-메소드-안에서-HOC를-사용하지-마세요"><a href="#render-메소드-안에서-HOC를-사용하지-마세요" class="headerlink" title="render 메소드 안에서 HOC를 사용하지 마세요."></a>render 메소드 안에서 HOC를 사용하지 마세요.</h2><ul>
+<li>HOC는 한 번만 적용되게 만들어줘야 한다.</li>
+<li>render 매소드는 언제 어디서든 -&gt; 매번 새로운 컴포넌트를 그린다.</li>
+<li><p>컴포넌트 새로운 타입이라서 상태를 매번 날려버린다는 문제가 있다. (React는 엘리먼트의 타입이나 key값이 바뀌면, 상태를 다 날려버리고 새로 그린다. )</p>
+</li>
+<li><p>export하는 쪽에서 HOC를 둘러주는 게 관례</p>
+</li>
+</ul>
+<h3 id="Ref는-전달되지-않습니다"><a href="#Ref는-전달되지-않습니다" class="headerlink" title="Ref는 전달되지 않습니다."></a>Ref는 전달되지 않습니다.</h3><ul>
+<li>key와 ref는 prop으로 전달되지 x</li>
+<li>ref가 진짜 prop이 아니고, key와 마찬가지로 React에 의해 특별 취급되기 때문이다.</li>
+<li><p>만약 HOC에서 반환하고자 하는 컴포넌트에 ref를 추가한다면, 그 ref는 안쪽 컴포넌트가 아니라 <code>가장 바깥쪽의 컨테이너 컴포넌트에 대한 인스턴스</code>를 가리키게 되는 문제가 발생한다.</p>
+</li>
+<li><p>ref라는 이름으로는 전달이 불가능하므로, ref라는 이름이 아니라, innerRef라는 이름으로(ref가 아닌 다른 이름으로 넘겨주면 되는데, 보통 innerRef라는 이름으로 넘겨주는 게 관례이다.) ref객체를 받은 다음 innerRef라는 이름으로 다른 컴포넌트에 prop으로 넘겨주는 기법을 사용하는 게 관례!!</p>
+</li>
+</ul>
+
         </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "React 11일차",
+        "image": "https://JihyeHwang09.github.io",
+        "keywords": "React",
+        "genre": "front-end React",
+        "datePublished": "2019-03-02",
+        "dateCreated": "2019-03-02",
+        "dateModified": "2019-03-02",
+        "url": "https://JihyeHwang09.github.io/2019/03/02/react11/",
+        "description": "고차 컴포넌트 (Higher-Order Components)
+컴포넌트를 받아서 컴포넌트를 반환하는 그저 함수일 뿐이다
+컴포넌트x.
+함수가 컴포넌트가 되려면, 컴포넌트가 아니라 엘리먼트를 반환해야 한다.
+
+횡단 관심사(Cross-Cutting Concerns)를 위해 HOC 사용하기코드는 자세히 읽지 x
+12345678const CommentListWithS"
+        "wordCount": 526
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
-
-    </div></section>
+    
+    </section>
 
 
 
@@ -245,6 +368,19 @@ ga('send', 'pageview');
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/03/01/react10/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">React 10일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -440,11 +576,13 @@ ga('send', 'pageview');
     var disqus_shortname = 'Phang';
     
     
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/03/02/react11/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
