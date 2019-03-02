@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>React 12일차 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="React">
+    
+    <meta name="description" content="BEM(Block, Element, Module)클래스 이름에 _나 -로 계층 구조를 나눈다.영역이름__element이름 ModifiersModifier은 block 또는 element의 상태이다  어디에 밑줄, 오디에 하이픈 써야 하는지 알면 됨  React에서 BEM을 사용할 때는 컴포넌트가 블록이기 때문에  ex) PostListtitle, PostL">
+<meta name="keywords" content="React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 12일차">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/03/03/react12/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="BEM(Block, Element, Module)클래스 이름에 _나 -로 계층 구조를 나눈다.영역이름__element이름 ModifiersModifier은 block 또는 element의 상태이다  어디에 밑줄, 오디에 하이픈 써야 하는지 알면 됨  React에서 BEM을 사용할 때는 컴포넌트가 블록이기 때문에  ex) PostListtitle, PostL">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-02T15:01:25.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 12일차">
+<meta name="twitter:description" content="BEM(Block, Element, Module)클래스 이름에 _나 -로 계층 구조를 나눈다.영역이름__element이름 ModifiersModifier은 block 또는 element의 상태이다  어디에 밑줄, 오디에 하이픈 써야 하는지 알면 됨  React에서 BEM을 사용할 때는 컴포넌트가 블록이기 때문에  ex) PostListtitle, PostL">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/react/">React</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-react12" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        React 12일차
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/03/03/react12/" class="article-date">
+            <time datetime="2019-03-02T15:00:45.000Z" itemprop="datePublished">2019-03-03</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/react/">React</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="BEM-Block-Element-Module"><a href="#BEM-Block-Element-Module" class="headerlink" title="BEM(Block, Element, Module)"></a>BEM(Block, Element, Module)</h1><p>클래스 이름에 <code>_</code>나 <code>-</code>로 계층 구조를 나눈다.<br>영역이름__element이름</p>
+<p>Modifiers<br>Modifier은 block 또는 element의 <code>상태</code>이다</p>
+<ul>
+<li><p>어디에 밑줄, 오디에 하이픈 써야 하는지 알면 됨</p>
+</li>
+<li><p>React에서 BEM을 사용할 때는 컴포넌트가 블록이기 때문에</p>
+<ul>
+<li>ex) PostList<strong>title, PostList</strong>list, PostList__item</li>
+</ul>
+</li>
+<li><p><a href="https://www.npmjs.com/package/classnames" target="_blank" rel="noopener">classNames 사용법 - 코드, 주석보기</a></p>
+</li>
+<li><p>classNames를 사용하면, 디자인을 동적으로 바꿀 수 있다</p>
+</li>
+<li><p><code>컴포넌트 이름__요소 이름--상태 이름</code></p>
+</li>
+<li><p>BEM은 사람이 의도적으로 스코프를 만들어주는 것이다</p>
+</li>
+<li><p>사람이 직접 다 해야해서 오타날 확률도 높음. 최신 방법은 x</p>
+</li>
+</ul>
+<h1 id="SCSS"><a href="#SCSS" class="headerlink" title="SCSS"></a>SCSS</h1><p>(SCSS 공식 문서)[<a href="https://sass-lang.com/guide]" target="_blank" rel="noopener">https://sass-lang.com/guide]</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--$붙이면 변수로 사용  --&gt;</span><br><span class="line">$font-stack: Helvetica, sans-serif;</span><br><span class="line">$primary-color: #333;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100%</span> $font-stack;</span><br><span class="line">  <span class="attribute">color</span>: $primary-color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Sass 문법은 거의 사용 x. SCSS를 사용</li>
+</ul>
+<h2 id="nesting-사용"><a href="#nesting-사용" class="headerlink" title="nesting 사용"></a>nesting 사용</h2><ul>
+<li>다른 선택자 밑에 있는 자식을 스타일링하고 싶을 때</li>
+<li>코드 작성량을 줄이고 싶을 때</li>
+<li><p>같은 클래스 이름을 여러 번 사용하고 싶을 때</p>
+</li>
+<li><p>Sass에서 &amp;는 자기자신을 선택하고 싶을 때 사용</p>
+</li>
+<li><p>&amp;문법을 쓰면 부모에 대한 내용이 빠진다.</p>
+</li>
+<li>&amp;쓰지 않으면, -&gt; 부모, 자식으로 컴파일링 됨</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"reset"</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100%</span> Helvetica, sans-serif;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#efefef</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Import"><a href="#Import" class="headerlink" title="Import"></a>Import</h2><ul>
+<li>@import하면 통신하느라 속도가 느려질 수 있음</li>
+<li>여러 파일에 공유해야 하는 스타일을 common.scss에 저장해두고 index.scss에서 @import해서 사용<ul>
+<li>cf) scss에서는 <code>//</code> 주석 사용 가능(css에서는 <code>//</code> 주석 사용 x)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Mixins"><a href="#Mixins" class="headerlink" title="Mixins"></a>Mixins</h2><p>공유하고 싶은 코드 뭉치를 묶어서 @mixin 사용</p>
+<ul>
+<li>함수와 비슷</li>
+<li>어떤 코드 뭉치를 재사용하고 싶을 때 -&gt; mixin 사용</li>
+<li>매개변수를 받지 않을 때는 소괄호 () 생략 가능</li>
+</ul>
+<hr>
+<ul>
+<li>cf) BEM은 클래스 이름으로 요소의 역할과 책임을 명확히 나타내고(클래스 이름을 더럽히지 말자.)<ul>
+<li>공유되어야 하는 스타일은 mixin으로 사용한다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>미디어 쿼리 나타낼 때 사용<br>@include{}로 둘러싼 부분이 @content자리에 들어감.<br>@content는 코드가 들어갈 빈칸</p>
+<p>cf) 모바일 버전 먼저 만들기</p>
+<h2 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h2><ul>
+<li>cf) calc() - 간단한 계산 지원.</li>
+</ul>
+<ul>
+<li><p>특정 컴포넌트와 관련된 파일은 따로 만든다.(index.scss에 스타일 코드를 다 몰아넣는 게 x)</p>
+</li>
+<li><p>ex) PostList.scss</p>
+</li>
+</ul>
+<hr>
+<p>1.</p>
+<ul>
+<li><ol>
+<li>scss로 BEM사용</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>컴포넌트 파일과 같은 이름의 scss파일을 만들기</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>공유되어야 하는 변수나 mixin은 common.scss에 몰아넣어두고 사용</li>
+</ol>
+</li>
+</ul>
+<hr>
+<ol start="2">
+<li>Create React App 2.0에 추가된 속성</li>
+</ol>
+<h2 id="Adding-a-CSS-Modules-Stylesheet"><a href="#Adding-a-CSS-Modules-Stylesheet" class="headerlink" title="Adding a CSS Modules Stylesheet"></a>Adding a CSS Modules Stylesheet</h2><p><a href="https://facebook.github.io/create-react-app/docs/adding-a-css-modules-stylesheet" target="_blank" rel="noopener"></a></p>
+<ul>
+<li>가장 대중적으로 사용되는 방식</li>
+<li>되도록 이 방법을 사용하는 것을 추천</li>
+<li>손이 훨씬 편해짐</li>
+<li>css 모듈을 사용할 때는 Camel Case로 코딩.(-을 사용하면, []표기법을 사용해야한다.)-&gt; Camel Case로 코딩하면, 점표기법 사용 가능</li>
+<li>‘styles’ 자리에는 ‘s’로 쓰면 편하다</li>
+<li>유일하고 식별 가능한 클래스 이름을 <strong>자동</strong>으로 붙여줌</li>
+</ul>
+<p>import React, { Component } from ‘react’;<br>import styles from ‘./Button.module.css’; // Import css modules stylesheet as styles<br>import ‘./another-stylesheet.css’; // Import regular stylesheet</p>
+<p>class Button extends Component {<br>render() {<br>// reference as a js object<br>return <button classname="{styles.error}">Error Button</button>;<br>}<br>}</p>
+<ul>
+<li>styles는 객체. 이 styles 객체 안에 속성 이름과 속성값이 들어간다.</li>
+<li>클래스 이름이 변환되서 사용자에게 전달됨</li>
+<li>css파일이 변환되면서 객체가 생기고, 속성이름: 내가 쓴 클래스 이름, 속성값: 변환된 클래스 이름<br><button classname="{styles.error}">Error Button</button>;<br>className에 변환된 클래스 이름이 들어간다<br>-&gt; 이름 충돌에 대힌 걱정을 할 필요 x</li>
+</ul>
+<p>cf) 식별자로 쓸 수 없는 속성의 경우, 대괄호 표기법 사용 (교재- 점 표기법, 대괄호 표기법 )</p>
+<ul>
+<li>페이지 컴포넌트</li>
+</ul>
+<hr>
+<h1 id="프레임-워크"><a href="#프레임-워크" class="headerlink" title="프레임 워크"></a>프레임 워크</h1><h2 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h2><h2 id="Semantic-UI-React"><a href="#Semantic-UI-React" class="headerlink" title="Semantic UI React"></a>Semantic UI React</h2><ul>
+<li>컴포넌트가 미리 만들어져 있음</li>
+<li>컴포넌트를 import해서 사용</li>
+</ul>
+<!-- - index.js에 작성하는게 원칙 -->
+<h1 id="storybook"><a href="#storybook" class="headerlink" title="storybook"></a>storybook</h1><ul>
+<li>통신하는 코드가 있으면, 부작용이 있는 컴포넌트임</li>
+<li>부작용이 있는 컴포넌트는 테스트하기 어렵다</li>
+<li>역할과 책임을 잘게 쪼개서 컴포넌트를 나누기(관례임)</li>
+<li>화면을 그리는 컴포넌트, 외부 세계와 통신하는(부작용이 있는) 컴포넌트로 나누기(서로 다른 컴포넌트로 나누기)</li>
+</ul>
+<hr>
+<h2 id="Presentational-컴포넌트"><a href="#Presentational-컴포넌트" class="headerlink" title="Presentational 컴포넌트"></a>Presentational 컴포넌트</h2><p>(데이터가 아닌) UI 상태를 관리하기 위해 state를 갖는 경우가 있습니다.<br>ex) 마우스의 좌표</p>
+<ul>
+<li>Presentational 컴포넌트는 외부 코드에 의존하지 않게 하는 게 좋다</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">React.createContext(&#123;</span><br><span class="line">  username: <span class="string">'fast'</span>,</span><br><span class="line">  id: <span class="number">0</span>,</span><br><span class="line">  login: <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">  logout: <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</span><br><span class="line">&#125;)</span><br><span class="line">provider가 없을 때, &#123;&#125;안의 값이 <span class="keyword">default</span>값으로 사용됨</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "React 12일차",
+        "image": "https://JihyeHwang09.github.io",
+        "keywords": "React",
+        "genre": "front-end React",
+        "datePublished": "2019-03-03",
+        "dateCreated": "2019-03-03",
+        "dateModified": "2019-03-03",
+        "url": "https://JihyeHwang09.github.io/2019/03/03/react12/",
+        "description": "BEM(Block, Element, Module)클래스 이름에 _나 -로 계층 구조를 나눈다.영역이름__element이름
+ModifiersModifier은 block 또는 element의 상태이다
+
+어디에 밑줄, 오디에 하이픈 써야 하는지 알면 됨
+
+React에서 BEM을 사용할 때는 컴포넌트가 블록이기 때문에
+
+ex) PostListtitle, PostL"
+        "wordCount": 584
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/03/02/react11/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">React 11일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/03/03/react12/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/react/">React</a></p>
+                            <p class="item-title"><a href="/2019/03/03/react12/" class="title">React 12일차</a></p>
+                            <p class="item-date"><time datetime="2019-03-02T15:00:45.000Z" itemprop="datePublished">2019-03-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/03/02/react11/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/react/">React</a></p>
+                            <p class="item-title"><a href="/2019/03/02/react11/" class="title">React 11일차</a></p>
+                            <p class="item-date"><time datetime="2019-03-02T14:58:08.000Z" itemprop="datePublished">2019-03-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/03/01/react10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53641065-320a0800-3c71-11e9-9db9-a158d9caf6af.png)" alt="React 10일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/react/">React</a></p>
+                            <p class="item-title"><a href="/2019/03/01/react10/" class="title">React 10일차</a></p>
+                            <p class="item-date"><time datetime="2019-03-01T12:58:01.000Z" itemprop="datePublished">2019-03-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/28/react9/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53574170-5fdc4780-3bb2-11e9-9818-9677af565839.png)" alt="React 9일차" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/react/">React</a></p>
+                            <p class="item-title"><a href="/2019/02/28/react9/" class="title">React 9일차</a></p>
+                            <p class="item-date"><time datetime="2019-02-28T14:33:59.000Z" itemprop="datePublished">2019-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/27/node-express-for-saving-time/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/53424648-e95f0e80-3a26-11e9-8b01-4af431236bbf.png)" alt="익스프레스(Express)로 시간 절약" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/node-js/">node.js</a></p>
+                            <p class="item-title"><a href="/2019/02/27/node-express-for-saving-time/" class="title">익스프레스(Express)로 시간 절약</a></p>
+                            <p class="item-date"><time datetime="2019-02-26T15:03:46.000Z" itemprop="datePublished">2019-02-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">back-end</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">node.js</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">41</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">23</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/자료구조/">자료구조</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">28</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/algorithms/" style="font-size: 11px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 16px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 11px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hdlc/" style="font-size: 11px;">HDLC</a> <a href="/tags/hash/" style="font-size: 10px;">Hash</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 11px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/react/" style="font-size: 19px;">React</a> <a href="/tags/recursion-function/" style="font-size: 11px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 11px;">Static Web Generator</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/object-object/" style="font-size: 11px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 11px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/data-communication/" style="font-size: 13px;">data-communication</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 11px;">framework</a> <a href="/tags/front-end/" style="font-size: 17px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 11px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 13px;">node.js</a> <a href="/tags/platform/" style="font-size: 11px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/recursion/" style="font-size: 11px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/객체/" style="font-size: 10px;">객체</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 12px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 15px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/문자열/" style="font-size: 10px;">문자열</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 11px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 12px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 12px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 14px;">재귀 함수</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 12px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 18px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/해시/" style="font-size: 10px;">해시</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/03/03/react12/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
