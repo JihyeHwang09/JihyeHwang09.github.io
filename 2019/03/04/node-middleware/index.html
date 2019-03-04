@@ -6,20 +6,26 @@
     
 
     
-    <title>Tag: 순환적 알고리즘 설계 | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>미들웨어(Middleware) | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Phang&apos;s IT Blog using Hexo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:url" content="https://JihyeHwang09.github.io/tags/순환적-알고리즘-설계/index.html">
+        <meta name="keywords" content="node.js">
+    
+    <meta name="description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   6.3 미들웨어 미들웨어는 익스프레스의 핵심요청과 응답의 중간(middle, 미들)에 위치하여 미들웨어라고 부른다.   뒤에 나오는 라우터와 에러 핸들러 또한 미들웨어의 일종이므로 미들웨어가 익스프레스의 전부라고 해도 과언이 아니다. 미들웨어는 요청과 응답을 조작하여 기능을 추가하">
+<meta name="keywords" content="node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="미들웨어(Middleware)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/03/04/node-middleware/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Phang&apos;s IT Blog using Hexo">
+<meta property="og:description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   6.3 미들웨어 미들웨어는 익스프레스의 핵심요청과 응답의 중간(middle, 미들)에 위치하여 미들웨어라고 부른다.   뒤에 나오는 라우터와 에러 핸들러 또한 미들웨어의 일종이므로 미들웨어가 익스프레스의 전부라고 해도 과언이 아니다. 미들웨어는 요청과 응답을 조작하여 기능을 추가하">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/53739220-97116800-3ed4-11e9-8395-b6b47a6baa32.png">
+<meta property="og:updated_time" content="2019-03-04T14:24:44.734Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta name="twitter:description" content="Phang&apos;s IT Blog using Hexo">
+<meta name="twitter:title" content="미들웨어(Middleware)">
+<meta name="twitter:description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   6.3 미들웨어 미들웨어는 익스프레스의 핵심요청과 응답의 중간(middle, 미들)에 위치하여 미들웨어라고 부른다.   뒤에 나오는 라우터와 에러 핸들러 또한 미들웨어의 일종이므로 미들웨어가 익스프레스의 전부라고 해도 과언이 아니다. 미들웨어는 요청과 응답을 조작하여 기능을 추가하">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/53739220-97116800-3ed4-11e9-8395-b6b47a6baa32.png">
     
 
     
@@ -144,79 +150,174 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>순환적 알고리즘 설계</em>
+    <a class="page-title-link" href="/categories/back-end/">back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/node-js/">node.js</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-node-middleware" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/01/09/recursion3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/50882132-26dfec00-1427-11e9-8d37-e5fdccb741f3.png)" alt="순환(Recursion)의 개념과 기본 예제3" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/01/09/recursion3/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a>
-            </div>
-            <div class="date"><time datetime="2019-01-09T02:42:47.788Z" itemprop="datePublished">2019-01-09</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/01/09/recursion3/">순환(Recursion)의 개념과 기본 예제3</a>
+        미들웨어(Middleware)
         </h1>
     
 
-        <p class="article-excerpt">
-            
-이번에는 지난 포스트에 이어서, 순환적 알고리즘 설계 방법에 대해 알아봅시다.
-본 포스팅은&lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &gt; 자료를 인용하였음을 알려드립니다.
-
-
-순환적 알고리즘 설계적어도 하나의 base case, 즉 순환되지 않고 종료되는 case가 있어야 함
-모든 case는 결국 base case로 수렴
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/03/04/node-middleware/" class="article-date">
+            <time datetime="2019-03-04T14:09:41.000Z" itemprop="datePublished">2019-03-04</time>
+        </a>
     </div>
-</article>
-    
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/node-js/">node.js</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <hr>
+<blockquote>
+<p><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&amp;mallGb=KOR&amp;barcode=9791160505221&amp;orderClick=LAG&amp;Kc=" target="_blank" rel="noopener">조현영님의 Node.js 교과서</a>의 내용을 공부하여 정리한 내용입니다.</p>
+</blockquote>
+<hr>
+<h1 id="6-3-미들웨어"><a href="#6-3-미들웨어" class="headerlink" title="6.3 미들웨어"></a>6.3 미들웨어</h1><blockquote>
+<p><code>미들웨어</code>는 <strong>익스프레스의 핵심</strong><br>요청과 응답의 중간(middle, 미들)에 위치하여 <code>미들웨어</code>라고 부른다.</p>
+</blockquote>
+<ul>
+<li>뒤에 나오는 라우터와 에러 핸들러 또한 미들웨어의 일종이므로 미들웨어가 익스프레스의 전부라고 해도 과언이 아니다.</li>
+<li><code>미들웨어</code>는 요청과 응답을 조작하여 기능을 추가하기도 하고, 나쁜 요청을 걸러내기도 한다.</li>
+</ul>
+<h2 id="app-use의-역할"><a href="#app-use의-역할" class="headerlink" title="app.use의 역할"></a><code>app.use</code>의 역할</h2><ul>
+<li><code>미들웨어</code>는 주로 <code>app.use</code>와 함께 사용된다.</li>
+<li>먼저 <strong><code>app.use</code>의 역할</strong>에 대해 알아보자.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">app.use(logger(<span class="string">'dev'</span>));</span><br><span class="line">app.use(express.json());</span><br><span class="line">app.use(express.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br><span class="line">app.use(cookieParser());</span><br><span class="line">app.use(express.static(path.join(__dirname,<span class="string">'public'</span>)));</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">'/'</span>, indexRouter);</span><br><span class="line">app.use(<span class="string">'/users'</span>, usersRouter);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 404 처리 미들웨어</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  next(createError(<span class="number">404</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 에러 핸들러</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">err, req, res, next</span>) </span>&#123;</span><br><span class="line">  res.locals.message = err.message;</span><br><span class="line">  res.locals.error = req.app.get(<span class="string">'env'</span>) ===<span class="string">'development'</span> ? err : &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  res.status(err.status || <span class="number">500</span>);</span><br><span class="line">  res.render(<span class="string">'error'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = app;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>app.js</code>를 보면 <strong>수많은 use 메서드가 사용</strong>되고 있다는 걸 알 수 있다.</li>
+</ul>
+<ul>
+<li>app.use 메서드의 인자로 들어 있는 함수가 <code>미들웨어</code></li>
+<li>미들웨어는 use 메서드로 app에 장착한다.</li>
+<li>제일 위의 <code>logger(&#39;dev&#39;)</code>부터 시작하여 미들웨어들을 순차적으로 거친 후<br>라우터에서 클라이언트로 응답을 보낸다.</li>
+</ul>
+
         </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "미들웨어(Middleware)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/53739220-97116800-3ed4-11e9-8395-b6b47a6baa32.png",
+        "keywords": "node.js",
+        "genre": "back-end node.js",
+        "datePublished": "2019-03-04",
+        "dateCreated": "2019-03-04",
+        "dateModified": "2019-03-04",
+        "url": "https://JihyeHwang09.github.io/2019/03/04/node-middleware/",
+        "description": "
+
+조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.
+
+
+6.3 미들웨어
+미들웨어는 익스프레스의 핵심요청과 응답의 중간(middle, 미들)에 위치하여 미들웨어라고 부른다.
+
+
+뒤에 나오는 라우터와 에러 핸들러 또한 미들웨어의 일종이므로 미들웨어가 익스프레스의 전부라고 해도 과언이 아니다.
+미들웨어는 요청과 응답을 조작하여 기능을 추가하"
+        "wordCount": 205
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
-
-    </div></section>
+    
+    </section>
 
 
 
@@ -246,6 +347,19 @@ ga('send', 'pageview');
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/03/03/react12/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">React 12일차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -441,11 +555,13 @@ ga('send', 'pageview');
     var disqus_shortname = 'Phang';
     
     
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/03/04/node-middleware/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
