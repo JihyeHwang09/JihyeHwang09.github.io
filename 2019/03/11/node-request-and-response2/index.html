@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="node.js">
     
-    <meta name="description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   요청과 응답 이해하기2123456789101112131415161718192021222324252627const http = require(&quot;http&quot;);const fs = require(&quot;fs&quot;);http  .createServer((req, res) =&amp;gt; &amp;#123;">
+    <meta name="description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   요청과 응답 이해하기212345678910111213141516171819202122const http = require(&quot;http&quot;);const fs = require(&quot;fs&quot;);http  .createServer((req, res) =&amp;gt; &amp;#123;    // 요청이 들어">
 <meta name="keywords" content="node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="요청과 응답 이해하기2">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   요청과 응답 이해하기2123456789101112131415161718192021222324252627const http = require(&quot;http&quot;);const fs = require(&quot;fs&quot;);http  .createServer((req, res) =&amp;gt; &amp;#123;">
+<meta property="og:description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   요청과 응답 이해하기212345678910111213141516171819202122const http = require(&quot;http&quot;);const fs = require(&quot;fs&quot;);http  .createServer((req, res) =&amp;gt; &amp;#123;    // 요청이 들어">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/54085989-9d498d80-4387-11e9-9e3f-0f07f4a5caf2.png">
-<meta property="og:updated_time" content="2019-03-10T13:56:12.211Z">
+<meta property="og:updated_time" content="2019-03-11T14:37:36.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="요청과 응답 이해하기2">
-<meta name="twitter:description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   요청과 응답 이해하기2123456789101112131415161718192021222324252627const http = require(&quot;http&quot;);const fs = require(&quot;fs&quot;);http  .createServer((req, res) =&amp;gt; &amp;#123;">
+<meta name="twitter:description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   요청과 응답 이해하기212345678910111213141516171819202122const http = require(&quot;http&quot;);const fs = require(&quot;fs&quot;);http  .createServer((req, res) =&amp;gt; &amp;#123;    // 요청이 들어">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/54085989-9d498d80-4387-11e9-9e3f-0f07f4a5caf2.png">
     
 
@@ -194,7 +194,13 @@ ga('send', 'pageview');
 <p><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&amp;mallGb=KOR&amp;barcode=9791160505221&amp;orderClick=LAG&amp;Kc=" target="_blank" rel="noopener">조현영님의 Node.js 교과서</a>의 내용을 공부하여 정리한 내용입니다.</p>
 </blockquote>
 <hr>
-<h2 id="요청과-응답-이해하기2"><a href="#요청과-응답-이해하기2" class="headerlink" title="요청과 응답 이해하기2"></a>요청과 응답 이해하기2</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">http</span><br><span class="line">  .createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 요청이 들어오면 먼저 fs 모듈로 HTML 파일을 읽는다.</span></span><br><span class="line">    fs.readFile(<span class="string">"./server2.html"</span>, (err, data) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// data 변수에 저장된 버퍼를 그대로 클라이언트에 보내주면 된다.</span></span><br><span class="line">      <span class="comment">// 이전 예제에서는 문자열을 보냈지만, 저렇게 버퍼를 보낼 수도 있다.</span></span><br><span class="line">      res.end(data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">  .listen(<span class="number">8081</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"8081번 포트에서 서버 대기 중입니다!"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">// 포트 번호를 8081번으로 바꿔주었다.</span></span><br><span class="line"><span class="comment">// server1.js를 종료했다면 8080번 포트를 계속 사용해도 된다.</span></span><br><span class="line"><span class="comment">// 하지만 종료하지 않았을 경우 server2.js가 같은 8080번 포트를 사용하면 에러가 발생하므로 8081번으로 바꾸었다.</span></span><br><span class="line"><span class="comment">// 이렇게 포트만 다르게 해서 동시에 여러 노드 서버를 실행할 수도 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// HTML 파일을 읽어와 클라이언트로 전송하는 데 성공했다.</span></span><br><span class="line"><span class="comment">// 하지만 현재 서버는 클라이언트가 누구인지 모른다.</span></span><br><span class="line"><span class="comment">// 그냥 요청이 올 때 모두에게 같은 응답을 보내고 있다.</span></span><br><span class="line"><span class="comment">// 다음 절에서는 서버가 클라이언트가 누구인지 기억해서 클라이언트별로 다르게 응답하는 방법을 알아보자.</span></span><br></pre></td></tr></table></figure>
+<h2 id="요청과-응답-이해하기2"><a href="#요청과-응답-이해하기2" class="headerlink" title="요청과 응답 이해하기2"></a>요청과 응답 이해하기2</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line">http</span><br><span class="line">  .createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 요청이 들어오면 먼저 fs 모듈로 HTML 파일을 읽는다.</span></span><br><span class="line">    fs.readFile(<span class="string">"./server2.html"</span>, (err, data) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// data 변수에 저장된 버퍼를 그대로 클라이언트에 보내주면 된다.</span></span><br><span class="line">      <span class="comment">// 이전 예제에서는 문자열을 보냈지만, 저렇게 버퍼를 보낼 수도 있다.</span></span><br><span class="line">      res.end(data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">  .listen(<span class="number">8081</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"8081번 포트에서 서버 대기 중입니다!"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">// 포트 번호를 8081번으로 바꿔주었다.</span></span><br><span class="line"><span class="comment">// server1.js를 종료했다면 8080번 포트를 계속 사용해도 된다.</span></span><br><span class="line"><span class="comment">// 하지만 종료하지 않았을 경우 server2.js가 같은 8080번 포트를 사용하면 에러가 발생하므로 8081번으로 바꾸었다.</span></span><br><span class="line"><span class="comment">// 이렇게 포트만 다르게 해서 동시에 여러 노드 서버를 실행할 수도 있다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>HTML 파일을 읽어와 클라이언트로 전송하는 데 성공했다.</li>
+<li>하지만 현재 서버는 클라이언트가 누구인지 모른다.</li>
+<li>그냥 요청이 올 때 모두에게 같은 응답을 보내고 있다.</li>
+<li>다음 절에서는 서버가 클라이언트가 누구인지 기억해서 클라이언트별로 다르게 응답하는 방법을 알아보자.</li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -271,15 +277,15 @@ ga('send', 'pageview');
         "genre": "back-end node.js",
         "datePublished": "2019-03-11",
         "dateCreated": "2019-03-11",
-        "dateModified": "2019-03-10",
+        "dateModified": "2019-03-11",
         "url": "https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/",
         "description": "
 
 조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.
 
 
-요청과 응답 이해하기2123456789101112131415161718192021222324252627const http = require("http");const fs = require("fs");http  .createServer((req, res) =&gt; &#123;   "
-        "wordCount": 279
+요청과 응답 이해하기212345678910111213141516171819202122const http = require("http");const fs = require("fs");http  .createServer((req, res) =&gt; &#123;    // 요청이 들어"
+        "wordCount": 261
     }
 </script>
 
