@@ -21,7 +21,7 @@
 <meta property="og:description" content="함수의 구성 요소실행 순서 주의할 점: 함수를 정의하는 것만으로는 함수 내부에 있는 코드가 실행되지 않는다. 함수 내부의 코드를 실행하려면, 반드시 함수를 호출해주어야 한다.  매개변수(parameter)와 인수(argument) 매개변수는 변수의 일종이다. 함수 호출 시마다 인수가 매개변수에 대입된다. 주의할 점: 매개변수는 바깥에서 선언된 변수와는 관계">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/55335817-ca94e180-54d6-11e9-96e4-709169df2f93.png">
-<meta property="og:updated_time" content="2019-04-01T14:35:50.884Z">
+<meta property="og:updated_time" content="2019-04-01T14:51:06.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="함수의 구성 요소- 매개변수(parameter)와 인수(argument), 반환값(return value)">
 <meta name="twitter:description" content="함수의 구성 요소실행 순서 주의할 점: 함수를 정의하는 것만으로는 함수 내부에 있는 코드가 실행되지 않는다. 함수 내부의 코드를 실행하려면, 반드시 함수를 호출해주어야 한다.  매개변수(parameter)와 인수(argument) 매개변수는 변수의 일종이다. 함수 호출 시마다 인수가 매개변수에 대입된다. 주의할 점: 매개변수는 바깥에서 선언된 변수와는 관계">
@@ -196,10 +196,11 @@ ga('send', 'pageview');
 <h3 id="매개변수-parameter-와-인수-argument"><a href="#매개변수-parameter-와-인수-argument" class="headerlink" title="매개변수(parameter)와 인수(argument)"></a>매개변수(parameter)와 인수(argument)</h3><ul>
 <li>매개변수는 변수의 일종이다.</li>
 <li>함수 호출 시마다 인수가 매개변수에 대입된다.</li>
-<li><p>주의할 점: <strong>매개변수는 바깥에서 선언된 변수와는 관계없는 독립적인 변수이다.</strong></p>
-<ul>
-<li>ex) 함수 호출 시 인수가 들어갈 자리에 변수를 써주고,<br>함수 내부에서 매개변수에 새로운 값을 대입한다고 하더라도 인수로 써준 변수의 값이 변경되지 않는다.</li>
+<li>주의할 점: <strong>매개변수는 바깥에서 선언된 변수와는 관계없는 독립적인 변수이다.</strong></li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  x = <span class="string">"I will get over it soon"</span>;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> y = <span class="string">"Can I get over it?"</span>;</span><br><span class="line"><span class="keyword">const</span> result = say(y);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br><span class="line"><span class="comment">//I will get over it soon</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>ex) 함수 호출 시 인수가 들어갈 자리에 변수를 써주고,<br>함수 내부에서 매개변수에 새로운 값을 대입한다고 하더라도 인수로 써준 변수의 값이 변경되지 않는다.</p>
 </li>
 <li><p>매개변수는 let으로 선언한 변수와 비슷하게 동작하지만 미묘하게 다른 점이 있다.</p>
 </li>
@@ -295,7 +296,7 @@ ga('send', 'pageview');
 매개변수는 변수의 일종이다.
 함수 호출 시마다 인수가 매개변수에 대입된다.
 주의할 점: 매개변수는 바깥에서 선언된 변수와는 관계"
-        "wordCount": 122
+        "wordCount": 184
     }
 </script>
 
