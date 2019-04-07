@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>전역 변수(Global Variable)와 전역 객체(Global Object) | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="javaScript">
+    
+    <meta name="description" content="전역 변수 (Global Variable) 전역 스코프는 스코프 체인의 가장 바깥쪽에 있는 스코프  12345678let foo = &quot;outer&quot;; // 이 `foo`는 전역 스코프에서 선언됨&amp;#123;  let foo = &quot;inner&quot;; // 이 `foo`는 블록 스코프에서 선언됨  console.log(foo); // inner&amp;#125;console.">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="전역 변수(Global Variable)와 전역 객체(Global Object)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/04/07/js-global-variable-object/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="전역 변수 (Global Variable) 전역 스코프는 스코프 체인의 가장 바깥쪽에 있는 스코프  12345678let foo = &quot;outer&quot;; // 이 `foo`는 전역 스코프에서 선언됨&amp;#123;  let foo = &quot;inner&quot;; // 이 `foo`는 블록 스코프에서 선언됨  console.log(foo); // inner&amp;#125;console.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/55685654-99fbee80-5993-11e9-81a7-f65c5c1c7baf.png">
+<meta property="og:updated_time" content="2019-04-07T15:17:29.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="전역 변수(Global Variable)와 전역 객체(Global Object)">
+<meta name="twitter:description" content="전역 변수 (Global Variable) 전역 스코프는 스코프 체인의 가장 바깥쪽에 있는 스코프  12345678let foo = &quot;outer&quot;; // 이 `foo`는 전역 스코프에서 선언됨&amp;#123;  let foo = &quot;inner&quot;; // 이 `foo`는 블록 스코프에서 선언됨  console.log(foo); // inner&amp;#125;console.">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/55685654-99fbee80-5993-11e9-81a7-f65c5c1c7baf.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">javaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/">개발자</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/개발자/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">javaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-js-global-variable-object" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        전역 변수(Global Variable)와 전역 객체(Global Object)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/04/07/js-global-variable-object/" class="article-date">
+            <time datetime="2019-04-06T15:10:43.000Z" itemprop="datePublished">2019-04-07</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="전역-변수-Global-Variable"><a href="#전역-변수-Global-Variable" class="headerlink" title="전역 변수 (Global Variable)"></a>전역 변수 (Global Variable)</h2><ul>
+<li>전역 스코프는 스코프 체인의 가장 바깥쪽에 있는 스코프</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="string">"outer"</span>; <span class="comment">// 이 `foo`는 전역 스코프에서 선언됨</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> foo = <span class="string">"inner"</span>; <span class="comment">// 이 `foo`는 블록 스코프에서 선언됨</span></span><br><span class="line">  <span class="built_in">console</span>.log(foo); <span class="comment">// inner</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// outer</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>‘outer’ 문자열을 값으로 갖는 변수 foo와 같이 전역 스코프에서 선언된 변수를 <code>전역 변수(global variable)</code>라고 한다.</li>
+<li>주의할 점: 변수를 명시적으로 전역 스코프에서 선언하지 않더라도,<br>한 번도 선언되지 않은 이름으로 안쪽 스코프에서 <strong><code>let</code>, <code>const</code>, <code>var</code>를 붙여주지 않고 변수를 선언</strong>하면 <strong>전역 스코프</strong>에 변수가 만들어진다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  variable = <span class="number">1</span>; <span class="comment">// // `variable`이라는 변수가 선언된 적 없으므로, 전역 변수가 된다.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func();</span><br><span class="line"><span class="built_in">console</span>.log(variable); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>전역 변수는 코드의 어떤 부분에서든 아무런 제한 없이 접근하고 조작할 수 있다.</li>
+<li><p>이런 특징이 편하고 좋아보이지만, 어려움을 겪을 수 있다.</p>
+</li>
+<li><p>어떤 프로그래밍 언어를 사용하건, 전역 변수에 의존해서 프로그래밍을 하는 것은 굉장히 금기시된다.<br>전역 변수를 남용하다 보면 다음과 같은 어려움을 겪게 된다.</p>
+</li>
+<li><p>전역 변수에는 아무런 제한 없이 접근할 수 있으므로, 프로그램의 크기가 커짐에 따라 변수의 값이 어디서 어떻게 변경될지 예측하기 힘들다.</p>
+</li>
+<li>전역 변수를 통해 프로그램의 너무 많은 부분이 결합(coupling)된다.</li>
+<li>예를 들어, A.js 파일을 고쳤는데 아무런 상관도 없어 보이던 B.js 파일의 코드가 오동작하게 될 수도 있다.</li>
+<li>코드가 전혀 다른 곳에 위치한 부분에 의존하게 되므로, 전역 변수를 사용한 코드는 이해하기 어렵다.</li>
+<li><p>이처럼 전역 변수를 잘못 사용하면 코드를 읽고, 쓰고, 변경하기 어려워진다.</p>
+</li>
+<li><p>변수를 선언할 때는 <strong>그 변수를 필요로 하는 작은 스코프 안에서만 접근할 수 있도록</strong> 하세요.</p>
+</li>
+<li>불가피하게 코드의 여러 부분에서 특정한 값을 공유하고 그 값을 변경해야 할 일이 생긴다면, 전역 변수 대신에 다른 기법을 활용하세요.</li>
+<li>공유되는 값에 접근할 수 있는 코드의 범위를 최소한으로 줄이고, 그 값은 약속된 방식으로만 변경을 할 수 있도록 제약을 두어야 한다.</li>
+</ul>
+<hr>
+<h2 id="전역-객체-Global-Object"><a href="#전역-객체-Global-Object" class="headerlink" title="전역 객체 (Global Object)"></a>전역 객체 (Global Object)</h2><ul>
+<li>JavaScript 구동 환경은 모두 <code>전역 객체(Global Object)</code>라는 특별한 객체를 갖고 있다.</li>
+<li>전역 변수가 선언되면, 이 변수는 또한 전역 객체의 속성이 되어 전역 객체를 통해서도 접근할 수 있게 된다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">window</span>.foo; <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>전역 객체의 이름은 JavaScript 구동 환경마다 다르다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>구동 환경</th>
+<th>전역 객체 이름</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>웹 브라우저</td>
+<td>window</td>
+</tr>
+<tr>
+<td>웹 워커</td>
+<td>self</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>global</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>전역 객체에는 구동 환경에서 유용하게 쓸 수 있는 속성과 함수가 미리 적재되어 있다.</li>
+<li>ex1) 브라우저 환경에서는 서버와의 통신을 위한 <code>fetch</code> 함수가 미리 적재되어 있다.</li>
+<li>ex2) Node.js 환경에서는 모듈을 불러와 사용할 수 있도록 해 주는 <code>require</code> 함수가 미리 적재되어 있다.</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "전역 변수(Global Variable)와 전역 객체(Global Object)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/55685654-99fbee80-5993-11e9-81a7-f65c5c1c7baf.png",
+        "keywords": "javaScript",
+        "genre": "front-end javaScript",
+        "datePublished": "2019-04-07",
+        "dateCreated": "2019-04-07",
+        "dateModified": "2019-04-08",
+        "url": "https://JihyeHwang09.github.io/2019/04/07/js-global-variable-object/",
+        "description": "전역 변수 (Global Variable)
+전역 스코프는 스코프 체인의 가장 바깥쪽에 있는 스코프
+
+12345678let foo = "outer"; // 이 `foo`는 전역 스코프에서 선언됨&#123;  let foo = "inner"; // 이 `foo`는 블록 스코프에서 선언됨  console.log(foo); // inner&#125;console."
+        "wordCount": 403
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/04/08/js-reference/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            참조 (Reference)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/04/06/33-js-typeof/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">33 JavaScript Concepts - typeof</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/08/js-reference/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/55685668-d3ccf500-5993-11e9-9f1c-218d74b10daa.png)" alt="참조 (Reference)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/04/08/js-reference/" class="title">참조 (Reference)</a></p>
+                            <p class="item-date"><time datetime="2019-04-07T15:14:40.000Z" itemprop="datePublished">2019-04-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/07/js-global-variable-object/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/55685654-99fbee80-5993-11e9-81a7-f65c5c1c7baf.png)" alt="전역 변수(Global Variable)와 전역 객체(Global Object)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/04/07/js-global-variable-object/" class="title">전역 변수(Global Variable)와 전역 객체(Global Object)</a></p>
+                            <p class="item-date"><time datetime="2019-04-06T15:10:43.000Z" itemprop="datePublished">2019-04-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/06/33-js-typeof/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/55670780-76697300-58c3-11e9-8594-7aeb083ef52b.png)" alt="33 JavaScript Concepts - typeof" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></p>
+                            <p class="item-title"><a href="/2019/04/06/33-js-typeof/" class="title">33 JavaScript Concepts - typeof</a></p>
+                            <p class="item-date"><time datetime="2019-04-06T14:22:09.000Z" itemprop="datePublished">2019-04-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/05/33-js-type-coercion/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/55625772-a9890500-57e4-11e9-83bb-dde822aee662.png)" alt="33 JavaScript Concepts - type coercion(강제 형 변환)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></p>
+                            <p class="item-title"><a href="/2019/04/05/33-js-type-coercion/" class="title">33 JavaScript Concepts - type coercion(강제 형 변환)</a></p>
+                            <p class="item-date"><time datetime="2019-04-05T11:46:42.000Z" itemprop="datePublished">2019-04-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/04/js-const-let-var/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/55562660-60c34480-572f-11e9-859e-5d9177aa7c54.png)" alt="const, let, var의 개념 비교" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">javaScript</a></p>
+                            <p class="item-title"><a href="/2019/04/04/js-const-let-var/" class="title">const, let, var의 개념 비교</a></p>
+                            <p class="item-date"><time datetime="2019-04-04T13:43:56.000Z" itemprop="datePublished">2019-04-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">back-end</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">node.js</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">55</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">javaScript</a><span class="category-list-count">34</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/til/">TIL</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/33-js-concepts/" style="font-size: 11.82px;">33-js-concepts</a> <a href="/tags/algorithms/" style="font-size: 10.91px;">Algorithms</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 15.45px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/computer-science/" style="font-size: 10.91px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/hdlc/" style="font-size: 10.91px;">HDLC</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/mathematical-induction/" style="font-size: 10.91px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/react/" style="font-size: 18.18px;">React</a> <a href="/tags/recursion-function/" style="font-size: 10.91px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 10.91px;">Static Web Generator</a> <a href="/tags/til/" style="font-size: 19.09px;">TIL</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/object-object/" style="font-size: 10.91px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/data-communication/" style="font-size: 12.73px;">data-communication</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 10.91px;">framework</a> <a href="/tags/front-end/" style="font-size: 16.36px;">front-end</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10.91px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/javascript/" style="font-size: 20px;">javaScript</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/node-js/" style="font-size: 17.27px;">node.js</a> <a href="/tags/platform/" style="font-size: 10.91px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/recursion/" style="font-size: 10.91px;">recursion</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/객체/" style="font-size: 10px;">객체</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 11.82px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 14.55px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/문자열/" style="font-size: 10px;">문자열</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/수학적-귀납법/" style="font-size: 10.91px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 10.91px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 11.82px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 11.82px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 13.64px;">재귀 함수</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 11.82px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 17.27px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 11.82px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/04/07/js-global-variable-object/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
