@@ -6,23 +6,24 @@
     
 
     
-    <title>til | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>2019-04-14_TIL | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="">
+        <meta name="keywords" content="TIL">
     
-    <meta name="description" content="Phang&apos;s IT Blog using Hexo">
+    <meta name="description" content="2019년 4월 14일 (일)자바스크립트의 형변환 중에 묘하게 작동하는 부분을 알게 되다. 자바스크립트의 형변환을 공부하면서 parseInt와 만났을때 묘하게 작동하는 부분을 알게 되어공유하고자 한다.  ab는 문자열이고 12는 숫자인데 이 둘을 이어붙인 문자열을 변수 strNum에 담았다.  문자열인 &amp;quot;ab12&amp;quot;를 parseInt로 정수">
+<meta name="keywords" content="TIL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="til">
-<meta property="og:url" content="https://JihyeHwang09.github.io/2019/04/14/til/index.html">
+<meta property="og:title" content="2019-04-14_TIL">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/04/14/TIL-2019-04-14/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Phang&apos;s IT Blog using Hexo">
+<meta property="og:description" content="2019년 4월 14일 (일)자바스크립트의 형변환 중에 묘하게 작동하는 부분을 알게 되다. 자바스크립트의 형변환을 공부하면서 parseInt와 만났을때 묘하게 작동하는 부분을 알게 되어공유하고자 한다.  ab는 문자열이고 12는 숫자인데 이 둘을 이어붙인 문자열을 변수 strNum에 담았다.  문자열인 &amp;quot;ab12&amp;quot;를 parseInt로 정수">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-14T14:59:07.425Z">
+<meta property="og:updated_time" content="2019-04-14T15:23:24.971Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="til">
-<meta name="twitter:description" content="Phang&apos;s IT Blog using Hexo">
+<meta name="twitter:title" content="2019-04-14_TIL">
+<meta name="twitter:description" content="2019년 4월 14일 (일)자바스크립트의 형변환 중에 묘하게 작동하는 부분을 알게 되다. 자바스크립트의 형변환을 공부하면서 parseInt와 만났을때 묘하게 작동하는 부분을 알게 되어공유하고자 한다.  ab는 문자열이고 12는 숫자인데 이 둘을 이어붙인 문자열을 변수 strNum에 담았다.  문자열인 &amp;quot;ab12&amp;quot;를 parseInt로 정수">
     
 
     
@@ -147,19 +148,19 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <a class="page-title-link" href="/categories/개발자/">개발자</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/개발자/til/">TIL</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-til" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+                            <article id="post-TIL-2019-04-14" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        til
+        2019-04-14_TIL
         </h1>
     
 
@@ -169,7 +170,7 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/04/14/til/" class="article-date">
+        <a href="/2019/04/14/TIL-2019-04-14/" class="article-date">
             <time datetime="2019-04-14T14:59:07.000Z" itemprop="datePublished">2019-04-14</time>
         </a>
     </div>
@@ -177,11 +178,40 @@ ga('send', 'pageview');
 		
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/til/">TIL</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h2 id="2019년-4월-14일-일"><a href="#2019년-4월-14일-일" class="headerlink" title="2019년 4월 14일 (일)"></a>2019년 4월 14일 (일)</h2><h3 id="자바스크립트의-형변환-중에-묘하게-작동하는-부분을-알게-되다"><a href="#자바스크립트의-형변환-중에-묘하게-작동하는-부분을-알게-되다" class="headerlink" title="자바스크립트의 형변환 중에 묘하게 작동하는 부분을 알게 되다."></a>자바스크립트의 형변환 중에 묘하게 작동하는 부분을 알게 되다.</h3><ul>
+<li><p>자바스크립트의 형변환을 공부하면서 <code>parseInt</code>와 만났을때 묘하게 작동하는 부분을 알게 되어<br>공유하고자 한다.</p>
+</li>
+<li><p>ab는 <strong>문자열</strong>이고 12는 <strong>숫자</strong>인데 이 둘을 이어붙인 <strong>문자열</strong>을 변수 strNum에 담았다.</p>
+</li>
+<li><strong>문자열</strong>인 <code>&quot;ab12&quot;</code>를 parseInt로 정수로 변환한 결과를 console.log로 화면에 출력해보면 어떤 값이 나올까?</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> strNum = <span class="string">"ab12"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(strNum)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> strNum); <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ab12</code>라는 <strong>숫자</strong>값이 없기 때문에 <code>NaN</code>이 출력 된다.</li>
+<li>타입은 그대로 <code>string</code>이다.</li>
+</ul>
+<ul>
+<li>이번에는 <strong>숫자</strong> 12를 앞에, <strong>문자열</strong> ab를 뒤에 이어붙인 <strong>문자열</strong>을 변수 numStr에 담았다.</li>
+<li>타입은 <code>string</code>인 “12ab”를 parseInt로 정수로 변환한 결과를 출력해보면,<br>위의 예제처럼 이번에도 <code>NaN</code>이 나올까?</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numStr = <span class="string">"12ab"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(numStr)); <span class="comment">// 12</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> strNum); <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>엇? 예상과 다르게 정수 <strong>12</strong>가 출력된다.</li>
+<li><p>타입은 <code>string</code>이 나온다.</p>
+</li>
+<li><p>자바스크립트에서 형변환을 할때는 이렇게 우리의 의도와는 다르게 작동하는 경우가 있기 때문에<br>주의를 기울일 필요가 있다.</p>
+</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
@@ -251,16 +281,21 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Phang"
         },
-        "headline": "til",
+        "headline": "2019-04-14_TIL",
         "image": "https://JihyeHwang09.github.io",
-        "keywords": "",
-        "genre": "",
+        "keywords": "TIL",
+        "genre": "개발자 TIL",
         "datePublished": "2019-04-14",
         "dateCreated": "2019-04-14",
-        "dateModified": "2019-04-14",
-        "url": "https://JihyeHwang09.github.io/2019/04/14/til/",
-        "description": ""
-        "wordCount": 1
+        "dateModified": "2019-04-15",
+        "url": "https://JihyeHwang09.github.io/2019/04/14/TIL-2019-04-14/",
+        "description": "2019년 4월 14일 (일)자바스크립트의 형변환 중에 묘하게 작동하는 부분을 알게 되다.
+자바스크립트의 형변환을 공부하면서 parseInt와 만났을때 묘하게 작동하는 부분을 알게 되어공유하고자 한다.
+
+ab는 문자열이고 12는 숫자인데 이 둘을 이어붙인 문자열을 변수 strNum에 담았다.
+
+문자열인 &quot;ab12&quot;를 parseInt로 정수"
+        "wordCount": 162
     }
 </script>
 
@@ -330,7 +365,7 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2019/04/14/til/" class="thumbnail">
+                            <a href="/2019/04/14/TIL-2019-04-14/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -341,8 +376,8 @@ ga('send', 'pageview');
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/04/14/til/" class="title">til</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/개발자/">개발자</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/개발자/til/">TIL</a></p>
+                            <p class="item-title"><a href="/2019/04/14/TIL-2019-04-14/" class="title">2019-04-14_TIL</a></p>
                             <p class="item-date"><time datetime="2019-04-14T14:59:07.000Z" itemprop="datePublished">2019-04-14</time></p>
                         </div>
                     </li>
@@ -436,7 +471,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">55</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/til/">TIL</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">55</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/">개발자</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/til/">TIL</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/개발자/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -512,7 +547,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'Phang';
     
     
-    var disqus_url = 'https://JihyeHwang09.github.io/2019/04/14/til/';
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/04/14/TIL-2019-04-14/';
     
     (function() {
     var dsq = document.createElement('script');
