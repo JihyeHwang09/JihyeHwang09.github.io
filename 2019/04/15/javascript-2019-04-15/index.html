@@ -21,7 +21,7 @@
 <meta property="og:description" content="덧셈 연산과 문자열 변환 과정에서 무의식적으로 코딩하다가 일어난 이슈와 그 해결 방법에 대해 정리하고자 한다.   Number 타입의 값들을 이어 붙여서 문자열로 변환하고자 했다.  123const yyyy = 2019;const mm = 04;const dd = 15;  yyyy, mm, dd 각 변수에는 Number 타입의 값이 각각 들어있다. 이 값">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/56139798-8aecf000-5fd4-11e9-86a3-9491420266e2.png">
-<meta property="og:updated_time" content="2019-04-15T14:18:17.538Z">
+<meta property="og:updated_time" content="2019-04-15T14:21:54.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="덧셈 연산과 문자열 변환">
 <meta name="twitter:description" content="덧셈 연산과 문자열 변환 과정에서 무의식적으로 코딩하다가 일어난 이슈와 그 해결 방법에 대해 정리하고자 한다.   Number 타입의 값들을 이어 붙여서 문자열로 변환하고자 했다.  123const yyyy = 2019;const mm = 04;const dd = 15;  yyyy, mm, dd 각 변수에는 Number 타입의 값이 각각 들어있다. 이 값">
@@ -201,7 +201,7 @@ ga('send', 'pageview');
 <li>이 값들을 <strong>문자열</strong>인 <code>&#39;20190415&#39;</code>로 변환하고자 한다.</li>
 <li>처음 작성한 코드는 아래와 같다.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> today = <span class="string">''</span>;</span><br><span class="line">today = <span class="built_in">String</span>(yyyy + mm + dd));</span><br><span class="line"><span class="built_in">console</span>.log(today); <span class="comment">//2038</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> today = <span class="string">""</span>;</span><br><span class="line">today = <span class="built_in">String</span>(yyyy + mm + dd);</span><br><span class="line"><span class="built_in">console</span>.log(today); <span class="comment">//2038</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>먼저 각 변수에 담긴 숫자들의 덧셈 연산이 이루어진 후, String을 통해 문자열로 변환이 이루어진다. 따라서 의도와는 달리 <code>&#39;2038&#39;</code>이라는 결과가 나온다.</p>
 </li>
