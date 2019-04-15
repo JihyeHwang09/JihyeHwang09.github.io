@@ -21,7 +21,7 @@
 <meta property="og:description" content="덧셈 연산과 문자열 변환 과정에서 무의식적으로 코딩하다가 일어난 이슈와 그 해결 방법에 대해 정리하고자 한다.   Number 타입의 값들을 이어 붙여서 문자열로 변환하고자 했다.  123const yyyy = 2019;const mm = 04;const dd = 15;  yyyy, mm, dd 각 변수에는 Number 타입의 값이 각각 들어있다. 이 값">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/56139798-8aecf000-5fd4-11e9-86a3-9491420266e2.png">
-<meta property="og:updated_time" content="2019-04-15T14:26:16.138Z">
+<meta property="og:updated_time" content="2019-04-15T14:27:35.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="덧셈 연산과 문자열 변환">
 <meta name="twitter:description" content="덧셈 연산과 문자열 변환 과정에서 무의식적으로 코딩하다가 일어난 이슈와 그 해결 방법에 대해 정리하고자 한다.   Number 타입의 값들을 이어 붙여서 문자열로 변환하고자 했다.  123const yyyy = 2019;const mm = 04;const dd = 15;  yyyy, mm, dd 각 변수에는 Number 타입의 값이 각각 들어있다. 이 값">
@@ -208,8 +208,8 @@ ga('send', 'pageview');
 <li><p>해당 이슈는 크게 2가지 방법으로 해결할 수 있다.</p>
 </li>
 </ul>
-<h3 id="대처-방안"><a href="#대처-방안" class="headerlink" title="대처 방안"></a>대처 방안</h3><h4 id="1-각각을-문자열로-바꾼-후-덧셈-연산-을-통해-이어-붙여준다"><a href="#1-각각을-문자열로-바꾼-후-덧셈-연산-을-통해-이어-붙여준다" class="headerlink" title="1. 각각을 문자열로 바꾼 후, 덧셈 연산(+)을 통해 이어 붙여준다."></a>1. 각각을 문자열로 바꾼 후, 덧셈 연산(+)을 통해 이어 붙여준다.</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">today = <span class="built_in">String</span>(yyyy) + <span class="built_in">String</span>(mm) + <span class="built_in">String</span>(dd);</span><br></pre></td></tr></table></figure>
-<h4 id="2-덧셈-연산-사이에-빈-문자열-‘’-을-추가하여-숫자를-문자열로-변환해-준다"><a href="#2-덧셈-연산-사이에-빈-문자열-‘’-을-추가하여-숫자를-문자열로-변환해-준다" class="headerlink" title="2. 덧셈 연산(+) 사이에 빈 문자열(‘’)을 추가하여 숫자를 문자열로 변환해 준다."></a>2. 덧셈 연산(+) 사이에 빈 문자열(‘’)을 추가하여 숫자를 문자열로 변환해 준다.</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">today = yyyy + <span class="string">""</span> + mm + <span class="string">""</span> + dd;</span><br></pre></td></tr></table></figure>
+<h3 id="대처-방안"><a href="#대처-방안" class="headerlink" title="대처 방안"></a>대처 방안</h3><h4 id="1-각각을-문자열로-바꾼-후-덧셈-연산-을-통해-이어-붙여준다"><a href="#1-각각을-문자열로-바꾼-후-덧셈-연산-을-통해-이어-붙여준다" class="headerlink" title="1. 각각을 문자열로 바꾼 후, 덧셈 연산(+)을 통해 이어 붙여준다."></a>1. 각각을 문자열로 바꾼 후, 덧셈 연산(+)을 통해 이어 붙여준다.</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">today = <span class="built_in">String</span>(yyyy) + <span class="built_in">String</span>(mm) + <span class="built_in">String</span>(dd);</span><br><span class="line"><span class="built_in">console</span>.log(today); <span class="comment">//'20190415'</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-덧셈-연산-사이에-빈-문자열-‘’-을-추가하여-숫자를-문자열로-변환해-준다"><a href="#2-덧셈-연산-사이에-빈-문자열-‘’-을-추가하여-숫자를-문자열로-변환해-준다" class="headerlink" title="2. 덧셈 연산(+) 사이에 빈 문자열(‘’)을 추가하여 숫자를 문자열로 변환해 준다."></a>2. 덧셈 연산(+) 사이에 빈 문자열(‘’)을 추가하여 숫자를 문자열로 변환해 준다.</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">today = yyyy + <span class="string">""</span> + mm + <span class="string">""</span> + dd;</span><br><span class="line"><span class="built_in">console</span>.log(today); <span class="comment">//'20190415'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>중요한 포인트는 <code>문자열 변환</code>과 <code>덧셈 연산</code>의 <strong>순서</strong>이다.<br>덧셈 연산 후, 문자열로 변환하는 것이 아니라<br><strong>문자열 변환 후, 덧셈 연산</strong>이 일어나야 위의 목적에 원하는 결과를 얻을 수 있다.</li>
 </ul>
@@ -301,7 +301,7 @@ Number 타입의 값들을 이어 붙여서 문자열로 변환하고자 했다.
 
 yyyy, mm, dd 각 변수에는 Number 타입의 값이 각각 들어있다.
 이 값"
-        "wordCount": 225
+        "wordCount": 235
     }
 </script>
 
