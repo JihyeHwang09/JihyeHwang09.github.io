@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>소프트웨어 공학 개요 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="컴퓨터 과학,소프트웨어 공학">
+    
+    <meta name="description" content="1강. 소프트웨어 공학 개요 소프트웨어 공학의 개요에 대해 알아보자.  주요 용어 소프트웨어: 포괄적 의미에서 프로그램과 데이터 및 관련 문서들의 묶음 소프트웨어 공학: 소프트웨어 생산과 관련된 모든 부분에 공학적 원리와 방법을 적용시키려는 연구 분야 또는 전문 작업 분야 소프트웨어 개발 방법론: 소프트웨어 개발을 위한 구조적 방법을 말하는 것으로 따라야할">
+<meta name="keywords" content="컴퓨터 과학,소프트웨어 공학">
+<meta property="og:type" content="article">
+<meta property="og:title" content="소프트웨어 공학 개요">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/04/18/se-1/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="1강. 소프트웨어 공학 개요 소프트웨어 공학의 개요에 대해 알아보자.  주요 용어 소프트웨어: 포괄적 의미에서 프로그램과 데이터 및 관련 문서들의 묶음 소프트웨어 공학: 소프트웨어 생산과 관련된 모든 부분에 공학적 원리와 방법을 적용시키려는 연구 분야 또는 전문 작업 분야 소프트웨어 개발 방법론: 소프트웨어 개발을 위한 구조적 방법을 말하는 것으로 따라야할">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/56335491-aa079f80-61d7-11e9-8503-94714b0e6f04.png">
+<meta property="og:updated_time" content="2019-04-18T03:44:29.496Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="소프트웨어 공학 개요">
+<meta name="twitter:description" content="1강. 소프트웨어 공학 개요 소프트웨어 공학의 개요에 대해 알아보자.  주요 용어 소프트웨어: 포괄적 의미에서 프로그램과 데이터 및 관련 문서들의 묶음 소프트웨어 공학: 소프트웨어 생산과 관련된 모든 부분에 공학적 원리와 방법을 적용시키려는 연구 분야 또는 전문 작업 분야 소프트웨어 개발 방법론: 소프트웨어 개발을 위한 구조적 방법을 말하는 것으로 따라야할">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/56335491-aa079f80-61d7-11e9-8503-94714b0e6f04.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Fancybox', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/blog/hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-se-1" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        소프트웨어 공학 개요
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/04/18/se-1/" class="article-date">
+            <time datetime="2019-04-18T03:12:19.000Z" itemprop="datePublished">2019-04-18</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/소프트웨어-공학/">소프트웨어 공학</a>, <a class="tag-link" href="/tags/컴퓨터-과학/">컴퓨터 과학</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="1강-소프트웨어-공학-개요"><a href="#1강-소프트웨어-공학-개요" class="headerlink" title="1강. 소프트웨어 공학 개요"></a>1강. 소프트웨어 공학 개요</h2><blockquote>
+<p><code>소프트웨어 공학의 개요</code>에 대해 알아보자.</p>
+</blockquote>
+<h3 id="주요-용어"><a href="#주요-용어" class="headerlink" title="주요 용어"></a>주요 용어</h3><ul>
+<li><code>소프트웨어</code>: 포괄적 의미에서 프로그램과 데이터 및 관련 문서들의 묶음</li>
+<li><code>소프트웨어 공학</code>: 소프트웨어 생산과 관련된 모든 부분에 공학적 원리와 방법을 적용시키려는 연구 분야 또는 전문 작업 분야</li>
+<li><code>소프트웨어 개발 방법론</code>: 소프트웨어 개발을 위한 구조적 방법을 말하는 것으로 따라야할 행위들</li>
+<li>ex) 결과의 표기법 및 규칙 등을 포함</li>
+<li><code>소프트웨어 개발 프로세스</code>: 소프트웨어 개발이나 유지보수 목적으로 수행되는 일련의 활동</li>
+</ul>
+<hr>
+<h3 id="연습-문제"><a href="#연습-문제" class="headerlink" title="연습 문제"></a>연습 문제</h3><p>Q. 포괄적 의미에서 소프트웨어의 정의</p>
+<ul>
+<li>프로그램과 데이터 및 설계 문서나 매뉴얼 등의 관련 문서</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">해설: 포괄적 의미의 소프트웨어는 소스 코드와 데이터 외에도</span><br><span class="line">실행 파일, 설계 문서, 설치 파일, 시스템 매뉴얼과 사용자 매뉴얼 등을 포함하는 개념이다.</span><br></pre></td></tr></table></figure>
+<p>Q. 소프트웨어 공학의 목표에 해당되지 않는 것은?</p>
+<ol>
+<li>품질 좋은 소프트웨어</li>
+<li>소프트웨어의 경제적 생산<br><strong>3. 자원을 최대한 사용</strong></li>
+<li>계획된 일정에 맞게 소프트웨어를 생산</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">정답: 3)</span><br><span class="line">해설: 자원은 보통 제한적으로 제공되므로 효율적으로 이용해야 한다.</span><br></pre></td></tr></table></figure>
+<p>Q. 소프트웨어 개발 프로세스(what)와 개발 방법(how)을 결합한 개념은?</p>
+<ol>
+<li>기술(technique)<br><strong>2. 소프트웨어 개발 방법론(methodology)</strong></li>
+<li>소프트웨어 생명 주기(life cycle)</li>
+<li>소프트웨어 공학 원리(principle)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">정답: 2)</span><br><span class="line">해설: 소프트웨어 생명 주기는 탄생에서 폐기까지의 변화 과정을 의미하는 개념</span><br><span class="line">기술은 방법에 비해 기계적이며 &apos;제한적인 적용&apos;을 내포하는 용어이다.</span><br></pre></td></tr></table></figure>
+<p>Q. 다음이 설명하는 좋은 소프트웨어의 기준은?</p>
+<p>소프트웨어가 탑재되어 실행될 하드웨어나 운영체제가 달라져도,<br>소프트웨어가 쉽게 수정될 수 있어서 계속 동작할 수 있다.</p>
+<ol>
+<li>소프트웨어의 검사성<br><strong>2. 소프트웨어의 이식성</strong></li>
+<li>소프트웨어의 유지보수성</li>
+<li>소프트웨어의 정확성</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">정답: 2)</span><br><span class="line">해설: 소프트웨어의 이식성이란 소프트웨어의 환경이 바뀌어도</span><br><span class="line">쉽게 수정되어 동작하는 능력을 의미한다.</span><br><span class="line">이때, 환경은 하드웨어, 운영체제 및 상호작용하는 다른 시스템을 말한다.</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="정리하기"><a href="#정리하기" class="headerlink" title="정리하기"></a>정리하기</h3><ul>
+<li>소프트웨어는 무형의 인공물로 다른 공학 제품에 비해 변경이 용이하다.</li>
+<li>소프트웨어 위기 현상은 소프트웨어 공학 기술의 후진성에 기인한다.</li>
+<li>소프트웨어 공학의 정의는 소프트웨어의 개발, 운영, 유지보수에 체계적이고 숙달되고 정량화된 접근 방법을 적용하는 것이다.</li>
+<li>소프트웨어 공학 환경은 최하위 층부터 소프트웨어 공학 원리, 방법과 기술, 방법론, 그리고 도구로 구성된다.</li>
+<li>소프트웨어 개발 방법론이랑 문제 해결을 위해 여러 방법들과 기술들이 정해진 프로세스 안에서 함께 묶인 것이다.</li>
+<li>좋은 소프트웨어인가를 판단하는 기준으로는 신뢰도, 정확성, 성능, 사용성, 상호운용성, 유지보수성, 이식성, 검증성, 추적성 등이 있다.</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "소프트웨어 공학 개요",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/56335491-aa079f80-61d7-11e9-8503-94714b0e6f04.png",
+        "keywords": "컴퓨터 과학 소프트웨어 공학",
+        "genre": "컴퓨터 과학 소프트웨어 공학",
+        "datePublished": "2019-04-18",
+        "dateCreated": "2019-04-18",
+        "dateModified": "2019-04-18",
+        "url": "https://JihyeHwang09.github.io/2019/04/18/se-1/",
+        "description": "1강. 소프트웨어 공학 개요
+소프트웨어 공학의 개요에 대해 알아보자.
+
+주요 용어
+소프트웨어: 포괄적 의미에서 프로그램과 데이터 및 관련 문서들의 묶음
+소프트웨어 공학: 소프트웨어 생산과 관련된 모든 부분에 공학적 원리와 방법을 적용시키려는 연구 분야 또는 전문 작업 분야
+소프트웨어 개발 방법론: 소프트웨어 개발을 위한 구조적 방법을 말하는 것으로 따라야할"
+        "wordCount": 317
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/04/17/js-2019-04-17/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">매개변수와 전달인자 특성을 적용하여 코드 줄이기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/18/se-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/56335491-aa079f80-61d7-11e9-8503-94714b0e6f04.png)" alt="소프트웨어 공학 개요" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></p>
+                            <p class="item-title"><a href="/2019/04/18/se-1/" class="title">소프트웨어 공학 개요</a></p>
+                            <p class="item-date"><time datetime="2019-04-18T03:12:19.000Z" itemprop="datePublished">2019-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/17/js-2019-04-17/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/56293959-08e00100-6165-11e9-8c9a-8924c2ca2ae6.png)" alt="매개변수와 전달인자 특성을 적용하여 코드 줄이기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">Front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2019/04/17/js-2019-04-17/" class="title">매개변수와 전달인자 특성을 적용하여 코드 줄이기</a></p>
+                            <p class="item-date"><time datetime="2019-04-17T13:39:06.000Z" itemprop="datePublished">2019-04-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/16/book-cleancode-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/56214847-90603e00-6099-11e9-9e3c-fefecebfa903.png)" alt="01. 클린 코드 - 1. 깨끗한 코드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/book/">Book</a></p>
+                            <p class="item-title"><a href="/2019/04/16/book-cleancode-1/" class="title">01. 클린 코드 - 1. 깨끗한 코드</a></p>
+                            <p class="item-date"><time datetime="2019-04-16T10:59:03.000Z" itemprop="datePublished">2019-04-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/15/js-2019-04-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/56139798-8aecf000-5fd4-11e9-86a3-9491420266e2.png)" alt="덧셈 연산과 문자열 변환" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/front-end/">Front-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/front-end/javascript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2019/04/15/js-2019-04-15/" class="title">덧셈 연산과 문자열 변환</a></p>
+                            <p class="item-date"><time datetime="2019-04-15T13:56:32.000Z" itemprop="datePublished">2019-04-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/04/14/TIL-2019-04-14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/56095193-36367000-5f15-11e9-96d1-0901041985bb.png)" alt="2019-04-14_TIL" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/til/">TIL</a></p>
+                            <p class="item-title"><a href="/2019/04/14/TIL-2019-04-14/" class="title">2019-04-14_TIL</a></p>
+                            <p class="item-date"><time datetime="2019-04-14T14:59:07.000Z" itemprop="datePublished">2019-04-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">57</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/33-js-concepts/" style="font-size: 11.82px;">33-js-concepts</a> <a href="/tags/algorithms/" style="font-size: 10.91px;">Algorithms</a> <a href="/tags/argument/" style="font-size: 10px;">Argument</a> <a href="/tags/back-end/" style="font-size: 10.91px;">Back-end</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 15.45px;">CSS</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/clean-code/" style="font-size: 10px;">Clean Code</a> <a href="/tags/computer-science/" style="font-size: 10.91px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/front-end/" style="font-size: 16.36px;">Front-end</a> <a href="/tags/hdlc/" style="font-size: 10.91px;">HDLC</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/javascript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/linux/" style="font-size: 10.91px;">Linux</a> <a href="/tags/mathematical-induction/" style="font-size: 10.91px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/node-js/" style="font-size: 18.18px;">Node.js</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/parameter/" style="font-size: 10px;">Parameter</a> <a href="/tags/react/" style="font-size: 18.18px;">React</a> <a href="/tags/recursion-function/" style="font-size: 10.91px;">Recursion Function</a> <a href="/tags/static-web-generator/" style="font-size: 10.91px;">Static Web Generator</a> <a href="/tags/til/" style="font-size: 19.09px;">TIL</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/object-object/" style="font-size: 10.91px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/cp/" style="font-size: 10px;">cp</a> <a href="/tags/data-communication/" style="font-size: 12.73px;">data-communication</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 10.91px;">framework</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10.91px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/platform/" style="font-size: 10.91px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/recursion/" style="font-size: 10.91px;">recursion</a> <a href="/tags/rm-r/" style="font-size: 10px;">rm. -r</a> <a href="/tags/rmdir-rmdir/" style="font-size: 10px;">rmdir. rmdir</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/객체/" style="font-size: 10px;">객체</a> <a href="/tags/깨끗한-코드/" style="font-size: 10px;">깨끗한 코드</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 11.82px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/덧셈-연산/" style="font-size: 10px;">덧셈 연산</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 14.55px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/매개변수/" style="font-size: 10px;">매개변수</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/문자열/" style="font-size: 10.91px;">문자열</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/소프트웨어-공학/" style="font-size: 10px;">소프트웨어 공학</a> <a href="/tags/수학적-귀납법/" style="font-size: 10.91px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 10.91px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 11.82px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/알고리즘/" style="font-size: 11.82px;">알고리즘</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/재귀-함수/" style="font-size: 13.64px;">재귀 함수</a> <a href="/tags/전달인자/" style="font-size: 10px;">전달인자</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 11.82px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 17.27px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴퓨터-과학/" style="font-size: 12.73px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/클린-코드/" style="font-size: 10px;">클린 코드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/04/18/se-1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
