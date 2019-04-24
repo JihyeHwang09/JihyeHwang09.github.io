@@ -6,26 +6,26 @@
     
 
     
-    <title>JavaScript에서 return과 break의 차이 | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>병행 프로세스(2) | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="JavaScript">
+        <meta name="keywords" content="컴퓨터 과학,운영체제,병행 프로세스">
     
-    <meta name="description" content="JavaScript에서 return과 break의 차이 JavaScript로 코드를 짜면서 for문과 switch문을 작성할 일이 있었다.return과 break가 비슷한 역할을 하면서도 미묘한 차이가 있다는 사실은 알지만,명확하게 무엇이 다른 지는 생각나지 않았다. 따라서, 간략하게 정리하고자 한다.  1. return return은 함수 실행을 종료하고">
-<meta name="keywords" content="JavaScript">
+    <meta name="description" content="5강. 병행 프로세스(2) 지난 시간에 이어서 병행 프로세스에 대해 알아보자.  주요 용어 생산자/소비자 문제: 유한 크기의 버퍼를 이용하여 데이터를 공급하는 처리와데이터를 사용하는 처리 과정을 병행 프로세스로 구현하는 다중처리 동기화 문제의 예 판독기/기록기 문제: 공유 메모리 영역에서 데이터를 읽어 데이터를 읽어 사용하는 판독기 프로세스들과 데이터를 기">
+<meta name="keywords" content="컴퓨터 과학,운영체제,병행 프로세스">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript에서 return과 break의 차이">
-<meta property="og:url" content="https://JihyeHwang09.github.io/2019/03/12/js-return-and-break/index.html">
+<meta property="og:title" content="병행 프로세스(2)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/04/24/os-5/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="JavaScript에서 return과 break의 차이 JavaScript로 코드를 짜면서 for문과 switch문을 작성할 일이 있었다.return과 break가 비슷한 역할을 하면서도 미묘한 차이가 있다는 사실은 알지만,명확하게 무엇이 다른 지는 생각나지 않았다. 따라서, 간략하게 정리하고자 한다.  1. return return은 함수 실행을 종료하고">
+<meta property="og:description" content="5강. 병행 프로세스(2) 지난 시간에 이어서 병행 프로세스에 대해 알아보자.  주요 용어 생산자/소비자 문제: 유한 크기의 버퍼를 이용하여 데이터를 공급하는 처리와데이터를 사용하는 처리 과정을 병행 프로세스로 구현하는 다중처리 동기화 문제의 예 판독기/기록기 문제: 공유 메모리 영역에서 데이터를 읽어 데이터를 읽어 사용하는 판독기 프로세스들과 데이터를 기">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/54138527-ff2af580-4462-11e9-8b78-bac183150677.png">
-<meta property="og:updated_time" content="2019-04-11T15:22:16.288Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/56661057-e3f70b00-66db-11e9-875e-af67b9b04738.png">
+<meta property="og:updated_time" content="2019-04-24T12:57:33.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript에서 return과 break의 차이">
-<meta name="twitter:description" content="JavaScript에서 return과 break의 차이 JavaScript로 코드를 짜면서 for문과 switch문을 작성할 일이 있었다.return과 break가 비슷한 역할을 하면서도 미묘한 차이가 있다는 사실은 알지만,명확하게 무엇이 다른 지는 생각나지 않았다. 따라서, 간략하게 정리하고자 한다.  1. return return은 함수 실행을 종료하고">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/54138527-ff2af580-4462-11e9-8b78-bac183150677.png">
+<meta name="twitter:title" content="병행 프로세스(2)">
+<meta name="twitter:description" content="5강. 병행 프로세스(2) 지난 시간에 이어서 병행 프로세스에 대해 알아보자.  주요 용어 생산자/소비자 문제: 유한 크기의 버퍼를 이용하여 데이터를 공급하는 처리와데이터를 사용하는 처리 과정을 병행 프로세스로 구현하는 다중처리 동기화 문제의 예 판독기/기록기 문제: 공유 메모리 영역에서 데이터를 읽어 데이터를 읽어 사용하는 판독기 프로세스들과 데이터를 기">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/56661057-e3f70b00-66db-11e9-875e-af67b9b04738.png">
     
 
     
@@ -150,19 +150,19 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/front-end/">Front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/front-end/javascript/">JavaScript</a>
+    <a class="page-title-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-js-return-and-break" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+                            <article id="post-os-5" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        JavaScript에서 return과 break의 차이
+        병행 프로세스(2)
         </h1>
     
 
@@ -172,8 +172,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/03/12/js-return-and-break/" class="article-date">
-            <time datetime="2019-03-11T15:34:35.000Z" itemprop="datePublished">2019-03-12</time>
+        <a href="/2019/04/24/os-5/" class="article-date">
+            <time datetime="2019-04-23T15:00:58.000Z" itemprop="datePublished">2019-04-24</time>
         </a>
     </div>
 
@@ -182,28 +182,28 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/javascript/">JavaScript</a>
+        <a class="tag-link" href="/tags/병행-프로세스/">병행 프로세스</a>, <a class="tag-link" href="/tags/운영체제/">운영체제</a>, <a class="tag-link" href="/tags/컴퓨터-과학/">컴퓨터 과학</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="JavaScript에서-return과-break의-차이"><a href="#JavaScript에서-return과-break의-차이" class="headerlink" title="JavaScript에서 return과 break의 차이"></a>JavaScript에서 <code>return</code>과 <code>break</code>의 차이</h2><blockquote>
-<p>JavaScript로 코드를 짜면서 for문과 switch문을 작성할 일이 있었다.<br><code>return</code>과 <code>break</code>가 비슷한 역할을 하면서도 미묘한 차이가 있다는 사실은 알지만,<br>명확하게 무엇이 다른 지는 생각나지 않았다. 따라서, 간략하게 정리하고자 한다.</p>
+            <h2 id="5강-병행-프로세스-2"><a href="#5강-병행-프로세스-2" class="headerlink" title="5강. 병행 프로세스(2)"></a>5강. 병행 프로세스(2)</h2><blockquote>
+<p>지난 시간에 이어서 <code>병행 프로세스</code>에 대해 알아보자.</p>
 </blockquote>
-<h3 id="1-return"><a href="#1-return" class="headerlink" title="1. return"></a>1. <code>return</code></h3><ul>
-<li><code>return</code>은 함수 실행을 종료하고, 함수를 빠져 나온다.<br><br><br><br></li>
+<h3 id="주요-용어"><a href="#주요-용어" class="headerlink" title="주요 용어"></a>주요 용어</h3><ul>
+<li><code>생산자/소비자 문제</code>: 유한 크기의 버퍼를 이용하여 데이터를 공급하는 처리와<br>데이터를 사용하는 처리 과정을 병행 프로세스로 구현하는 다중처리 동기화 문제의 예<br><br></li>
+<li><code>판독기/기록기 문제</code>: 공유 메모리 영역에서 데이터를 읽어 데이터를 읽어 사용하는 판독기 프로세스들과 데이터를 기록하는 기록기 프로세스들 사이의 동기화 및 상호배제 문제<br><br></li>
+<li><code>메시지 시스템</code>: 메시지 교환 방식으로 프로세스 사이의 통신을 처리하는 시스템</li>
 </ul>
-<h3 id="2-break"><a href="#2-break" class="headerlink" title="2. break"></a>2. <code>break</code></h3><ul>
-<li><code>break</code>는 현재 루프 즉, <code>switch</code>나 <code>for</code>, <code>while문</code> 등을 <strong>종료</strong>하고 <strong>루프</strong>에서 빠져나온다.<br><br><br><br></li>
+<hr>
+<h3 id="정리하기"><a href="#정리하기" class="headerlink" title="정리하기"></a>정리하기</h3><ul>
+<li><code>생산자/소비자 문제</code>는 상호배제와 동기화가 필요한 문제로 세마포어를 이용하여 구현할 수 있다.<br><br></li>
+<li><code>판독기/기록기 문제</code>에서 판독기는 동시에 공유 데이터 객체에 접근할 수 있으나,<br>기록기는 배타적 접근이 필요하다.<br><br></li>
+<li>프로세스 사이의 통신은 공유기억장치나 메시지 교환방식을 이용하여 구현한다.<br><br></li>
+<li>메시지 전달은 수신자나 송신자의 이름을 명시하여 직접 통신을 하거나,<br>우편함을 통한 간접 통신을 통해 이루어진다.</li>
 </ul>
-<h3 id="3-return과-break의-차이"><a href="#3-return과-break의-차이" class="headerlink" title="3. return과 break의 차이"></a>3. <code>return</code>과 <code>break</code>의 차이</h3><ul>
-<li>만약에 함수 안에 작성된 루프 안에서 <code>break</code>가 쓰였다면, <code>break</code>를 감싸고 있는 루프를 빠져나가고 함수 밖으로는 나가지 않는다.<br><code>return</code>은 함수 실행을 종료하고 함수를 호출한 곳으로 실행 흐름을 옮긴다.<br><br><br><br></li>
-</ul>
-<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 다음 함수는 i가 3일 때, break문을 만나서, while loop를 종료합니다.</span></span><br><span class="line"><span class="comment">// 그 후에 while문을 빠져나와서 실행 흐름이   return i * x;로 가서</span></span><br><span class="line"><span class="comment">//  3 * x 값을 반환합니다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">text</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (i &lt; <span class="number">6</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> i * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br><br><br></p>
-<h4 id="참고-링크"><a href="#참고-링크" class="headerlink" title="참고 링크"></a>참고 링크</h4><p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/return" target="_blank" rel="noopener">mdn- return에 대한 내용</a><br><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/break" target="_blank" rel="noopener">mdn- break에 대한 내용</a></p>
 
         </div>
         <footer class="article-footer">
@@ -274,20 +274,21 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Phang"
         },
-        "headline": "JavaScript에서 return과 break의 차이",
-        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/54138527-ff2af580-4462-11e9-8b78-bac183150677.png",
-        "keywords": "JavaScript",
-        "genre": "Front-end JavaScript",
-        "datePublished": "2019-03-12",
-        "dateCreated": "2019-03-12",
-        "dateModified": "2019-04-12",
-        "url": "https://JihyeHwang09.github.io/2019/03/12/js-return-and-break/",
-        "description": "JavaScript에서 return과 break의 차이
-JavaScript로 코드를 짜면서 for문과 switch문을 작성할 일이 있었다.return과 break가 비슷한 역할을 하면서도 미묘한 차이가 있다는 사실은 알지만,명확하게 무엇이 다른 지는 생각나지 않았다. 따라서, 간략하게 정리하고자 한다.
+        "headline": "병행 프로세스(2)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/56661057-e3f70b00-66db-11e9-875e-af67b9b04738.png",
+        "keywords": "컴퓨터 과학 운영체제 병행 프로세스",
+        "genre": "컴퓨터 과학 운영체제",
+        "datePublished": "2019-04-24",
+        "dateCreated": "2019-04-24",
+        "dateModified": "2019-04-24",
+        "url": "https://JihyeHwang09.github.io/2019/04/24/os-5/",
+        "description": "5강. 병행 프로세스(2)
+지난 시간에 이어서 병행 프로세스에 대해 알아보자.
 
-1. return
-return은 함수 실행을 종료하고"
-        "wordCount": 242
+주요 용어
+생산자/소비자 문제: 유한 크기의 버퍼를 이용하여 데이터를 공급하는 처리와데이터를 사용하는 처리 과정을 병행 프로세스로 구현하는 다중처리 동기화 문제의 예
+판독기/기록기 문제: 공유 메모리 영역에서 데이터를 읽어 데이터를 읽어 사용하는 판독기 프로세스들과 데이터를 기"
+        "wordCount": 114
     }
 </script>
 
@@ -335,20 +336,10 @@ return은 함수 실행을 종료하고"
         
 <nav id="article-nav">
     
-        <a href="/2019/03/13/TIL-2019-03-13/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            2019-03-13_TIL
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/03/11/node-request-and-response2/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/04/23/os-4/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">요청과 응답 이해하기2</p>
+        <p class="article-nav-title">병행 프로세스(1)</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -549,7 +540,7 @@ return은 함수 실행을 종료하고"
     var disqus_shortname = 'Phang';
     
     
-    var disqus_url = 'https://JihyeHwang09.github.io/2019/03/12/js-return-and-break/';
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/04/24/os-5/';
     
     (function() {
     var dsq = document.createElement('script');
