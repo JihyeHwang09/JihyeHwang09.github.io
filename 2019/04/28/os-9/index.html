@@ -12,18 +12,20 @@
     
         <meta name="keywords" content="컴퓨터 과학,운영체제,가상 메모리">
     
-    <meta name="description" content="가상 메모리에 대해 알아보자.  주요 용어 가상주소: 가상 메모리에서 실행 프로세스가 참조하는 주소 페이징 기법: 가상 메모리를 고정된 크기의 블록인 페이지 단위로 나누어 관리하는 기법 세그먼테이션 기법: 가상 메모리를 논리적 의미에 부합하는 다양한 크기의 세그먼트 단위로 나누어 관리하는 기법 동적 주소 변환: 프로세스가 실행되는 동안 가상주소를 실주소로">
+    <meta name="description" content="9강. 가상 메모리 가상 메모리에 대해 알아보자.  주요 용어 가상주소: 가상 메모리에서 실행 프로세스가 참조하는 주소 페이징 기법: 가상 메모리를 고정된 크기의 블록인 페이지 단위로 나누어 관리하는 기법 세그먼테이션 기법: 가상 메모리를 논리적 의미에 부합하는 다양한 크기의 세그먼트 단위로 나누어 관리하는 기법 동적 주소 변환: 프로세스가 실행되는 동안">
 <meta name="keywords" content="컴퓨터 과학,운영체제,가상 메모리">
 <meta property="og:type" content="article">
 <meta property="og:title" content="가상 메모리">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/04/28/os-9/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="가상 메모리에 대해 알아보자.  주요 용어 가상주소: 가상 메모리에서 실행 프로세스가 참조하는 주소 페이징 기법: 가상 메모리를 고정된 크기의 블록인 페이지 단위로 나누어 관리하는 기법 세그먼테이션 기법: 가상 메모리를 논리적 의미에 부합하는 다양한 크기의 세그먼트 단위로 나누어 관리하는 기법 동적 주소 변환: 프로세스가 실행되는 동안 가상주소를 실주소로">
+<meta property="og:description" content="9강. 가상 메모리 가상 메모리에 대해 알아보자.  주요 용어 가상주소: 가상 메모리에서 실행 프로세스가 참조하는 주소 페이징 기법: 가상 메모리를 고정된 크기의 블록인 페이지 단위로 나누어 관리하는 기법 세그먼테이션 기법: 가상 메모리를 논리적 의미에 부합하는 다양한 크기의 세그먼트 단위로 나누어 관리하는 기법 동적 주소 변환: 프로세스가 실행되는 동안">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-28T04:53:06.027Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/56858946-eef0ba80-69bd-11e9-956d-38b6a6c2233a.png">
+<meta property="og:updated_time" content="2019-04-28T05:00:53.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="가상 메모리">
-<meta name="twitter:description" content="가상 메모리에 대해 알아보자.  주요 용어 가상주소: 가상 메모리에서 실행 프로세스가 참조하는 주소 페이징 기법: 가상 메모리를 고정된 크기의 블록인 페이지 단위로 나누어 관리하는 기법 세그먼테이션 기법: 가상 메모리를 논리적 의미에 부합하는 다양한 크기의 세그먼트 단위로 나누어 관리하는 기법 동적 주소 변환: 프로세스가 실행되는 동안 가상주소를 실주소로">
+<meta name="twitter:description" content="9강. 가상 메모리 가상 메모리에 대해 알아보자.  주요 용어 가상주소: 가상 메모리에서 실행 프로세스가 참조하는 주소 페이징 기법: 가상 메모리를 고정된 크기의 블록인 페이지 단위로 나누어 관리하는 기법 세그먼테이션 기법: 가상 메모리를 논리적 의미에 부합하는 다양한 크기의 세그먼트 단위로 나누어 관리하는 기법 동적 주소 변환: 프로세스가 실행되는 동안">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/56858946-eef0ba80-69bd-11e9-956d-38b6a6c2233a.png">
     
 
     
@@ -187,7 +189,7 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <blockquote>
+            <h2 id="9강-가상-메모리"><a href="#9강-가상-메모리" class="headerlink" title="9강. 가상 메모리"></a>9강. 가상 메모리</h2><blockquote>
 <p><code>가상 메모리</code>에 대해 알아보자.</p>
 </blockquote>
 <h2 id="주요-용어"><a href="#주요-용어" class="headerlink" title="주요 용어"></a>주요 용어</h2><ul>
@@ -277,22 +279,22 @@ ga('send', 'pageview');
             "name": "Phang"
         },
         "headline": "가상 메모리",
-        "image": "https://JihyeHwang09.github.io",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/56858946-eef0ba80-69bd-11e9-956d-38b6a6c2233a.png",
         "keywords": "컴퓨터 과학 운영체제 가상 메모리",
         "genre": "컴퓨터 과학 운영체제",
         "datePublished": "2019-04-28",
         "dateCreated": "2019-04-28",
         "dateModified": "2019-04-28",
         "url": "https://JihyeHwang09.github.io/2019/04/28/os-9/",
-        "description": "
+        "description": "9강. 가상 메모리
 가상 메모리에 대해 알아보자.
 
 주요 용어
 가상주소: 가상 메모리에서 실행 프로세스가 참조하는 주소
 페이징 기법: 가상 메모리를 고정된 크기의 블록인 페이지 단위로 나누어 관리하는 기법
 세그먼테이션 기법: 가상 메모리를 논리적 의미에 부합하는 다양한 크기의 세그먼트 단위로 나누어 관리하는 기법
-동적 주소 변환: 프로세스가 실행되는 동안 가상주소를 실주소로"
-        "wordCount": 116
+동적 주소 변환: 프로세스가 실행되는 동안 "
+        "wordCount": 124
     }
 </script>
 
@@ -341,7 +343,7 @@ ga('send', 'pageview');
 <nav id="article-nav">
     
     
-        <a href="/2019/04/28/os-8/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/04/27/os-8/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
         <p class="article-nav-title">메모리 관리</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
@@ -365,7 +367,7 @@ ga('send', 'pageview');
                             <a href="/2019/04/28/os-9/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/56858946-eef0ba80-69bd-11e9-956d-38b6a6c2233a.png)" alt="가상 메모리" class="thumbnail-image"></span>
     
     
 </a>
@@ -382,10 +384,10 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2019/04/28/os-8/" class="thumbnail">
+                            <a href="/2019/04/27/os-8/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/56858926-a89b5b80-69bd-11e9-8bad-b6625960b32a.png)" alt="메모리 관리" class="thumbnail-image"></span>
     
     
 </a>
@@ -394,8 +396,8 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></p>
-                            <p class="item-title"><a href="/2019/04/28/os-8/" class="title">메모리 관리</a></p>
-                            <p class="item-date"><time datetime="2019-04-28T04:31:46.000Z" itemprop="datePublished">2019-04-28</time></p>
+                            <p class="item-title"><a href="/2019/04/27/os-8/" class="title">메모리 관리</a></p>
+                            <p class="item-date"><time datetime="2019-04-27T04:31:46.000Z" itemprop="datePublished">2019-04-27</time></p>
                         </div>
                     </li>
                 
