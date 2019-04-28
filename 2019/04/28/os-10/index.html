@@ -6,26 +6,26 @@
     
 
     
-    <title>Morgan | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>가상 메모리(2) | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Node.js">
+        <meta name="keywords" content="컴퓨터 과학,운영체제,가상 메모리">
     
-    <meta name="description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   Morgan 현재 콘솔에 나오는 GET / 200 51.267 ms - 1539 같은 로그는 모두 morgan 미들웨어에서 나오는 것이다. 요청에 대한 정보를 콘솔에 기록해준다.  morgan 미들웨어는 다음과 같이 사용한다.   12345// ...var logger = requ">
-<meta name="keywords" content="Node.js">
+    <meta name="description" content="10강. 가상 메모리(2) 지난 시간에 이어 가상 메모리에 대해 알아보자.  주요 용어 Belady의 이상현상(anomaly): 프로세스에 더 많은 수의 페이지 프레임을 할당할 경우오히려 페이지 부재가 더 많이 생길 수 있는 현상 국부성: 프로세스는 기억장치 내의 정보를 균일하게 액세스하는 것이 아니라어느 한순간에 특정 부분을 집중적으로 참조하는 특성 워킹">
+<meta name="keywords" content="컴퓨터 과학,운영체제,가상 메모리">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Morgan">
-<meta property="og:url" content="https://JihyeHwang09.github.io/2019/03/06/node-morgan/index.html">
+<meta property="og:title" content="가상 메모리(2)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/04/28/os-10/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   Morgan 현재 콘솔에 나오는 GET / 200 51.267 ms - 1539 같은 로그는 모두 morgan 미들웨어에서 나오는 것이다. 요청에 대한 정보를 콘솔에 기록해준다.  morgan 미들웨어는 다음과 같이 사용한다.   12345// ...var logger = requ">
+<meta property="og:description" content="10강. 가상 메모리(2) 지난 시간에 이어 가상 메모리에 대해 알아보자.  주요 용어 Belady의 이상현상(anomaly): 프로세스에 더 많은 수의 페이지 프레임을 할당할 경우오히려 페이지 부재가 더 많이 생길 수 있는 현상 국부성: 프로세스는 기억장치 내의 정보를 균일하게 액세스하는 것이 아니라어느 한순간에 특정 부분을 집중적으로 참조하는 특성 워킹">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/53740432-80204500-3ed7-11e9-81af-79b51160bf4e.png">
-<meta property="og:updated_time" content="2019-04-11T15:21:56.271Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/56866286-76681900-6a12-11e9-93aa-7a43453f08ac.png">
+<meta property="og:updated_time" content="2019-04-28T15:06:40.888Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Morgan">
-<meta name="twitter:description" content="조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.   Morgan 현재 콘솔에 나오는 GET / 200 51.267 ms - 1539 같은 로그는 모두 morgan 미들웨어에서 나오는 것이다. 요청에 대한 정보를 콘솔에 기록해준다.  morgan 미들웨어는 다음과 같이 사용한다.   12345// ...var logger = requ">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/53740432-80204500-3ed7-11e9-81af-79b51160bf4e.png">
+<meta name="twitter:title" content="가상 메모리(2)">
+<meta name="twitter:description" content="10강. 가상 메모리(2) 지난 시간에 이어 가상 메모리에 대해 알아보자.  주요 용어 Belady의 이상현상(anomaly): 프로세스에 더 많은 수의 페이지 프레임을 할당할 경우오히려 페이지 부재가 더 많이 생길 수 있는 현상 국부성: 프로세스는 기억장치 내의 정보를 균일하게 액세스하는 것이 아니라어느 한순간에 특정 부분을 집중적으로 참조하는 특성 워킹">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/56866286-76681900-6a12-11e9-93aa-7a43453f08ac.png">
     
 
     
@@ -150,19 +150,19 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/node-js/">Node.js</a>
+    <a class="page-title-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-node-morgan" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+                            <article id="post-os-10" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Morgan
+        가상 메모리(2)
         </h1>
     
 
@@ -172,8 +172,8 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/03/06/node-morgan/" class="article-date">
-            <time datetime="2019-03-05T15:02:00.000Z" itemprop="datePublished">2019-03-06</time>
+        <a href="/2019/04/28/os-10/" class="article-date">
+            <time datetime="2019-04-28T14:59:26.000Z" itemprop="datePublished">2019-04-28</time>
         </a>
     </div>
 
@@ -182,39 +182,31 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/node-js/">Node.js</a>
+        <a class="tag-link" href="/tags/가상-메모리/">가상 메모리</a>, <a class="tag-link" href="/tags/운영체제/">운영체제</a>, <a class="tag-link" href="/tags/컴퓨터-과학/">컴퓨터 과학</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <hr>
-<blockquote>
-<p><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&amp;mallGb=KOR&amp;barcode=9791160505221&amp;orderClick=LAG&amp;Kc=" target="_blank" rel="noopener">조현영님의 Node.js 교과서</a>의 내용을 공부하여 정리한 내용입니다.</p>
+            <h2 id="10강-가상-메모리-2"><a href="#10강-가상-메모리-2" class="headerlink" title="10강. 가상 메모리(2)"></a>10강. 가상 메모리(2)</h2><blockquote>
+<p>지난 시간에 이어 <code>가상 메모리</code>에 대해 알아보자.</p>
 </blockquote>
+<h2 id="주요-용어"><a href="#주요-용어" class="headerlink" title="주요 용어"></a>주요 용어</h2><ul>
+<li><code>Belady의 이상현상(anomaly)</code>: 프로세스에 더 많은 수의 페이지 프레임을 할당할 경우<br>오히려 페이지 부재가 더 많이 생길 수 있는 현상<br><br></li>
+<li><code>국부성</code>: 프로세스는 기억장치 내의 정보를 균일하게 액세스하는 것이 아니라<br>어느 한순간에 특정 부분을 집중적으로 참조하는 특성<br><br></li>
+<li><code>워킹세트</code>: 어떠한 시점을 기준으로 정해진 크기의 과거 시간 구간 동안 참조된 페이지의 집합<br><br></li>
+<li><code>쓰래싱(thrashing)</code>: 페이지 부재가 비정상적으로 많이 발생하여 프로그램의 처리보다<br>페이지 교체에 너무 많은 시간을 소비함으로써 시스템의 처리량이 급격히 저하되는 현상</li>
+</ul>
 <hr>
-<h1 id="Morgan"><a href="#Morgan" class="headerlink" title="Morgan"></a>Morgan</h1><ul>
-<li>현재 콘솔에 나오는 GET / 200 51.267 ms - 1539 같은 로그는 모두 morgan 미들웨어에서 나오는 것이다.</li>
-<li><p>요청에 대한 정보를 콘솔에 기록해준다.</p>
-</li>
-<li><p>morgan 미들웨어는 다음과 같이 사용한다.</p>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">"morgan"</span>);</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">app.use(logger(<span class="string">"dev"</span>));</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>함수의 인자</strong>로 <strong><code>dev</code> 대신 <code>short</code>, <code>common</code>, <code>combined</code> 등을 줄 수 있다.</strong></li>
-<li><strong>인자에 따라 콘솔에 나오는 로그가 다르다.</strong></li>
-<li><p><code>dev</code>인 경우 GET / 200 51.267 ms – 1539의 의미는 순서대로 HTTP요청(GET)주소 - (/) HTTP상태코드(200) 응답속도(51.267ms) – 응답바이트(1539)이다.</p>
-</li>
-<li><p>보통 <strong>개발</strong> 시에는 <code>short</code>나 <code>dev</code>를 많이 쓰고, <strong>배포</strong> 시에는 <code>common</code>이나 <code>combined</code>를 많이 사용한다.</p>
-</li>
-<li>인자를 바꿔서 로그가 어떻게 달라지는지 직접 확인해보자.</li>
-</ul>
-<ul>
-<li>콘솔뿐만 아니라 <strong>파일이나 데이터베이스에 로그를 남길 수도 있다.</strong></li>
-<li>하지만 이러한 작업을 할 때는 <code>winston 모듈</code>을 더 많이 사용한다.</li>
-<li>winston 모듈은 15.1.6절에서 살펴보자.</li>
+<h2 id="정리하기"><a href="#정리하기" class="headerlink" title="정리하기"></a>정리하기</h2><ul>
+<li>페이지 교체기법은 메모리가 완전히 사용되고 있을 때 새로 적재되어야 할 페이지를 위하여<br>어느 페이지가 교체되어야 하는지에 관계된다.<br><br></li>
+<li>페이지 교체기법으로는 FIFO, LRU, LFU, NUR, 2차 기회, 클럭, 워킹세트, PFF 등이 있다.<br><br></li>
+<li>최적의 페이지 교체기법은 앞으로 가장 오랫동안 사용되지 않을 페이지를 선택하는 방법이다.<br><br></li>
+<li>프로세스는 기억장치 내의 정보를 균일하게 액세스하는 것이 아니라,<br>어느 한 순간에는 특정 부분을 집중적으로 참조하는 국부성을 보인다.<br><br></li>
+<li>워킹세트는 어떠한 시점을 기준으로 정해진 크기의<br>과거 시간 구간 동안 참조된 페이지의 집합이다.</li>
+<li>워킹세트 알고리즘은 프로개름의 효율적 실행을 위해<br>워킹세트가 메모리 내에 유지되도록 한다.<br><br></li>
+<li>PFF 알고리즘의 기본 아이디어는 페이지 부재 비율이 높으면<br>페이지 프레임을 더 배정하고, 낮으면 회수하는 것이다.</li>
 </ul>
 
         </div>
@@ -286,28 +278,22 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Phang"
         },
-        "headline": "Morgan",
-        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/53740432-80204500-3ed7-11e9-81af-79b51160bf4e.png",
-        "keywords": "Node.js",
-        "genre": "Back-end Node.js",
-        "datePublished": "2019-03-06",
-        "dateCreated": "2019-03-06",
-        "dateModified": "2019-04-12",
-        "url": "https://JihyeHwang09.github.io/2019/03/06/node-morgan/",
-        "description": "
+        "headline": "가상 메모리(2)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/56866286-76681900-6a12-11e9-93aa-7a43453f08ac.png",
+        "keywords": "컴퓨터 과학 운영체제 가상 메모리",
+        "genre": "컴퓨터 과학 운영체제",
+        "datePublished": "2019-04-28",
+        "dateCreated": "2019-04-28",
+        "dateModified": "2019-04-29",
+        "url": "https://JihyeHwang09.github.io/2019/04/28/os-10/",
+        "description": "10강. 가상 메모리(2)
+지난 시간에 이어 가상 메모리에 대해 알아보자.
 
-조현영님의 Node.js 교과서의 내용을 공부하여 정리한 내용입니다.
-
-
-Morgan
-현재 콘솔에 나오는 GET / 200 51.267 ms - 1539 같은 로그는 모두 morgan 미들웨어에서 나오는 것이다.
-요청에 대한 정보를 콘솔에 기록해준다.
-
-morgan 미들웨어는 다음과 같이 사용한다.
-
-
-12345// ...var logger = requ"
-        "wordCount": 134
+주요 용어
+Belady의 이상현상(anomaly): 프로세스에 더 많은 수의 페이지 프레임을 할당할 경우오히려 페이지 부재가 더 많이 생길 수 있는 현상
+국부성: 프로세스는 기억장치 내의 정보를 균일하게 액세스하는 것이 아니라어느 한순간에 특정 부분을 집중적으로 참조하는 특성
+워킹"
+        "wordCount": 170
     }
 </script>
 
@@ -355,20 +341,10 @@ morgan 미들웨어는 다음과 같이 사용한다.
         
 <nav id="article-nav">
     
-        <a href="/2019/03/07/node-ajax/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            AJAX
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/03/05/node-custom-middleware/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/04/28/os-9/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">커스텀 미들웨어 만들기</p>
+        <p class="article-nav-title">가상 메모리</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -569,7 +545,7 @@ morgan 미들웨어는 다음과 같이 사용한다.
     var disqus_shortname = 'Phang';
     
     
-    var disqus_url = 'https://JihyeHwang09.github.io/2019/03/06/node-morgan/';
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/04/28/os-10/';
     
     (function() {
     var dsq = document.createElement('script');
