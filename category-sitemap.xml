@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
+        <lastmod>2019-05-04T15:20:34.293Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
+        <lastmod>2019-05-04T15:20:34.293Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%BC%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/</loc>
         <lastmod>2019-05-04T10:42:25.054Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,20 +38,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%BC%ED%95%99/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</loc>
         <lastmod>2019-05-03T14:07:18.607Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
-        <lastmod>2019-04-29T00:01:57.464Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
-        <lastmod>2019-04-29T00:01:57.464Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
