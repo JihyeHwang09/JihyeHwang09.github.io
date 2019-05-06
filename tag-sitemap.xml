@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/check-box/</loc>
+        <lastmod>2019-05-06T14:38:23.263Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/markdown/</loc>
+        <lastmod>2019-05-06T14:38:23.263Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/can-t-answer-a-question-unless-a-user-tty/</loc>
         <lastmod>2019-05-04T15:20:34.293Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -647,6 +661,13 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%88%9C%ED%99%98-%ED%95%A8%EC%88%98-recursion/</loc>
+        <lastmod>2019-01-21T03:47:39.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/algorithms/</loc>
         <lastmod>2019-01-21T03:47:39.434Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -655,13 +676,6 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/computer-science/</loc>
-        <lastmod>2019-01-21T03:47:39.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%88%9C%ED%99%98-%ED%95%A8%EC%88%98-recursion/</loc>
         <lastmod>2019-01-21T03:47:39.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
