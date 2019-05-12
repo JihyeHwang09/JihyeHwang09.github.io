@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/til/</loc>
+        <lastmod>2019-05-12T15:24:59.645Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/can-t-answer-a-question-unless-a-user-tty/</loc>
         <lastmod>2019-05-12T15:23:48.242Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -12,13 +19,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/tags/yarn-init-error/</loc>
         <lastmod>2019-05-12T15:23:48.242Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/til/</loc>
-        <lastmod>2019-05-12T15:23:31.530Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
