@@ -10,10 +10,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Front-end,CSS,float,[object Object]">
+        <meta name="keywords" content="Front-end,CSS,[object Object],float">
     
     <meta name="description" content="1교시float로 가로배치 하기가로배치는 소박한 꿈이다.그러나 공식적으로 지원되는 게 없다.float도 가로 배치를 위한 속성이 아니다. 공식적인 방법이 아닌 방식으로 가로배치를 하려고 하기 때문에문제가 발생한다. 박스가 위로 떠있어야만이 그 박스 주위로 Dummy Text들이 그 주위로 흐른다.(같은 선상에 있지 않아야 한다.) float의 목적은 이미지">
-<meta name="keywords" content="Front-end,CSS,float,[object Object]">
+<meta name="keywords" content="Front-end,CSS,[object Object],float">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 레이아웃 핵심속성 float">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/02/03/css-layout-float/index.html">
@@ -155,6 +155,13 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true
+  });
+</script>
                             <article id="post-css-layout-float" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -244,6 +251,13 @@ ga('send', 'pageview');
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>float로 그리드 만들기<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"style.css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      p &#123;</span></span><br><span class="line"><span class="undefined">        margin: 0;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      body &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="undefined">        color: dodgerblue;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 640px;</span></span><br><span class="line"><span class="undefined">        padding: 20px;</span></span><br><span class="line"><span class="undefined">        background-color: white;</span></span><br><span class="line"><span class="undefined">        border: 1px solid;</span></span><br><span class="line"><span class="undefined">        margin: 50px auto;</span></span><br><span class="line"><span class="undefined">        display: flow-root;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background-color</span>: <span class="selector-id">#efefef</span>;</span></span><br><span class="line"><span class="undefined">        float: left;</span></span><br><span class="line"><span class="undefined">        width: 200px;</span></span><br><span class="line"><span class="css">        <span class="comment">/*cf) width값을 %로 주는게 더 효율적임 */</span></span></span><br><span class="line"><span class="undefined">        margin-right: 20px;</span></span><br><span class="line"><span class="css">        <span class="comment">/* width값을 주지 않으면, 가로로 배치할 수 X */</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-pseudo">:last-child</span> &#123;</span></span><br><span class="line"><span class="undefined">        margin-right: 0px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="undefined">        padding: 20px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="undefined">        transition: transform 1s;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span> <span class="selector-class">.cover</span> &#123;</span></span><br><span class="line"><span class="undefined">        overflow: hidden;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">      <span class="selector-class">.section</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">transform</span>: <span class="selector-tag">scale</span>(1<span class="selector-class">.2</span>);</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section mario"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/mario2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Mario<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section luigi right"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/luigi2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Luigi<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section toad"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/toad2.png"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Toad<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> ipsum dolor sit amet, consectetuer adipiscing</span><br><span class="line">          elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis</span><br><span class="line">          natoque penatibus et magnis dis parturient montes, nascetur ridiculus</span><br><span class="line">          mus.</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
         </div>
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true
+  });
+</script>
         <footer class="article-footer">
             
 
@@ -314,7 +328,7 @@ ga('send', 'pageview');
         },
         "headline": "CSS 레이아웃 핵심속성 float",
         "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/52177909-1430bb00-280b-11e9-9905-039a3786a531.png",
-        "keywords": "Front-end CSS float [object Object]",
+        "keywords": "Front-end CSS [object Object] float",
         "genre": "Front-end CSS",
         "datePublished": "2019-02-03",
         "dateCreated": "2019-02-03",
@@ -404,6 +418,26 @@ float의 목적은 이미지"
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2019/05/26/book-clean-code-9/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/05/26/book-clean-code-9/" class="title">book-clean-code-9</a></p>
+                            <p class="item-date"><time datetime="2019-05-26T07:57:57.000Z" itemprop="datePublished">2019-05-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2019/05/25/book-clean-code-8/" class="thumbnail">
     
     
@@ -481,26 +515,6 @@ float의 목적은 이미지"
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/05/21/book-clean-code-4/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/58114312-784c8300-7c32-11e9-9f8c-59b8e0e8f9b6.jpg)" alt="02. 클린 코드 - 2. 의미있는 이름(2)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/book/">Book</a></p>
-                            <p class="item-title"><a href="/2019/05/21/book-clean-code-4/" class="title">02. 클린 코드 - 2. 의미있는 이름(2)</a></p>
-                            <p class="item-date"><time datetime="2019-05-21T05:16:08.000Z" itemprop="datePublished">2019-05-21</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -520,7 +534,7 @@ float의 목적은 이미지"
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
         </div>
     </div>
 

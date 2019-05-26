@@ -10,10 +10,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="순환 함수,재귀 함수,recursion,Counting Cells in a Blob">
+        <meta name="keywords" content="재귀 함수,순환 함수,recursion,Counting Cells in a Blob">
     
     <meta name="description" content="이번에는 Recursion의 응용 - Counting Cells in a Blob에 대해 알아봅시다. 본 포스팅은&amp;lt;인프런 - 권오흠 강사님의 영리한 프로그래밍을 위한 알고리즘 강좌 &amp;gt; 자료를 인용하였음을 알려드립니다.   Counting Cells in a Blob  Binary 이미지 각 픽셀은 background pixel(white)이거나혹">
-<meta name="keywords" content="순환 함수,재귀 함수,recursion,Counting Cells in a Blob">
+<meta name="keywords" content="재귀 함수,순환 함수,recursion,Counting Cells in a Blob">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Recursion의 응용 - Counting Cells in a Blob">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/01/21/recursion-counting-cells-in-a-blob/index.html">
@@ -155,6 +155,13 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true
+  });
+</script>
                             <article id="post-recursion-counting-cells-in-a-blob" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -257,6 +264,13 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> BACKGROUND_COLOR = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> IMAGE_COLOR = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> ALREADY_COUNTED = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countCells</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result;</span><br><span class="line">    <span class="comment">// N * N 그리드는 0 ~ N-1까지가 유효한 좌표이므로</span></span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= N || y &lt; <span class="number">0</span> || y &gt;= N)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// grid[x][y]가 IMAGE_COLOR이 아니라는 건,</span></span><br><span class="line">    <span class="comment">// grid[x][y]이</span></span><br><span class="line">    <span class="comment">// 1) 0 (BACKGROUND_COLOR)이거나</span></span><br><span class="line">    <span class="comment">// 2) 0 (ALREADY_COUNTED)일 경우라는 뜻이다.</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (grid[x][y] != IMAGE_COLOR)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 그렇지 않다면, 카운트할 셀이기 때문에 ALREADY_COUNTED를 표시하기 위해</span></span><br><span class="line">        <span class="comment">// 해당 셀을 빨간색으로 칠해준다.</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        grid[x][y] = ALREADY_COUNTED;</span><br><span class="line">        <span class="comment">// grid[x][y]의 값인 1과</span></span><br><span class="line">        <span class="comment">// (여기에서 더하는 1은 자기자신을 의미한다.)</span></span><br><span class="line">        <span class="comment">// 이 셀에 인접한 8개의 셀 각각의 recursion을 호출해서</span></span><br><span class="line">        <span class="comment">// 그 결과를 다 더해준 값이 답이 된다.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> + countCells(x - <span class="number">1</span>, y + <span class="number">1</span>)</span><br><span class="line">        + countCells(x, y + <span class="number">1</span>)</span><br><span class="line">        + countCells(x + <span class="number">1</span>, y + <span class="number">1</span>) + countCells(x - <span class="number">1</span>, y)</span><br><span class="line">        + countCells(x + <span class="number">1</span>, y) + countCells(x - <span class="number">1</span>, y - <span class="number">1</span>)</span><br><span class="line">        + countCells(x, y - <span class="number">1</span>) + countCells(x + <span class="number">1</span>, y - <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true
+  });
+</script>
         <footer class="article-footer">
             
 
@@ -327,7 +341,7 @@ ga('send', 'pageview');
         },
         "headline": "Recursion의 응용 - Counting Cells in a Blob",
         "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/51456921-c2ac1900-1d92-11e9-8003-e8efdd5f53bf.png",
-        "keywords": "순환 함수 재귀 함수 recursion Counting Cells in a Blob",
+        "keywords": "재귀 함수 순환 함수 recursion Counting Cells in a Blob",
         "genre": "컴퓨터 과학 알고리즘",
         "datePublished": "2019-01-21",
         "dateCreated": "2019-01-21",
@@ -421,6 +435,26 @@ Binary 이미지
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2019/05/26/book-clean-code-9/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/05/26/book-clean-code-9/" class="title">book-clean-code-9</a></p>
+                            <p class="item-date"><time datetime="2019-05-26T07:57:57.000Z" itemprop="datePublished">2019-05-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2019/05/25/book-clean-code-8/" class="thumbnail">
     
     
@@ -498,26 +532,6 @@ Binary 이미지
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/05/21/book-clean-code-4/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/58114312-784c8300-7c32-11e9-9f8c-59b8e0e8f9b6.jpg)" alt="02. 클린 코드 - 2. 의미있는 이름(2)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/book/">Book</a></p>
-                            <p class="item-title"><a href="/2019/05/21/book-clean-code-4/" class="title">02. 클린 코드 - 2. 의미있는 이름(2)</a></p>
-                            <p class="item-date"><time datetime="2019-05-21T05:16:08.000Z" itemprop="datePublished">2019-05-21</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -537,7 +551,7 @@ Binary 이미지
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
         </div>
     </div>
 
