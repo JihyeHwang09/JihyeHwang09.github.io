@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="codeup 해설,코드업,python,100제,소수점,반올림,내림,올림,포맷팅,python formating">
     
-    <meta name="description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기 내 풀이, 모범 답안  12a, b = input().split();print(b, a);  1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기 문제 설명: 실">
+    <meta name="description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기내 풀이, 모범 답안12a, b = input().split();print(b, a);  1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기 문제 설명: 실수(f">
 <meta name="keywords" content="codeup 해설,코드업,python,100제,소수점,반올림,내림,올림,포맷팅,python formating">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeUp(코드업) 풀이 (1014 ~1017번)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/05/28/codeup-2/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기 내 풀이, 모범 답안  12a, b = input().split();print(b, a);  1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기 문제 설명: 실">
+<meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기내 풀이, 모범 답안12a, b = input().split();print(b, a);  1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기 문제 설명: 실수(f">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/58492020-0e405a80-81ab-11e9-8e7f-c352289938a6.png">
-<meta property="og:updated_time" content="2019-05-28T15:45:59.357Z">
+<meta property="og:updated_time" content="2019-05-28T15:57:11.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeUp(코드업) 풀이 (1014 ~1017번)">
-<meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기 내 풀이, 모범 답안  12a, b = input().split();print(b, a);  1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기 문제 설명: 실">
+<meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기내 풀이, 모범 답안12a, b = input().split();print(b, a);  1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기 문제 설명: 실수(f">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/58492020-0e405a80-81ab-11e9-8e7f-c352289938a6.png">
     
 
@@ -201,48 +201,40 @@ ga('send', 'pageview');
 <p>이 포스팅은 <a href="http://codeup.kr/index.php" target="_blank" rel="noopener">codeup.kr(코드업)</a>의 문제를 <code>Python3</code>로 풀고 정리한 내용입니다.</p>
 </blockquote>
 <hr>
-<h3 id="1014-기초-입출력-문자-두-개-입력받아-순서-바꿔-출력하기"><a href="#1014-기초-입출력-문자-두-개-입력받아-순서-바꿔-출력하기" class="headerlink" title="1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기"></a>1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기</h3><ul>
-<li>내 풀이, 모범 답안</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a, b = input().split();</span><br><span class="line">print(b, a);</span><br></pre></td></tr></table></figure>
+<h3 id="1014-기초-입출력-문자-두-개-입력받아-순서-바꿔-출력하기"><a href="#1014-기초-입출력-문자-두-개-입력받아-순서-바꿔-출력하기" class="headerlink" title="1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기"></a>1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기</h3><h4 id="내-풀이-모범-답안"><a href="#내-풀이-모범-답안" class="headerlink" title="내 풀이, 모범 답안"></a>내 풀이, 모범 답안</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a, b = input().split();</span><br><span class="line">print(b, a);</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="1015-기초-입출력-실수-한-개-입력받아-소수점-이하-둘째-자리까지-출력하기"><a href="#1015-기초-입출력-실수-한-개-입력받아-소수점-이하-둘째-자리까지-출력하기" class="headerlink" title="1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기"></a>1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기</h3><ul>
 <li>문제 설명: 실수(float) 한 개를 입력받아 소수점 이하 3째 자리에서 반올림 하여<br>2째 자리까지 출력하시오.</li>
 <li>입력 예시: 1.59254</li>
 <li>출력 예시: 1.59</li>
-<li>내 풀이1<blockquote>
-<p>rount 함수를 이용한 포맷팅</p>
-</blockquote>
-</li>
 </ul>
+<h4 id="내-풀이1"><a href="#내-풀이1" class="headerlink" title="내 풀이1"></a>내 풀이1</h4><blockquote>
+<p><strong>round 함수</strong>를 이용한 포맷팅</p>
+</blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">answer = round(float(input()), <span class="number">2</span>);</span><br><span class="line">print(answer);</span><br></pre></td></tr></table></figure>
-<h4 id="소수점-반올림하는-방법"><a href="#소수점-반올림하는-방법" class="headerlink" title="소수점 반올림하는 방법"></a>소수점 반올림하는 방법</h4><ul>
-<li>형식: <code>round((실수), 소수점 아래 자리수)</code></li>
-<li>round 함수를 이용할 때, <strong>두번째 인자를 비울 경우</strong><br>-&gt; 소수점 첫번째 자리에서 반올림한다.</li>
+<h5 id="cf-1-소수점-반올림하는-방법"><a href="#cf-1-소수점-반올림하는-방법" class="headerlink" title="cf 1) 소수점 반올림하는 방법"></a>cf 1) 소수점 반올림하는 방법</h5><ul>
+<li>형식: <code>round(실수, 소수점 아래 자리수)</code></li>
+<li>round 함수를 이용할 때, <strong>두번째 인자를 비울 경우</strong><br>-&gt; 소수점 <strong>첫번째 자리</strong>에서 반올림한다.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># round 함수 두번째 인자를 비울 경우</span></span><br><span class="line"> round(<span class="number">8.3323425</span>);</span><br><span class="line"><span class="comment">#  9</span></span><br></pre></td></tr></table></figure>
-<h4 id="소수점을-올림-내림-버림하는-방법"><a href="#소수점을-올림-내림-버림하는-방법" class="headerlink" title="소수점을 올림, 내림, 버림하는 방법"></a>소수점을 올림, 내림, 버림하는 방법</h4><ul>
+<h5 id="cf-2-소수점을-올림-내림하는-방법"><a href="#cf-2-소수점을-올림-내림하는-방법" class="headerlink" title="cf 2) 소수점을 올림, 내림하는 방법"></a>cf 2) 소수점을 올림, 내림하는 방법</h5><ul>
 <li>소수점 <strong>올림, 내림</strong>을 할 때, 파이썬에서 기본적으로 제공하는 함수가 아닌<br><code>math 클래스</code>를 import하여 <code>ceil</code>, <code>floor</code>, <code>trunc</code> 함수를 사용할 수 있다.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math <span class="comment"># math 모듈을 import한다.</span></span><br><span class="line"><span class="comment"># ceil: 올림</span></span><br><span class="line">math.ceil(<span class="number">-2.14</span>) <span class="comment"># -2.1을 올림하면 0에 더 가까워진 -2가 된다.</span></span><br><span class="line"><span class="comment"># floor: 내림</span></span><br><span class="line">math.floor(<span class="number">-2.14</span>) <span class="comment"># -2</span></span><br><span class="line"><span class="comment"># trunc: 내림</span></span><br><span class="line">math.trunc(<span class="number">-2.14</span>) <span class="comment"># -3</span></span><br></pre></td></tr></table></figure>
-<h4 id="내림-함수-trunc-와-floor-차이점"><a href="#내림-함수-trunc-와-floor-차이점" class="headerlink" title="내림 함수 trunc 와 floor 차이점"></a>내림 함수 <code>trunc</code> 와 <code>floor</code> 차이점</h4><ul>
+<h5 id="cf-3-내림-함수-trunc-와-floor-차이점"><a href="#cf-3-내림-함수-trunc-와-floor-차이점" class="headerlink" title="cf 3) 내림 함수 trunc 와 floor 차이점"></a>cf 3) 내림 함수 <code>trunc</code> 와 <code>floor</code> 차이점</h5><ul>
 <li><code>floor</code>를 이용하면 <strong>소수점 아래 숫자를 버리고 위쪽</strong>과 가까워진 -2가 된다.</li>
 <li><code>trunc</code>를 이용하면, <strong>무조건 아래를 향해서 내림</strong>하여 -3이 된다.</li>
 <li><code>trunc</code>는 <strong><code>int</code>와 같은 결과를 반환</strong>한다.</li>
 </ul>
-<ul>
-<li>내 풀이 2<blockquote>
-<p>format 함수를 이용한 포맷팅</p>
+<h4 id="내-풀이-2"><a href="#내-풀이-2" class="headerlink" title="내 풀이 2"></a>내 풀이 2</h4><blockquote>
+<p><strong>format 함수</strong>를 이용한 포맷팅</p>
 </blockquote>
-</li>
-</ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">number = float(input());</span><br><span class="line">print(<span class="string">"&#123;0:0.2f&#125;"</span>.format(number)));</span><br></pre></td></tr></table></figure>
 <ul>
 <li>형식: <code>format(요소(item), 포맷 지정자(format-specifier))</code></li>
-<li>모범 답안(사이트에 제시된)</li>
 </ul>
-<blockquote>
-<p>포맷 코드와 숫자 함께 사용하기</p>
+<h4 id="모범-답안-사이트에-제시된"><a href="#모범-답안-사이트에-제시된" class="headerlink" title="모범 답안(사이트에 제시된)"></a>모범 답안(사이트에 제시된)</h4><blockquote>
+<p><strong>포맷 코드</strong>와 숫자 함께 사용하기</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f=float(input()) <span class="comment"># 사용자에게 입력받은 값을 float를 이용해 실수로 변환 -&gt; 변수 f에 넣는다.</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'%.2f'</span> % f)<span class="comment"># print ("내용 %f"  %변수이름)</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -255,18 +247,14 @@ ga('send', 'pageview');
 <li><code>&#39;%0.f&#39; %변수</code>형태로 사용할 경우, 소수점 없이 정수처럼 출력할 수 있다.</li>
 </ul>
 <hr>
-<h3 id="1017-기초-입출력-정수-한-개-입력받아-세-번-출력하기"><a href="#1017-기초-입출력-정수-한-개-입력받아-세-번-출력하기" class="headerlink" title="1017 : [기초-입출력] 정수 한 개 입력받아 세 번 출력하기"></a>1017 : [기초-입출력] 정수 한 개 입력받아 세 번 출력하기</h3><ul>
+<h2 id="1017-기초-입출력-정수-한-개-입력받아-세-번-출력하기"><a href="#1017-기초-입출력-정수-한-개-입력받아-세-번-출력하기" class="headerlink" title="1017 : [기초-입출력] 정수 한 개 입력받아 세 번 출력하기"></a>1017 : [기초-입출력] 정수 한 개 입력받아 세 번 출력하기</h2><ul>
 <li>입력: 정수 한 개가 입력된다.</li>
 <li>출력: 입력받은 정수를 공백으로 구분해 세 번 출력한다.</li>
-<li>내 풀이</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i = input();</span><br><span class="line">print(i, i, i);</span><br></pre></td></tr></table></figure>
+<h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i = input();</span><br><span class="line">print(i, i, i);</span><br></pre></td></tr></table></figure>
+<h4 id="모범-답안"><a href="#모범-답안" class="headerlink" title="모범 답안"></a>모범 답안</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n=input()</span><br><span class="line">n=int(n)</span><br><span class="line">print(n, n, n,);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>모범 답안</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n=input()</span><br><span class="line">n=int(n)</span><br><span class="line">print(n, n, n,);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>파이썬에서는 변수 사이에 콤마(<code>,</code>)를 넣어서 공백으로 구분해 출력할 수 있다.</li>
+<li>파이썬에서는 변수 사이에 콤마(<code>,</code>)를 넣어서 <strong>공백으로 구분</strong>해 출력할 수 있다.</li>
 </ul>
 <hr>
 <h4 id="참고-링크"><a href="#참고-링크" class="headerlink" title="참고 링크"></a>참고 링크</h4><ul>
@@ -364,14 +352,11 @@ ga('send', 'pageview');
 이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
 
 
-1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기
-내 풀이, 모범 답안
-
-12a, b = input().split();print(b, a);
+1014 : [기초-입출력] 문자 두 개 입력받아 순서 바꿔 출력하기내 풀이, 모범 답안12a, b = input().split();print(b, a);
 
 1015 : [기초-입출력] 실수 한 개 입력받아 소수점 이하 둘째 자리까지 출력하기
-문제 설명: 실"
-        "wordCount": 462
+문제 설명: 실수(f"
+        "wordCount": 506
     }
 </script>
 
