@@ -21,7 +21,7 @@
 <meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1030 : [기초-데이터형] 정수 한 개 입력받아 그대로 출력하기3문제 설명정수 한 개를 입력받아 그대로 출력해보자.(단, 입력되는 정수의 범위는 –9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807 이다.) 입력정수">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/59143925-5c572880-8a0b-11e9-8d99-cc576f5b4096.png">
-<meta property="og:updated_time" content="2019-06-08T07:35:11.557Z">
+<meta property="og:updated_time" content="2019-06-08T07:38:08.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeUp(코드업) 풀이 (1030번)">
 <meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1030 : [기초-데이터형] 정수 한 개 입력받아 그대로 출력하기3문제 설명정수 한 개를 입력받아 그대로 출력해보자.(단, 입력되는 정수의 범위는 –9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807 이다.) 입력정수">
@@ -209,8 +209,8 @@ ga('send', 'pageview');
 <hr>
 <h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  a = input();</span><br><span class="line">  print(int(a));</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">  print(e);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>python2</strong>의 경우 int의 표현 범위가 32비트 -&gt; <strong>-2147483648 ~ 2147483647</strong>이어서 이 범위를 벗어날 경우는 long형을 사용하여 나타냈다.</li>
-<li><strong>python3</strong>에서는 <code>long</code>형이 사라지고, 대신 <code>int</code>형이 64비트 이상의 정수 데이터도 나타낼 수 있도록 크기가 유연해졌다.</li>
+<li><strong>python2</strong>의 경우 int의 표현 범위가 <code>32비트</code> -&gt; <strong>-2147483648 ~ 2147483647</strong>이어서 이 범위를 벗어날 경우는 <code>long</code>형을 사용하여 나타냈다.</li>
+<li><strong>python3</strong>에서는 <code>long</code>형이 사라지고, 대신 <code>int</code>형이 <code>64비트</code> 이상의 정수 데이터도 나타낼 수 있도록 크기가 유연해졌다.</li>
 <li><strong>단, long형이 메모리의 한도 내에서 무한대인 것에 비해, int형은 무한대는 아니다.</strong></li>
 </ul>
 <h4 id="모범-답안"><a href="#모범-답안" class="headerlink" title="모범 답안"></a>모범 답안</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=input()</span><br><span class="line">n=int(a)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure>
