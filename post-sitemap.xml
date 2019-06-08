@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/06/08/codeup-13/</loc>
+        <lastmod>2019-06-08T07:35:11.557Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/06/07/codeup-12/</loc>
         <lastmod>2019-06-07T14:28:25.843Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1128,7 +1136,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/05/node-custom-middleware/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/07/node-ajax/</loc>
         <lastmod>2019-04-11T15:21:56.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1136,7 +1144,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/07/node-ajax/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/05/node-custom-middleware/</loc>
         <lastmod>2019-04-11T15:21:56.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
