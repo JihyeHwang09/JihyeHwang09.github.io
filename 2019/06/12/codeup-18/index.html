@@ -6,20 +6,26 @@
     
 
     
-    <title>꿈꾸는 지구별 개발자, Phang</title>
+    <title>CodeUp(코드업) 풀이 (1041번) | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="Phang&apos;s IT Blog using Hexo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:url" content="https://JihyeHwang09.github.io/index.html">
+        <meta name="keywords" content="codeup 해설,코드업,python,100제">
+    
+    <meta name="description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기문제 설명영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자. 영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다. 입력영문자 한 개가 입력된다.">
+<meta name="keywords" content="codeup 해설,코드업,python,100제">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeUp(코드업) 풀이 (1041번)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/06/12/codeup-18/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Phang&apos;s IT Blog using Hexo">
+<meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기문제 설명영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자. 영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다. 입력영문자 한 개가 입력된다.">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/59352270-360ef100-8d5b-11e9-8e8e-c1e5d0f165db.png">
+<meta property="og:updated_time" content="2019-06-12T12:44:24.474Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="꿈꾸는 지구별 개발자, Phang">
-<meta name="twitter:description" content="Phang&apos;s IT Blog using Hexo">
+<meta name="twitter:title" content="CodeUp(코드업) 풀이 (1041번)">
+<meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기문제 설명영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자. 영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다. 입력영문자 한 개가 입력된다.">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/59352270-360ef100-8d5b-11e9-8e8e-c1e5d0f165db.png">
     
 
     
@@ -144,7 +150,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <em class="page-title-link" data-url="home">Home</em>
+    <a class="page-title-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/python/">Python</a>
     </h1>
 </div>
 
@@ -157,565 +163,168 @@ ga('send', 'pageview');
     google_language= "ko";
   });
 </script>
-                            
-
-    
-    
+                            <article id="post-codeup-18" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/12/codeup-18/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59352270-360ef100-8d5b-11e9-8e8e-c1e5d0f165db.png)" alt="CodeUp(코드업) 풀이 (1041번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/12/codeup-18/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-11T15:01:59.000Z" itemprop="datePublished">2019-06-12</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/12/codeup-18/">CodeUp(코드업) 풀이 (1041번)</a>
+        CodeUp(코드업) 풀이 (1041번)
         </h1>
     
 
-        <p class="article-excerpt">
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/06/12/codeup-18/" class="article-date">
+            <time datetime="2019-06-11T15:01:59.000Z" itemprop="datePublished">2019-06-12</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/100제/">100제</a>, <a class="tag-link" href="/tags/codeup-해설/">codeup 해설</a>, <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/코드업/">코드업</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p>이 포스팅은 <a href="http://codeup.kr/index.php" target="_blank" rel="noopener">codeup.kr(코드업)</a>의 문제를 <code>Python3</code>로 풀고 정리한 내용입니다.</p>
+</blockquote>
+<hr>
+<h3 id="1041-기초-산술연산-문자-한-개-입력받아-다음-문자-출력하기"><a href="#1041-기초-산술연산-문자-한-개-입력받아-다음-문자-출력하기" class="headerlink" title="1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기"></a>1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기</h3><h4 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h4><p>영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자.</p>
+<p>영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다.</p>
+<h4 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h4><p>영문자 한 개가 입력된다.</p>
+<h4 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h4><p>입력된 문자의 아스키코드 값 바로 다음 코드 값에 해당하는 문자를 출력한다.</p>
+<h4 id="입력-예시"><a href="#입력-예시" class="headerlink" title="입력 예시"></a>입력 예시</h4><p><code>a</code></p>
+<h4 id="출력-예시"><a href="#출력-예시" class="headerlink" title="출력 예시"></a>출력 예시</h4><p><code>b</code></p>
+<hr>
+<h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  <span class="comment"># 문자 -&gt; 아스키코드 변환</span></span><br><span class="line">  ch = input();</span><br><span class="line">  num = ord(ch);</span><br><span class="line">  <span class="comment"># 아스키코드 -&gt; 문자로 변환</span></span><br><span class="line">  print(chr(num+<span class="number">1</span>));</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">  print(e);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>문자 -&gt; 아스키코드 변환</strong>하기 위해 <code>ord()</code>함수를 사용하였다.</li>
+<li>아스키코드는 기본적으로 10진수 0부터 127까지 사용한다.</li>
+<li>따라서, 입력된 문자의 아스키코드 값 <strong>바로 다음 코드 값에 해당하는 문자를 출력하기 위해서는</strong> +1로 값을 증가시킨 후, 이 값을 문자로 변환해준다.</li>
+</ul>
+<hr>
+<h4 id="모범-답안"><a href="#모범-답안" class="headerlink" title="모범 답안"></a>모범 답안</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=input()</span><br><span class="line">n=ord(a)</span><br><span class="line">c=chr(n+<span class="number">1</span>)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+
+        </div>
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true;
+    google_language= "ko";
+  });
+</script>
+        <footer class="article-footer">
             
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "CodeUp(코드업) 풀이 (1041번)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/59352270-360ef100-8d5b-11e9-8e8e-c1e5d0f165db.png",
+        "keywords": "codeup 해설 코드업 python 100제",
+        "genre": "Back-end Python",
+        "datePublished": "2019-06-12",
+        "dateCreated": "2019-06-12",
+        "dateModified": "2019-06-12",
+        "url": "https://JihyeHwang09.github.io/2019/06/12/codeup-18/",
+        "description": "
 이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
 
 
 1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기문제 설명영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자.
 영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다.
-입력영문자 한 개가 입력된다.
-        </p>
-    </div>
+입력영문자 한 개가 입력된다."
+        "wordCount": 199
+    }
+</script>
+
 </article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/12/codeup-17/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59351564-a583e100-8d59-11e9-945e-3a85cf525280.png)" alt="CodeUp(코드업) 풀이 (1040번)" class="thumbnail-image"></span>
-    
+    <section id="comments">
     
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/12/codeup-17/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-11T15:00:59.000Z" itemprop="datePublished">2019-06-12</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/12/codeup-17/">CodeUp(코드업) 풀이 (1040번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1040 : [기초-산술연산] 정수 한 개 입력받아 부호 바꿔 출력하기문제 설명입력된 정수의 부호를 바꿔 출력하는 프로그램을 작성해보자.(단, -2147483647 ~ 2147483647 범위의 정수가 입력된다.)
-입력정수 한 개가 입력된다.
-출력입력 받은 정수의
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-</article>
-    
-        </div>
-    
 
     
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/11/codeup-16/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59200639-a854c980-8bd3-11e9-955f-608da78b97c4.png)" alt="CodeUp(코드업) 풀이 (1037번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/11/codeup-16/">0</span>
-    
-</span>
+    </section>
 
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-10T15:00:59.000Z" itemprop="datePublished">2019-06-11</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/11/codeup-16/">CodeUp(코드업) 풀이 (1037번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1037 : [기초-출력변환] 정수 한 개 입력받아 아스키 문자로 출력하기문제 설명10진 정수 한 개를 입력받아 아스키문자로 출력하는 프로그램을 작성해보자.(단, 0 ~ 255 범위의 정수만 입력된다.)
-입력10진수 1개(0 ~ 255 범위)
-출력입력된 10진수에
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/10/codeup-15/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59200070-624b3600-8bd2-11e9-8f88-7e07148830c2.png)" alt="CodeUp(코드업) 풀이 (1036번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/10/codeup-15/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-10T13:40:59.000Z" itemprop="datePublished">2019-06-10</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/10/codeup-15/">CodeUp(코드업) 풀이 (1036번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1036 : [기초-출력변환] 영문자 한 개 입력받아 10진수로 출력하기문제 설명영문자 한 개를 입력받아 아스키코드 10진수값으로 출력하는 프로그램을 작성해보자.
-입력영문자 한 개가 입력된다.
-출력입력 받은 문자에 해당되는 아스키코드값을 10진수로 출력한다.
-입력
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/09/codeup-14/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59160320-8db91c80-8b0f-11e9-8e90-a20f97f28e98.png)" alt="CodeUp(코드업) 풀이 (1031번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/09/codeup-14/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-09T13:43:08.000Z" itemprop="datePublished">2019-06-09</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/09/codeup-14/">CodeUp(코드업) 풀이 (1031번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1031 : [기초-출력변환] 10진수 한 개 입력받아 8진수로 출력하기문제 설명10진수를 입력받아 8진수로 출력하는 프로그램을 작성해보자.
-입력10진수가 1개 입력된다.(단, 입력되는 정수는 int 범위이다.)
-출력입력 받은 10진수를 8진수로 바뀌어 출력한다.
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/08/codeup-13/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59143925-5c572880-8a0b-11e9-8d99-cc576f5b4096.png)" alt="CodeUp(코드업) 풀이 (1030번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/08/codeup-13/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-08T07:17:17.000Z" itemprop="datePublished">2019-06-08</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/08/codeup-13/">CodeUp(코드업) 풀이 (1030번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1030 : [기초-데이터형] 정수 한 개 입력받아 그대로 출력하기3문제 설명정수 한 개를 입력받아 그대로 출력해보자.(단, 입력되는 정수의 범위는 –9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807 이다.)
-입력정수
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/07/codeup-12/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59111405-ece62800-897b-11e9-924c-af8697e28e9f.png)" alt="CodeUp(코드업) 풀이 (1029번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/07/codeup-12/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-07T13:39:53.000Z" itemprop="datePublished">2019-06-07</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/07/codeup-12/">CodeUp(코드업) 풀이 (1029번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1029 : [기초-데이터형] 실수 한 개 입력받아 그대로 출력하기2문제 설명실수 한 개를 입력받아 그대로 출력해보자.(단, 입력되는 실수의 범위는 +- 1.710^-308 ~ 1.710^308 이다.)
-입력소수점 이하 자리수가 11개 이하인 실수 한 개가 입력된
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/06/codeup-11/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/58974798-517b7880-87fe-11e9-8bad-70f0fc30ae6f.png)" alt="CodeUp(코드업) 풀이 (1027번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/06/codeup-11/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-06T12:07:28.000Z" itemprop="datePublished">2019-06-06</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/06/codeup-11/">CodeUp(코드업) 풀이 (1027번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1027 : [기초-입출력] 년월일 입력받아 형태 바꿔 출력하기문제 설명년월일을 출력하는 방법은 나라마다, 형식마다 조금씩 다르다.
-날짜를 년월일(yyyy.mm.dd)의 형태로 입력받아,
-일월년(dd-mm-yyyy)의 형태로 출력하는 프로그램을 작성해보자.
-(단,
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/05/codeup-10/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/58897611-a43c2e00-8733-11e9-8e0c-f781c6a9589d.png)" alt="CodeUp(코드업) 풀이 (1026번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/05/codeup-10/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-04T16:37:56.000Z" itemprop="datePublished">2019-06-05</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/05/codeup-10/">CodeUp(코드업) 풀이 (1026번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1026 : [기초-입출력] 시분초 입력받아 분 만 출력하기문제 설명시간을 시:분:초 형태로 입력 받아
-분 만 출력하는 프로그램을 작성해보자.
-입력시간이 [시:분:초]의 형태로 입력된다.
-출력분 만 출력한다. (단, 10보다 작은 경우 불필요한 0은 출력하지 않는
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/06/04/codeup-9/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/58854904-978aec00-86d9-11e9-849e-6ab03ce02baa.png)" alt="CodeUp(코드업) 풀이 (1025번)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://JihyeHwang09.github.io/2019/06/04/codeup-9/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a>
-            </div>
-            <div class="date"><time datetime="2019-06-03T15:00:14.000Z" itemprop="datePublished">2019-06-04</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/06/04/codeup-9/">CodeUp(코드업) 풀이 (1025번)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
-
-
-1025 : [기초-입출력] 정수 한 개 입력받아 나누어 출력하기문제 설명다섯 자리의 정수 한 개를 입력받아 각 자리별로 구분해 출력한다.
-입력다섯자리로 이루어진 한 개의 정수를 입력받는다.(단, 10,000 &lt;= 입력받는 수 &lt;= 99,999 )
-출력
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
-
-    <nav id="page-nav">
-        <span class="pages">Page 1 of 17</span>
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
-    </nav>
 
 
                         </div>
@@ -744,6 +353,19 @@ ga('send', 'pageview');
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/06/12/codeup-17/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">CodeUp(코드업) 풀이 (1040번)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -939,11 +561,13 @@ ga('send', 'pageview');
     var disqus_shortname = 'Phang';
     
     
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/06/12/codeup-18/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
