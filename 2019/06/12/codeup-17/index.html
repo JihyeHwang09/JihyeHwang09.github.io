@@ -12,20 +12,20 @@
     
         <meta name="keywords" content="codeup 해설,코드업,python,100제">
     
-    <meta name="description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기문제 설명영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자. 영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다. 입력영문자 한 개가 입력된다.">
+    <meta name="description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1040 : [기초-산술연산] 정수 한 개 입력받아 부호 바꿔 출력하기문제 설명입력된 정수의 부호를 바꿔 출력하는 프로그램을 작성해보자.(단, -2147483647 ~ 2147483647 범위의 정수가 입력된다.) 입력정수 한 개가 입력된다. 출력입력 받은 정수의">
 <meta name="keywords" content="codeup 해설,코드업,python,100제">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeUp(코드업) 풀이 (1040번)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/06/12/codeup-17/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기문제 설명영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자. 영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다. 입력영문자 한 개가 입력된다.">
+<meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1040 : [기초-산술연산] 정수 한 개 입력받아 부호 바꿔 출력하기문제 설명입력된 정수의 부호를 바꿔 출력하는 프로그램을 작성해보자.(단, -2147483647 ~ 2147483647 범위의 정수가 입력된다.) 입력정수 한 개가 입력된다. 출력입력 받은 정수의">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/59350702-b59ac100-8d57-11e9-940d-bdb38fc1bc66.png">
-<meta property="og:updated_time" content="2019-06-12T12:19:23.079Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/59351564-a583e100-8d59-11e9-945e-3a85cf525280.png">
+<meta property="og:updated_time" content="2019-06-12T12:33:11.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeUp(코드업) 풀이 (1040번)">
-<meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기문제 설명영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자. 영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다. 입력영문자 한 개가 입력된다.">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/59350702-b59ac100-8d57-11e9-940d-bdb38fc1bc66.png">
+<meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1040 : [기초-산술연산] 정수 한 개 입력받아 부호 바꿔 출력하기문제 설명입력된 정수의 부호를 바꿔 출력하는 프로그램을 작성해보자.(단, -2147483647 ~ 2147483647 범위의 정수가 입력된다.) 입력정수 한 개가 입력된다. 출력입력 받은 정수의">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/59351564-a583e100-8d59-11e9-945e-3a85cf525280.png">
     
 
     
@@ -201,14 +201,13 @@ ga('send', 'pageview');
 <p>이 포스팅은 <a href="http://codeup.kr/index.php" target="_blank" rel="noopener">codeup.kr(코드업)</a>의 문제를 <code>Python3</code>로 풀고 정리한 내용입니다.</p>
 </blockquote>
 <hr>
-<h3 id="1041-기초-산술연산-문자-한-개-입력받아-다음-문자-출력하기"><a href="#1041-기초-산술연산-문자-한-개-입력받아-다음-문자-출력하기" class="headerlink" title="1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기"></a>1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기</h3><h4 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h4><p>영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자.</p>
-<p>영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다.</p>
-<h4 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h4><p>영문자 한 개가 입력된다.</p>
-<h4 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h4><p>입력된 문자의 아스키코드 값 바로 다음 코드 값에 해당하는 문자를 출력한다.</p>
-<h4 id="입력-예시"><a href="#입력-예시" class="headerlink" title="입력 예시"></a>입력 예시</h4><p><code>a</code></p>
-<h4 id="출력-예시"><a href="#출력-예시" class="headerlink" title="출력 예시"></a>출력 예시</h4><p><code>b</code></p>
+<h3 id="1040-기초-산술연산-정수-한-개-입력받아-부호-바꿔-출력하기"><a href="#1040-기초-산술연산-정수-한-개-입력받아-부호-바꿔-출력하기" class="headerlink" title="1040 : [기초-산술연산] 정수 한 개 입력받아 부호 바꿔 출력하기"></a>1040 : [기초-산술연산] 정수 한 개 입력받아 부호 바꿔 출력하기</h3><h4 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h4><p>입력된 정수의 부호를 바꿔 출력하는 프로그램을 작성해보자.<br>(단, -2147483647 ~ 2147483647 범위의 정수가 입력된다.)</p>
+<h4 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h4><p>정수 한 개가 입력된다.</p>
+<h4 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h4><p>입력 받은 정수의 부호를 바꿔 출력한다.</p>
+<h4 id="입력-예시"><a href="#입력-예시" class="headerlink" title="입력 예시"></a>입력 예시</h4><p><code>-1</code></p>
+<h4 id="출력-예시"><a href="#출력-예시" class="headerlink" title="출력 예시"></a>출력 예시</h4><p><code>1</code></p>
 <hr>
-<h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  num = int(input());</span><br><span class="line">  print(-num);</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">  print(e);</span><br></pre></td></tr></table></figure>
+<h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  num = int(input());</span><br><span class="line">  print(-num);</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">  prin</span><br></pre></td></tr></table></figure>
 <ul>
 <li>양수 -&gt; 음수, 음수 -&gt; 양수로 변환하기 위해서 출력할 때,<br>변수에 단항연산자 <code>-</code>를 붙여서 부호를 바꾸어 주었다.</li>
 </ul>
@@ -293,7 +292,7 @@ ga('send', 'pageview');
             "name": "Phang"
         },
         "headline": "CodeUp(코드업) 풀이 (1040번)",
-        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/59350702-b59ac100-8d57-11e9-940d-bdb38fc1bc66.png",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/59351564-a583e100-8d59-11e9-945e-3a85cf525280.png",
         "keywords": "codeup 해설 코드업 python 100제",
         "genre": "Back-end Python",
         "datePublished": "2019-06-12",
@@ -304,10 +303,10 @@ ga('send', 'pageview');
 이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
 
 
-1041 : [기초-산술연산] 문자 한 개 입력받아 다음 문자 출력하기문제 설명영문자 한 개를 입력받아, 그 다음 문자를 출력하는 프로그램을 작성해보자.
-영문자 ‘A’의 다음 문자는 ‘B’이고, 문자 ‘0’의 다음 문자는 ‘1’이다.
-입력영문자 한 개가 입력된다."
-        "wordCount": 155
+1040 : [기초-산술연산] 정수 한 개 입력받아 부호 바꿔 출력하기문제 설명입력된 정수의 부호를 바꿔 출력하는 프로그램을 작성해보자.(단, -2147483647 ~ 2147483647 범위의 정수가 입력된다.)
+입력정수 한 개가 입력된다.
+출력입력 받은 정수의"
+        "wordCount": 144
     }
 </script>
 
@@ -380,7 +379,7 @@ ga('send', 'pageview');
                             <a href="/2019/06/12/codeup-17/" class="thumbnail">
     
     
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59350702-b59ac100-8d57-11e9-940d-bdb38fc1bc66.png)" alt="CodeUp(코드업) 풀이 (1040번)" class="thumbnail-image"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/59351564-a583e100-8d59-11e9-945e-3a85cf525280.png)" alt="CodeUp(코드업) 풀이 (1040번)" class="thumbnail-image"></span>
     
     
 </a>
