@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/06/15/codeup-21/</loc>
+        <lastmod>2019-06-14T17:03:50.264Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/06/14/codeup-20/</loc>
-        <lastmod>2019-06-13T15:47:54.541Z</lastmod>
+        <lastmod>2019-06-14T16:52:42.365Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -640,7 +648,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -648,7 +656,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1128,7 +1136,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/26/node-web-serever/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/</loc>
         <lastmod>2019-04-11T15:21:56.271Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1136,7 +1144,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/26/node-web-serever/</loc>
         <lastmod>2019-04-11T15:21:56.271Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
