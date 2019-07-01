@@ -6,23 +6,26 @@
     
 
     
-    <title>codeup | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>CodeUp(코드업) 풀이 (1066번) | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="">
+        <meta name="keywords" content="codeup 해설,코드업,python,100제">
     
-    <meta name="description" content="Phang&apos;s IT Blog using Hexo">
+    <meta name="description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1066 : [기초-조건/선택실행구조] 정수 세 개 입력받아 짝/홀 출력하기문제 설명세 정수 a, b, c가 입력되었을 때, 짝 even(짝)/odd(홀)을 출력해보자. 입력세 정수 a, b, c 가 공백을 두고 입력된다.(0 ~ 2147483647) 출력순서대로">
+<meta name="keywords" content="codeup 해설,코드업,python,100제">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codeup">
+<meta property="og:title" content="CodeUp(코드업) 풀이 (1066번)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/07/01/codeup-37/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Phang&apos;s IT Blog using Hexo">
+<meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1066 : [기초-조건/선택실행구조] 정수 세 개 입력받아 짝/홀 출력하기문제 설명세 정수 a, b, c가 입력되었을 때, 짝 even(짝)/odd(홀)을 출력해보자. 입력세 정수 a, b, c 가 공백을 두고 입력된다.(0 ~ 2147483647) 출력순서대로">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-01T14:47:14.211Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/60447746-0b7bce00-9c5f-11e9-8654-40911fef15c4.png">
+<meta property="og:updated_time" content="2019-07-01T15:20:04.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codeup">
-<meta name="twitter:description" content="Phang&apos;s IT Blog using Hexo">
+<meta name="twitter:title" content="CodeUp(코드업) 풀이 (1066번)">
+<meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1066 : [기초-조건/선택실행구조] 정수 세 개 입력받아 짝/홀 출력하기문제 설명세 정수 a, b, c가 입력되었을 때, 짝 even(짝)/odd(홀)을 출력해보자. 입력세 정수 a, b, c 가 공백을 두고 입력된다.(0 ~ 2147483647) 출력순서대로">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/60447746-0b7bce00-9c5f-11e9-8654-40911fef15c4.png">
     
 
     
@@ -147,7 +150,7 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <a class="page-title-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/python/">Python</a>
     </h1>
 </div>
 
@@ -167,7 +170,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        codeup
+        CodeUp(코드업) 풀이 (1066번)
         </h1>
     
 
@@ -185,11 +188,32 @@ ga('send', 'pageview');
 		
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/100제/">100제</a>, <a class="tag-link" href="/tags/codeup-해설/">codeup 해설</a>, <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/코드업/">코드업</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <blockquote>
+<p>이 포스팅은 <a href="http://codeup.kr/index.php" target="_blank" rel="noopener">codeup.kr(코드업)</a>의 문제를 <code>Python3</code>로 풀고 정리한 내용입니다.</p>
+</blockquote>
+<hr>
+<h3 id="1066-기초-조건-선택실행구조-정수-세-개-입력받아-짝-홀-출력하기"><a href="#1066-기초-조건-선택실행구조-정수-세-개-입력받아-짝-홀-출력하기" class="headerlink" title="1066 : [기초-조건/선택실행구조] 정수 세 개 입력받아 짝/홀 출력하기"></a>1066 : [기초-조건/선택실행구조] 정수 세 개 입력받아 짝/홀 출력하기</h3><h4 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h4><p>세 정수 a, b, c가 입력되었을 때,</p>
+<p>짝 even(짝)/odd(홀)을 출력해보자.</p>
+<h4 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h4><p>세 정수 a, b, c 가 공백을 두고 입력된다.<br>(0 ~ 2147483647)</p>
+<h4 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h4><p>순서대로 even(짝)/odd(홀)을 줄을 바꿔 출력한다.</p>
+<h4 id="입력-예시"><a href="#입력-예시" class="headerlink" title="입력 예시"></a>입력 예시</h4><p><code>1 2 8</code></p>
+<h4 id="출력-예시"><a href="#출력-예시" class="headerlink" title="출력 예시"></a>출력 예시</h4><p><code>odd</code><br><code>even</code><br><code>even</code></p>
+<hr>
+<h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">a, b, c = input().split();</span><br><span class="line">x = int(a);</span><br><span class="line">y = int(b);</span><br><span class="line">z = int(c);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evenOdd</span><span class="params">(num)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> num%<span class="number">2</span> == <span class="number">0</span> :</span><br><span class="line">    print(<span class="string">"even"</span>);</span><br><span class="line">  <span class="keyword">else</span> :</span><br><span class="line">    print(<span class="string">"odd"</span>);</span><br><span class="line"></span><br><span class="line">evenOdd(x);</span><br><span class="line">evenOdd(y);</span><br><span class="line">evenOdd(z);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>홀수와 짝수를 판별하는 함수 evenOdd를 만들어서 출력해준다.</li>
+</ul>
+<h4 id="모범-답안"><a href="#모범-답안" class="headerlink" title="모범 답안"></a>모범 답안</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">a,b,c=input().split()</span><br><span class="line"></span><br><span class="line">x=int(a)</span><br><span class="line">y=int(b)</span><br><span class="line">z=int(c)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> x%<span class="number">2</span>==<span class="number">0</span> :</span><br><span class="line">    print(<span class="string">"even"</span>)</span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">    print(<span class="string">"odd"</span>)</span><br><span class="line"><span class="keyword">if</span> y%<span class="number">2</span>==<span class="number">0</span> :</span><br><span class="line">    print(<span class="string">"even"</span>)</span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">    print(<span class="string">"odd"</span>)</span><br><span class="line"><span class="keyword">if</span> z%<span class="number">2</span>==<span class="number">0</span> :</span><br><span class="line">    print(<span class="string">"even"</span>)</span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">    print(<span class="string">"odd"</span>)</span><br></pre></td></tr></table></figure>
+
         </div>
      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -267,16 +291,23 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Phang"
         },
-        "headline": "codeup",
-        "image": "https://JihyeHwang09.github.io",
-        "keywords": "",
-        "genre": "",
+        "headline": "CodeUp(코드업) 풀이 (1066번)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/60447746-0b7bce00-9c5f-11e9-8654-40911fef15c4.png",
+        "keywords": "codeup 해설 코드업 python 100제",
+        "genre": "Back-end Python",
         "datePublished": "2019-07-01",
         "dateCreated": "2019-07-01",
-        "dateModified": "2019-07-01",
+        "dateModified": "2019-07-02",
         "url": "https://JihyeHwang09.github.io/2019/07/01/codeup-37/",
-        "description": ""
-        "wordCount": 1
+        "description": "
+이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.
+
+
+1066 : [기초-조건/선택실행구조] 정수 세 개 입력받아 짝/홀 출력하기문제 설명세 정수 a, b, c가 입력되었을 때,
+짝 even(짝)/odd(홀)을 출력해보자.
+입력세 정수 a, b, c 가 공백을 두고 입력된다.(0 ~ 2147483647)
+출력순서대로"
+        "wordCount": 260
     }
 </script>
 
@@ -349,7 +380,7 @@ ga('send', 'pageview');
                             <a href="/2019/07/01/codeup-37/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/60447746-0b7bce00-9c5f-11e9-8654-40911fef15c4.png)" alt="CodeUp(코드업) 풀이 (1066번)" class="thumbnail-image"></span>
     
     
 </a>
@@ -357,8 +388,8 @@ ga('send', 'pageview');
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/07/01/codeup-37/" class="title">codeup</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/python/">Python</a></p>
+                            <p class="item-title"><a href="/2019/07/01/codeup-37/" class="title">CodeUp(코드업) 풀이 (1066번)</a></p>
                             <p class="item-date"><time datetime="2019-07-01T14:46:21.000Z" itemprop="datePublished">2019-07-01</time></p>
                         </div>
                     </li>
@@ -452,7 +483,7 @@ ga('send', 'pageview');
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">48</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">36</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">30</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">57</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">49</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">37</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">Blog</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/hexo/">Hexo</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">30</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">57</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">36</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
         </div>
     </div>
 
