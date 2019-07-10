@@ -20,12 +20,12 @@
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
 <meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1075 : [기초-반복실행구조] 정수 한 개 입력받아 카운트다운 출력하기2문제 설명정수 한 개가 입력되었을 때 카운트다운을 출력해보자.(1 ~ 100) 입력정수 한 개가 입력된다.(1 ~ 100) 출력1만큼 씩 줄여 한 줄에 하나씩 1이 될 때까지 출력한다. 입">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/60975260-a6169400-a366-11e9-8233-87739141e969.png">
-<meta property="og:updated_time" content="2019-07-10T14:02:06.747Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/60976552-d95a2280-a368-11e9-900b-468745630920.png">
+<meta property="og:updated_time" content="2019-07-10T14:17:49.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeUp(코드업) 풀이 (1075번)">
 <meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1075 : [기초-반복실행구조] 정수 한 개 입력받아 카운트다운 출력하기2문제 설명정수 한 개가 입력되었을 때 카운트다운을 출력해보자.(1 ~ 100) 입력정수 한 개가 입력된다.(1 ~ 100) 출력1만큼 씩 줄여 한 줄에 하나씩 1이 될 때까지 출력한다. 입">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/60975260-a6169400-a366-11e9-8233-87739141e969.png">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/60976552-d95a2280-a368-11e9-900b-468745630920.png">
     
 
     
@@ -205,10 +205,17 @@ ga('send', 'pageview');
 <h4 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h4><p>정수 한 개가 입력된다.<br>(1 ~ 100)</p>
 <h4 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h4><p>1만큼 씩 줄여 한 줄에 하나씩 1이 될 때까지 출력한다.</p>
 <h4 id="입력-예시"><a href="#입력-예시" class="headerlink" title="입력 예시"></a>입력 예시</h4><p><code>5</code></p>
-<h4 id="출력-예시"><a href="#출력-예시" class="headerlink" title="출력 예시"></a>출력 예시</h4><p><code>5</code><br><code>4</code><br><code>3</code><br><code>2</code><br><code>1</code></p>
+<h4 id="출력-예시"><a href="#출력-예시" class="headerlink" title="출력 예시"></a>출력 예시</h4><p><code>4</code><br><code>3</code><br><code>2</code><br><code>1</code><br><code>0</code></p>
 <hr>
-<h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num = int(input());</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> num &gt; <span class="number">0</span>:</span><br><span class="line">  print(num);</span><br><span class="line">  num-= <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="모범-답안"><a href="#모범-답안" class="headerlink" title="모범 답안"></a>모범 답안</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=input()</span><br><span class="line"></span><br><span class="line">n=int(a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> n&gt;=<span class="number">1</span> :</span><br><span class="line">    print(n)</span><br><span class="line">    n=n<span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num = int(input());</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> num &gt; <span class="number">0</span>:</span><br><span class="line">  num-= <span class="number">1</span>;</span><br><span class="line">  print(num);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>입력한 숫자를 바로 출력하지 않고, 1만큼 줄인 후 출력하기 시작해야 하므로</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num-=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>이 화면에 출력하는 코드</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(num);</span><br></pre></td></tr></table></figure>
+<p>보다 먼저(위에) 와야 한다.</p>
+<h4 id="모범-답안"><a href="#모범-답안" class="headerlink" title="모범 답안"></a>모범 답안</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=input()</span><br><span class="line"></span><br><span class="line">n=int(a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> n&gt;<span class="number">0</span> :</span><br><span class="line">    n-=<span class="number">1</span></span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
 
         </div>
      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -288,7 +295,7 @@ ga('send', 'pageview');
             "name": "Phang"
         },
         "headline": "CodeUp(코드업) 풀이 (1075번)",
-        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/60975260-a6169400-a366-11e9-8233-87739141e969.png",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/60976552-d95a2280-a368-11e9-900b-468745630920.png",
         "keywords": "codeup 해설 코드업 python 100제 파이썬",
         "genre": "Back-end Python",
         "datePublished": "2019-07-10",
@@ -303,7 +310,7 @@ ga('send', 'pageview');
 입력정수 한 개가 입력된다.(1 ~ 100)
 출력1만큼 씩 줄여 한 줄에 하나씩 1이 될 때까지 출력한다.
 입"
-        "wordCount": 149
+        "wordCount": 178
     }
 </script>
 
@@ -376,7 +383,7 @@ ga('send', 'pageview');
                             <a href="/2019/07/10/codeup-46/" class="thumbnail">
     
     
-        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/60975260-a6169400-a366-11e9-8233-87739141e969.png)" alt="CodeUp(코드업) 풀이 (1075번)" class="thumbnail-image"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/60976552-d95a2280-a368-11e9-900b-468745630920.png)" alt="CodeUp(코드업) 풀이 (1075번)" class="thumbnail-image"></span>
     
     
 </a>
