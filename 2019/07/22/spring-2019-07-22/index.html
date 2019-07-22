@@ -21,7 +21,7 @@
 <meta property="og:description" content="[Error] There is no getter for property namedproperty name에 맞는 getter가 없다는 에러가 발생했다.  1234567891011121314&amp;lt;insert id=&quot;insertBoard&quot; parameterType=&quot;board.model.entity.BoardEntity&quot;&amp;gt;    INSERT INTO">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/61635541-c6334500-acce-11e9-9049-d8e0cf6f3ee2.png">
-<meta property="og:updated_time" content="2019-07-22T13:19:46.331Z">
+<meta property="og:updated_time" content="2019-07-22T13:35:26.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="There is no getter for property named">
 <meta name="twitter:description" content="[Error] There is no getter for property namedproperty name에 맞는 getter가 없다는 에러가 발생했다.  1234567891011121314&amp;lt;insert id=&quot;insertBoard&quot; parameterType=&quot;board.model.entity.BoardEntity&quot;&amp;gt;    INSERT INTO">
@@ -198,7 +198,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <blockquote>
-<p>[Error] There is no getter for property named<br>property name에 맞는 getter가 없다는 에러가 발생했다.</p>
+<p>[Error] There is no getter for property named<br>property name에 맞는 getter가 없다는 에러가 발생했다.<br><br></p>
 </blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id=<span class="string">"insertBoard"</span> parameterType=<span class="string">"board.model.entity.BoardEntity"</span>&gt;</span><br><span class="line">    INSERT INTO T_BOARD</span><br><span class="line">        (</span><br><span class="line">        TITLE,</span><br><span class="line">        CONTENTS,</span><br><span class="line">        CREATOR_ID</span><br><span class="line">        )</span><br><span class="line">    VALUES</span><br><span class="line">        (</span><br><span class="line">        #&#123;TITLE&#125;,</span><br><span class="line">        #&#123;CONTENTS&#125;,</span><br><span class="line">        <span class="string">'ADMIN'</span></span><br><span class="line">        );</span><br><span class="line"> &lt;/insert&gt;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -206,12 +206,11 @@ ga('send', 'pageview');
 </li>
 <li><p>원인: <strong>MyBatis 문법 에러</strong>로,<br>parameterType으로 넘어온 BoardEntity 객체에 있는 <code>property명</code>과<br>쿼리문의 <code>#{변수명}</code>이 일치하지 않아서 발생한 에러이다.</p>
 </li>
-<li><p>cf) <code>#{변수명}</code>는 안에 있는 변수명과 일치하는 property를 찾아서 넣어주는 역할을 한다.</p>
-</li>
-<li><p>해결 방법: <strong>parameterType의 <code>property명</code>과 #{}안의 <code>변수명</code>을 일치시켜준다.</strong><br>나의 경우에는 property명이 소문자이고, 쿼리문의 변수명은 대문자라서 에러가 발생했다.<br>따라서, BoardEntity에 써준 그대로 #{}안에 넣도록 수정하여 에러를 해결했다.(<strong>같은 단어라도 대소문자에 따라 다르게 인식된다.</strong>)</p>
-</li>
+<li>cf) <code>#{변수명}</code>는 안에 있는 변수명과 일치하는 property를 찾아서 넣어주는 역할을 한다.<br><br></li>
+<li>해결 방법: <strong>parameterType의 <code>property명</code>과 #{}안의 <code>변수명</code>을 일치시켜준다.</strong><br>나의 경우에는 property명이 소문자이고, 쿼리문의 변수명은 대문자라서 에러가 발생했다.<br>따라서, BoardEntity에 써준 그대로 #{}안에 넣도록 수정하여 에러를 해결했다.(<strong>같은 단어라도 대소문자에 따라 다르게 인식된다.</strong>)</li>
+<li>#{TITLE} -&gt; #{title}, #{CONTENTS} -&gt; #{contents}로 수정</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id=<span class="string">"insertBoard"</span> parameterType=<span class="string">"board.model.entity.BoardEntity"</span>&gt;</span><br><span class="line">    INSERT INTO T_BOARD</span><br><span class="line">        (</span><br><span class="line">        TITLE,</span><br><span class="line">        CONTENTS,</span><br><span class="line">        CREATOR_ID</span><br><span class="line">        )</span><br><span class="line">    VALUES</span><br><span class="line">        (</span><br><span class="line">        <span class="comment">// #&#123;TITLE&#125; -&gt; #&#123;title&#125;로 수정</span></span><br><span class="line">        #&#123;title&#125;,</span><br><span class="line">        <span class="comment">//  #&#123;CONTENTS&#125; -&gt; #&#123;contents&#125;로 수정</span></span><br><span class="line">        #&#123;contents&#125;,</span><br><span class="line">        <span class="string">'ADMIN'</span></span><br><span class="line">        );</span><br><span class="line"> &lt;/insert&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;insert id=<span class="string">"insertBoard"</span> parameterType=<span class="string">"board.model.entity.BoardEntity"</span>&gt;</span><br><span class="line">    INSERT INTO T_BOARD</span><br><span class="line">        (</span><br><span class="line">        TITLE,</span><br><span class="line">        CONTENTS,</span><br><span class="line">        CREATOR_ID</span><br><span class="line">        )</span><br><span class="line">    VALUES</span><br><span class="line">        (</span><br><span class="line">        #&#123;title&#125;,</span><br><span class="line">        #&#123;contents&#125;,</span><br><span class="line">        <span class="string">'ADMIN'</span></span><br><span class="line">        );</span><br><span class="line"> &lt;/insert&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="참고-링크"><a href="#참고-링크" class="headerlink" title="참고 링크"></a>참고 링크</h4><p>[[Mybatis] getter for property named 에러 해결방법]]: <a href="https://yamea-guide.tistory.com/162" target="_blank" rel="noopener">https://yamea-guide.tistory.com/162</a></p>
 
         </div>
@@ -303,7 +302,7 @@ ga('send', 'pageview');
 [Error] There is no getter for property namedproperty name에 맞는 getter가 없다는 에러가 발생했다.
 
 1234567891011121314&lt;insert id="insertBoard" parameterType="board.model.entity.BoardEntity"&gt;    INSERT INTO "
-        "wordCount": 371
+        "wordCount": 346
     }
 </script>
 
