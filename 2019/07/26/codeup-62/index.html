@@ -21,7 +21,7 @@
 <meta property="og:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1092 : [기초-종합] 함께 문제 푸는 날1문제 설명koistudy.net 에는 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 군인, 프로그래머, 탑코더 등 아주 많은 사람들이 들어와 문제를 풀고 있는데, 가입하고 Guest Board를 통해 정회">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/61957690-c8611080-affa-11e9-8a96-40a91d063fa0.png">
-<meta property="og:updated_time" content="2019-07-26T14:14:07.779Z">
+<meta property="og:updated_time" content="2019-07-26T14:38:44.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeUp(코드업) 풀이 (1092번)">
 <meta name="twitter:description" content="이 포스팅은 codeup.kr(코드업)의 문제를 Python3로 풀고 정리한 내용입니다.   1092 : [기초-종합] 함께 문제 푸는 날1문제 설명koistudy.net 에는 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 군인, 프로그래머, 탑코더 등 아주 많은 사람들이 들어와 문제를 풀고 있는데, 가입하고 Guest Board를 통해 정회">
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 <h4 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h4><p>같은 날 동시에 가입한 인원 3명이 규칙적으로 방문하는, 방문 주기가 공백을 두고 입력된다.</p>
 <p>(단, 입력값은 100이하의 자연수이다.)</p>
 <h4 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h4><p>3명이 다시 모두 함께 방문에 문제를 풀어보는 날(동시 가입/등업 후 며칠 후?) 을 출력한다.</p>
-<h4 id="입력-1"><a href="#입력-1" class="headerlink" title="입력"></a>입력</h4><h4 id="출력-1"><a href="#출력-1" class="headerlink" title="출력"></a>출력</h4><h4 id="입력-예시"><a href="#입력-예시" class="headerlink" title="입력 예시"></a>입력 예시</h4><p><code>3 7 9</code></p>
+<h4 id="입력-예시"><a href="#입력-예시" class="headerlink" title="입력 예시"></a>입력 예시</h4><p><code>3 7 9</code></p>
 <h4 id="출력-예시"><a href="#출력-예시" class="headerlink" title="출력 예시"></a>출력 예시</h4><p><code>63</code></p>
 <h4 id="내-풀이"><a href="#내-풀이" class="headerlink" title="내 풀이"></a>내 풀이</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a, b, c = input().split();</span><br><span class="line">a = int(a);</span><br><span class="line">b = int(b);</span><br><span class="line">c = int(c);</span><br><span class="line"></span><br><span class="line">day = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (day%a) != <span class="number">0</span> <span class="keyword">or</span> (day%b) != <span class="number">0</span> <span class="keyword">or</span> (day%c)!= <span class="number">0</span>:</span><br><span class="line">  day += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># day %a == 0 and day %b == 0 and day %c == 0</span></span><br><span class="line">print(day);</span><br></pre></td></tr></table></figure>
 <ul>
@@ -317,7 +317,7 @@ ga('send', 'pageview');
 
 1092 : [기초-종합] 함께 문제 푸는 날1문제 설명koistudy.net 에는
 초등학생, 중학생, 고등학생, 대학생, 대학원생, 일반인, 군인, 프로그래머, 탑코더 등 아주 많은 사람들이 들어와 문제를 풀고 있는데, 가입하고 Guest Board를 통해 정회"
-        "wordCount": 371
+        "wordCount": 363
     }
 </script>
 
