@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/07/28/codeup-64/</loc>
+        <lastmod>2019-07-28T12:19:23.034Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/07/27/codeup-63/</loc>
+        <lastmod>2019-07-28T12:18:39.836Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/07/26/codeup-62/</loc>
         <lastmod>2019-07-26T14:38:44.836Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1008,7 +1024,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/15/TIL-2019-03-15/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1024,7 +1040,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/15/TIL-2019-03-15/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1096,7 +1112,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/23/react6/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/22/react5/</loc>
         <lastmod>2019-04-11T15:22:16.458Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1104,7 +1120,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/22/react5/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/23/react6/</loc>
         <lastmod>2019-04-11T15:22:16.458Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1488,7 +1504,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/06/node-morgan/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/</loc>
         <lastmod>2019-04-11T15:21:56.271Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1496,7 +1512,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/06/node-morgan/</loc>
         <lastmod>2019-04-11T15:21:56.271Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
