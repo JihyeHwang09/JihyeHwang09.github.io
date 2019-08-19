@@ -8,6 +8,34 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/front-end/css/</loc>
+        <lastmod>2019-08-19T13:49:46.145Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/front-end/</loc>
+        <lastmod>2019-08-19T13:49:46.145Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/spring-spring-boot/</loc>
+        <lastmod>2019-08-19T13:18:29.543Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
+        <lastmod>2019-08-19T13:18:29.543Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
         <lastmod>2019-08-19T12:51:41.520Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -22,13 +50,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/categories/spring-spring-boot/</loc>
-        <lastmod>2019-08-19T12:49:01.369Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/categories/front-end/javascript/</loc>
         <lastmod>2019-08-19T12:32:45.094Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -36,21 +57,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/categories/front-end/</loc>
-        <lastmod>2019-08-19T12:32:45.094Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/categories/back-end/linux/</loc>
-        <lastmod>2019-08-19T12:06:56.088Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
         <lastmod>2019-08-19T12:06:56.088Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -80,13 +87,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/back-end/python/</loc>
         <lastmod>2019-07-29T12:50:30.170Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/spring-spring-boot/</loc>
-        <lastmod>2019-07-23T12:54:22.681Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -122,13 +122,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/front-end/react/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/front-end/css/</loc>
-        <lastmod>2019-04-11T15:22:16.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
