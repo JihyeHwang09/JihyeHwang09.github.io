@@ -8,14 +8,35 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/java/</loc>
-        <lastmod>2019-08-19T14:39:37.244Z</lastmod>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/spring-spring-boot/</loc>
+        <lastmod>2019-08-19T16:35:57.587Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
+        <lastmod>2019-08-19T16:35:57.587Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
+        <lastmod>2019-08-19T16:32:40.934Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
+        <lastmod>2019-08-19T16:32:40.934Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/java/</loc>
         <lastmod>2019-08-19T14:39:37.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -31,27 +52,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/front-end/</loc>
         <lastmod>2019-08-19T14:16:56.501Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/spring-spring-boot/</loc>
-        <lastmod>2019-08-19T13:18:29.543Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
-        <lastmod>2019-08-19T12:51:41.520Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
-        <lastmod>2019-08-19T12:51:41.520Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
