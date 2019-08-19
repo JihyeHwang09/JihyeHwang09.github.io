@@ -8,8 +8,32 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/08/03/TIL-2019-08-03/</loc>
+        <lastmod>2019-08-19T12:51:41.520Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/08/02/TIL-2019-08-02/</loc>
+        <lastmod>2019-08-19T12:50:07.695Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/08/06/spring-2019-08-06/</loc>
+        <lastmod>2019-08-19T12:49:01.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/08/05/js-2019-08-05/</loc>
-        <lastmod>2019-08-19T12:28:19.412Z</lastmod>
+        <lastmod>2019-08-19T12:32:45.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,22 +50,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/2019/08/04/TIL-2019-08-04/</loc>
         <lastmod>2019-08-06T12:41:29.924Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/08/03/TIL-2019-08-03/</loc>
-        <lastmod>2019-08-06T12:17:41.959Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/08/02/TIL-2019-08-02/</loc>
-        <lastmod>2019-08-05T14:54:40.139Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1080,7 +1088,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/15/TIL-2019-03-15/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1088,7 +1096,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/15/TIL-2019-03-15/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
