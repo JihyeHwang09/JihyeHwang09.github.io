@@ -21,7 +21,7 @@
 <meta property="og:description" content="Spring에서 URL 매핑 방법에 대해 알아보자. Spring 4.3 버전에 추가된 내용 @RequestMapping(value = &amp;quot;/..., method=&amp;quot;...&amp;quot;)를 더욱 간단하고직관적으로 사용하기 위해 만들어진 어노테이션이다.  종류 @GetMapping @PostMapping @DeleteMapping @PutMapp">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/63354153-e114da00-c39e-11e9-8cf0-70ab638af7c0.png">
-<meta property="og:updated_time" content="2019-08-20T14:05:05.072Z">
+<meta property="og:updated_time" content="2019-08-22T13:57:32.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="URL 매핑- @RequestMapping을 간단하게 줄이기">
 <meta name="twitter:description" content="Spring에서 URL 매핑 방법에 대해 알아보자. Spring 4.3 버전에 추가된 내용 @RequestMapping(value = &amp;quot;/..., method=&amp;quot;...&amp;quot;)를 더욱 간단하고직관적으로 사용하기 위해 만들어진 어노테이션이다.  종류 @GetMapping @PostMapping @DeleteMapping @PutMapp">
@@ -214,7 +214,7 @@ ga('send', 'pageview');
 <li><code>@GetMapping</code>은<br><code>@RequestMapping(Method=RequestMethod.GET)</code>과<br>동일하게 사용할 수 있다.</li>
 </ul>
 <h4 id="기존의-URL-매핑-방법-RequestMapping-Method-RequestMethod-GET-사용"><a href="#기존의-URL-매핑-방법-RequestMapping-Method-RequestMethod-GET-사용" class="headerlink" title="[기존의 URL 매핑 방법] @RequestMapping(Method=RequestMethod.GET) 사용"></a>[기존의 URL 매핑 방법] @RequestMapping(Method=RequestMethod.GET) 사용</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/board"</span>, method=RequestMethod.GET)</span><br></pre></td></tr></table></figure>
-<h4 id="GetMapping-사용-방법"><a href="#GetMapping-사용-방법" class="headerlink" title="@GetMapping 사용 방법"></a>@GetMapping 사용 방법</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/board)</span></span><br></pre></td></tr></table></figure>
+<h4 id="GetMapping-사용-방법"><a href="#GetMapping-사용-방법" class="headerlink" title="@GetMapping 사용 방법"></a>@GetMapping 사용 방법</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/board"</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>코드 길이가 줄어들고, 어떤 HTTP Method과 매핑되는지를 직관적으로<br>알아볼 수 있다.</p>
 </blockquote>
@@ -308,7 +308,7 @@ ga('send', 'pageview');
         "genre": "Back-end Spring & Spring Boot",
         "datePublished": "2019-08-15",
         "dateCreated": "2019-08-15",
-        "dateModified": "2019-08-20",
+        "dateModified": "2019-08-22",
         "url": "https://JihyeHwang09.github.io/2019/08/15/spring-2019-08-15/",
         "description": "
 Spring에서 URL 매핑 방법에 대해 알아보자.
