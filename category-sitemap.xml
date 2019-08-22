@@ -8,6 +8,27 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/tool/intellij/</loc>
+        <lastmod>2019-08-22T13:43:31.051Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/tool/</loc>
+        <lastmod>2019-08-22T13:43:31.051Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/tool/hexo/</loc>
+        <lastmod>2019-08-22T13:36:46.534Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/front-end/typescript/</loc>
         <lastmod>2019-08-21T13:50:53.945Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -171,20 +192,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/back-end/node-js/</loc>
         <lastmod>2019-04-11T15:21:56.278Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/blog/hexo/</loc>
-        <lastmod>2019-04-11T15:21:30.798Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/blog/</loc>
-        <lastmod>2019-04-11T15:21:30.798Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
