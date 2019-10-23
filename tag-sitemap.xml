@@ -3,6 +3,55 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/clean-coder/</loc>
+        <lastmod>2019-10-23T00:12:37.053Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%ED%81%B4%EB%A6%B0-%EC%BD%94%EB%8D%94/</loc>
+        <lastmod>2019-10-23T00:12:37.053Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/boolean-algebra/</loc>
+        <lastmod>2019-10-22T23:43:52.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/boole/</loc>
+        <lastmod>2019-10-22T23:43:52.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EB%85%BC%EB%A6%AC%ED%9A%8C%EB%A1%9C/</loc>
+        <lastmod>2019-10-22T23:43:52.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%84%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0-%EA%B5%AC%EC%A1%B0/</loc>
+        <lastmod>2019-10-22T23:43:52.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/</loc>
+        <lastmod>2019-10-22T23:43:52.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
         <lastmod>2019-10-01T15:50:01.037Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1319,13 +1368,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/</loc>
-        <lastmod>2019-02-12T13:14:39.065Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%86%A1-%EB%AA%A8%EB%93%9C/</loc>
         <lastmod>2019-02-11T14:16:27.231Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1566,34 +1608,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/tags/%EC%B9%B4%EB%A5%B4%EB%85%B8-%EB%8F%84%ED%91%9C/</loc>
         <lastmod>2019-01-07T10:33:28.058Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EB%85%BC%EB%A6%AC%ED%9A%8C%EB%A1%9C/</loc>
-        <lastmod>2019-01-07T10:33:28.058Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%84%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0-%EA%B5%AC%EC%A1%B0/</loc>
-        <lastmod>2019-01-07T10:33:28.058Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/boolean-algebra/</loc>
-        <lastmod>2019-01-07T10:30:50.797Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/boole/</loc>
-        <lastmod>2019-01-07T10:30:50.797Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

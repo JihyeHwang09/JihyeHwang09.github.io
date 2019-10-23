@@ -8,14 +8,35 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
-        <lastmod>2019-10-01T15:50:01.037Z</lastmod>
+        <loc>https://JihyeHwang09.github.io/categories/developer/book/</loc>
+        <lastmod>2019-10-23T00:12:37.053Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
+        <lastmod>2019-10-23T00:12:37.053Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/%EC%A0%84%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0-%EA%B5%AC%EC%A1%B0/</loc>
+        <lastmod>2019-10-22T23:43:52.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/</loc>
+        <lastmod>2019-10-22T23:43:52.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
         <lastmod>2019-10-01T15:50:01.037Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -148,13 +169,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/book/</loc>
-        <lastmod>2019-05-26T13:56:45.750Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%BC%ED%95%99/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/</loc>
         <lastmod>2019-05-18T07:39:49.545Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -199,20 +213,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%86%B5%EC%8B%A0/</loc>
         <lastmod>2019-02-12T13:14:39.065Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/</loc>
-        <lastmod>2019-02-12T13:14:39.065Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/%EC%A0%84%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0-%EA%B5%AC%EC%A1%B0/</loc>
-        <lastmod>2019-01-07T10:33:28.058Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/10/23/clean-coder/</loc>
+        <lastmod>2019-10-23T00:12:37.053Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/01/04/book-boolean-algebra/</loc>
+        <lastmod>2019-10-22T23:43:52.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/10/01/TIL-2019-10-01/</loc>
         <lastmod>2019-10-01T15:50:01.037Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1248,14 +1264,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
-        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1265,6 +1273,14 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/2019/03/18/TIL-2019-03-18/</loc>
+        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1336,7 +1352,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/22/react5/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/23/react6/</loc>
         <lastmod>2019-04-11T15:22:16.458Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1344,7 +1360,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/23/react6/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/22/react5/</loc>
         <lastmod>2019-04-11T15:22:16.458Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1768,7 +1784,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/19/node-js-design-pattern1/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/04/09/node-library-winston/</loc>
         <lastmod>2019-04-11T15:21:56.259Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1776,7 +1792,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/04/09/node-library-winston/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/19/node-js-design-pattern1/</loc>
         <lastmod>2019-04-11T15:21:56.259Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1914,14 +1930,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/2019/01/06/karnaugh-map/</loc>
         <lastmod>2019-01-07T10:33:28.058Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/04/boolean-algebra/</loc>
-        <lastmod>2019-01-07T10:30:50.797Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
