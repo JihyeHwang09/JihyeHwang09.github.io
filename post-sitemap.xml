@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/10/28/book-sql-first-steps-04/</loc>
+        <lastmod>2019-10-28T12:21:24.342Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/10/27/book-sql-first-steps-03/</loc>
         <lastmod>2019-10-27T14:21:01.185Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1280,22 +1288,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/15/TIL-2019-03-15/</loc>
-        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/18/TIL-2019-03-18/</loc>
-        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1304,7 +1296,23 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/03/15/TIL-2019-03-15/</loc>
+        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
+        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/03/18/TIL-2019-03-18/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
