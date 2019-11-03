@@ -21,7 +21,7 @@
 <meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.    싱글턴 패턴(Singleton Pattern) 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자. 안티패턴으로 여겨지는 이유 중 하나는 생성자가 priv">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/68082652-ae896200-fe62-11e9-8ed1-ba9cab929d7e.png">
-<meta property="og:updated_time" content="2019-11-03T09:36:30.649Z">
+<meta property="og:updated_time" content="2019-11-03T14:42:15.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="싱글턴 패턴(Singleton Pattern)">
 <meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.    싱글턴 패턴(Singleton Pattern) 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자. 안티패턴으로 여겨지는 이유 중 하나는 생성자가 priv">
@@ -243,7 +243,7 @@ ga('send', 'pageview');
 </ul>
 <h4 id="동기화가-아깝다"><a href="#동기화가-아깝다" class="headerlink" title="동기화가 아깝다."></a>동기화가 아깝다.</h4><ul>
 <li>속도 저하가 일어날 수 있고, <strong>동기화가 아깝다</strong>는 느낌이 들 수 있다.</li>
-<li>여기에서 <code>동기화가 아깝다</code>는 의미는 <strong>동기화가 필요한 시점은 오직 인스턴스가 생성되기 전</strong>이다.</li>
+<li>여기에서 <code>동기화가 아깝다</code>는 의미는 <strong>동기화가 필요한 시점은 오직 인스턴스가 생성되기 전</strong>을 말한다.</li>
 <li><strong>인스턴스가 이미 만들어진 후</strong>에는 <strong>동기화가 더 이상 필요 없다.</strong></li>
 </ul>
 <hr>
@@ -292,7 +292,7 @@ ga('send', 'pageview');
 </ul>
 <hr>
 <h3 id="Executor를-이용한-스레드-실행-제어"><a href="#Executor를-이용한-스레드-실행-제어" class="headerlink" title="Executor를 이용한 스레드 실행 제어"></a>Executor를 이용한 스레드 실행 제어</h3><blockquote>
-<p>현업에서는 <code>Executors.new CachedThreadPool()</code>와 <code>Executors.newSingleThreadExecutor()</code>를 사용한다.</p>
+<p>현업에서는 최대 스레드의 개수를 조절하기 위해<br><code>Executors.newFixedThreadPool(n)</code>와 <code>Executors.newSingleThreadExecutor()</code>를 사용한다.</p>
 </blockquote>
 <ul>
 <li><strong>고정</strong> 크기: <code>Executors.newFixedThreadPool(n)</code><ul>
@@ -423,7 +423,7 @@ Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이
 싱글턴 패턴(Singleton Pattern)
 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자.
 안티패턴으로 여겨지는 이유 중 하나는 생성자가 priv"
-        "wordCount": 1755
+        "wordCount": 1759
     }
 </script>
 
