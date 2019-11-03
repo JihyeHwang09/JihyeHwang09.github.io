@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/10/23/clean-coder/</loc>
+        <lastmod>2019-11-03T14:51:08.712Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/11/03/design-pattern-singleton/</loc>
-        <lastmod>2019-11-03T14:42:15.741Z</lastmod>
+        <lastmod>2019-11-03T14:50:35.356Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -66,14 +74,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/2019/10/25/book-sql-first-steps-01/</loc>
         <lastmod>2019-10-26T14:45:46.735Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/10/23/clean-coder/</loc>
-        <lastmod>2019-10-25T13:53:04.163Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

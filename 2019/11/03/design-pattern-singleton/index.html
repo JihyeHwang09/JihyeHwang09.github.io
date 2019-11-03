@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="singleton pattern,싱글턴 패턴">
     
-    <meta name="description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.    싱글턴 패턴(Singleton Pattern) 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자. 안티패턴으로 여겨지는 이유 중 하나는 생성자가 priv">
+    <meta name="description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  싱글턴 패턴(Singleton Pattern) 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자. 안티패턴으로 여겨지는 이유 중 하나는 생성자가 private으">
 <meta name="keywords" content="singleton pattern,싱글턴 패턴">
 <meta property="og:type" content="article">
 <meta property="og:title" content="싱글턴 패턴(Singleton Pattern)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/11/03/design-pattern-singleton/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.    싱글턴 패턴(Singleton Pattern) 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자. 안티패턴으로 여겨지는 이유 중 하나는 생성자가 priv">
+<meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  싱글턴 패턴(Singleton Pattern) 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자. 안티패턴으로 여겨지는 이유 중 하나는 생성자가 private으">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/68082652-ae896200-fe62-11e9-8ed1-ba9cab929d7e.png">
-<meta property="og:updated_time" content="2019-11-03T14:42:15.741Z">
+<meta property="og:updated_time" content="2019-11-03T14:50:35.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="싱글턴 패턴(Singleton Pattern)">
-<meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.    싱글턴 패턴(Singleton Pattern) 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자. 안티패턴으로 여겨지는 이유 중 하나는 생성자가 priv">
+<meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  싱글턴 패턴(Singleton Pattern) 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자. 안티패턴으로 여겨지는 이유 중 하나는 생성자가 private으">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/68082652-ae896200-fe62-11e9-8ed1-ba9cab929d7e.png">
     
 
@@ -197,13 +197,9 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            <ul>
-<li><p><img src="https://user-images.githubusercontent.com/37353837/68082652-ae896200-fe62-11e9-8ed1-ba9cab929d7e.png" alt=""></p>
-<blockquote>
+            <blockquote>
 <p><strong>Head First - Design Patterns</strong><br>(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)<br>을 읽고 정리한 내용입니다.</p>
 </blockquote>
-</li>
-</ul>
 <h1 id="싱글턴-패턴-Singleton-Pattern"><a href="#싱글턴-패턴-Singleton-Pattern" class="headerlink" title="싱글턴 패턴(Singleton Pattern)"></a>싱글턴 패턴(Singleton Pattern)</h1><ul>
 <li><code>싱글턴 패턴</code>은 요즘 거의 <strong>안티패턴</strong>으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자.</li>
 <li>안티패턴으로 여겨지는 이유 중 하나는 생성자가 <code>private</code>으로 선언되어 있어<br><strong>서브 클래스를 만들 수 없다</strong>는 점이다.<br><br></li>
@@ -414,16 +410,12 @@ ga('send', 'pageview');
         "dateModified": "2019-11-03",
         "url": "https://JihyeHwang09.github.io/2019/11/03/design-pattern-singleton/",
         "description": "
-
-
 Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.
-
-
 
 싱글턴 패턴(Singleton Pattern)
 싱글턴 패턴은 요즘 거의 안티패턴으로 여겨지고 있는 패턴임을 염두에 두고 공부해보자.
-안티패턴으로 여겨지는 이유 중 하나는 생성자가 priv"
-        "wordCount": 1759
+안티패턴으로 여겨지는 이유 중 하나는 생성자가 private으"
+        "wordCount": 1757
     }
 </script>
 
