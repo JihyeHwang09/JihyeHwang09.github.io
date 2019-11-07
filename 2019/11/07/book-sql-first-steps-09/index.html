@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>SQL 첫걸음- 12강(2/2) | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="SQL 첫걸음,MySQL">
+    
+    <meta name="description" content="12강. 수치 연산4. WHERE 구에서 연산하기WHERE구에서 SELECT구에서와 같이 별명을 사용하면, 존재하지 않는다는 에러가 발생한다. 4-1) WHERE구에서 SELECT구의 내부처리 순서 WHERE구에서의 행 선택 SELECT구에서의 열 선택데이터베이스 서버 내부에서 WHERE구 -&amp;gt; SELECT구의 순서로 처리된다.이는 서버 내부의 처리순">
+<meta name="keywords" content="SQL 첫걸음,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL 첫걸음- 12강(2&#x2F;2)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/11/07/book-sql-first-steps-09/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="12강. 수치 연산4. WHERE 구에서 연산하기WHERE구에서 SELECT구에서와 같이 별명을 사용하면, 존재하지 않는다는 에러가 발생한다. 4-1) WHERE구에서 SELECT구의 내부처리 순서 WHERE구에서의 행 선택 SELECT구에서의 열 선택데이터베이스 서버 내부에서 WHERE구 -&amp;gt; SELECT구의 순서로 처리된다.이는 서버 내부의 처리순">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png">
+<meta property="og:updated_time" content="2019-11-07T14:05:23.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL 첫걸음- 12강(2&#x2F;2)">
+<meta name="twitter:description" content="12강. 수치 연산4. WHERE 구에서 연산하기WHERE구에서 SELECT구에서와 같이 별명을 사용하면, 존재하지 않는다는 에러가 발생한다. 4-1) WHERE구에서 SELECT구의 내부처리 순서 WHERE구에서의 행 선택 SELECT구에서의 열 선택데이터베이스 서버 내부에서 WHERE구 -&amp;gt; SELECT구의 순서로 처리된다.이는 서버 내부의 처리순">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-139151127-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/dev-english/">Dev English</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/typescript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/">Tool</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/intellij/">IntelliJ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/developer/book/">Book</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true;
+    google_language= "ko";
+  });
+</script>
+                            <article id="post-book-sql-first-steps-09" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        SQL 첫걸음- 12강(2/2)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/11/07/book-sql-first-steps-09/" class="article-date">
+            <time datetime="2019-11-07T13:27:01.000Z" itemprop="datePublished">2019-11-07</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/mysql/">MySQL</a>, <a class="tag-link" href="/tags/sql-첫걸음/">SQL 첫걸음</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="12강-수치-연산"><a href="#12강-수치-연산" class="headerlink" title="12강. 수치 연산"></a>12강. 수치 연산</h2><h3 id="4-WHERE-구에서-연산하기"><a href="#4-WHERE-구에서-연산하기" class="headerlink" title="4. WHERE 구에서 연산하기"></a>4. WHERE 구에서 연산하기</h3><p><code>WHERE구</code>에서 <code>SELECT구</code>에서와 같이 <strong>별명을 사용하면, 존재하지 않는다는 에러가 발생</strong>한다.</p>
+<h4 id="4-1-WHERE구에서-SELECT구의-내부처리-순서"><a href="#4-1-WHERE구에서-SELECT구의-내부처리-순서" class="headerlink" title="4-1) WHERE구에서 SELECT구의 내부처리 순서"></a>4-1) WHERE구에서 SELECT구의 내부처리 순서</h4><ul>
+<li><code>WHERE구</code>에서의 <code>행</code> 선택</li>
+<li><code>SELECT구</code>에서의 <code>열</code> 선택<br><br><br>데이터베이스 서버 내부에서 <code>WHERE구</code> -&gt; <code>SELECT구</code>의 순서로 처리된다.<br><br><br>이는 서버 내부의 처리순서와 관련이 있다.</li>
+</ul>
+<ol>
+<li><code>WHERE구</code>로 <strong>행이 조건에 일치하는지 아닌지를 먼저 조사</strong>한다.(행 추출)</li>
+<li><code>SELECT구</code>에 <strong>지정된 열을 선택</strong>해, 결과로 반환하는 식으로 처리한다.<br>(열을 선택해 별명을 붙인다.)<blockquote>
+<p><code>SELECT구</code>에서 지정한 별명은 <code>WHERE구</code> 안에서 사용할 수 없다!</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="5-NULL값의-연산"><a href="#5-NULL값의-연산" class="headerlink" title="5. NULL값의 연산"></a>5. NULL값의 연산</h3><ul>
+<li><code>NULL + 1</code>의 결과값은 1이 아닌 <code>NULL</code>이다.</li>
+<li><code>1 / NULL</code>을 계산하면 NULL이 0으로 처리되지 않기 때문에<br>에러가 발생하지 않고, 결과는 <code>NULL</code>이 된다.</li>
+</ul>
+<hr>
+<h3 id="6-ORDER-BY-구에서-연산하기"><a href="#6-ORDER-BY-구에서-연산하기" class="headerlink" title="6. ORDER BY 구에서 연산하기"></a>6. ORDER BY 구에서 연산하기</h3><p><code>ORDER BY 구</code>에서도 연산할 수 있고, 결과값들 정렬이 가능하다.</p>
+<h4 id="6-1-ORDER-BY-구의-내부처리-순서"><a href="#6-1-ORDER-BY-구의-내부처리-순서" class="headerlink" title="6-1) ORDER BY 구의 내부처리 순서"></a>6-1) <code>ORDER BY 구</code>의 내부처리 순서</h4><ul>
+<li><code>ORDER BY 구</code>는 서버에서 내부적으로 <strong>가장 나중에 처리</strong>된다.<br><br><blockquote>
+<p>따라서 <code>WHERE구</code>와는 달리,<br><code>ORDER BY 구</code>에서는 <strong><code>SELECT구</code>에서 지정한 별명을 사용할 수 있다!</strong></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="6-2-SELECT구-WHERE구-ORDER-BY구의-서버-내부-처리-순서"><a href="#6-2-SELECT구-WHERE구-ORDER-BY구의-서버-내부-처리-순서" class="headerlink" title="6-2) SELECT구, WHERE구, ORDER BY구의 서버 내부 처리 순서"></a>6-2) <code>SELECT구</code>, <code>WHERE구</code>, <code>ORDER BY구</code>의 서버 내부 처리 순서</h4><ul>
+<li><code>WHERE구</code> -&gt; <code>SELECT구</code><strong>(여기에서 별명을 지정)</strong>-&gt; <code>ORDER BY구</code></li>
+</ul>
+<hr>
+<h3 id="7-함수"><a href="#7-함수" class="headerlink" title="7. 함수"></a>7. 함수</h3><p>연산자 외에 함수를 사용해 연산할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">함수명 (인수1, 인수2...)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>함수의 계산 대상은 인수로 지정한다.</li>
+<li>인수는 함수명 뒤에 괄호로 묶어 표기한다.</li>
+</ul>
+<h4 id="7-1-연산자와-함수는-서로-비슷하다"><a href="#7-1-연산자와-함수는-서로-비슷하다" class="headerlink" title="7-1) 연산자와 함수는 서로 비슷하다."></a>7-1) 연산자와 함수는 서로 비슷하다.</h4><ul>
+<li><code>%</code> 연산자(MySQL 등에서 사용 가능)<br>: 나머지값을 반환하는 연산자</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 % 4 -&gt; 2</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>MOD</code> 함수(MySQL, Oracle 등에서 사용 가능)<ul>
+<li>함수명은 <code>MOD</code>이고, 인수로는 <strong>나뉘어질 수, 나눌 수</strong> 순으로 2개를 지정한다.</li>
+<li>나머지 값을 반환한다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MOD(10, 4) -&gt; 2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>함수도 연산자도 표기 방법이 다를 뿐, 같은 것이다!</p>
+</blockquote>
+<hr>
+<h3 id="8-ROUND-함수"><a href="#8-ROUND-함수" class="headerlink" title="8. ROUND 함수"></a>8. ROUND 함수</h3><ul>
+<li><code>DEMICAL형</code>: INTEGER형(정수만 지정 가능)과는 달리<br>정수부와 소수부의 자릿수를 지정할 수 있는 자료형</li>
+</ul>
+<h4 id="반올림-자릿수-지정"><a href="#반올림-자릿수-지정" class="headerlink" title="반올림 자릿수 지정"></a>반올림 자릿수 지정</h4><ul>
+<li>ROUND 함수는 기본적으로 <strong>소수점 첫쨰 자리를 기준으로 반올림</strong>한 값을 반환한다.</li>
+<li>두 번째 인수로 반올림할 자릿수를 지정할 수 있다.</li>
+<li>두 번째 인수를 생략할 경우, 0으로 간주되어 소수점 첫째 자리를 반올림한다.</li>
+<li>ex)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT 컬럼명, ROUND(컬럼명, 1) FROM 테이블명;</span><br><span class="line"># 두 번째 인수로 1을 지정할 경우 소수점 둘째 자리를 기준을 반올림한다.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>두 번째 인수를 <strong>음수</strong>로 지정해서 정수부의 반올림할 자릿수를 지정할 수 있다.</li>
+<li>ex) <code>-1</code> 지정할 경우 <code>1단위</code>를 반올림하며, <code>-2를</code> 지정하면 <code>10단위</code>를 반올림한다.</li>
+</ul>
+
+        </div>
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true;
+    google_language= "ko";
+  });
+</script>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "SQL 첫걸음- 12강(2/2)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png",
+        "keywords": "SQL 첫걸음 MySQL",
+        "genre": "Developer Book",
+        "datePublished": "2019-11-07",
+        "dateCreated": "2019-11-07",
+        "dateModified": "2019-11-07",
+        "url": "https://JihyeHwang09.github.io/2019/11/07/book-sql-first-steps-09/",
+        "description": "12강. 수치 연산4. WHERE 구에서 연산하기WHERE구에서 SELECT구에서와 같이 별명을 사용하면, 존재하지 않는다는 에러가 발생한다.
+4-1) WHERE구에서 SELECT구의 내부처리 순서
+WHERE구에서의 행 선택
+SELECT구에서의 열 선택데이터베이스 서버 내부에서 WHERE구 -&gt; SELECT구의 순서로 처리된다.이는 서버 내부의 처리순"
+        "wordCount": 369
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/11/06/book-sql-first-steps-08/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">SQL 첫걸음- 12강(1/2)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/07/book-sql-first-steps-09/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 12강(2/2)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/book/">Book</a></p>
+                            <p class="item-title"><a href="/2019/11/07/book-sql-first-steps-09/" class="title">SQL 첫걸음- 12강(2/2)</a></p>
+                            <p class="item-date"><time datetime="2019-11-07T13:27:01.000Z" itemprop="datePublished">2019-11-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/06/book-sql-first-steps-08/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 12강(1/2)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/book/">Book</a></p>
+                            <p class="item-title"><a href="/2019/11/06/book-sql-first-steps-08/" class="title">SQL 첫걸음- 12강(1/2)</a></p>
+                            <p class="item-date"><time datetime="2019-11-05T15:48:10.000Z" itemprop="datePublished">2019-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/03/book-sql-first-steps-07/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 11강" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/book/">Book</a></p>
+                            <p class="item-title"><a href="/2019/11/03/book-sql-first-steps-07/" class="title">SQL 첫걸음- 11강</a></p>
+                            <p class="item-date"><time datetime="2019-11-03T09:12:08.000Z" itemprop="datePublished">2019-11-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/03/design-pattern-singleton/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/68082652-ae896200-fe62-11e9-8ed1-ba9cab929d7e.png)" alt="싱글턴 패턴(Singleton Pattern)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/design-pattern/">Design-pattern</a></p>
+                            <p class="item-title"><a href="/2019/11/03/design-pattern-singleton/" class="title">싱글턴 패턴(Singleton Pattern)</a></p>
+                            <p class="item-date"><time datetime="2019-11-03T06:08:54.000Z" itemprop="datePublished">2019-11-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/02/book-sql-first-steps-06/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 10강" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/book/">Book</a></p>
+                            <p class="item-title"><a href="/2019/11/02/book-sql-first-steps-06/" class="title">SQL 첫걸음- 10강</a></p>
+                            <p class="item-date"><time datetime="2019-11-02T14:01:31.000Z" itemprop="datePublished">2019-11-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">89</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">Database</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/oracle/">Oracle</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">48</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/dev-english/">Dev English</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/typescript/">TypeScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">Tool</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/intellij/">IntelliJ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/100제/" style="font-size: 20px;">100제</a> <a href="/tags/1010/" style="font-size: 10px;">1010</a> <a href="/tags/1011/" style="font-size: 10px;">1011</a> <a href="/tags/1012/" style="font-size: 10px;">1012</a> <a href="/tags/1013/" style="font-size: 10px;">1013</a> <a href="/tags/1014/" style="font-size: 10px;">1014</a> <a href="/tags/1015/" style="font-size: 10px;">1015</a> <a href="/tags/1017/" style="font-size: 10px;">1017</a> <a href="/tags/1018/" style="font-size: 10px;">1018</a> <a href="/tags/1019/" style="font-size: 10px;">1019</a> <a href="/tags/1020/" style="font-size: 10px;">1020</a> <a href="/tags/1021/" style="font-size: 10px;">1021</a> <a href="/tags/1023/" style="font-size: 10px;">1023</a> <a href="/tags/1024/" style="font-size: 10px;">1024</a> <a href="/tags/1025/" style="font-size: 10px;">1025</a> <a href="/tags/1026/" style="font-size: 10px;">1026</a> <a href="/tags/1027/" style="font-size: 10px;">1027</a> <a href="/tags/1029/" style="font-size: 10px;">1029</a> <a href="/tags/1031/" style="font-size: 10px;">1031</a> <a href="/tags/1036/" style="font-size: 10px;">1036</a> <a href="/tags/1037/" style="font-size: 10px;">1037</a> <a href="/tags/1040/" style="font-size: 10px;">1040</a> <a href="/tags/1041/" style="font-size: 10px;">1041</a> <a href="/tags/1042/" style="font-size: 10px;">1042</a> <a href="/tags/1045/" style="font-size: 10px;">1045</a> <a href="/tags/1046/" style="font-size: 10px;">1046</a> <a href="/tags/1047/" style="font-size: 10px;">1047</a> <a href="/tags/1048/" style="font-size: 10px;">1048</a> <a href="/tags/1049/" style="font-size: 10px;">1049</a> <a href="/tags/1050/" style="font-size: 10px;">1050</a> <a href="/tags/1051/" style="font-size: 10px;">1051</a> <a href="/tags/1052/" style="font-size: 10px;">1052</a> <a href="/tags/1053/" style="font-size: 10px;">1053</a> <a href="/tags/1054/" style="font-size: 10px;">1054</a> <a href="/tags/1056/" style="font-size: 10px;">1056</a> <a href="/tags/1057/" style="font-size: 10px;">1057</a> <a href="/tags/1058/" style="font-size: 10px;">1058</a> <a href="/tags/1059/" style="font-size: 10px;">1059</a> <a href="/tags/1060/" style="font-size: 10px;">1060</a> <a href="/tags/1061/" style="font-size: 10px;">1061</a> <a href="/tags/1063/" style="font-size: 10px;">1063</a> <a href="/tags/1066/" style="font-size: 10px;">1066</a> <a href="/tags/1067/" style="font-size: 10px;">1067</a> <a href="/tags/1068/" style="font-size: 10px;">1068</a> <a href="/tags/1069/" style="font-size: 10px;">1069</a> <a href="/tags/1070/" style="font-size: 10px;">1070</a> <a href="/tags/1071/" style="font-size: 10px;">1071</a> <a href="/tags/1072/" style="font-size: 10px;">1072</a> <a href="/tags/1073/" style="font-size: 10px;">1073</a> <a href="/tags/1074/" style="font-size: 10px;">1074</a> <a href="/tags/33-js-concepts/" style="font-size: 11.33px;">33-js-concepts</a> <a href="/tags/algorithms/" style="font-size: 10.67px;">Algorithms</a> <a href="/tags/angular/" style="font-size: 10px;">Angular</a> <a href="/tags/argument/" style="font-size: 10px;">Argument</a> <a href="/tags/arraylist/" style="font-size: 10px;">ArrayList</a> <a href="/tags/back-end/" style="font-size: 10.67px;">Back-end</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 14px;">CSS</a> <a href="/tags/can-t-answer-a-question-unless-a-user-tty/" style="font-size: 10px;">Can't answer a question unless a user TTY</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/clean-code/" style="font-size: 14px;">Clean Code</a> <a href="/tags/clean-coder/" style="font-size: 10px;">Clean Coder</a> <a href="/tags/computer-science/" style="font-size: 10.67px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/data-binding/" style="font-size: 10px;">Data Binding</a> <a href="/tags/database/" style="font-size: 10px;">Database</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/dev-english/" style="font-size: 10px;">Dev English</a> <a href="/tags/developer/" style="font-size: 10px;">Developer</a> <a href="/tags/error/" style="font-size: 10px;">Error</a> <a href="/tags/front-end/" style="font-size: 14.67px;">Front-end</a> <a href="/tags/hdlc/" style="font-size: 10.67px;">HDLC</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/illegal-key-size/" style="font-size: 10px;">ILLEGAL KEY SIZE</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/intellij/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/java-security-invalidkeyexception/" style="font-size: 10px;">JAVA.SECURITY.INVALIDKEYEXCEPTION</a> <a href="/tags/java/" style="font-size: 10.67px;">Java</a> <a href="/tags/javascript/" style="font-size: 18.67px;">JavaScript</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/jsoninclude-include-non-null/" style="font-size: 10px;">JsonInclude.Include.NON_NULL</a> <a href="/tags/linux/" style="font-size: 10.67px;">Linux</a> <a href="/tags/mathematical-induction/" style="font-size: 10.67px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/mybatis/" style="font-size: 10.67px;">MyBatis</a> <a href="/tags/mysql/" style="font-size: 14px;">MySQL</a> <a href="/tags/null-not-allowed-for-column-title-sql-statement/" style="font-size: 10px;">NULL not allowed for column "TITLE"; SQL statement</a> <a href="/tags/node-js/" style="font-size: 15.33px;">Node.js</a> <a href="/tags/optional-property/" style="font-size: 10px;">Optional Property</a> <a href="/tags/oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/put/" style="font-size: 10px;">PUT</a> <a href="/tags/parameter/" style="font-size: 10px;">Parameter</a> <a href="/tags/pathvariable-annotation/" style="font-size: 10px;">PathVariable annotation</a> <a href="/tags/react/" style="font-size: 15.33px;">React</a> <a href="/tags/recursion-function/" style="font-size: 10.67px;">Recursion Function</a> <a href="/tags/reqeustbody-annotation/" style="font-size: 10px;">ReqeustBody annotation</a> <a href="/tags/sql-첫걸음/" style="font-size: 14px;">SQL 첫걸음</a> <a href="/tags/spring/" style="font-size: 14px;">Spring</a> <a href="/tags/spring-boot/" style="font-size: 14px;">Spring Boot</a> <a href="/tags/static-web-generator/" style="font-size: 10.67px;">Static Web Generator</a> <a href="/tags/til/" style="font-size: 17.33px;">TIL</a> <a href="/tags/template-parse-errors/" style="font-size: 10px;">Template parse errors</a> <a href="/tags/there-is-no-getter-for-property-named/" style="font-size: 10px;">There is no getter for property named</a> <a href="/tags/typescript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/unexpected-closing-tag/" style="font-size: 10px;">Unexpected closing tag</a> <a href="/tags/object-object/" style="font-size: 10.67px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 10.67px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/check-box/" style="font-size: 10px;">check-box</a> <a href="/tags/codeup-해설/" style="font-size: 20px;">codeup 해설</a> <a href="/tags/cp/" style="font-size: 10px;">cp</a> <a href="/tags/data-communication/" style="font-size: 12px;">data-communication</a> <a href="/tags/datetime/" style="font-size: 10px;">datetime</a> <a href="/tags/end-인수/" style="font-size: 10px;">end 인수</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/fasly/" style="font-size: 10px;">fasly</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 10.67px;">framework</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10.67px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/join/" style="font-size: 10px;">join</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/null-check/" style="font-size: 10px;">null Check</a> <a href="/tags/parameter-여러-개/" style="font-size: 10px;">parameter 여러 개</a> <a href="/tags/platform/" style="font-size: 10.67px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/python/" style="font-size: 19.33px;">python</a> <a href="/tags/python-formating/" style="font-size: 10px;">python formating</a> <a href="/tags/recursion/" style="font-size: 11.33px;">recursion</a> <a href="/tags/rm-r/" style="font-size: 10px;">rm. -r</a> <a href="/tags/rmdir-rmdir/" style="font-size: 10px;">rmdir. rmdir</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/sep-인수/" style="font-size: 10px;">sep 인수</a> <a href="/tags/singleton-pattern/" style="font-size: 10px;">singleton pattern</a> <a href="/tags/split/" style="font-size: 10px;">split</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/yarn-init-error/" style="font-size: 10px;">yarn init error</a> <a href="/tags/zfill-함수/" style="font-size: 10px;">zfill 함수</a> <a href="/tags/가상-메모리/" style="font-size: 10.67px;">가상 메모리</a> <a href="/tags/개발자-포트폴리오/" style="font-size: 10px;">개발자 포트폴리오</a> <a href="/tags/객체/" style="font-size: 10px;">객체</a> <a href="/tags/객체지향-분석과-설계/" style="font-size: 10px;">객체지향 분석과 설계</a> <a href="/tags/교착상태/" style="font-size: 10.67px;">교착상태</a> <a href="/tags/구분자/" style="font-size: 10px;">구분자</a> <a href="/tags/깨끗한-코드/" style="font-size: 10.67px;">깨끗한 코드</a> <a href="/tags/나동빈/" style="font-size: 10px;">나동빈</a> <a href="/tags/내림/" style="font-size: 10px;">내림</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 11.33px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/덧셈-연산/" style="font-size: 10px;">덧셈 연산</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 12.67px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/매개변수/" style="font-size: 10.67px;">매개변수</a> <a href="/tags/메모리-관리/" style="font-size: 10px;">메모리 관리</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/문자열/" style="font-size: 10.67px;">문자열</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/반올림/" style="font-size: 10px;">반올림</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/배열/" style="font-size: 10px;">배열</a> <a href="/tags/배포-다이어그램/" style="font-size: 10px;">배포 다이어그램</a> <a href="/tags/백기선/" style="font-size: 10px;">백기선</a> <a href="/tags/병행-프로세스/" style="font-size: 10.67px;">병행 프로세스</a> <a href="/tags/분산-운영체제/" style="font-size: 10.67px;">분산 운영체제</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/사용자-요구-분석/" style="font-size: 10px;">사용자 요구 분석</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/상태-머신-다이어그램/" style="font-size: 10px;">상태 머신 다이어그램</a> <a href="/tags/상호작용-다이어그램/" style="font-size: 10.67px;">상호작용 다이어그램</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/선택적-프로퍼티/" style="font-size: 10px;">선택적 프로퍼티</a> <a href="/tags/소수점/" style="font-size: 10px;">소수점</a> <a href="/tags/소프트웨어-공학/" style="font-size: 16px;">소프트웨어 공학</a> <a href="/tags/소프트웨어-설계/" style="font-size: 10px;">소프트웨어 설계</a> <a href="/tags/소프트웨어-유지보수/" style="font-size: 10px;">소프트웨어 유지보수</a> <a href="/tags/소프트웨어-테스트/" style="font-size: 10px;">소프트웨어 테스트</a> <a href="/tags/소프트웨어-품질/" style="font-size: 10px;">소프트웨어 품질</a> <a href="/tags/소프트웨어-프로세스/" style="font-size: 10px;">소프트웨어 프로세스</a> <a href="/tags/수학적-귀납법/" style="font-size: 10.67px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11.33px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 11.33px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/스케줄링-알고리즘/" style="font-size: 10px;">스케줄링 알고리즘</a> <a href="/tags/싱글턴-패턴/" style="font-size: 10px;">싱글턴 패턴</a> <a href="/tags/알고리즘/" style="font-size: 11.33px;">알고리즘</a> <a href="/tags/액티비티-다이어그램/" style="font-size: 10px;">액티비티 다이어그램</a> <a href="/tags/여러-개-입력-받기/" style="font-size: 10px;">여러 개 입력 받기</a> <a href="/tags/올림/" style="font-size: 10px;">올림</a> <a href="/tags/운영체제/" style="font-size: 16px;">운영체제</a> <a href="/tags/운영체제-사례/" style="font-size: 10px;">운영체제 사례</a> <a href="/tags/유스케이스-다이어그램/" style="font-size: 10px;">유스케이스 다이어그램</a> <a href="/tags/의미있는-이름/" style="font-size: 13.33px;">의미있는 이름</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/장치-관리/" style="font-size: 10px;">장치 관리</a> <a href="/tags/재귀-함수/" style="font-size: 12.67px;">재귀 함수</a> <a href="/tags/저장장치-및-파일/" style="font-size: 10px;">저장장치 및 파일</a> <a href="/tags/전달인자/" style="font-size: 10px;">전달인자</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 11.33px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 14.67px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴포넌트-다이어그램/" style="font-size: 10px;">컴포넌트 다이어그램</a> <a href="/tags/컴퓨터-과학/" style="font-size: 18px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코드업/" style="font-size: 20px;">코드업</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/클린-코더/" style="font-size: 10px;">클린 코더</a> <a href="/tags/클린-코드/" style="font-size: 14px;">클린 코드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/파이썬/" style="font-size: 16.67px;">파이썬</a> <a href="/tags/패키지-다이어그램/" style="font-size: 10px;">패키지 다이어그램</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/포맷팅/" style="font-size: 10px;">포맷팅</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/프로세스/" style="font-size: 10px;">프로세스</a> <a href="/tags/프로젝트-관리/" style="font-size: 10px;">프로젝트 관리</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/11/07/book-sql-first-steps-09/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
