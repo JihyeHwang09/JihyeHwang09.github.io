@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>스트래티지 패턴(Strategy Pattern) | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="design pattern,strategy-pattern,스트래티지 패턴,전략 패턴">
+    
+    <meta name="description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   스트래티지 패턴은 스프링 DI를 구현할 때 이용된 디자인 패턴이다. 스프링 프레임워크의 핵심 기능 중 하나인 DI를 구현할 때 이용된 스트래티지 패턴을 살펴보자.   오리 연못 시뮬레이션 게임">
+<meta name="keywords" content="design pattern,strategy-pattern,스트래티지 패턴,전략 패턴">
+<meta property="og:type" content="article">
+<meta property="og:title" content="스트래티지 패턴(Strategy Pattern)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/11/10/design-pattern-strategy/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   스트래티지 패턴은 스프링 DI를 구현할 때 이용된 디자인 패턴이다. 스프링 프레임워크의 핵심 기능 중 하나인 DI를 구현할 때 이용된 스트래티지 패턴을 살펴보자.   오리 연못 시뮬레이션 게임">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/68542785-70a4b480-03f3-11ea-8dd5-19fe74287e12.png">
+<meta property="og:updated_time" content="2019-11-10T13:39:55.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="스트래티지 패턴(Strategy Pattern)">
+<meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   스트래티지 패턴은 스프링 DI를 구현할 때 이용된 디자인 패턴이다. 스프링 프레임워크의 핵심 기능 중 하나인 DI를 구현할 때 이용된 스트래티지 패턴을 살펴보자.   오리 연못 시뮬레이션 게임">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/68542785-70a4b480-03f3-11ea-8dd5-19fe74287e12.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-139151127-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/mysql/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/dev-english/">Dev English</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/typescript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/">Tool</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/intellij/">IntelliJ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/design-pattern/">Design-pattern</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true;
+    google_language= "ko";
+  });
+</script>
+                            <article id="post-design-pattern-strategy" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        스트래티지 패턴(Strategy Pattern)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/11/10/design-pattern-strategy/" class="article-date">
+            <time datetime="2019-11-10T07:46:28.000Z" itemprop="datePublished">2019-11-10</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/design-pattern/">design pattern</a>, <a class="tag-link" href="/tags/strategy-pattern/">strategy-pattern</a>, <a class="tag-link" href="/tags/스트래티지-패턴/">스트래티지 패턴</a>, <a class="tag-link" href="/tags/전략-패턴/">전략 패턴</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p><strong>Head First - Design Patterns</strong><br>(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)<br>을 읽고 정리한 내용입니다.</p>
+</blockquote>
+<ul>
+<li><code>스트래티지 패턴</code>은 스프링 DI를 구현할 때 이용된 디자인 패턴이다.</li>
+<li>스프링 프레임워크의 핵심 기능 중 하나인 DI를 구현할 때 이용된 <code>스트래티지 패턴</code>을 살펴보자.</li>
+</ul>
+<hr>
+<p>오리 연못 시뮬레이션 게임을 만든다고 생각해보자.<br>객체지향 기법을 사용해서 Duck이라는 수퍼클래스를 만든 후,<br>그 클래스를 확장해서 다른 모든 종류의 오리를 만들었다.</p>
+<p><img src="https://user-images.githubusercontent.com/37353837/68542785-70a4b480-03f3-11ea-8dd5-19fe74287e12.png" alt=""></p>
+<ul>
+<li>모든 오리들의 모양이 다르기 때문에 Duck 클래스의 <code>display() 메서드</code>는 <strong>추상 메서드</strong>이다.</li>
+<li>MallardDuck과 RedheadDuck 외에도 <strong>오리 종류가 추가될 때마다</strong><br><strong>Duck 클래스로부터 상속을 받는다.</strong></li>
+</ul>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/37353837/68542936-78188d80-03f4-11ea-97ed-d60b965727d8.png" alt=""></p>
+<ul>
+<li>오리들이 날아다닐 수 있게 만들라는 요구사항이 추가되었다.</li>
+<li>상속을 활용하여 Duck 클래스에 <code>fly()</code>라는 메서드를 추가한 후,<br>모든 오리들이 상속받게 만들었다.</li>
+</ul>
+<hr>
+<h2 id="첫-번째-부작용-발생"><a href="#첫-번째-부작용-발생" class="headerlink" title="첫 번째 부작용 발생"></a>첫 번째 부작용 발생</h2><p><img src="https://user-images.githubusercontent.com/37353837/68544174-cbdea300-0403-11ea-91f8-6fa1e075cca1.png" alt=""></p>
+<ul>
+<li>Duck의 모든 서브 클래스가 날 수 있는 건 아니라는 점을 잊고 넘어갔다.</li>
+<li>수퍼클래스인 Duck에 <code>fly() 메서드</code>가 추가되면서<br>몇몇 서브 클래스에는 맞지 않는 기능이 추가되었다. (ex) 고무 오리가 날아다니게 되었다.)</li>
+<li>코드의 한 부분을 바꾸었는데 그 영향으로 프로그램 전체에 <strong>부작용</strong>이 발생하게 되었다.</li>
+<li><strong>RubberDuck 클래스가 정말 <code>fly() 메서드</code> 상속받아야 하는지</strong>를 고민해봐야 한다.</li>
+</ul>
+<p><code>상속</code>에 대해 생각해보자.<br>RubberDuck 클래스에서는 quack() 메서드에서 했던 것처럼<br><code>fly()</code>를 <strong>오버라이드 해서 아무것도 하지 않도록 만들 수 있다.</strong></p>
+<p>새로운 클래스를 추가해보자.<br><strong>나무로 만들어진 가짜 오리를 추가하면 어떻게 해야 할까?</strong><br>날 수도 없고 소리도 낼 수 없다.</p>
+<p><img src="https://user-images.githubusercontent.com/37353837/68543184-1e659280-03f7-11ea-8f71-4fa1987a5bd5.png" alt=""></p>
+<ul>
+<li>Duck 수퍼클래스를 상속받아 <code>quack()</code>과 <code>fly()</code> 메서드에<br><strong>오버라이드를 하고 빈 메서드로 만들어서</strong> 날지 않고 소리도 내지 않도록 만들었다.</li>
+<li><code>quack()</code>과 <code>fly()</code> 메서드는 필요가 없는데 강제로 상속을 받았기 때문이다.</li>
+</ul>
+<h2 id="Duck의-행동을-확장할-때-상속을-사용하면-갖는-단점"><a href="#Duck의-행동을-확장할-때-상속을-사용하면-갖는-단점" class="headerlink" title="Duck의 행동을 확장할 때, 상속을 사용하면 갖는 단점"></a>Duck의 행동을 확장할 때, 상속을 사용하면 갖는 단점</h2><ol>
+<li><p>서브클래스에서 코드가 중복된다.</p>
+</li>
+<li><p>모든 오리의 행동을 알기 힘들다.</p>
+</li>
+<li><strong>실행시(런타임)에 특징을 바꾸기 힘들다.</strong></li>
+</ol>
+<blockquote>
+<p>상속 관계는 <strong>컴파일 시점</strong>에 정해진다.<br>따라서, 런타임에 특징을 바꿀 수 없다.<br>cf) setter를 통해서 런타임시에 의존성을 바꾸는 방법을 이용할 수 있다.</p>
+</blockquote>
+<ol start="4">
+<li>코드를 변경했을 때, 다른 오리들한테 <strong>원치 않는 영향을 끼칠 수 있다.</strong></li>
+</ol>
+<blockquote>
+<p><strong>모든 코드가 Duck을 상속 받고 있기 때문에</strong><br>Duck에 메서드가 추가되었을 때,<br>서브클래스들에 원하지 않는 기능이 추가될 수 있다.</p>
+</blockquote>
+<hr>
+<h2 id="상속은-올바른-해결책이-아니다"><a href="#상속은-올바른-해결책이-아니다" class="headerlink" title="상속은 올바른 해결책이 아니다."></a><code>상속</code>은 올바른 해결책이 아니다.</h2><p><code>상속</code>을 사용한다면, 오리 종류들이 추가될 때마다<br>매번 Duck 서브 클래스의 fly()와 quack() 메서드를 <strong>일일이 살펴봐야 하고</strong>,<br><strong>상황에 따라 오버라이드하는 일을 반복</strong>하게 될 것이다.<br>이를 통해,<strong>상속은 올바른 해결책이 아니라는 것</strong>을 알게 되었다.</p>
+<hr>
+<h2 id="인터페이스를-이용하자"><a href="#인터페이스를-이용하자" class="headerlink" title="인터페이스를 이용하자."></a><code>인터페이스</code>를 이용하자.</h2><p>그렇다면, <code>인터페이스</code>를 이용하는 건 어떨까?<br>fly()를 Duck 수퍼클래스에서 빼내서 fly() 메서드가 들어있는 Flyable 인터페이스를 만들어 보자.<br>이렇게 할 경우 날 수 있는 오리들만 Flyable 인터페이스를 구현하도록 만들면 될 것이다.<br>quack() 메서드도 마찬가지로 Quackable 인터페이스를 만들어서 소리를 내는 오리 종류들만이<br>인터페이스를 구현하도록 만들자.</p>
+<p><img src="https://user-images.githubusercontent.com/37353837/68543510-47882200-03fb-11ea-8bc9-a84d66ee9add.png" alt=""></p>
+<hr>
+<h2 id="두-번째-부작용-발생"><a href="#두-번째-부작용-발생" class="headerlink" title="두 번째 부작용 발생"></a>두 번째 부작용 발생</h2><p>위와 같이 Flyable과 Quackable <code>인터페이스</code>를 이용했을 때 문제점이 있다.<br>날아가는 동작을 조금 바꾸려면,<br>Duck의 서브 클래스 중에 날아다닐 수 있는 코드들을 전부 고쳐야 하는 문제가 발생한다.</p>
+<p>애플리케이션은 아무리 잘 디자인한다고 해도 시간이 지남에 따라 계속해서 성장하고 변화되어야 한다.<br>나중에 고쳐야 할 때 <strong>코드에 미치는 영향을 최소한으로 줄이면서</strong> 작업을 할 수 있도록 만드는 방법을 무엇일까?</p>
+<hr>
+<h2 id="문제를-명확하게-파악하기"><a href="#문제를-명확하게-파악하기" class="headerlink" title="문제를 명확하게 파악하기"></a>문제를 명확하게 파악하기</h2><h3 id="1-상속을-사용했을-때의-문제점"><a href="#1-상속을-사용했을-때의-문제점" class="headerlink" title="1. 상속을 사용했을 때의 문제점"></a>1. <code>상속</code>을 사용했을 때의 문제점</h3><ul>
+<li>서브클래스마다 오리의 행동이 바뀔 수 있는데도</li>
+<li>모든 서브 클래스에서 한 행동을 사용하도록 하는 건 그리 올바른 방법이 아니다.</li>
+</ul>
+<h3 id="2-Flyable과-Quackable-인터페이스를-사용했을-때의-문제점"><a href="#2-Flyable과-Quackable-인터페이스를-사용했을-때의-문제점" class="headerlink" title="2. Flyable과 Quackable 인터페이스를 사용했을 때의 문제점"></a>2. <code>Flyable과 Quackable 인터페이스</code>를 사용했을 때의 문제점</h3><ul>
+<li>자바의 인터페이스에는 구현된 코드가 들어가지 않기 때문에</li>
+<li>한 행동을 바꿀 때마다 그 행동이 정의되어 있는 서로 다른 서브클래스들을</li>
+<li><strong>전부 찾아서 코드를 일일이 수정해야 하고, 그 과정에서 새로운 버그가 발생할 수 있다.</strong></li>
+</ul>
+<hr>
+<blockquote>
+<p>디자인 원칙<br>: 애플리케이션에서 달라지는 부분을 찾아내고, 달라지지 않는 부분으로부터 분리시키자.</p>
+</blockquote>
+<ul>
+<li>바뀌는 부분을 따로 뽑아서 나머지 코드에 영향을 주지 않도록 <code>캡슐화</code> 한다.</li>
+<li>이렇게 하면, 나중에 바뀌지 않는 부분에 영향을 미치지 않고,<br>해당 부분만 고치거나 확장할 수 있어서 코드의 복잡성을 낮출 수 있다.</li>
+</ul>
+<hr>
+<h2 id="바뀌는-부분을-분리하기"><a href="#바뀌는-부분을-분리하기" class="headerlink" title="바뀌는 부분을 분리하기"></a>바뀌는 부분을 분리하기</h2><ul>
+<li>변화하는 부분과 그대로 있는 부분을 분리하기 위해<br>Duck과는 완전히 별개인 두 개의 클래스 집합(set)을 만든다.<br><br></li>
+<li>나는 것과 관련된 집합과 꽥꽥 소리를 내는 것에 관련된 부분이다.<br><br></li>
+<li>각 클래스 집합에 각각의 행동을 구현한 것을 집어넣는다.</li>
+<li>ex) <strong>꽥꽥</strong> 소리를 내는 것을 구현한 클래스, <strong>삑삑</strong> 소리를 내는 것을 구현한 클래스,<br><strong>아무 소리도 내지 않는 것</strong>을 구현하는 클래스를 각각 만든다.<br><br></li>
+<li><code>fly()</code>와 <code>quack()</code>은 Duck 클래스에서 <strong>오리마다 달라지는</strong> 부분이므로<br>이 두 메소드를 Duck 클래스에서 꺼내서 각 행동을 나타내는 클래스 집합을 만들어보자.</li>
+</ul>
+<hr>
+<h2 id="오리의-행동-디자인"><a href="#오리의-행동-디자인" class="headerlink" title="오리의 행동 디자인"></a>오리의 행동 디자인</h2><h3 id="나는-행동과-꽥꽥-거리는-행동을-구현하는-클래스-집합을-디자인하는-방법"><a href="#나는-행동과-꽥꽥-거리는-행동을-구현하는-클래스-집합을-디자인하는-방법" class="headerlink" title="나는 행동과 꽥꽥 거리는 행동을 구현하는 클래스 집합을 디자인하는 방법"></a>나는 행동과 꽥꽥 거리는 행동을 구현하는 클래스 집합을 디자인하는 방법</h3><ul>
+<li>Duck 인스턴스에 행동을 할당할 수 있게 만든다.<br><br></li>
+<li>ex1) MallardDuck 인스턴스를 새로 만들고 특정 형식의 나는 행동으로 초기화 한다.<br>(생성자를 만들어서)<br><br></li>
+<li>ex2) 오리의 행동을 동적으로 바꿀 수 있도록<br>Duck에 행동과 관련된 <code>세터(setter) 메서드</code>를 포함시켜서<br><strong>런타임 중에도 MallardDuck의 나는 행동을 바꿀 수 있게</strong> 만든다.</li>
+</ul>
+<hr>
+<blockquote>
+<p>디자인 원칙<br>: 구현이 아닌 인터페이스에 맞춰서 프로그래밍한다.</p>
+</blockquote>
+<ul>
+<li>Duck의 행동은 특정한 행동 인터페이스를 구현한 별도의 클래스 안에 들어있게 된다.</li>
+<li>상속이나 Flyable와 Quackable 인터페이스를 이용한 방법은<br>항상 특정 구현에 의존했기 때문에 행동을 변경할 수 없었다.</li>
+<li>이 디자인을 사용하면, 행동을 실제로 구현한 클래스에서 DUck 서브클래스에 국한되지 않는다.</li>
+</ul>
+<blockquote>
+<p><strong>인터페이스에 맞춰서 프로그래밍한다</strong>는 것은<br><strong>상위 형식에 맞춰서 프로그래밍 한다</strong>는 것을 의미한다.</p>
+</blockquote>
+<hr>
+<h2 id="Duck의-행동을-구현하는-방법"><a href="#Duck의-행동을-구현하는-방법" class="headerlink" title="Duck의 행동을 구현하는 방법"></a>Duck의 행동을 구현하는 방법</h2><p><img src="https://user-images.githubusercontent.com/37353837/68543888-591ff880-0400-11ea-8182-20cd7726c734.png" alt=""></p>
+<ul>
+<li>날 수 있는 클래스에서는 무조건 FlyBehabior 인터페이스를 구현한다.</li>
+<li><p>오리가 소리를 내는 것과 관련된 quack() 메서드가 들어잇는 QuackBehavior 인터페이스를 구현한다.</p>
+</li>
+<li><p>이런 식으로 디자인할 경우, 다른 형식의 객체에서도 나는 행동과 꽥꽥 거리는 행동을 재사용할 수 있다.</p>
+</li>
+<li>Duck 클래스 안에 이 행동들이 숨겨져 있지 않기 때문이다.</li>
+<li>기존의 행동 클래스를 수정하거나 날아다니는 행동을 사용하는<br><strong>Duck 클래스를 전혀 건드리지 않고도 새로운 행동을 추가할 수 있다.</strong></li>
+</ul>
+<hr>
+<h2 id="Duck-행동-통합하기"><a href="#Duck-행동-통합하기" class="headerlink" title="Duck 행동 통합하기"></a>Duck 행동 통합하기</h2><p><img src="https://user-images.githubusercontent.com/37353837/68543988-9cc73200-0401-11ea-8a19-995016589e9e.png" alt=""></p>
+<ul>
+<li>포워딩용 메서드인 <code>performQuack()</code>과 <code>performFly()</code>의 메서드 이름은<br><code>Quack()</code>, <code>Fly()</code>로 써도 된다.</li>
+<li><p>행동 변수는 행동 인터페이스 형식으로 선언한다.</p>
+</li>
+<li><p><code>performQuack()</code>를 구현해보자.</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 인터페이스 변수에 실행시에 특정 행동에 대한 레퍼런스가 저장된다.</span></span><br><span class="line">  QuackBehavior quackBehavior;</span><br><span class="line">  <span class="comment">// 기타 코드</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performQuack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 꽥꽥 거리는 행동을 직접 처리하는 대신,</span></span><br><span class="line">    <span class="comment">// quackBehavior로 참조되는 객체에 그 행동을 위임한다.</span></span><br><span class="line">    quackBehavior.quack();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>이렇게 하면, <strong>객체의 종류에는 전혀 신경 쓸 필요 없이<code>quack()</code>을 실행시킬 줄 안다는 것만이</strong><br><strong>중요해진다.</strong><br><br></li>
+<li>이제 <code>flyBehavior</code>와 <code>quackBehavior</code> <strong>인스턴스 변수를 설정하는 방법</strong>에 대해 생각해보자.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MallardDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">MallardDuck</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// MallardDuck에서 꽥꽥거리는 소리를 처리할 때는 Quack 클래스를 사용한다.</span></span><br><span class="line">    <span class="comment">// 따라서, perfomQuack()이 되면, 꽥꽥거리는 행동은 Quack 객체에 위임된다.</span></span><br><span class="line">    quackBehavior = <span class="keyword">new</span> Quack();</span><br><span class="line">    <span class="comment">// flyBehavior의 형식으로 FlyWithWings를 사용한다.</span></span><br><span class="line">    flyBehavior = <span class="keyword">new</span> FlyWithWings();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>생성자에서 직접 집어넣고 있다.</li>
+<li>인터페이스 분리는 했는데, <strong>아직 구현 클래스에 의존하고 있어서 불완전</strong>하다.</li>
+</ul>
+<hr>
+<h2 id="동적으로-행동을-지정하는-방법"><a href="#동적으로-행동을-지정하는-방법" class="headerlink" title="동적으로 행동을 지정하는 방법"></a>동적으로 행동을 지정하는 방법</h2><h3 id="1-DUck-클래스에-메서드-2개를-새로-추가한다"><a href="#1-DUck-클래스에-메서드-2개를-새로-추가한다" class="headerlink" title="1. DUck 클래스에 메서드 2개를 새로 추가한다."></a>1. DUck 클래스에 메서드 2개를 새로 추가한다.</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFlyBehavior</span> <span class="params">(FlyBehavior fb)</span> </span>&#123;</span><br><span class="line">  FlyBehavior = fb;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setQuackBehavior</span> <span class="params">(QuackBehavior qb)</span> </span>&#123;</span><br><span class="line">  quackBehavior = qb;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>오리의 행동을 즉석에서 바꾸고 싶다면, 언제든지 이 두 메서드를 호출하면 된다.</strong><br><img src="https://user-images.githubusercontent.com/37353837/68544186-e3b62700-0403-11ea-88f9-78ab1f4d16b0.png" alt=""></p>
+<h3 id="2-Duck의-서브-클래스를-새로-만든다-ModelDuck-java"><a href="#2-Duck의-서브-클래스를-새로-만든다-ModelDuck-java" class="headerlink" title="2. Duck의 서브 클래스를 새로 만든다. (ModelDuck.java)"></a>2. Duck의 서브 클래스를 새로 만든다. (ModelDuck.java)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ModelDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ModelDuck</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    flyBehavior = <span class="keyword">new</span> FlyNoWay ();</span><br><span class="line">    quackBehavior = <span class="keyword">new</span> Quack();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"저는 모형 오리입니다."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-FlyBehavior-형식의-클래스를-새로-만든다-FlyRocketPowered-java"><a href="#3-FlyBehavior-형식의-클래스를-새로-만든다-FlyRocketPowered-java" class="headerlink" title="3. FlyBehavior 형식의 클래스를 새로 만든다. (FlyRocketPowered.java)"></a>3. FlyBehavior 형식의 클래스를 새로 만든다. (FlyRocketPowered.java)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlyRocketPowered</span> <span class="keyword">implements</span> <span class="title">FlyBehavior</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"로켓 추진으로 날아갑니다."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-테스크를-클래스를-수정한다"><a href="#4-테스크를-클래스를-수정한다" class="headerlink" title="4.테스크를 클래스를 수정한다."></a>4.테스크를 클래스를 수정한다.</h3><p>ModelDuck을 추가하고 ModelDuck에 로켓 추진 기능을 부여한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MiniDuckSimulator</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Duck mallard = <span class="keyword">new</span> MallardDuck();</span><br><span class="line">    mallard.performQuack();</span><br><span class="line">    mallard.performFly();</span><br><span class="line"></span><br><span class="line">    Duck model = <span class="keyword">new</span> ModelDuck();</span><br><span class="line">    model.performFly();</span><br><span class="line">    <span class="comment">// 구현체를 바꾼다.</span></span><br><span class="line">    <span class="comment">// 이렇게 하면, 행동 세터 메서드가 호출된다.</span></span><br><span class="line">    model.setFlyBehavior(<span class="keyword">new</span> FlyRocketPowered());</span><br><span class="line">    model.performFly();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>실행 중에 오리의 행동을 바꾸고 싶다</strong>면,<br><strong>원하는 행동에 해당하는 Duck의 세터 메서드를 호출</strong>하기만 하면 된다.</li>
+</ul>
+<hr>
+<h2 id="캡슐화된-행동을-큰-그림으로-바라보자"><a href="#캡슐화된-행동을-큰-그림으로-바라보자" class="headerlink" title="캡슐화된 행동을 큰 그림으로 바라보자."></a>캡슐화된 행동을 큰 그림으로 바라보자.</h2><p><img src="https://user-images.githubusercontent.com/37353837/68544517-4f4dc380-0407-11ea-8ef0-4b7d652b503a.png" alt=""></p>
+<p>클라이언트에서는 나는 행동과 꽥꽥거리는 행동 모두에 대해서 캡슐화된 알고리즘군을 사용한다.</p>
+<h2 id="A는-B이다”보다-“A에는-B가-있다”가-나을-수-있다"><a href="#A는-B이다”보다-“A에는-B가-있다”가-나을-수-있다" class="headerlink" title="A는 B이다”보다 “A에는 B가 있다”가 나을 수 있다."></a>A는 B이다”보다 “A에는 B가 있다”가 나을 수 있다.</h2><blockquote>
+<p>디자인 원칙<br>상속보다는 구성을 활용한다.</p>
+</blockquote>
+<p>구성을 이용해서 시스템을 만들면 유연성을 크게 향상시킬 수 있다.</p>
+
+        </div>
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true;
+    google_language= "ko";
+  });
+</script>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "스트래티지 패턴(Strategy Pattern)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/68542785-70a4b480-03f3-11ea-8dd5-19fe74287e12.png",
+        "keywords": "design pattern strategy-pattern 스트래티지 패턴 전략 패턴",
+        "genre": "Back-end Design-pattern",
+        "datePublished": "2019-11-10",
+        "dateCreated": "2019-11-10",
+        "dateModified": "2019-11-10",
+        "url": "https://JihyeHwang09.github.io/2019/11/10/design-pattern-strategy/",
+        "description": "
+Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.
+
+
+스트래티지 패턴은 스프링 DI를 구현할 때 이용된 디자인 패턴이다.
+스프링 프레임워크의 핵심 기능 중 하나인 DI를 구현할 때 이용된 스트래티지 패턴을 살펴보자.
+
+
+오리 연못 시뮬레이션 게임"
+        "wordCount": 1463
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/11/08/book-sql-first-steps-10/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">SQL 첫걸음- 13강</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/10/design-pattern-strategy/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/68542785-70a4b480-03f3-11ea-8dd5-19fe74287e12.png)" alt="스트래티지 패턴(Strategy Pattern)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/design-pattern/">Design-pattern</a></p>
+                            <p class="item-title"><a href="/2019/11/10/design-pattern-strategy/" class="title">스트래티지 패턴(Strategy Pattern)</a></p>
+                            <p class="item-date"><time datetime="2019-11-10T07:46:28.000Z" itemprop="datePublished">2019-11-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/08/book-sql-first-steps-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 13강" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/mysql/">MySQL</a></p>
+                            <p class="item-title"><a href="/2019/11/08/book-sql-first-steps-10/" class="title">SQL 첫걸음- 13강</a></p>
+                            <p class="item-date"><time datetime="2019-11-08T12:10:23.000Z" itemprop="datePublished">2019-11-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/07/book-sql-first-steps-09/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 12강(2/2)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/mysql/">MySQL</a></p>
+                            <p class="item-title"><a href="/2019/11/07/book-sql-first-steps-09/" class="title">SQL 첫걸음- 12강(2/2)</a></p>
+                            <p class="item-date"><time datetime="2019-11-07T13:27:01.000Z" itemprop="datePublished">2019-11-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/06/book-sql-first-steps-08/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 12강(1/2)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/mysql/">MySQL</a></p>
+                            <p class="item-title"><a href="/2019/11/06/book-sql-first-steps-08/" class="title">SQL 첫걸음- 12강(1/2)</a></p>
+                            <p class="item-date"><time datetime="2019-11-05T15:48:10.000Z" itemprop="datePublished">2019-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/03/book-sql-first-steps-07/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 11강" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/mysql/">MySQL</a></p>
+                            <p class="item-title"><a href="/2019/11/03/book-sql-first-steps-07/" class="title">SQL 첫걸음- 11강</a></p>
+                            <p class="item-date"><time datetime="2019-11-03T09:12:08.000Z" itemprop="datePublished">2019-11-03</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">90</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">Database</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">MySQL</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/oracle/">Oracle</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">39</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/dev-english/">Dev English</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/typescript/">TypeScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">Tool</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/intellij/">IntelliJ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/100제/" style="font-size: 20px;">100제</a> <a href="/tags/1010/" style="font-size: 10px;">1010</a> <a href="/tags/1011/" style="font-size: 10px;">1011</a> <a href="/tags/1012/" style="font-size: 10px;">1012</a> <a href="/tags/1013/" style="font-size: 10px;">1013</a> <a href="/tags/1014/" style="font-size: 10px;">1014</a> <a href="/tags/1015/" style="font-size: 10px;">1015</a> <a href="/tags/1017/" style="font-size: 10px;">1017</a> <a href="/tags/1018/" style="font-size: 10px;">1018</a> <a href="/tags/1019/" style="font-size: 10px;">1019</a> <a href="/tags/1020/" style="font-size: 10px;">1020</a> <a href="/tags/1021/" style="font-size: 10px;">1021</a> <a href="/tags/1023/" style="font-size: 10px;">1023</a> <a href="/tags/1024/" style="font-size: 10px;">1024</a> <a href="/tags/1025/" style="font-size: 10px;">1025</a> <a href="/tags/1026/" style="font-size: 10px;">1026</a> <a href="/tags/1027/" style="font-size: 10px;">1027</a> <a href="/tags/1029/" style="font-size: 10px;">1029</a> <a href="/tags/1031/" style="font-size: 10px;">1031</a> <a href="/tags/1036/" style="font-size: 10px;">1036</a> <a href="/tags/1037/" style="font-size: 10px;">1037</a> <a href="/tags/1040/" style="font-size: 10px;">1040</a> <a href="/tags/1041/" style="font-size: 10px;">1041</a> <a href="/tags/1042/" style="font-size: 10px;">1042</a> <a href="/tags/1045/" style="font-size: 10px;">1045</a> <a href="/tags/1046/" style="font-size: 10px;">1046</a> <a href="/tags/1047/" style="font-size: 10px;">1047</a> <a href="/tags/1048/" style="font-size: 10px;">1048</a> <a href="/tags/1049/" style="font-size: 10px;">1049</a> <a href="/tags/1050/" style="font-size: 10px;">1050</a> <a href="/tags/1051/" style="font-size: 10px;">1051</a> <a href="/tags/1052/" style="font-size: 10px;">1052</a> <a href="/tags/1053/" style="font-size: 10px;">1053</a> <a href="/tags/1054/" style="font-size: 10px;">1054</a> <a href="/tags/1056/" style="font-size: 10px;">1056</a> <a href="/tags/1057/" style="font-size: 10px;">1057</a> <a href="/tags/1058/" style="font-size: 10px;">1058</a> <a href="/tags/1059/" style="font-size: 10px;">1059</a> <a href="/tags/1060/" style="font-size: 10px;">1060</a> <a href="/tags/1061/" style="font-size: 10px;">1061</a> <a href="/tags/1063/" style="font-size: 10px;">1063</a> <a href="/tags/1066/" style="font-size: 10px;">1066</a> <a href="/tags/1067/" style="font-size: 10px;">1067</a> <a href="/tags/1068/" style="font-size: 10px;">1068</a> <a href="/tags/1069/" style="font-size: 10px;">1069</a> <a href="/tags/1070/" style="font-size: 10px;">1070</a> <a href="/tags/1071/" style="font-size: 10px;">1071</a> <a href="/tags/1072/" style="font-size: 10px;">1072</a> <a href="/tags/1073/" style="font-size: 10px;">1073</a> <a href="/tags/1074/" style="font-size: 10px;">1074</a> <a href="/tags/33-js-concepts/" style="font-size: 11.33px;">33-js-concepts</a> <a href="/tags/algorithms/" style="font-size: 10.67px;">Algorithms</a> <a href="/tags/angular/" style="font-size: 10px;">Angular</a> <a href="/tags/argument/" style="font-size: 10px;">Argument</a> <a href="/tags/arraylist/" style="font-size: 10px;">ArrayList</a> <a href="/tags/back-end/" style="font-size: 10.67px;">Back-end</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 14px;">CSS</a> <a href="/tags/can-t-answer-a-question-unless-a-user-tty/" style="font-size: 10px;">Can't answer a question unless a user TTY</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/clean-code/" style="font-size: 14px;">Clean Code</a> <a href="/tags/clean-coder/" style="font-size: 10px;">Clean Coder</a> <a href="/tags/computer-science/" style="font-size: 10.67px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/data-binding/" style="font-size: 10px;">Data Binding</a> <a href="/tags/database/" style="font-size: 10px;">Database</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/dev-english/" style="font-size: 10px;">Dev English</a> <a href="/tags/developer/" style="font-size: 10px;">Developer</a> <a href="/tags/error/" style="font-size: 10px;">Error</a> <a href="/tags/front-end/" style="font-size: 14.67px;">Front-end</a> <a href="/tags/hdlc/" style="font-size: 10.67px;">HDLC</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/illegal-key-size/" style="font-size: 10px;">ILLEGAL KEY SIZE</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/intellij/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/java-security-invalidkeyexception/" style="font-size: 10px;">JAVA.SECURITY.INVALIDKEYEXCEPTION</a> <a href="/tags/java/" style="font-size: 10.67px;">Java</a> <a href="/tags/javascript/" style="font-size: 18.67px;">JavaScript</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/jsoninclude-include-non-null/" style="font-size: 10px;">JsonInclude.Include.NON_NULL</a> <a href="/tags/linux/" style="font-size: 10.67px;">Linux</a> <a href="/tags/mathematical-induction/" style="font-size: 10.67px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/mybatis/" style="font-size: 10.67px;">MyBatis</a> <a href="/tags/mysql/" style="font-size: 14.67px;">MySQL</a> <a href="/tags/null-not-allowed-for-column-title-sql-statement/" style="font-size: 10px;">NULL not allowed for column "TITLE"; SQL statement</a> <a href="/tags/node-js/" style="font-size: 15.33px;">Node.js</a> <a href="/tags/optional-property/" style="font-size: 10px;">Optional Property</a> <a href="/tags/oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/put/" style="font-size: 10px;">PUT</a> <a href="/tags/parameter/" style="font-size: 10px;">Parameter</a> <a href="/tags/pathvariable-annotation/" style="font-size: 10px;">PathVariable annotation</a> <a href="/tags/react/" style="font-size: 15.33px;">React</a> <a href="/tags/recursion-function/" style="font-size: 10.67px;">Recursion Function</a> <a href="/tags/reqeustbody-annotation/" style="font-size: 10px;">ReqeustBody annotation</a> <a href="/tags/sql-첫걸음/" style="font-size: 14.67px;">SQL 첫걸음</a> <a href="/tags/spring/" style="font-size: 14px;">Spring</a> <a href="/tags/spring-boot/" style="font-size: 14px;">Spring Boot</a> <a href="/tags/static-web-generator/" style="font-size: 10.67px;">Static Web Generator</a> <a href="/tags/til/" style="font-size: 17.33px;">TIL</a> <a href="/tags/template-parse-errors/" style="font-size: 10px;">Template parse errors</a> <a href="/tags/there-is-no-getter-for-property-named/" style="font-size: 10px;">There is no getter for property named</a> <a href="/tags/typescript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/unexpected-closing-tag/" style="font-size: 10px;">Unexpected closing tag</a> <a href="/tags/object-object/" style="font-size: 10.67px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 10.67px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/check-box/" style="font-size: 10px;">check-box</a> <a href="/tags/codeup-해설/" style="font-size: 20px;">codeup 해설</a> <a href="/tags/cp/" style="font-size: 10px;">cp</a> <a href="/tags/data-communication/" style="font-size: 12px;">data-communication</a> <a href="/tags/datetime/" style="font-size: 10px;">datetime</a> <a href="/tags/design-pattern/" style="font-size: 10.67px;">design pattern</a> <a href="/tags/end-인수/" style="font-size: 10px;">end 인수</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/fasly/" style="font-size: 10px;">fasly</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 10.67px;">framework</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10.67px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/join/" style="font-size: 10px;">join</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/null-check/" style="font-size: 10px;">null Check</a> <a href="/tags/parameter-여러-개/" style="font-size: 10px;">parameter 여러 개</a> <a href="/tags/platform/" style="font-size: 10.67px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/python/" style="font-size: 19.33px;">python</a> <a href="/tags/python-formating/" style="font-size: 10px;">python formating</a> <a href="/tags/recursion/" style="font-size: 11.33px;">recursion</a> <a href="/tags/rm-r/" style="font-size: 10px;">rm. -r</a> <a href="/tags/rmdir-rmdir/" style="font-size: 10px;">rmdir. rmdir</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/sep-인수/" style="font-size: 10px;">sep 인수</a> <a href="/tags/split/" style="font-size: 10px;">split</a> <a href="/tags/strategy-pattern/" style="font-size: 10.67px;">strategy-pattern</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/yarn-init-error/" style="font-size: 10px;">yarn init error</a> <a href="/tags/zfill-함수/" style="font-size: 10px;">zfill 함수</a> <a href="/tags/가상-메모리/" style="font-size: 10.67px;">가상 메모리</a> <a href="/tags/개발자-포트폴리오/" style="font-size: 10px;">개발자 포트폴리오</a> <a href="/tags/객체/" style="font-size: 10px;">객체</a> <a href="/tags/객체지향-분석과-설계/" style="font-size: 10px;">객체지향 분석과 설계</a> <a href="/tags/교착상태/" style="font-size: 10.67px;">교착상태</a> <a href="/tags/구분자/" style="font-size: 10px;">구분자</a> <a href="/tags/깨끗한-코드/" style="font-size: 10.67px;">깨끗한 코드</a> <a href="/tags/나동빈/" style="font-size: 10px;">나동빈</a> <a href="/tags/내림/" style="font-size: 10px;">내림</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 11.33px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/덧셈-연산/" style="font-size: 10px;">덧셈 연산</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 12.67px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/매개변수/" style="font-size: 10.67px;">매개변수</a> <a href="/tags/메모리-관리/" style="font-size: 10px;">메모리 관리</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/문자열/" style="font-size: 10.67px;">문자열</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/반올림/" style="font-size: 10px;">반올림</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/배열/" style="font-size: 10px;">배열</a> <a href="/tags/배포-다이어그램/" style="font-size: 10px;">배포 다이어그램</a> <a href="/tags/백기선/" style="font-size: 10px;">백기선</a> <a href="/tags/병행-프로세스/" style="font-size: 10.67px;">병행 프로세스</a> <a href="/tags/분산-운영체제/" style="font-size: 10.67px;">분산 운영체제</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/사용자-요구-분석/" style="font-size: 10px;">사용자 요구 분석</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/상태-머신-다이어그램/" style="font-size: 10px;">상태 머신 다이어그램</a> <a href="/tags/상호작용-다이어그램/" style="font-size: 10.67px;">상호작용 다이어그램</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/선택적-프로퍼티/" style="font-size: 10px;">선택적 프로퍼티</a> <a href="/tags/소수점/" style="font-size: 10px;">소수점</a> <a href="/tags/소프트웨어-공학/" style="font-size: 16px;">소프트웨어 공학</a> <a href="/tags/소프트웨어-설계/" style="font-size: 10px;">소프트웨어 설계</a> <a href="/tags/소프트웨어-유지보수/" style="font-size: 10px;">소프트웨어 유지보수</a> <a href="/tags/소프트웨어-테스트/" style="font-size: 10px;">소프트웨어 테스트</a> <a href="/tags/소프트웨어-품질/" style="font-size: 10px;">소프트웨어 품질</a> <a href="/tags/소프트웨어-프로세스/" style="font-size: 10px;">소프트웨어 프로세스</a> <a href="/tags/수학적-귀납법/" style="font-size: 10.67px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11.33px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 11.33px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/스케줄링-알고리즘/" style="font-size: 10px;">스케줄링 알고리즘</a> <a href="/tags/스트래티지-패턴/" style="font-size: 10px;">스트래티지 패턴</a> <a href="/tags/싱글턴-패턴/" style="font-size: 10px;">싱글턴 패턴</a> <a href="/tags/알고리즘/" style="font-size: 11.33px;">알고리즘</a> <a href="/tags/액티비티-다이어그램/" style="font-size: 10px;">액티비티 다이어그램</a> <a href="/tags/여러-개-입력-받기/" style="font-size: 10px;">여러 개 입력 받기</a> <a href="/tags/올림/" style="font-size: 10px;">올림</a> <a href="/tags/운영체제/" style="font-size: 16px;">운영체제</a> <a href="/tags/운영체제-사례/" style="font-size: 10px;">운영체제 사례</a> <a href="/tags/유스케이스-다이어그램/" style="font-size: 10px;">유스케이스 다이어그램</a> <a href="/tags/의미있는-이름/" style="font-size: 13.33px;">의미있는 이름</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/장치-관리/" style="font-size: 10px;">장치 관리</a> <a href="/tags/재귀-함수/" style="font-size: 12.67px;">재귀 함수</a> <a href="/tags/저장장치-및-파일/" style="font-size: 10px;">저장장치 및 파일</a> <a href="/tags/전달인자/" style="font-size: 10px;">전달인자</a> <a href="/tags/전략-패턴/" style="font-size: 10px;">전략 패턴</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 11.33px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 14.67px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/컴포넌트-다이어그램/" style="font-size: 10px;">컴포넌트 다이어그램</a> <a href="/tags/컴퓨터-과학/" style="font-size: 18px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코드업/" style="font-size: 20px;">코드업</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/클린-코더/" style="font-size: 10px;">클린 코더</a> <a href="/tags/클린-코드/" style="font-size: 14px;">클린 코드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/파이썬/" style="font-size: 16.67px;">파이썬</a> <a href="/tags/패키지-다이어그램/" style="font-size: 10px;">패키지 다이어그램</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/포맷팅/" style="font-size: 10px;">포맷팅</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/프로세스/" style="font-size: 10px;">프로세스</a> <a href="/tags/프로젝트-관리/" style="font-size: 10px;">프로젝트 관리</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/11/10/design-pattern-strategy/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

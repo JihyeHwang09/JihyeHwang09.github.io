@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/design-pattern/</loc>
+        <lastmod>2019-11-10T13:39:55.107Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
+        <lastmod>2019-11-10T13:39:55.107Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/database/mysql/</loc>
         <lastmod>2019-11-09T05:16:39.722Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -31,20 +45,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
         <lastmod>2019-11-03T14:51:08.712Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/design-pattern/</loc>
-        <lastmod>2019-11-03T14:50:35.356Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
-        <lastmod>2019-11-03T14:50:35.356Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
