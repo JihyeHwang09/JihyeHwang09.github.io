@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>커맨드 패턴(Command Pattern) | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="design pattern,command pattern,커맨드 패턴">
+    
+    <meta name="description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   커맨드 패턴(Command Pattern)이란 커맨드 패턴은 호출 캡슐화에 중점을 두는 패턴이다.  예를 들어, 리모컨 API 디자인에 대해 생각해보자.얼핏 생각하면 리모컨에는 ON/OFF 버">
+<meta name="keywords" content="design pattern,command pattern,커맨드 패턴">
+<meta property="og:type" content="article">
+<meta property="og:title" content="커맨드 패턴(Command Pattern)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2019/11/16/design-pattern-command/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   커맨드 패턴(Command Pattern)이란 커맨드 패턴은 호출 캡슐화에 중점을 두는 패턴이다.  예를 들어, 리모컨 API 디자인에 대해 생각해보자.얼핏 생각하면 리모컨에는 ON/OFF 버">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/68993570-f9709400-08bc-11ea-8260-9d5bca808fed.png">
+<meta property="og:updated_time" content="2019-11-16T13:54:37.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="커맨드 패턴(Command Pattern)">
+<meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   커맨드 패턴(Command Pattern)이란 커맨드 패턴은 호출 캡슐화에 중점을 두는 패턴이다.  예를 들어, 리모컨 API 디자인에 대해 생각해보자.얼핏 생각하면 리모컨에는 ON/OFF 버">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/68993570-f9709400-08bc-11ea-8260-9d5bca808fed.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-139151127-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">꿈꾸는 지구별 개발자, Phang&#39;s IT Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/mysql/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/dev-english/">Dev English</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/lecture/">Lecture</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/typescript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/">Tool</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/intellij/">IntelliJ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/design-pattern/">Design-pattern</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true;
+    google_language= "ko";
+  });
+</script>
+                            <article id="post-design-pattern-command" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        커맨드 패턴(Command Pattern)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/11/16/design-pattern-command/" class="article-date">
+            <time datetime="2019-11-16T11:56:07.000Z" itemprop="datePublished">2019-11-16</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/command-pattern/">command pattern</a>, <a class="tag-link" href="/tags/design-pattern/">design pattern</a>, <a class="tag-link" href="/tags/커맨드-패턴/">커맨드 패턴</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p><strong>Head First - Design Patterns</strong><br>(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)<br>을 읽고 정리한 내용입니다.</p>
+</blockquote>
+<hr>
+<h2 id="커맨드-패턴-Command-Pattern-이란"><a href="#커맨드-패턴-Command-Pattern-이란" class="headerlink" title="커맨드 패턴(Command Pattern)이란"></a>커맨드 패턴(Command Pattern)이란</h2><ul>
+<li><code>커맨드 패턴</code>은 호출 캡슐화에 중점을 두는 패턴이다.</li>
+</ul>
+<p>예를 들어, 리모컨 API 디자인에 대해 생각해보자.<br>얼핏 생각하면 리모컨에는 ON/OFF 버튼만 있으면 될 것 같지만,<br>클래스들과 메서드들이 다양하게 들어 있다.<br>게다가 나중에 또 다른 제품이 추가될 경우에는 메서드가 또 추가될 것이다.<br>어떻게 해야 할까?</p>
+<p>리모컨 버튼을 눌렀을 때 자동으로 해야할 일을 처리하게 만들되,<br>리모컨 자체에서는 욕조를 켜는 방법과 같이<br><strong>어떤 일을 수행하는지 자세한 내용을 모르도록 캡슐화 한다.</strong><br>복잡한 인터페이스를 간단하게 추상화함으로써 구현할 수 있다.</p>
+<p><code>커맨드 객체</code>는 특정 객체에 대한 특정 작업 요청을 <strong>캡슐화</strong>시켜준다.<br>버튼마다 커맨드 객체를 저장해두고, 클라이언트가 버튼을 눌렀을 때 커맨드 객체를 통해서 작업을 처리하게 만든다.<br>리모컨에서는 자세한 내용은 전혀 몰라도 된다.<br>그저 리모컨에는 어떤 객체에 어떤 일을 시켜야 할지를 잘 알고 있는 커맨드 객체만 있으면 된다.<br>리모컨과 전등 객체를 <strong>완전히 분리</strong>시키는 것이다.</p>
+<p>리모컨 버튼이 눌렸을 때 호출되는 코드와 특정 업체에서 제공한,<br>실제로 일을 처리하는 코드를 분리시켜야 한다.<br>여기에서 포인트는 <strong>모든 일을 처리해주는 메서드를 만들어서 캡슐화한다</strong>는 것이다.</p>
+<hr>
+<p>리모컨용 코드를 만들어보자.</p>
+<h3 id="1-Command-인터페이스-만들기"><a href="#1-Command-인터페이스-만들기" class="headerlink" title="1. Command 인터페이스 만들기"></a>1. Command 인터페이스 만들기</h3><p>커맨드 객체는 모두 같은 인터페이스를 구현해야 한다.<br>일반적으로 <code>excute()</code> 메소드를 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-전등을-켜기-위한-커맨드-클래스-구현"><a href="#2-전등을-켜기-위한-커맨드-클래스-구현" class="headerlink" title="2. 전등을 켜기 위한 커맨드 클래스 구현"></a>2. 전등을 켜기 위한 커맨드 클래스 구현</h3><p>전자제품 공급 업체에서 제공한 클래스를 보니 Light 클래스에 <code>on()</code>과 <code>off()</code> 두 개의 메서드가 있다.<br>커맨드 객체를 만들기 위해 다음과 같이 작성한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 커맨드 객체이므로 Command 인터페이스를 구현</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightonCommand</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 인스턴스 변수에 전등 객체를 저장한다.</span></span><br><span class="line">    Light light;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 생성자에 이 커맨드 객체로 제어(on, off)할 전등 종류에 대한 정보가 전달된다.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LightonCommand</span><span class="params">(Light light)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.light = light;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// execute() 메서드가 호출될 때,</span></span><br><span class="line">    <span class="comment">// Recevier 객체인 light 객체에 있는 on() 메서드가 호출된다.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        light.on();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="커맨드-객체-사용하기"><a href="#커맨드-객체-사용하기" class="headerlink" title="커맨드 객체 사용하기"></a>커맨드 객체 사용하기</h3><p>버튼이 하나만 있는 리모컨이 있다고 가정하고 커맨드 객체를 사용하는 코드를 작성해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">simpleRemoteControl</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 커맨드를 넣을 하나의 슬롯으로 제어한다.</span></span><br><span class="line">    Command slot;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">simpleRemoteControl</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 클라이언트에서 리모컨의 명령을 바꾸고 싶다면,</span></span><br><span class="line">    <span class="comment">// 커맨드 객체를 바꿔 끼울 수 있다.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCommand</span><span class="params">(Command command)</span> </span>&#123;</span><br><span class="line">        slot = command;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 버튼이 눌려지면 이 메서드가 호출된다.</span></span><br><span class="line">    <span class="comment">// 지금 연결되어 있는 커맨드 객체의 execute() 메서드가 호출된다.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buttonWasPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        slot.execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="리모컨을-사용하기-위한-간단한-테스트-클래스"><a href="#리모컨을-사용하기-위한-간단한-테스트-클래스" class="headerlink" title="리모컨을 사용하기 위한 간단한 테스트 클래스"></a>리모컨을 사용하기 위한 간단한 테스트 클래스</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RemoteControlTest: 커맨드 패턴에서 클라이언트에 해당하는 부분</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RemoteControlTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// remote 변수가 인보커(Invoker) 역할</span></span><br><span class="line">        <span class="comment">// 필요한 작업을 요청할 때 사용할 커맨드 객체를 인자로 받을 예정이다.</span></span><br><span class="line">        SimpleRemoteControl remote = <span class="keyword">new</span> SimpleRemoteControl();</span><br><span class="line">        <span class="comment">//요청을 받아서 처리할 리시버(Receiver)인 Light 객체를 만든다.</span></span><br><span class="line">        Light light = <span class="keyword">new</span> Light();</span><br><span class="line"></span><br><span class="line">        LightOnCommand lightOn = <span class="keyword">new</span> LightOnCommand(light);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 커맨드 객체를 인보커(remote 변수)에 전달</span></span><br><span class="line">        remote.setCommand(lightOn);</span><br><span class="line">        <span class="comment">// 인보커인 remote에서 buttonWasPressed 메서드가 실행되면,</span></span><br><span class="line">        <span class="comment">// 지금 리모컨에 연결되어 있는 커맨드 객체(버튼에 연결된)인</span></span><br><span class="line">        <span class="comment">// lightOn 객체의 excute() 메서드를 실행한다.</span></span><br><span class="line">        remote.buttonWasPressed();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 실행 결과: Light is On</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="커맨드-패턴의-정의"><a href="#커맨드-패턴의-정의" class="headerlink" title="커맨드 패턴의 정의"></a>커맨드 패턴의 정의</h2><blockquote>
+<p>커맨트 패턴<br>: 요구사항을 객체로 <strong>캡슐화</strong>할 수 있으며,<br>매개변수를 사용하여 여러 가지 다른 요구 사항을 집어넣을 수 있다.<br>요청 내역을 큐에 저장하거나 로그로 기록할 수 있고, 작업취소 기능도 지원한다.</p>
+</blockquote>
+<ul>
+<li>어떤 행동을 특정 리시버와 연결시킴으로써 요구 사항을 <strong>캡슐화</strong>한 것이다.</li>
+<li>이를 구현하기 위해, 행동과 리시버를 한 객체에 넣고<br><strong><code>execute()</code> 메서드 하나만 외부에 공개</strong>하는 방법을 사용한다.</li>
+<li>특정 인터페이스만 구현되어 있다면 그 커맨드 객체에서 실제로 어떤 일을 하는지는<br>신경 쓸 필요 없다.</li>
+</ul>
+<hr>
+<h3 id="클래스-다이어그램"><a href="#클래스-다이어그램" class="headerlink" title="클래스 다이어그램"></a>클래스 다이어그램</h3><p><img src="https://user-images.githubusercontent.com/37353837/68993570-f9709400-08bc-11ea-8260-9d5bca808fed.png" alt=""></p>
+<ul>
+<li><code>Client</code>는 ConcreteCommand를 생성하고 Reciver를 설정한다.</li>
+<li><code>Invoker</code>에서는 명령이 들어있고, <code>exceute()</code> 메서드를 호출함으로써 커맨드 객체에게 특정한 작업을 수행해 달라고 한다.</li>
+<li><code>Command</code>는 <strong>모든 커맨드 객체에서 구현해야 하는 인터페이스</strong>이다.</li>
+<li><code>ConcreteCommand</code>는 특정 행동과 리시버 사이를 <strong>연결</strong>해준다.</li>
+<li><code>execute()</code> 메서드에는 리시버에 있는 메서드를 호출하여 요청된 작업을 수행한다.</li>
+<li><code>Reciver</code>는 요구 사항을 수행하기 위해서 어떤 일으 처리해야 하는지 알고 있는 객체</li>
+</ul>
+<hr>
+<h4 id="Light-객체를-사용할-때-거실에-있는-전등과-부엌에-있는-전등을-구분하는-방법"><a href="#Light-객체를-사용할-때-거실에-있는-전등과-부엌에-있는-전등을-구분하는-방법" class="headerlink" title="Light 객체를 사용할 때, 거실에 있는 전등과 부엌에 있는 전등을 구분하는 방법?"></a>Light 객체를 사용할 때, 거실에 있는 전등과 부엌에 있는 전등을 구분하는 방법?</h4><ul>
+<li>클라이언트가 버튼을 누를 때, 그냥 excuete() 메서드를 호출하는데,<br>이를 구분하기 위해서는 서로 다른 구현체를 만든 후,<br>Command 객체를 바꿔가면서 호출하면 된다.<ul>
+<li><code>Stategy pattern</code>도 적용된 것으로 생각하면 된다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="슬롯에-명령-할당하기"><a href="#슬롯에-명령-할당하기" class="headerlink" title="슬롯에 명령 할당하기"></a>슬롯에 명령 할당하기</h2><ol>
+<li>리모컨의 각 슬롯에 명령을 할당한다.<br>리모컨이 <code>인보커</code>가 되는 것이다.</li>
+<li>사용자가 버튼을 누르면, 그 버튼에 연결된 커맨드 객체의 <code>execute()</code>메서드가 <strong>호출</strong>된다.</li>
+<li>리시버(전등, 선풍기, 오디오 등)에서 특정 행동을 하는 메서드가 실행되어 작업을 처리한다.</li>
+</ol>
+<h3 id="널-객체"><a href="#널-객체" class="headerlink" title="널 객체"></a>널 객체</h3><p>특정 슬롯을 사용하려고 할 때, 거기에 뭔가가 로딩되어 있는지 확인하려면<br><strong>null 체크</strong>하는 코드가 반복된다.<br>ex) null 체크하는 코드</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonWasPushed</span><span class="params">(<span class="keyword">int</span> slot)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (onCommands[slot] != <span class="keyword">null</span>) &#123;</span><br><span class="line">        onCommands[slot].execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>이 문제를 해결하기 위해서 <strong>아무것도 하지 않는 커맨스 클래스를 구현</strong>한다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class NoCommand implements Command &#123;</span><br><span class="line">    public void execute() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>그 후, RemoteContorl 생성자에서 모든 스롯에 기본 커맨드 객체로<br>NoComamnd 객체를 집어넣는다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Command noCommand = new NoCommand();</span><br><span class="line">for (int i = 0; i &lt; 7; i++) &#123;</span><br><span class="line">    onCommands[i] = noCommand;</span><br><span class="line">    offCommands[i] = noCommand;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>모든 슬롯에 커맨드 객체가 들어있을 수 밖에 없게 된다.<br>커맨드 객체를 대입하지 않은 슬롯에는 NoCommand가 들어가게 된다.</p>
+<h4 id="NoCommand-객체"><a href="#NoCommand-객체" class="headerlink" title="NoCommand 객체"></a>NoCommand 객체</h4><p>NoCommand 객체는 일종의 널 객체이다.<br>리턴할 객체는 없지만, 클라이언트 쪽에서 null을 처리하지 않아도 되도록 하고 싶을 때 널 객체를 활용하면 좋다.</p>
+<hr>
+<h2 id="작업-취소-기능"><a href="#작업-취소-기능" class="headerlink" title="작업 취소 기능"></a>작업 취소 기능</h2><p>UNDO 버튼을 지원하는 기능을 추가한다.<br>거실 전등이 꺼져 있고, 리모컨에 ON 버튼이 눌렸다고 생각해보자.<br>그럼 불이 켜진다. 이제 UNDO 버튼을 누르면 마지막으로 했던 작업이 취소되어야 한다.<br>즉, 이 경우에는 켜졌던 거실 전등이 꺼져야 한다.</p>
+<h3 id="1-Command에-undo-메서드를-만든다"><a href="#1-Command에-undo-메서드를-만든다" class="headerlink" title="1. Command에 undo() 메서드를 만든다."></a>1. Command에 <code>undo()</code> 메서드를 만든다.</h3><p>커맨드에서 작업 취소 기능을 지원하기 위해 <code>execute()</code>와 비슷한 <code>undo()</code> 메서드를 만든다.<br><code>execute()</code>메서드에서 했던 것과 정반대의 작업을 처리하면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-1-LigntOnCommand에-undo-메서드를-추가한다"><a href="#2-1-LigntOnCommand에-undo-메서드를-추가한다" class="headerlink" title="2-1) LigntOnCommand에 undo()메서드를 추가한다."></a>2-1) LigntOnCommand에 <code>undo()</code>메서드를 추가한다.</h3><p>LightOnCommand에 undo()메서드가 호출되면 그 메서드에서는 light객체의 off()메서드를 호출해야 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightOnCommand</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">    Light light;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LightOnCommand</span><span class="params">(Light light)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.light = light;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        light.on();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        light.off();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-LightOffCommand에-undo-메서드를-추가한다"><a href="#2-2-LightOffCommand에-undo-메서드를-추가한다" class="headerlink" title="2-2) LightOffCommand에 undo() 메서드를 추가한다."></a>2-2) LightOffCommand에 <code>undo()</code> 메서드를 추가한다.</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightOffCommand</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">    Light light;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LightOffCommand</span><span class="params">(Light light)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.light = light;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        light.off();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 불이 꺼져있으면, 다시 켠다.</span></span><br><span class="line">        light.on();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-RemoteControl-클래스에-작업-취소-기능을-추가한다"><a href="#3-RemoteControl-클래스에-작업-취소-기능을-추가한다" class="headerlink" title="3. RemoteControl 클래스에 작업 취소 기능을 추가한다."></a>3. RemoteControl 클래스에 작업 취소 기능을 추가한다.</h3><p>RemoteControl 클래스에 클라이언트가 마지막으로 누른 버튼을 기록하고,<br>UNDO 버튼이 눌렸을 때 필요한 작업을 처리하기 위한 코드를 추가한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RemoteControlWithUndo</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 이 리모컨에서는 7개의 on/off 명령을 처리할 수 있으며</span></span><br><span class="line">    <span class="comment">// 여러 개의 Command를 호출해야 하므로 배열로 나타낸다.</span></span><br><span class="line">    Command[] onCommands;</span><br><span class="line">    Command[] offCommands;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    undoCommand가 배열이 아닌 이유?</span></span><br><span class="line"><span class="comment">     가장 최근 커맨드 객체 1개를 되돌리기 위해서 배열이 아닌 것이다.</span></span><br><span class="line"><span class="comment">     참조를 지속해서 바꿔준다.</span></span><br><span class="line"><span class="comment">     전체를 되돌리려면, Stack으로 구현한다.</span></span><br><span class="line"><span class="comment">     (Stack에서 pop()메서드로 빼내면 된다.)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    Command undoCommand;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RemoteControlWithUndo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        onCommands = <span class="keyword">new</span> Command[<span class="number">7</span>];</span><br><span class="line">        offCommands = <span class="keyword">new</span> Command[<span class="number">7</span>];</span><br><span class="line"></span><br><span class="line">        Command noCommand = <span class="keyword">new</span> NoCommand();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">            onCommands[i] = noCommand;</span><br><span class="line">            offCommands[i] = offCommand;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 클라이언트가 다른 버튼을 누르지 않은 상태에서</span></span><br><span class="line">        <span class="comment">// UNDO 버튼을 누르더라도 문제가 생기지 않도록 만든다.</span></span><br><span class="line">        undoCommand = noCommand;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCommand</span><span class="params">(<span class="keyword">int</span> slot, Command onCommand, Command offCommand)</span> </span>&#123;</span><br><span class="line">        undoCommands[slot] = onCommand;</span><br><span class="line">        offCommands[slot] = offCommand;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonWasPushed</span><span class="params">(<span class="keyword">int</span> slot)</span> </span>&#123;</span><br><span class="line">        onCommands[slot].execute();</span><br><span class="line">        <span class="comment">// 클라이언트가 버튼을 누르면, 슬롯에 연결된 커맨드 객체의</span></span><br><span class="line">        <span class="comment">// execute()메서드를 호출한 후</span></span><br><span class="line">        <span class="comment">// 그 객체의 참조를 undoCommand에 바꿔 끼워준다.</span></span><br><span class="line">        undoCommand = onCommands[slot];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">offButtonWasPushed</span><span class="params">(<span class="keyword">int</span> slot)</span> </span>&#123;</span><br><span class="line">        offCommands[slot].execute();</span><br><span class="line">        undoCommand = offCommands[slot];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 클라이언트가 UNDO 버튼을 누르면,</span></span><br><span class="line">    <span class="comment">// undoCommand에 연결된 커맨드 객체의</span></span><br><span class="line">    <span class="comment">// undo() 메서드를 호출한다.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">undoButtonWasPushed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// undo() 메서드가 실행되면,</span></span><br><span class="line">        <span class="comment">// 가장 최근에 했던 작업이 취소된다.</span></span><br><span class="line">        undoCommand.undo();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// toString 코드...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h3><ul>
+<li>커맨드 패턴은 요청을 하는 객체와 그 요청을 수행하는 객체를 <strong>분리</strong>시켜서 구현한다.</li>
+<li>기존의 코드를 건드리지 않으면서 <strong>캡슐화</strong>하여<br>호출한 객체 입장에서는 어떤 식으로 일을 처리하는지를 전혀 신경 쓰지 않는다.</li>
+<li>정해진 한 개의 메서드인 <code>excuete()</code>를 <strong>호출</strong>만하면 된다.<br>-&gt; <strong>모든 일을 처리해주는 메서드를 만들어서 캡슐화한다.</strong></li>
+<li>작업 취소의 히스토리 기능은 <code>Stack</code>을 이용해 구현한다.</li>
+</ul>
+
+        </div>
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true;
+    google_language= "ko";
+  });
+</script>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "커맨드 패턴(Command Pattern)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/68993570-f9709400-08bc-11ea-8260-9d5bca808fed.png",
+        "keywords": "design pattern command pattern 커맨드 패턴",
+        "genre": "Back-end Design-pattern",
+        "datePublished": "2019-11-16",
+        "dateCreated": "2019-11-16",
+        "dateModified": "2019-11-16",
+        "url": "https://JihyeHwang09.github.io/2019/11/16/design-pattern-command/",
+        "description": "
+Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.
+
+
+커맨드 패턴(Command Pattern)이란
+커맨드 패턴은 호출 캡슐화에 중점을 두는 패턴이다.
+
+예를 들어, 리모컨 API 디자인에 대해 생각해보자.얼핏 생각하면 리모컨에는 ON/OFF 버"
+        "wordCount": 2340
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/11/16/TIL-2019-11-16/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">번아웃 극복하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/16/design-pattern-command/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/68993570-f9709400-08bc-11ea-8260-9d5bca808fed.png)" alt="커맨드 패턴(Command Pattern)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/design-pattern/">Design-pattern</a></p>
+                            <p class="item-title"><a href="/2019/11/16/design-pattern-command/" class="title">커맨드 패턴(Command Pattern)</a></p>
+                            <p class="item-date"><time datetime="2019-11-16T11:56:07.000Z" itemprop="datePublished">2019-11-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/16/TIL-2019-11-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/68992694-f1f7bd80-08b1-11ea-994f-649c97dea9ec.png)" alt="번아웃 극복하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/til/">TIL</a></p>
+                            <p class="item-title"><a href="/2019/11/16/TIL-2019-11-16/" class="title">번아웃 극복하기</a></p>
+                            <p class="item-date"><time datetime="2019-11-16T11:25:53.000Z" itemprop="datePublished">2019-11-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/16/lecture-2019-11-16/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/68992614-1c954680-08b1-11ea-9c9c-dda502409c08.png)" alt="프로그래밍 학습의 어려움과 극복하는 방법(by 박재성님)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/lecture/">Lecture</a></p>
+                            <p class="item-title"><a href="/2019/11/16/lecture-2019-11-16/" class="title">프로그래밍 학습의 어려움과 극복하는 방법(by 박재성님)</a></p>
+                            <p class="item-date"><time datetime="2019-11-16T11:03:27.000Z" itemprop="datePublished">2019-11-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/10/design-pattern-strategy/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/68542785-70a4b480-03f3-11ea-8dd5-19fe74287e12.png)" alt="스트래티지 패턴(Strategy Pattern)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/design-pattern/">Design-pattern</a></p>
+                            <p class="item-title"><a href="/2019/11/10/design-pattern-strategy/" class="title">스트래티지 패턴(Strategy Pattern)</a></p>
+                            <p class="item-date"><time datetime="2019-11-10T07:46:28.000Z" itemprop="datePublished">2019-11-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/11/08/book-sql-first-steps-10/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 13강" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/mysql/">MySQL</a></p>
+                            <p class="item-title"><a href="/2019/11/08/book-sql-first-steps-10/" class="title">SQL 첫걸음- 13강</a></p>
+                            <p class="item-date"><time datetime="2019-11-08T12:10:23.000Z" itemprop="datePublished">2019-11-08</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">91</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">Database</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">MySQL</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/oracle/">Oracle</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">41</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/dev-english/">Dev English</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/lecture/">Lecture</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/typescript/">TypeScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">Tool</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/intellij/">IntelliJ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/100제/" style="font-size: 20px;">100제</a> <a href="/tags/1010/" style="font-size: 10px;">1010</a> <a href="/tags/1011/" style="font-size: 10px;">1011</a> <a href="/tags/1012/" style="font-size: 10px;">1012</a> <a href="/tags/1013/" style="font-size: 10px;">1013</a> <a href="/tags/1014/" style="font-size: 10px;">1014</a> <a href="/tags/1015/" style="font-size: 10px;">1015</a> <a href="/tags/1017/" style="font-size: 10px;">1017</a> <a href="/tags/1018/" style="font-size: 10px;">1018</a> <a href="/tags/1019/" style="font-size: 10px;">1019</a> <a href="/tags/1020/" style="font-size: 10px;">1020</a> <a href="/tags/1021/" style="font-size: 10px;">1021</a> <a href="/tags/1023/" style="font-size: 10px;">1023</a> <a href="/tags/1024/" style="font-size: 10px;">1024</a> <a href="/tags/1025/" style="font-size: 10px;">1025</a> <a href="/tags/1026/" style="font-size: 10px;">1026</a> <a href="/tags/1027/" style="font-size: 10px;">1027</a> <a href="/tags/1029/" style="font-size: 10px;">1029</a> <a href="/tags/1031/" style="font-size: 10px;">1031</a> <a href="/tags/1036/" style="font-size: 10px;">1036</a> <a href="/tags/1037/" style="font-size: 10px;">1037</a> <a href="/tags/1040/" style="font-size: 10px;">1040</a> <a href="/tags/1041/" style="font-size: 10px;">1041</a> <a href="/tags/1042/" style="font-size: 10px;">1042</a> <a href="/tags/1045/" style="font-size: 10px;">1045</a> <a href="/tags/1046/" style="font-size: 10px;">1046</a> <a href="/tags/1047/" style="font-size: 10px;">1047</a> <a href="/tags/1048/" style="font-size: 10px;">1048</a> <a href="/tags/1049/" style="font-size: 10px;">1049</a> <a href="/tags/1050/" style="font-size: 10px;">1050</a> <a href="/tags/1051/" style="font-size: 10px;">1051</a> <a href="/tags/1052/" style="font-size: 10px;">1052</a> <a href="/tags/1053/" style="font-size: 10px;">1053</a> <a href="/tags/1054/" style="font-size: 10px;">1054</a> <a href="/tags/1056/" style="font-size: 10px;">1056</a> <a href="/tags/1057/" style="font-size: 10px;">1057</a> <a href="/tags/1058/" style="font-size: 10px;">1058</a> <a href="/tags/1059/" style="font-size: 10px;">1059</a> <a href="/tags/1060/" style="font-size: 10px;">1060</a> <a href="/tags/1061/" style="font-size: 10px;">1061</a> <a href="/tags/1063/" style="font-size: 10px;">1063</a> <a href="/tags/1066/" style="font-size: 10px;">1066</a> <a href="/tags/1067/" style="font-size: 10px;">1067</a> <a href="/tags/1068/" style="font-size: 10px;">1068</a> <a href="/tags/1069/" style="font-size: 10px;">1069</a> <a href="/tags/1070/" style="font-size: 10px;">1070</a> <a href="/tags/1071/" style="font-size: 10px;">1071</a> <a href="/tags/1072/" style="font-size: 10px;">1072</a> <a href="/tags/1073/" style="font-size: 10px;">1073</a> <a href="/tags/1074/" style="font-size: 10px;">1074</a> <a href="/tags/33-js-concepts/" style="font-size: 11.43px;">33-js-concepts</a> <a href="/tags/algorithms/" style="font-size: 10.71px;">Algorithms</a> <a href="/tags/angular/" style="font-size: 10px;">Angular</a> <a href="/tags/argument/" style="font-size: 10px;">Argument</a> <a href="/tags/arraylist/" style="font-size: 10px;">ArrayList</a> <a href="/tags/back-end/" style="font-size: 10.71px;">Back-end</a> <a href="/tags/binary-search/" style="font-size: 10px;">Binary Search</a> <a href="/tags/css/" style="font-size: 14.29px;">CSS</a> <a href="/tags/can-t-answer-a-question-unless-a-user-tty/" style="font-size: 10px;">Can't answer a question unless a user TTY</a> <a href="/tags/cascade/" style="font-size: 10px;">Cascade</a> <a href="/tags/clean-code/" style="font-size: 14.29px;">Clean Code</a> <a href="/tags/clean-coder/" style="font-size: 10px;">Clean Coder</a> <a href="/tags/computer-science/" style="font-size: 10.71px;">Computer Science</a> <a href="/tags/counting-cells-in-a-blob/" style="font-size: 10px;">Counting Cells in a Blob</a> <a href="/tags/data-binding/" style="font-size: 10px;">Data Binding</a> <a href="/tags/database/" style="font-size: 10px;">Database</a> <a href="/tags/decision-thinking/" style="font-size: 10px;">Decision Thinking</a> <a href="/tags/dev-english/" style="font-size: 10px;">Dev English</a> <a href="/tags/developer/" style="font-size: 10.71px;">Developer</a> <a href="/tags/error/" style="font-size: 10px;">Error</a> <a href="/tags/front-end/" style="font-size: 15px;">Front-end</a> <a href="/tags/hdlc/" style="font-size: 10.71px;">HDLC</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data LInk Control</a> <a href="/tags/high-level-data-link-control/" style="font-size: 10px;">High-level Data Link Control</a> <a href="/tags/hugo/" style="font-size: 10px;">Hugo</a> <a href="/tags/illegal-key-size/" style="font-size: 10px;">ILLEGAL KEY SIZE</a> <a href="/tags/inheritance/" style="font-size: 10px;">Inheritance</a> <a href="/tags/intellij/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/interation/" style="font-size: 10px;">Interation</a> <a href="/tags/java-security-invalidkeyexception/" style="font-size: 10px;">JAVA.SECURITY.INVALIDKEYEXCEPTION</a> <a href="/tags/java/" style="font-size: 10.71px;">Java</a> <a href="/tags/javascript/" style="font-size: 18.57px;">JavaScript</a> <a href="/tags/jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/jsoninclude-include-non-null/" style="font-size: 10px;">JsonInclude.Include.NON_NULL</a> <a href="/tags/linux/" style="font-size: 10.71px;">Linux</a> <a href="/tags/mathematical-induction/" style="font-size: 10.71px;">Mathematical Induction</a> <a href="/tags/multiplexer/" style="font-size: 10px;">Multiplexer</a> <a href="/tags/mybatis/" style="font-size: 10.71px;">MyBatis</a> <a href="/tags/mysql/" style="font-size: 15px;">MySQL</a> <a href="/tags/null-not-allowed-for-column-title-sql-statement/" style="font-size: 10px;">NULL not allowed for column "TITLE"; SQL statement</a> <a href="/tags/node-js/" style="font-size: 15.71px;">Node.js</a> <a href="/tags/optional-property/" style="font-size: 10px;">Optional Property</a> <a href="/tags/oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/pcm/" style="font-size: 10px;">PCM</a> <a href="/tags/put/" style="font-size: 10px;">PUT</a> <a href="/tags/parameter/" style="font-size: 10px;">Parameter</a> <a href="/tags/pathvariable-annotation/" style="font-size: 10px;">PathVariable annotation</a> <a href="/tags/react/" style="font-size: 15.71px;">React</a> <a href="/tags/recursion-function/" style="font-size: 10.71px;">Recursion Function</a> <a href="/tags/reqeustbody-annotation/" style="font-size: 10px;">ReqeustBody annotation</a> <a href="/tags/sql-첫걸음/" style="font-size: 15px;">SQL 첫걸음</a> <a href="/tags/spring/" style="font-size: 14.29px;">Spring</a> <a href="/tags/spring-boot/" style="font-size: 14.29px;">Spring Boot</a> <a href="/tags/static-web-generator/" style="font-size: 10.71px;">Static Web Generator</a> <a href="/tags/til/" style="font-size: 17.14px;">TIL</a> <a href="/tags/template-parse-errors/" style="font-size: 10px;">Template parse errors</a> <a href="/tags/there-is-no-getter-for-property-named/" style="font-size: 10px;">There is no getter for property named</a> <a href="/tags/typescript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/typography/" style="font-size: 10px;">Typography</a> <a href="/tags/unexpected-closing-tag/" style="font-size: 10px;">Unexpected closing tag</a> <a href="/tags/object-object/" style="font-size: 10.71px;">[object Object]</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/blog/" style="font-size: 10.71px;">blog</a> <a href="/tags/boole/" style="font-size: 10px;">boole</a> <a href="/tags/boolean-algebra/" style="font-size: 10px;">boolean algebra</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/check-box/" style="font-size: 10px;">check-box</a> <a href="/tags/codeup-해설/" style="font-size: 20px;">codeup 해설</a> <a href="/tags/command-pattern/" style="font-size: 10px;">command pattern</a> <a href="/tags/cp/" style="font-size: 10px;">cp</a> <a href="/tags/data-communication/" style="font-size: 12.14px;">data-communication</a> <a href="/tags/datetime/" style="font-size: 10px;">datetime</a> <a href="/tags/design-pattern/" style="font-size: 11.43px;">design pattern</a> <a href="/tags/end-인수/" style="font-size: 10px;">end 인수</a> <a href="/tags/explicit/" style="font-size: 10px;">explicit</a> <a href="/tags/fasly/" style="font-size: 10px;">fasly</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/framework/" style="font-size: 10.71px;">framework</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10.71px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/join/" style="font-size: 10px;">join</a> <a href="/tags/karnaugh-map/" style="font-size: 10px;">karnaugh map</a> <a href="/tags/logic-gate/" style="font-size: 10px;">logic gate</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/null-check/" style="font-size: 10px;">null Check</a> <a href="/tags/parameter-여러-개/" style="font-size: 10px;">parameter 여러 개</a> <a href="/tags/platform/" style="font-size: 10.71px;">platform</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/python/" style="font-size: 19.29px;">python</a> <a href="/tags/python-formating/" style="font-size: 10px;">python formating</a> <a href="/tags/recursion/" style="font-size: 11.43px;">recursion</a> <a href="/tags/rm-r/" style="font-size: 10px;">rm. -r</a> <a href="/tags/rmdir-rmdir/" style="font-size: 10px;">rmdir. rmdir</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/sep-인수/" style="font-size: 10px;">sep 인수</a> <a href="/tags/split/" style="font-size: 10px;">split</a> <a href="/tags/strategy-pattern/" style="font-size: 10.71px;">strategy-pattern</a> <a href="/tags/sudo/" style="font-size: 10px;">sudo</a> <a href="/tags/yarn-init-error/" style="font-size: 10px;">yarn init error</a> <a href="/tags/zfill-함수/" style="font-size: 10px;">zfill 함수</a> <a href="/tags/가상-메모리/" style="font-size: 10.71px;">가상 메모리</a> <a href="/tags/개발자-포트폴리오/" style="font-size: 10px;">개발자 포트폴리오</a> <a href="/tags/객체/" style="font-size: 10px;">객체</a> <a href="/tags/객체지향-분석과-설계/" style="font-size: 10px;">객체지향 분석과 설계</a> <a href="/tags/교착상태/" style="font-size: 10.71px;">교착상태</a> <a href="/tags/구분자/" style="font-size: 10px;">구분자</a> <a href="/tags/깨끗한-코드/" style="font-size: 10.71px;">깨끗한 코드</a> <a href="/tags/나동빈/" style="font-size: 10px;">나동빈</a> <a href="/tags/내림/" style="font-size: 10px;">내림</a> <a href="/tags/논리게이트/" style="font-size: 10px;">논리게이트</a> <a href="/tags/논리회로/" style="font-size: 11.43px;">논리회로</a> <a href="/tags/다중화기/" style="font-size: 10px;">다중화기</a> <a href="/tags/덧셈-연산/" style="font-size: 10px;">덧셈 연산</a> <a href="/tags/데이터-전송-모드/" style="font-size: 10px;">데이터 전송 모드</a> <a href="/tags/데이터-통신/" style="font-size: 12.86px;">데이터 통신</a> <a href="/tags/동기식-전송/" style="font-size: 10px;">동기식 전송</a> <a href="/tags/매개변수/" style="font-size: 10.71px;">매개변수</a> <a href="/tags/메모리-관리/" style="font-size: 10px;">메모리 관리</a> <a href="/tags/명시적-매개변수/" style="font-size: 10px;">명시적 매개변수</a> <a href="/tags/문자열/" style="font-size: 10.71px;">문자열</a> <a href="/tags/미로-찾기/" style="font-size: 10px;">미로 찾기</a> <a href="/tags/박재성/" style="font-size: 10px;">박재성</a> <a href="/tags/반올림/" style="font-size: 10px;">반올림</a> <a href="/tags/배경/" style="font-size: 10px;">배경</a> <a href="/tags/배열/" style="font-size: 10px;">배열</a> <a href="/tags/배포-다이어그램/" style="font-size: 10px;">배포 다이어그램</a> <a href="/tags/백기선/" style="font-size: 10px;">백기선</a> <a href="/tags/병행-프로세스/" style="font-size: 10.71px;">병행 프로세스</a> <a href="/tags/분산-운영체제/" style="font-size: 10.71px;">분산 운영체제</a> <a href="/tags/비동기식-전송/" style="font-size: 10px;">비동기식 전송</a> <a href="/tags/사용자-요구-분석/" style="font-size: 10px;">사용자 요구 분석</a> <a href="/tags/상속/" style="font-size: 10px;">상속</a> <a href="/tags/상태-머신-다이어그램/" style="font-size: 10px;">상태 머신 다이어그램</a> <a href="/tags/상호작용-다이어그램/" style="font-size: 10.71px;">상호작용 다이어그램</a> <a href="/tags/선택자/" style="font-size: 10px;">선택자</a> <a href="/tags/선택적-프로퍼티/" style="font-size: 10px;">선택적 프로퍼티</a> <a href="/tags/소수점/" style="font-size: 10px;">소수점</a> <a href="/tags/소프트웨어-공학/" style="font-size: 16.43px;">소프트웨어 공학</a> <a href="/tags/소프트웨어-설계/" style="font-size: 10px;">소프트웨어 설계</a> <a href="/tags/소프트웨어-유지보수/" style="font-size: 10px;">소프트웨어 유지보수</a> <a href="/tags/소프트웨어-테스트/" style="font-size: 10px;">소프트웨어 테스트</a> <a href="/tags/소프트웨어-품질/" style="font-size: 10px;">소프트웨어 품질</a> <a href="/tags/소프트웨어-프로세스/" style="font-size: 10px;">소프트웨어 프로세스</a> <a href="/tags/수학적-귀납법/" style="font-size: 10.71px;">수학적 귀납법</a> <a href="/tags/순차-탐색/" style="font-size: 10px;">순차 탐색</a> <a href="/tags/순환-함수/" style="font-size: 11.43px;">순환 함수</a> <a href="/tags/순환-함수-recursion/" style="font-size: 11.43px;">순환 함수 - recursion</a> <a href="/tags/순환적-알고리즘-설계/" style="font-size: 10px;">순환적 알고리즘 설계</a> <a href="/tags/스케줄링-알고리즘/" style="font-size: 10px;">스케줄링 알고리즘</a> <a href="/tags/스트래티지-패턴/" style="font-size: 10px;">스트래티지 패턴</a> <a href="/tags/싱글턴-패턴/" style="font-size: 10px;">싱글턴 패턴</a> <a href="/tags/알고리즘/" style="font-size: 11.43px;">알고리즘</a> <a href="/tags/액티비티-다이어그램/" style="font-size: 10px;">액티비티 다이어그램</a> <a href="/tags/여러-개-입력-받기/" style="font-size: 10px;">여러 개 입력 받기</a> <a href="/tags/올림/" style="font-size: 10px;">올림</a> <a href="/tags/운영체제/" style="font-size: 16.43px;">운영체제</a> <a href="/tags/운영체제-사례/" style="font-size: 10px;">운영체제 사례</a> <a href="/tags/유스케이스-다이어그램/" style="font-size: 10px;">유스케이스 다이어그램</a> <a href="/tags/의미있는-이름/" style="font-size: 13.57px;">의미있는 이름</a> <a href="/tags/이진-탐색/" style="font-size: 10px;">이진 탐색</a> <a href="/tags/장치-관리/" style="font-size: 10px;">장치 관리</a> <a href="/tags/재귀-함수/" style="font-size: 12.86px;">재귀 함수</a> <a href="/tags/저장장치-및-파일/" style="font-size: 10px;">저장장치 및 파일</a> <a href="/tags/전달인자/" style="font-size: 10px;">전달인자</a> <a href="/tags/전략-패턴/" style="font-size: 10px;">전략 패턴</a> <a href="/tags/전송-방식/" style="font-size: 10px;">전송 방식</a> <a href="/tags/전송-오류-제어-방식/" style="font-size: 10px;">전송 오류 제어 방식</a> <a href="/tags/전송-제어의-기본/" style="font-size: 10px;">전송 제어의 기본</a> <a href="/tags/전자계산기-구조/" style="font-size: 11.43px;">전자계산기 구조</a> <a href="/tags/정보처리기사/" style="font-size: 15px;">정보처리기사</a> <a href="/tags/최대값-찾기/" style="font-size: 10px;">최대값 찾기</a> <a href="/tags/카르노-도표/" style="font-size: 10px;">카르노 도표</a> <a href="/tags/카르노-맵/" style="font-size: 10px;">카르노 맵</a> <a href="/tags/커맨드-패턴/" style="font-size: 10px;">커맨드 패턴</a> <a href="/tags/컴포넌트-다이어그램/" style="font-size: 10px;">컴포넌트 다이어그램</a> <a href="/tags/컴퓨터-과학/" style="font-size: 17.86px;">컴퓨터 과학</a> <a href="/tags/케스케이드/" style="font-size: 10px;">케스케이드</a> <a href="/tags/코드업/" style="font-size: 20px;">코드업</a> <a href="/tags/코딩테스트/" style="font-size: 10px;">코딩테스트</a> <a href="/tags/클린-코더/" style="font-size: 10px;">클린 코더</a> <a href="/tags/클린-코드/" style="font-size: 14.29px;">클린 코드</a> <a href="/tags/타이포그래피/" style="font-size: 10px;">타이포그래피</a> <a href="/tags/통신-속도/" style="font-size: 10px;">통신 속도</a> <a href="/tags/통신-용량/" style="font-size: 10px;">통신 용량</a> <a href="/tags/파이썬/" style="font-size: 17.14px;">파이썬</a> <a href="/tags/패키지-다이어그램/" style="font-size: 10px;">패키지 다이어그램</a> <a href="/tags/펄스-코드-변조/" style="font-size: 10px;">펄스 코드 변조</a> <a href="/tags/포맷팅/" style="font-size: 10px;">포맷팅</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/프로그래밍-학습의-어려움과-극복하는-방법/" style="font-size: 10px;">프로그래밍 학습의 어려움과 극복하는 방법</a> <a href="/tags/프로세스/" style="font-size: 10px;">프로세스</a> <a href="/tags/프로젝트-관리/" style="font-size: 10px;">프로젝트 관리</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Phang</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2019/11/16/design-pattern-command/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
