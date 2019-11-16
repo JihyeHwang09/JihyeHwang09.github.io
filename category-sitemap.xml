@@ -8,6 +8,27 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
+        <lastmod>2019-11-16T11:29:47.233Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
+        <lastmod>2019-11-16T11:29:47.233Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/lecture/</loc>
+        <lastmod>2019-11-16T11:25:34.165Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/back-end/design-pattern/</loc>
         <lastmod>2019-11-10T14:10:12.960Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,13 +64,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
-        <lastmod>2019-11-03T14:51:08.712Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/%EC%A0%84%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0-%EA%B5%AC%EC%A1%B0/</loc>
         <lastmod>2019-10-22T23:43:52.691Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -59,13 +73,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/</loc>
         <lastmod>2019-10-22T23:43:52.691Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
-        <lastmod>2019-10-01T15:50:01.037Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
