@@ -21,7 +21,7 @@
 <meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   커맨드 패턴(Command Pattern)이란 커맨드 패턴은 호출 캡슐화에 중점을 두는 패턴이다.  예를 들어, 리모컨 API 디자인에 대해 생각해보자.얼핏 생각하면 리모컨에는 ON/OFF 버">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/68993570-f9709400-08bc-11ea-8260-9d5bca808fed.png">
-<meta property="og:updated_time" content="2019-11-16T13:58:50.147Z">
+<meta property="og:updated_time" content="2019-11-18T13:26:10.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="커맨드 패턴(Command Pattern)">
 <meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   커맨드 패턴(Command Pattern)이란 커맨드 패턴은 호출 캡슐화에 중점을 두는 패턴이다.  예를 들어, 리모컨 API 디자인에 대해 생각해보자.얼핏 생각하면 리모컨에는 ON/OFF 버">
@@ -234,7 +234,7 @@ ga('send', 'pageview');
 <li><code>Command</code>는 <strong>모든 커맨드 객체에서 구현해야 하는 인터페이스</strong>이다.</li>
 <li><code>ConcreteCommand</code>는 특정 행동과 리시버 사이를 <strong>연결</strong>해준다.</li>
 <li><code>execute()</code> 메서드에는 리시버에 있는 메서드를 호출하여 요청된 작업을 수행한다.</li>
-<li><code>Reciver</code>는 요구 사항을 수행하기 위해서 어떤 일으 처리해야 하는지 알고 있는 객체</li>
+<li><code>Reciver</code>는 요구 사항을 수행하기 위해서 어떤 일을 처리해야 하는지 알고 있는 객체</li>
 </ul>
 <hr>
 <h4 id="Light-객체를-사용할-때-거실에-있는-전등과-부엌에-있는-전등을-구분하는-방법"><a href="#Light-객체를-사용할-때-거실에-있는-전등과-부엌에-있는-전등을-구분하는-방법" class="headerlink" title="Light 객체를 사용할 때, 거실에 있는 전등과 부엌에 있는 전등을 구분하는 방법?"></a>Light 객체를 사용할 때, 거실에 있는 전등과 부엌에 있는 전등을 구분하는 방법?</h4><ul>
@@ -252,11 +252,11 @@ ga('send', 'pageview');
 <h3 id="널-객체"><a href="#널-객체" class="headerlink" title="널 객체"></a>널 객체</h3><p>특정 슬롯을 사용하려고 할 때, 거기에 뭔가가 로딩되어 있는지 확인하려면<br><strong>null 체크</strong>하는 코드가 반복된다.<br>ex) null 체크하는 코드</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonWasPushed</span><span class="params">(<span class="keyword">int</span> slot)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (onCommands[slot] != <span class="keyword">null</span>) &#123;</span><br><span class="line">        onCommands[slot].execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>이 문제를 해결하기 위해서 <strong>아무것도 하지 않는 커맨스 클래스를 구현</strong>한다.</li>
+<li>이 문제를 해결하기 위해서 <strong>아무것도 하지 않는 커맨드 클래스를 구현</strong>한다.</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class NoCommand implements Command &#123;</span><br><span class="line">    public void execute() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>그 후, RemoteContorl 생성자에서 모든 스롯에 기본 커맨드 객체로<br>NoComamnd 객체를 집어넣는다.</li>
+<li>그 후, RemoteContorl 생성자에서 모든 슬롯에 기본 커맨드 객체로<br>NoComamnd 객체를 집어넣는다.</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Command noCommand = new NoCommand();</span><br><span class="line">for (int i = 0; i &lt; 7; i++) &#123;</span><br><span class="line">    onCommands[i] = noCommand;</span><br><span class="line">    offCommands[i] = noCommand;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>모든 슬롯에 커맨드 객체가 들어있을 수 밖에 없게 된다.<br>커맨드 객체를 대입하지 않은 슬롯에는 NoCommand가 들어가게 된다.</p>
@@ -361,7 +361,7 @@ ga('send', 'pageview');
         "genre": "Back-end Design-pattern",
         "datePublished": "2019-11-16",
         "dateCreated": "2019-11-16",
-        "dateModified": "2019-11-16",
+        "dateModified": "2019-11-18",
         "url": "https://JihyeHwang09.github.io/2019/11/16/design-pattern-command/",
         "description": "
 Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.

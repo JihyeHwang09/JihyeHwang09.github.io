@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="design pattern,adapter pattern,pacade pattern,어댑터 패턴,퍼사드 패턴">
     
-    <meta name="description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   어댑터 패턴(Adapter pattern)의 정의 어댑터 패턴(Adapter pattern): 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스를 변환한다.어댑터를 이용">
+    <meta name="description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   어댑터 패턴(Adapter pattern) 어댑터 패턴(Adapter pattern): 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스로 변환한다.어댑터를 이용하면,">
 <meta name="keywords" content="design pattern,adapter pattern,pacade pattern,어댑터 패턴,퍼사드 패턴">
 <meta property="og:type" content="article">
 <meta property="og:title" content="어댑터 패턴(Adapter pattern)과 퍼사드 패턴(Pacade pattern)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/11/17/design-pattern-adapter-pacade/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   어댑터 패턴(Adapter pattern)의 정의 어댑터 패턴(Adapter pattern): 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스를 변환한다.어댑터를 이용">
+<meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   어댑터 패턴(Adapter pattern) 어댑터 패턴(Adapter pattern): 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스로 변환한다.어댑터를 이용하면,">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/69004512-b7486080-0957-11ea-8b9b-a3c209c7172d.png">
-<meta property="og:updated_time" content="2019-11-17T07:39:02.600Z">
+<meta property="og:updated_time" content="2019-11-18T13:50:45.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="어댑터 패턴(Adapter pattern)과 퍼사드 패턴(Pacade pattern)">
-<meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   어댑터 패턴(Adapter pattern)의 정의 어댑터 패턴(Adapter pattern): 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스를 변환한다.어댑터를 이용">
+<meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.   어댑터 패턴(Adapter pattern) 어댑터 패턴(Adapter pattern): 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스로 변환한다.어댑터를 이용하면,">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/69004512-b7486080-0957-11ea-8b9b-a3c209c7172d.png">
     
 
@@ -202,8 +202,8 @@ ga('send', 'pageview');
 <p><strong>Head First - Design Patterns</strong><br>(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)<br>을 읽고 정리한 내용입니다.</p>
 </blockquote>
 <hr>
-<h2 id="어댑터-패턴-Adapter-pattern-의-정의"><a href="#어댑터-패턴-Adapter-pattern-의-정의" class="headerlink" title="어댑터 패턴(Adapter pattern)의 정의"></a>어댑터 패턴(Adapter pattern)의 정의</h2><blockquote>
-<p>어댑터 패턴(Adapter pattern)<br>: 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스를 변환한다.<br>어댑터를 이용하면, 인터페이스 호환성 문제 때문에 같이 쓸 수 없는 클래스들을<br>연결해서 쓸 수 있다.</p>
+<h2 id="어댑터-패턴-Adapter-pattern"><a href="#어댑터-패턴-Adapter-pattern" class="headerlink" title="어댑터 패턴(Adapter pattern)"></a>어댑터 패턴(Adapter pattern)</h2><blockquote>
+<p>어댑터 패턴(Adapter pattern)<br>: 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스로 변환한다.<br>어댑터를 이용하면, 인터페이스 호환성 문제 때문에 같이 쓸 수 없는 클래스들을<br>연결해서 쓸 수 있다.</p>
 </blockquote>
 <h3 id="클래스-다이어그램"><a href="#클래스-다이어그램" class="headerlink" title="클래스 다이어그램"></a>클래스 다이어그램</h3><h4 id="1-객체-어댑터"><a href="#1-객체-어댑터" class="headerlink" title="1. 객체 어댑터"></a>1. 객체 어댑터</h4><p><img src="https://user-images.githubusercontent.com/37353837/69004512-b7486080-0957-11ea-8b9b-a3c209c7172d.png" alt=""></p>
 <ul>
@@ -223,7 +223,84 @@ ga('send', 'pageview');
 <li><strong>객체를 한 두 개 더 만들더라도 <code>객체 구성(composition)</code>을 활용하자.</strong></li>
 </ul>
 <hr>
-<h2 id="어댑터-실전-예제"><a href="#어댑터-실전-예제" class="headerlink" title="어댑터 실전 예제"></a>어댑터 실전 예제</h2>
+<h2 id="어댑터-실전-예제"><a href="#어댑터-실전-예제" class="headerlink" title="어댑터 실전 예제"></a>어댑터 실전 예제</h2><h3 id="Enumeration과-Iterator"><a href="#Enumeration과-Iterator" class="headerlink" title="Enumeration과 Iterator"></a>Enumeration과 Iterator</h3><p><code>Enumeration</code>은 Collection 객체의 멤버 객체들을 나열하기 위한 인터페이스이다.<br>일반적으로 <code>Vector</code>나 <code>Hashtable</code> 객체에서 제공하는 메소드로 그 객체를 생성한다.<br><code>Enumeration</code>은 Collection Framework가 나온 이후 (Java 1.2 이후)부터 사용하지 않고,<br><strong><code>Enumeration</code> 대신 <code>Iterator</code>를 사용한다.</strong></p>
+<p>cf)<br><code>Vector</code> -&gt; <code>ArrayList</code><br><code>Hashtable</code> -&gt; <code>HashMap</code><br><code>Enumeration</code> -&gt; <code>Iterator</code></p>
+<h3 id="자바에서의-동기화"><a href="#자바에서의-동기화" class="headerlink" title="자바에서의 동기화"></a>자바에서의 동기화</h3><p><code>Vector</code>와 <code>Hashtable</code>와 같은 클래스들은 자체적으로 동기화 처리가 되어있다.<br>그러나 멀티쓰레드 프로그래밍이 아닌 경우에는 불필요하기 때문에 성능을 떨어뜨리는 요인이 된다.<br>그래서 새로 추가된 <code>ArrayList</code>와 <code>HashMap</code>과 같은 컬렉션은 동기화를 자체적으로 처리하지 않고<br>필요한 경우에만 <code>java.util.Collections</code> 클래스의 동기화 메서드를 이용해서 동기화 처리가 가능 하도록 한다.</p>
+<p>ArrayList, HashSet, HashMap 은 멀티스레드 환경에서 안전하지 않다.<br><code>Collections.synchronizedList</code>를 사용하면, 동기화된 컬렉션을 리턴한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List를 동기화된 List로 리턴</span></span><br><span class="line">List list = Collections.synchronizedList(<span class="keyword">new</span> ArrayList());</span><br><span class="line"><span class="comment">// Map을 동기화된 Map으로 리턴</span></span><br><span class="line">Map map = Collections.synchronizedMap(<span class="keyword">new</span> HashMap());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set을 동기화된 Set으로 리턴</span></span><br><span class="line">  Set set = Collections.synchronizedSet(<span class="keyword">new</span> HashSet());</span><br></pre></td></tr></table></figure>
+<p>동기화된(synchronized) 컬렉션은 멀티 스레드 환경에서<br>하나의 스레드가 요소를 안전하게 처리하도록 도와주지만, 전체 요소를 빠르게 처리하지는 못한다.<br>스레드가 병렬적으로 요소들을 처리할 수 없어서 스레드가 작업을 할 때 락이 발생하기 때문이다.</p>
+<h4 id="java-util-concurrent-패키지를-이용하자"><a href="#java-util-concurrent-패키지를-이용하자" class="headerlink" title="java.util.concurrent 패키지를 이용하자."></a><code>java.util.concurrent</code> 패키지를 이용하자.</h4><p><strong>자바에서는 멀티스레드 환경에서 안전하면서도 스레드가 병렬적으로 작업을 처리할 수 있도록</strong><br><strong><code>java.util.concurrent</code> 패키지에서</strong><br><strong><code>CopyOnArrayList</code>, <code>ConcurrentHashMap</code>, <code>ConcurrentLinkedQueue</code>를 제공한다.</strong></p>
+<ul>
+<li><p><code>CopyOnWriteArrayList</code><br>: read (select) 시는 아무런 동기화 문제가 없기 때문에 놔두고<br>변경이 일어날 때, 객체를 clone 해서 다루자는 전략이다.<br>따라서 읽기행위가 많이 일어나는 곳에서 사용하기 좋다.</p>
+</li>
+<li><p><code>ConcurrentHashMap</code><br>: HashMap을 thread-safe 하도록 만든 클래스가 <code>ConcurrentHashMap</code>이다.<br>하지만 HashMap과는 다르게 <strong>key, value에 null을 허용하지 않는다.</strong><br>또한 <code>putIfAbsent</code>라는 메소드를 가지고 있다.</p>
+</li>
+</ul>
+<p>-<code>ConcurrentLinkedQueue</code><br>: ConcurrentLinkedQueue는 큐에 꺼낼 원소가 없다면 즉시 리턴하고 다른 일을 수행하러 간다.<br>따라서, ConcurrentLinkedQueue는 생산자-소비자 producer-consumer 모델에서<br>소비자가 많고 생산자가 하나인 경우에 사용하면 좋다.</p>
+<hr>
+<h3 id="EnumerationIterator-어댑터-코드"><a href="#EnumerationIterator-어댑터-코드" class="headerlink" title="EnumerationIterator 어댑터 코드"></a>EnumerationIterator 어댑터 코드</h3><p>Enumerator 인터페이스를 사용하는 구형 코드가 있다.<br>새로 만드는 코드에서는 Iterator만 사용한다.<br>이런 경우에 <code>어댑터 패턴</code>을 적용하면 좋다.</p>
+<p>어댑터 패턴에 익숙해지기 위해<br>아래의 EnumerationIterator 어댑터 코드 예제는 <strong>책을 안보고 직접 구현해보도록 하자.</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> Enumeration을 Iterator에 적응시키기 위해</span></span><br><span class="line"><span class="comment">  Iterator 인터페이스를 구현한다.</span></span><br><span class="line"><span class="comment">  겉에서 볼 때는 Iterator로 보여야 한다.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumerationIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span> </span>&#123;</span><br><span class="line">  Enumeration <span class="keyword">enum</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">EnumerationIterator</span><span class="params">(Enumeration <span class="keyword">enum</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.<span class="keyword">enum</span> = <span class="keyword">enum</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">enum</span>.hasMoreElements();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">enum</span>.nextElement();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="퍼사드-패턴-Pacade-pattern"><a href="#퍼사드-패턴-Pacade-pattern" class="headerlink" title="퍼사드 패턴(Pacade pattern)"></a>퍼사드 패턴(Pacade pattern)</h2><h3 id="커맨드-패턴-VS-퍼사드-패턴"><a href="#커맨드-패턴-VS-퍼사드-패턴" class="headerlink" title="커맨드 패턴 VS 퍼사드 패턴"></a>커맨드 패턴 VS 퍼사드 패턴</h3><ul>
+<li><p><code>커맨드 패턴(Command pattern)</code></p>
+<ul>
+<li>메서드 <code>1개</code>만 노출</li>
+<li>캡슐화해서 접근하지 못함</li>
+<li>tight</li>
+</ul>
+</li>
+<li><p><code>퍼사드 패턴(Pacade pattern)</code></p>
+<ul>
+<li>메서드 <code>여러 개</code> 노출</li>
+<li>서브 시스템을 캡슐화하지 않음</li>
+<li>loose</li>
+<li>스마트 커맨드와 비슷</li>
+</ul>
+</li>
+</ul>
+<h3 id="어댑터-패턴-VS-퍼사드-패턴"><a href="#어댑터-패턴-VS-퍼사드-패턴" class="headerlink" title="어댑터 패턴 VS 퍼사드 패턴"></a>어댑터 패턴 VS 퍼사드 패턴</h3><ul>
+<li>공통점: <strong>여러 개의 클래스</strong>를 감쌀 수 있다.</li>
+<li>차이점<ul>
+<li>어댑터 패턴: <strong>인터페이스를 다른 인터페이스로 변환</strong>하기 위한 용도</li>
+<li>퍼사드 패턴: <strong>인터페이스를 단순화</strong>시키기 위한 용도<blockquote>
+<p>어댑터 패턴과 퍼사드 패턴의 차이는 감싸는 클래스 개수가 아니라,<br><strong>용도</strong>의 차이다.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="퍼사드-패턴은-Spring-MVC-Service와-비슷하다"><a href="#퍼사드-패턴은-Spring-MVC-Service와-비슷하다" class="headerlink" title="퍼사드 패턴은 Spring MVC Service와 비슷하다."></a>퍼사드 패턴은 Spring MVC Service와 비슷하다.</h3><ul>
+<li>압축된 인터페이스를 제공한다.</li>
+<li>로직은 각각 도메인들이 가지고 있고, 서비스에서는 호출해서 가져온다.</li>
+<li>서비스에서는 로직을 가지면 안된다.</li>
+</ul>
+<h2 id="퍼사드-패턴-Pacade-pattern-의-정의"><a href="#퍼사드-패턴-Pacade-pattern-의-정의" class="headerlink" title="퍼사드 패턴(Pacade pattern)의 정의"></a>퍼사드 패턴(Pacade pattern)의 정의</h2><blockquote>
+<p>퍼사드 패턴(Pacade pattern)<br>: 어떤 서브시스템의 일련의 인터페이스에 대한<br><strong>통합된 인터페이스</strong>를 제공한다.<br>퍼사드에서 고수준 인터페이스를 정의하기 때문에<br>서브시스템을 더 쉽게 사용할 수 있다.</p>
+</blockquote>
+<h2 id="디미터-법칙-최소-지식-원칙"><a href="#디미터-법칙-최소-지식-원칙" class="headerlink" title="디미터 법칙(최소 지식 원칙)"></a>디미터 법칙(최소 지식 원칙)</h2><blockquote>
+<p>디자인 원칙<br>정말 친한 친구하고만 얘기하라.</p>
+</blockquote>
+<ul>
+<li>ex1) 디미터 법칙(최소 지식 원칙)을 따르지 <strong>않는</strong> 경우</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// station에서 thermometer라는 객체를 받아서</span></span><br><span class="line">  <span class="comment">// 그 객체의 getTemperature() 메서드를 직접 호출해야 한다.</span></span><br><span class="line">  Thermometer thermometer = station.getThermometer();</span><br><span class="line">    <span class="keyword">return</span> thermometer.getTemperature();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ex2) 디미터 법칙(최소 지식 원칙)을 따르는 경우</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 디미터 법칙(최소 지식 원칙)을 적용해서 Station 클래스에</span></span><br><span class="line">  <span class="comment">// thermometer에 요청을 해주는 메서드를 추가했다.</span></span><br><span class="line">  <span class="comment">// 이렇게 하면, 의존해야 하는 클래스의 개수를 줄일 수 있다.</span></span><br><span class="line">  <span class="keyword">return</span> station.getTemperature();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="더-공부할-Keyword"><a href="#더-공부할-Keyword" class="headerlink" title="더 공부할 Keyword"></a>더 공부할 Keyword</h3><ul>
+<li><a href="https://www.slideshare.net/gyumee/java-null-survival-guide?from_m_app=ios" target="_blank" rel="noopener">디미터 법칙</a></li>
+</ul>
+<hr>
+<h3 id="참고-링크-amp-서적"><a href="#참고-링크-amp-서적" class="headerlink" title="참고 링크 &amp; 서적"></a>참고 링크 &amp; 서적</h3><ul>
+<li><a href="http://www.yes24.com/Product/Goods/12155280?scode=032&amp;OzSrank=1" target="_blank" rel="noopener">자바를 다루는 기술- 김병부 저</a></li>
+<li><a href="https://cornswrold.tistory.com/209" target="_blank" rel="noopener">[JAVA] 동기화된 컬렉션(thread-safe collection), 병렬처리 가능한 컬렉션</a></li>
+<li><a href="https://baramziny.tistory.com/entry/%EB%8F%99%EA%B8%B0%ED%99%94Sycchronization" target="_blank" rel="noopener">[ 개념정리 ] 동기화(Sycchronization)[양군&amp;우자]</a></li>
+<li><a href="https://hamait.tistory.com/381" target="_blank" rel="noopener"> 자바 Concurrent 라이브러리 정리[HAMA 블로그]</a></li>
+<li><a href="https://jdm.kr/blog/197" target="_blank" rel="noopener">Hashtable, HashMap, ConcurrentHashMap 비교</a></li>
+<li><a href="https://sungjk.github.io/2016/11/02/Queue.html" target="_blank" rel="noopener">자바 Concurrent 패키지의 Queue 알아보기</a></li>
+</ul>
+
         </div>
      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -307,16 +384,16 @@ ga('send', 'pageview');
         "genre": "Back-end Design-pattern",
         "datePublished": "2019-11-17",
         "dateCreated": "2019-11-17",
-        "dateModified": "2019-11-17",
+        "dateModified": "2019-11-18",
         "url": "https://JihyeHwang09.github.io/2019/11/17/design-pattern-adapter-pacade/",
         "description": "
 
 Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.
 
 
-어댑터 패턴(Adapter pattern)의 정의
-어댑터 패턴(Adapter pattern): 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스를 변환한다.어댑터를 이용"
-        "wordCount": 149
+어댑터 패턴(Adapter pattern)
+어댑터 패턴(Adapter pattern): 한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스로 변환한다.어댑터를 이용하면, "
+        "wordCount": 928
     }
 </script>
 
