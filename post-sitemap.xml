@@ -8,8 +8,8 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/11/17/design-pattern-adapter-pacade/</loc>
-        <lastmod>2019-11-18T13:50:45.769Z</lastmod>
+        <loc>https://JihyeHwang09.github.io/2019/11/24/design-pattern-template-method/</loc>
+        <lastmod>2019-11-24T13:53:42.963Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +17,31 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/2019/11/16/design-pattern-command/</loc>
-        <lastmod>2019-11-18T13:26:10.854Z</lastmod>
+        <lastmod>2019-11-24T11:58:29.809Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/11/10/design-pattern-strategy/</loc>
+        <lastmod>2019-11-24T11:58:24.855Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/11/03/design-pattern-singleton/</loc>
+        <lastmod>2019-11-24T11:58:20.704Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/11/17/design-pattern-adapter-pacade/</loc>
+        <lastmod>2019-11-18T13:59:03.888Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,22 +74,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/2019/08/12/lecture-2019-08-12/</loc>
         <lastmod>2019-11-16T11:24:54.699Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/11/10/design-pattern-strategy/</loc>
-        <lastmod>2019-11-10T14:10:12.960Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/11/03/design-pattern-singleton/</loc>
-        <lastmod>2019-11-09T08:22:01.973Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1384,6 +1392,14 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/03/15/TIL-2019-03-15/</loc>
+        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1393,14 +1409,6 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
-        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/15/TIL-2019-03-15/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1504,7 +1512,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/01/react10/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/02/react11/</loc>
         <lastmod>2019-04-11T15:22:16.384Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1512,7 +1520,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/02/react11/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/01/react10/</loc>
         <lastmod>2019-04-11T15:22:16.384Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1760,7 +1768,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/12/css-inheritance%26cascade/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/01/15/css-background/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1768,7 +1776,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/15/css-background/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/01/12/css-inheritance%26cascade/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
