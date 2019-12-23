@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="design pattern,proxy pattern">
     
-    <meta name="description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  프록시 패턴(Proxy pattern)의 정의어떤 객체에 대한 접근을 제어하기 위한 용도로,실제 객체의 메서드를 호출하면 그 호출을 중간에 가로채는 패턴 책에 나온 프록시의 종류들 즉 용어 하나">
+    <meta name="description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  프록시 패턴(Proxy pattern)의 정의어떤 객체에 대한 접근을 제어하기 위한 용도로,실제 객체의 메서드를 호출하면 그 호출을 중간에 가로채는 패턴  Tip&amp;gt;책에 나온 프록시의 종류들">
 <meta name="keywords" content="design pattern,proxy pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="프록시 패턴(Proxy pattern)">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2019/12/23/design-pattern-proxy/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  프록시 패턴(Proxy pattern)의 정의어떤 객체에 대한 접근을 제어하기 위한 용도로,실제 객체의 메서드를 호출하면 그 호출을 중간에 가로채는 패턴 책에 나온 프록시의 종류들 즉 용어 하나">
+<meta property="og:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  프록시 패턴(Proxy pattern)의 정의어떤 객체에 대한 접근을 제어하기 위한 용도로,실제 객체의 메서드를 호출하면 그 호출을 중간에 가로채는 패턴  Tip&amp;gt;책에 나온 프록시의 종류들">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/71341839-576c5780-259e-11ea-93e1-e5d10f743ac8.png">
-<meta property="og:updated_time" content="2019-12-23T12:01:35.117Z">
+<meta property="og:updated_time" content="2019-12-23T12:26:53.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="프록시 패턴(Proxy pattern)">
-<meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  프록시 패턴(Proxy pattern)의 정의어떤 객체에 대한 접근을 제어하기 위한 용도로,실제 객체의 메서드를 호출하면 그 호출을 중간에 가로채는 패턴 책에 나온 프록시의 종류들 즉 용어 하나">
+<meta name="twitter:description" content="Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.  프록시 패턴(Proxy pattern)의 정의어떤 객체에 대한 접근을 제어하기 위한 용도로,실제 객체의 메서드를 호출하면 그 호출을 중간에 가로채는 패턴  Tip&amp;gt;책에 나온 프록시의 종류들">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/71341839-576c5780-259e-11ea-93e1-e5d10f743ac8.png">
     
 
@@ -201,8 +201,10 @@ ga('send', 'pageview');
 <p><strong>Head First - Design Patterns</strong><br>(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)<br>을 읽고 정리한 내용입니다.</p>
 </blockquote>
 <h2 id="프록시-패턴-Proxy-pattern-의-정의"><a href="#프록시-패턴-Proxy-pattern-의-정의" class="headerlink" title="프록시 패턴(Proxy pattern)의 정의"></a>프록시 패턴(Proxy pattern)의 정의</h2><p>어떤 객체에 대한 접근을 제어하기 위한 용도로,<br>실제 객체의 메서드를 호출하면 그 호출을 중간에 가로채는 패턴</p>
-<h3 id=""><a href="#" class="headerlink" title=""></a><tip></tip></h3><p>책에 나온 프록시의 종류들 즉 용어 하나하나를 아는게 포인트가 아는 건 중요하지 않다.<br>프록시 패턴의 용도와 쓰임새를 보자.</p>
+<hr>
+<h3 id="Tip-gt"><a href="#Tip-gt" class="headerlink" title="Tip&gt;"></a>Tip&gt;</h3><p>책에 나온 프록시의 종류들 즉 용어 하나하나를 아는 건 중요하지 않다.<br>프록시 패턴의 용도와 쓰임새를 보자.</p>
 <p><code>프록시 패턴</code>은 <strong>스프링의 <code>AOP</code>에 많이 쓰인다.</strong></p>
+<hr>
 <h3 id="AOP-구현-방법"><a href="#AOP-구현-방법" class="headerlink" title="AOP 구현 방법"></a>AOP 구현 방법</h3><ol>
 <li>XML 스키마 기반의 <code>POJO 클래스</code>를 이용한 AOP구현</li>
 <li>AspectJ에서 정의한 @Aspect 애노테이션 기반의 AOP구현</li>
@@ -210,14 +212,15 @@ ga('send', 'pageview');
 </ol>
 <p>위의 3가지 방식 중 어떤 방식을 사용하더라도 <strong>내부적으로 <code>프록시</code>를 이용</strong>하여 <code>AOP</code>가 구현된다.<br><br></p>
 <ul>
-<li>따라서, <strong>프록시를 통한 메소드 호출만 AOP를 적용할 수 있다.</strong><br><br><br>ex) 내부클래스 내에서 다른 메소드를 호출시, 이 경우에는 프록시를 거쳐 가는것이 아니기 때문에 AOP가 적용되지 않는다.</li>
+<li>따라서, <strong>프록시를 통한 메소드 호출만 AOP를 적용할 수 있다.</strong><br><br><br>ex) 내부클래스 내에서 다른 메소드를 호출시,<br>이 경우에는 프록시를 거쳐 가는것이 아니기 때문에 AOP가 적용되지 않는다.</li>
 </ul>
+<hr>
 <h4 id="프록시-객체-생성-방법"><a href="#프록시-객체-생성-방법" class="headerlink" title="프록시 객체 생성 방법"></a>프록시 객체 생성 방법</h4><ol>
 <li><p><code>JDK Dynamic Proxy</code></p>
 <ul>
 <li>service에 꼭 인터페이스를 만들 필요는 없다.</li>
 <li><strong>인터페이스가 있어야 작동</strong>할 수 있다.</li>
-<li>인터페이스를 기반으로 프록시 객체를 생성하기 때문에<br><strong>인터페이스에 정의되어 있지 않은 메서드에 대해서는 AOP가 적용되지 않는다!</strong></li>
+<li>인터페이스를 기반으로 프록시 객체를 생성하기 때문에<br><strong>인터페이스에 정의되어 있지 않은 메서드에 대해서는 AOP가 적용되지 않는다!</strong><br><br></li>
 </ul>
 </li>
 <li><p><code>CGLIB</code> 라이브러리를 이용하는 방법</p>
@@ -225,7 +228,7 @@ ga('send', 'pageview');
 <li>대상 클래스를 <strong>상속</strong> 받아서 프록시를 구현한다.</li>
 <li><strong>클래스가 <code>final</code>일 경우, 프록시를 생성할 수 없다!</strong></li>
 <li><strong>인터페이스가 없어도 된다.</strong></li>
-<li>cf) Kotlin은 기본이 <code>final</code>이다. (기본적으로 상속이 불가능하다. 상속하기 위해서는 접근제어자를 붙여줘야 한다. )<ul>
+<li>cf) Kotlin은 기본이 <code>final</code>이다.<br>(기본적으로 상속이 불가능하다. 상속하기 위해서는 접근제어자를 붙여줘야 한다. )<ul>
 <li>ex) Kotlin에서 상속하기 위해 open을 붙여준 예시<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -236,8 +239,11 @@ ga('send', 'pageview');
 <hr>
 <h3 id="프록시-패턴의-클래스-다이어그램"><a href="#프록시-패턴의-클래스-다이어그램" class="headerlink" title="프록시 패턴의 클래스 다이어그램"></a>프록시 패턴의 클래스 다이어그램</h3><p><img src="https://user-images.githubusercontent.com/37353837/71341839-576c5780-259e-11ea-93e1-e5d10f743ac8.png" alt="프록시 패턴- 클래스 다이어그램"></p>
 <ul>
-<li><code>Subject</code> - <code>RealSubject</code>와<code>Proxy</code> 클래스 모두 이 <code>Subject</code> 인터페이스를 구현한다.</li>
-<li>똑같은 인터페이스를 구현함으로써, <code>RealSubject</code>가 들어갈 자리에 <code>Proxy</code>를 대신 집어넣을 수 있다.<br><br></li>
+<li><code>Subject</code><ul>
+<li><code>RealSubject</code>와<code>Proxy</code> 클래스 모두 이 <code>Subject</code> 인터페이스를 구현한다.</li>
+<li>똑같은 인터페이스를 구현함으로써,<br><code>RealSubject</code>가 들어갈 자리에 <code>Proxy</code>를 대신 집어넣을 수 있다.<br> <br></li>
+</ul>
+</li>
 <li><code>RealSubject</code>: <strong>Spring에서의 <code>Service</code>에 해당하는 클래스</strong><br><br></li>
 <li><code>Proxy</code><ul>
 <li>실제로 작업을 처리하는 객체 대한 레퍼런스가 들어 있다.</li>
@@ -361,8 +367,9 @@ ga('send', 'pageview');
 Head First - Design Patterns(에릭 프리먼, 엘리자베스 프리먼, 케이시 시에라, 버트 베이츠 저 | 서환수 역)을 읽고 정리한 내용입니다.
 
 프록시 패턴(Proxy pattern)의 정의어떤 객체에 대한 접근을 제어하기 위한 용도로,실제 객체의 메서드를 호출하면 그 호출을 중간에 가로채는 패턴
-책에 나온 프록시의 종류들 즉 용어 하나"
-        "wordCount": 371
+
+Tip&gt;책에 나온 프록시의 종류들"
+        "wordCount": 365
     }
 </script>
 
