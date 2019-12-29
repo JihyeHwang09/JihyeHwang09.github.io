@@ -89,7 +89,7 @@
 .article-entry ol,
 .widget dl,
 .article-entry dl {
-  line-height: 1.6em;
+  line-height: 1.8em;
 }
 .widget ul ul,
 .article-entry ul ul,
@@ -230,7 +230,7 @@ body,
 }
 body {
   background: #eaeaea;
-  font: 14px NanumSquareRound, "Helvetica Neue", sans-serif;
+  font: 14px "Nanum Square", "NanumSquareRound", sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 code {
@@ -239,7 +239,7 @@ code {
   padding: 3px 5px;
   font-size: 0.8em;
   border-radius: 2px;
-  font-family: "Source Code Pro", NanumSquareRound, Consolas;
+  font-family: "Source Code Pro", "Nanum Gothic Coding", "NanumSquareRound", Consolas;
   background-color: #f8f8f8;
 }
 .container {
@@ -528,12 +528,12 @@ code {
   border: none !important;
   outline: none !important;
   background: none !important;
-  line-height: 1.6em;
+  line-height: 1.8em;
   -webkit-transition: 0.2s ease-in;
   -moz-transition: 0.2s ease-in;
   -ms-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
-  font: 16px NanumSquareRound, "Helvetica Neue", sans-serif;
+  font: 16px "Nanum Square", "NanumSquareRound", sans-serif;
   color: rgba(255,255,255,0.7);
 }
 .search-form-input:focus,
@@ -708,7 +708,7 @@ code {
   margin-bottom: 6px;
 }
 .widget {
-  line-height: 1.6em;
+  line-height: 1.8em;
   word-wrap: break-word;
   font-size: 0.9em;
   color: #777;
@@ -1029,9 +1029,9 @@ code {
   position: relative;
   color: #aaa;
   font-size: 16px;
-  line-height: 1.6em;
+  line-height: 1.8em;
   overflow: hidden;
-  height: 6.4em;
+  height: 7.2em;
 }
 .article-summary:hover .thumbnail .thumbnail-image {
   opacity: 0.7;
@@ -1054,7 +1054,7 @@ code {
   font-size: 38px;
   letter-spacing: -1px;
   color: #555;
-  line-height: 1.3em;
+  line-height: 1.4em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
@@ -1065,7 +1065,7 @@ a.article-title:hover {
   color: #b77cea;
 }
 .article-meta {
-  line-height: 1.6em;
+  line-height: 1.8em;
 }
 .article-meta:before,
 .article-meta:after {
@@ -1097,7 +1097,7 @@ a.article-title:hover {
   margin-right: 6px;
 }
 .article-summary .article-meta {
-  height: 1.6em;
+  height: 1.8em;
   overflow: hidden;
 }
 .article-summary .article-meta a {
@@ -1113,7 +1113,7 @@ a.article-title:hover {
   color: #555;
   font-size: 18px;
   font-weight: 300;
-  line-height: 1.6em;
+  line-height: 1.8em;
 }
 .article-entry:before,
 .article-entry:after {
@@ -1125,7 +1125,7 @@ a.article-title:hover {
 }
 .article-entry p,
 .article-entry table {
-  margin: 1.6em 0;
+  margin: 1.8em 0;
 }
 .article-entry h1,
 .article-entry h2,
@@ -1141,8 +1141,8 @@ a.article-title:hover {
 .article-entry h4,
 .article-entry h5,
 .article-entry h6 {
-  line-height: 1.3em;
-  margin: 1.3em 0;
+  line-height: 1.4em;
+  margin: 1.4em 0;
 }
 .article-entry a {
   color: #b77cea;
@@ -1154,8 +1154,8 @@ a.article-title:hover {
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
-  margin-top: 1.6em;
-  margin-bottom: 1.6em;
+  margin-top: 1.8em;
+  margin-bottom: 1.8em;
   list-style-position: outside;
   padding-left: 1.4em;
 }
@@ -1209,8 +1209,8 @@ a.article-title:hover {
 }
 .article-entry blockquote footer {
   font-size: 14px;
-  margin: 1.6em 0;
-  font-family: NanumSquareRound, "Helvetica Neue", sans-serif;
+  margin: 1.8em 0;
+  font-family: "Nanum Square", "NanumSquareRound", sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -1271,9 +1271,9 @@ a.article-title:hover {
 }
 .article-footer {
   font-size: 14px;
-  line-height: 1.6em;
+  line-height: 1.8em;
   border-top: 1px solid #ddd;
-  padding-top: 1.6em;
+  padding-top: 1.8em;
 }
 .article-footer:before,
 .article-footer:after {
@@ -1322,7 +1322,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font: 14px NanumSquareRound, "Helvetica Neue", sans-serif;
+  font: 14px "Nanum Square", "NanumSquareRound", sans-serif;
   padding: 0 15px;
   color: #555;
   outline: none;
@@ -1426,7 +1426,7 @@ a.article-title:hover {
   background: #000;
   position: relative;
   text-align: center;
-  margin: 1.6em 0;
+  margin: 1.8em 0;
 }
 .article-gallery .gallery-item {
   display: none;
@@ -1543,7 +1543,7 @@ a.article-title:hover {
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
   transition: color 0.2s;
-  line-height: 1.6em;
+  line-height: 1.8em;
 }
 .archive-article-title:hover {
   color: #b77cea;
@@ -1622,7 +1622,7 @@ a.article-title:hover {
   background: #33363b;
   margin-top: 60px;
   color: #aaa;
-  line-height: 1.6em;
+  line-height: 1.8em;
 }
 #footer a {
   color: #ccc;
@@ -1818,8 +1818,8 @@ i.icon:before {
   overflow-x: auto;
   padding: 15px 20px;
   font-size: 14px;
-  font-family: "Source Code Pro", NanumSquareRound, Consolas;
-  line-height: 22.400000000000002px;
+  font-family: "Source Code Pro", "Nanum Gothic Coding", "NanumSquareRound", Consolas;
+  line-height: 25.2px;
 }
 .highlight table {
   margin: 0;
