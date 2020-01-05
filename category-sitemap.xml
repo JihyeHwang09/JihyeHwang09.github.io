@@ -8,8 +8,15 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/infra/http-network/</loc>
+        <lastmod>2020-01-05T15:33:19.405Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/infra/</loc>
-        <lastmod>2020-01-05T15:27:57.557Z</lastmod>
+        <lastmod>2020-01-05T15:33:19.405Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
