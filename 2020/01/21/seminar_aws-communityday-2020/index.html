@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>AWS Community Day 후기 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="">
+    
+    <meta name="description" content="AWS Community Day에서 인공지능/딥러닝의 세션들을 들었는데, 개인적으로 가장 인상깊었던 세션인자동으로 코드 리뷰를 자동화해주는 AI 서비스 CodeGuru에 대해 정리해보고자 한다. 자바를 잡아주는 GURU가 있다구? 우여명(백엔드 엔지니어, 아이스크림 에듀)  CodeGru 개발자들의 코드 리뷰를 자동화해주는 서비스  현재 프리뷰 상태인 서비">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS Community Day 후기">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2020/01/21/seminar_aws-communityday-2020/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="AWS Community Day에서 인공지능/딥러닝의 세션들을 들었는데, 개인적으로 가장 인상깊었던 세션인자동으로 코드 리뷰를 자동화해주는 AI 서비스 CodeGuru에 대해 정리해보고자 한다. 자바를 잡아주는 GURU가 있다구? 우여명(백엔드 엔지니어, 아이스크림 에듀)  CodeGru 개발자들의 코드 리뷰를 자동화해주는 서비스  현재 프리뷰 상태인 서비">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/72861251-b1cb1600-3d0c-11ea-8d3a-b02ab2dfbb41.png">
+<meta property="og:updated_time" content="2020-01-22T03:05:00.244Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AWS Community Day 후기">
+<meta name="twitter:description" content="AWS Community Day에서 인공지능/딥러닝의 세션들을 들었는데, 개인적으로 가장 인상깊었던 세션인자동으로 코드 리뷰를 자동화해주는 AI 서비스 CodeGuru에 대해 정리해보고자 한다. 자바를 잡아주는 GURU가 있다구? 우여명(백엔드 엔지니어, 아이스크림 에듀)  CodeGru 개발자들의 코드 리뷰를 자동화해주는 서비스  현재 프리뷰 상태인 서비">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/72861251-b1cb1600-3d0c-11ea-8d3a-b02ab2dfbb41.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-139151127-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jmnote/IropkeBatang/master/iropkebatang.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css"> <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css"> <link rel="stylesheet" href="/css/style.css">
+
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+          <h2 class="subtitle-wrap">
+            <p class="subtitle">
+              꿈꾸는 지구별 개발자, Phang&#39;s IT Blog
+            </p>
+          </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+              <li class="main-nav-list-item">
+                <a class="main-nav-list-link" href="/">Home</a>
+              </li>
+               <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/mysql/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/dev-english/">Dev English</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/lecture/">Lecture</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/typescript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/">Infra</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/http-network/">http network</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/">Tool</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/intellij/">IntelliJ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></li></ul></li></ul> 
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+                            <article id="post-seminar_aws-communityday-2020" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+    
+        <h1 class="article-title" itemprop="name">
+        AWS Community Day 후기
+        </h1>
+    
+
+    </header>
+     
+    <div class="article-meta">
+      <div class="article-subtitle">
+        <span class="article-date">
+          <!-- 
+    <div class="article-date">
+        <a href="/2020/01/21/seminar_aws-communityday-2020/" class="article-date">
+            <time datetime="2020-01-21T04:38:30.000Z" itemprop="datePublished">2020-01-21</time>
+        </a>
+    </div>
+ 
+ 
+                       -->
+          <!-- 🗓 작성일자 -->
+          
+    <div class="article-date">
+        <a href="/2020/01/21/seminar_aws-communityday-2020/" class="article-date">
+            <time datetime="2020-01-21T04:38:30.000Z" itemprop="datePublished">2020-01-21</time>
+        </a>
+    </div>
+
+        </span>
+        <span class="reading-time">⏱ 읽기 소요 시간: 7 분</span>
+      </div>
+    </div>
+     
+    <div class="article-entry" itemprop="articleBody">
+      <p>AWS Community Day에서 <strong>인공지능/딥러닝</strong>의 세션들을 들었는데, 개인적으로 가장 인상깊었던 세션인<br><strong>자동으로 코드 리뷰를 자동화해주는 AI 서비스</strong> <code>CodeGuru</code>에 대해 정리해보고자 한다.</p>
+<h2 id="자바를-잡아주는-GURU가-있다구"><a href="#자바를-잡아주는-GURU가-있다구" class="headerlink" title="자바를 잡아주는 GURU가 있다구?"></a>자바를 잡아주는 GURU가 있다구?</h2><blockquote>
+<p>우여명(백엔드 엔지니어, 아이스크림 에듀)</p>
+</blockquote>
+<h3 id="CodeGru"><a href="#CodeGru" class="headerlink" title="CodeGru"></a>CodeGru</h3><p><img src="https://user-images.githubusercontent.com/37353837/72861251-b1cb1600-3d0c-11ea-8d3a-b02ab2dfbb41.png" alt=""></p>
+<p>개발자들의 코드 리뷰를 자동화해주는 서비스</p>
+<ul>
+<li><p>현재 프리뷰 상태인 서비스</p>
+</li>
+<li><p>아마존에서 현재 사용중인 서비스</p>
+</li>
+<li><p>현실에서 코드 리뷰의 어려움</p>
+<p>현실 세계에서의 코드 리뷰는 잘 안되는게 현실이다.</p>
+</li>
+</ul>
+<hr>
+<h3 id="코딩-자동화-도구들"><a href="#코딩-자동화-도구들" class="headerlink" title="코딩 자동화 도구들"></a>코딩 자동화 도구들</h3><p><img src="https://user-images.githubusercontent.com/37353837/72859982-d6bd8a00-3d08-11ea-8ace-140485798796.png" alt=""></p>
+<h3 id="CodeGru의-특징"><a href="#CodeGru의-특징" class="headerlink" title="CodeGru의 특징"></a>CodeGru의 특징</h3><ul>
+<li>PR 기반의 코드 리뷰 도구인 CodeGuru Reviewer</li>
+<li>에이전트가 수집한 데이터를 기반으로 성능(CPU) 관련 시각화 및 해결책을 제안하는 CodeGuru Profiler</li>
+<li>아마존이 수십년간의 지식과 경험을 기반으로 학습한다.</li>
+<li>확인된 문제를 고칠 수 있는 실행 가능한 구체적인 방법을 제공</li>
+<li>현재 Java 언어만 지원</li>
+<li>현재 Preview 상태</li>
+<li>현재 Github과 AWS CodeCommit 소스 코드만 가능</li>
+<li>실제 사람인 코드 리뷰어와 코드 그루 리뷰어 둘 다 코드 리뷰를 할 수 있다.</li>
+<li>사람이 하는 코드 리뷰를 보완해준다.(사람이 하는 코드 리뷰를 대체하는 게 아님)</li>
+<li>현재 사용가능한 리전: us-east-1, us-east-2, us-west-2, ap-southeast-2, eu-west-1</li>
+</ul>
+<hr>
+<h3 id="CodeGuru-Reviewer가-다루는-영역"><a href="#CodeGuru-Reviewer가-다루는-영역" class="headerlink" title="CodeGuru Reviewer가 다루는 영역"></a>CodeGuru Reviewer가 다루는 영역</h3><p><img src="https://user-images.githubusercontent.com/37353837/72861286-c9a29a00-3d0c-11ea-966a-cfb2f6a92622.png" alt=""><br><img src="https://user-images.githubusercontent.com/37353837/72861294-cf987b00-3d0c-11ea-9c8d-c6cd4791b9c4.png" alt=""></p>
+<ul>
+<li><p>AWS 모범 사례: AWS API 사용</p>
+<ul>
+<li>잘못 사용할 경우, 성능(ex) 폴링) 또는 정확성 및 안전성(ex) 페이징 처리) 문제 발생</li>
+</ul>
+</li>
+<li><p>동시성: 동시성 구조의 올바른 구현</p>
+<ul>
+<li>잘못 사용할 경우, 정확성(ex) 동기화 누락) 또는 성능 문제(ex) 과도한 동기화)가 발생하여 가용성에 영향</li>
+</ul>
+</li>
+<li><p>리소스 누수: 올바른 리소스 처리</p>
+<ul>
+<li>잘못 처리할 경우( ex) 데이터 베이스 연결을 해제하지 않음) 속도가 느려지고 가용성에 영향</li>
+</ul>
+</li>
+<li><p>민감 정보 유출: 개인 식별 정보 유출</p>
+<ul>
+<li>민감한 정보가 유출되면(ex) 신용 카드 번호 기록) 컴플라이언스 이슈 발생</li>
+</ul>
+</li>
+<li><p>마이닝 데이터로 발견된 코드 결함: 찾기 어려운 결함들</p>
+<ul>
+<li>문제를 해결할 경우(ex) 각 람다 호출마다 클라이언트를 만들지 않음) 코드 품질이 향상</li>
+</ul>
+</li>
+</ul>
+<h3 id="리뷰어에-대한-아마존-개발자들의-피드백"><a href="#리뷰어에-대한-아마존-개발자들의-피드백" class="headerlink" title="리뷰어에 대한 아마존 개발자들의 피드백"></a>리뷰어에 대한 아마존 개발자들의 피드백</h3><ul>
+<li>중요한 코드에 숨어있는 오랜 <strong>레이스 컨디션</strong>을 파악할 수 있었다.</li>
+<li>일반적으로 사용하지 않는 방식으로 Amazon DynamoDB 테이블을 사용하고 있었고 코드 리뷰에서 이를 놓쳤다.<br>리뷰어는 작업이 전체 결과 대신 페이징된 결과를 반환하고 있음을 확인하여 문제를 잘 잡았고 좋은 해결책도 주었다.</li>
+<li>리뷰어는 (DB 커넥션 같은) 리소스를 닫기 위해서 try-with-resources 구문을 사용할 것을 추천했고, 즉시 구현했다.</li>
+</ul>
+<hr>
+<h3 id="CodeGuru-Profiler"><a href="#CodeGuru-Profiler" class="headerlink" title="CodeGuru Profiler"></a>CodeGuru Profiler</h3><p><img src="https://user-images.githubusercontent.com/37353837/72860818-65cba180-3d0b-11ea-8e5a-5029c439c4f7.png" alt=""></p>
+<ul>
+<li>해결 가능성이 높은 성능 최적화 해결책을 찾도록 학습</li>
+<li>긴 응답시간 &amp; 낮은 처리량</li>
+<li>높은 CPU 사용률</li>
+<li>어떻게 코드를 고칠 지 제안</li>
+<li>아마존에서 수년 동안 축적된 성능 엔지니어링 경험으로 학습된 지능형 프로파일러</li>
+</ul>
+<h3 id="프로파일러에-대한-아마존-개발자들의-피드백"><a href="#프로파일러에-대한-아마존-개발자들의-피드백" class="headerlink" title="프로파일러에 대한 아마존 개발자들의 피드백"></a>프로파일러에 대한 아마존 개발자들의 피드백</h3><p>Chris Butterfield, SDE</p>
+<ul>
+<li>프로파일러가 제안한 해결책으로 CPU 시간의 55.97%를 사용하는 스레드 경합이 제거되었다.</li>
+<li>수정 후 단일 호스트는 이전보다 최대 <strong>7.5배 더 많은 트래픽</strong>을 처리할 수 있다.</li>
+<li>동일한 트래픽을 처리하면서 인스턴스 수를 75%까지 줄였다.</li>
+</ul>
+<p>Rajesh Konatham, SDE</p>
+<ul>
+<li>프로파일러가 제안한 클론을 삭제하는 해결책으로 CPU 사용량이 크게 감소했다.</li>
+<li>동기 플릿의 경우 40%, 비동기 플릿의 경우 67%가 감소했다.</li>
+</ul>
+<h3 id="CodeGuru-Profiler-DEMO"><a href="#CodeGuru-Profiler-DEMO" class="headerlink" title="CodeGuru Profiler DEMO"></a>CodeGuru Profiler DEMO</h3><ul>
+<li>[CodeGuru Profiler-sample-application]: <a href="https://github.com/aws-samples/aws-codeguru-profiler-sample-application" target="_blank" rel="noopener">https://github.com/aws-samples/aws-codeguru-profiler-sample-application</a></li>
+</ul>
+<hr>
+<h3 id="AI-기반-도구가-개발자에게-끼칠-영향"><a href="#AI-기반-도구가-개발자에게-끼칠-영향" class="headerlink" title="AI 기반 도구가 개발자에게 끼칠 영향"></a>AI 기반 도구가 개발자에게 끼칠 영향</h3><ul>
+<li>개발자의 삶에 스며 들고 있는 AI</li>
+<li>유용하게 활용한다면 <strong>유의미한 생산성 증가</strong> 기대</li>
+<li>코드 어시스턴트를 활용하여 <strong>코드 생산성 증가</strong> 기대</li>
+<li>코드 리뷰 도구를 활용하여 <strong>실수와 성능 및 보안 문제 해결</strong> 기대</li>
+<li>개발자가 좀 더 <strong>비즈니스 로직의 구현에 집중</strong></li>
+</ul>
+<hr>
+<h3 id="현재-아쉬운-점"><a href="#현재-아쉬운-점" class="headerlink" title="현재 아쉬운 점"></a>현재 아쉬운 점</h3><ul>
+<li>리뷰의 시작과 종료에 대한 알림이 없다.</li>
+<li>댓글이 없을 경우, 리뷰가 정상적으로 진행된 것인지 확인하기 어렵다.</li>
+<li>사용성 측면에서 개선 여지가 많다.</li>
+</ul>
+<hr>
+<h3 id="AWS-Community-Day를-다녀오며-느낀점"><a href="#AWS-Community-Day를-다녀오며-느낀점" class="headerlink" title="AWS Community Day를 다녀오며 느낀점"></a>AWS Community Day를 다녀오며 느낀점</h3><p>개인적으로는 서울 리전에서는 아직 프리뷰 상태라는 게 아쉽다.<br>키노트 시간에 언급된 이야기 중 인상깊었던 부분이 있었다.<br>아직 우리나라에서는 이제 막 도입하고 사용하고 있는 분위기인데,<br>미국에서는 서버리스와 컨테이너가 당연하다고 한다.<br>미국 최앞단의 시간과 우리나라에서의 IT의 시간은 다른 속도로 흐르는 것 같다.<br>이미 아마존에서는 이 CodeGuru 서비스를 도입하고 실제 업무에서 사용하면서<br>개발자들이 직접 하는 코드 리뷰를 보완하고 있다고 한다는 점이 놀라웠다.<br>특히 리뷰어는 서울 리전에서 사용할 수 있게 되면, 직접 도입해서 사용해 보고 싶다는 생각이 들었다.</p>
+
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+    <footer class="article-footer">
+      
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+    </footer>
+  </div>
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "AWS Community Day 후기",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/72861251-b1cb1600-3d0c-11ea-8d3a-b02ab2dfbb41.png",
+        "keywords": "",
+        "genre": "Developer Seminar & Conference",
+        "datePublished": "2020-01-21",
+        "dateCreated": "2020-01-21",
+        "dateModified": "2020-01-22",
+        "url": "https://JihyeHwang09.github.io/2020/01/21/seminar_aws-communityday-2020/",
+        "description": "AWS Community Day에서 인공지능/딥러닝의 세션들을 들었는데, 개인적으로 가장 인상깊었던 세션인자동으로 코드 리뷰를 자동화해주는 AI 서비스 CodeGuru에 대해 정리해보고자 한다.
+자바를 잡아주는 GURU가 있다구?
+우여명(백엔드 엔지니어, 아이스크림 에듀)
+
+CodeGru
+개발자들의 코드 리뷰를 자동화해주는 서비스
+
+현재 프리뷰 상태인 서비"
+        "wordCount": 557
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/01/06/http-network-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">2장 간단한 프로토콜 HTTP</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/01/21/seminar_aws-communityday-2020/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/72861251-b1cb1600-3d0c-11ea-8d3a-b02ab2dfbb41.png)" alt="AWS Community Day 후기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a></p>
+                            <p class="item-title"><a href="/2020/01/21/seminar_aws-communityday-2020/" class="title">AWS Community Day 후기</a></p>
+                            <p class="item-date"><time datetime="2020-01-21T04:38:30.000Z" itemprop="datePublished">2020-01-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/01/06/http-network-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png)" alt="2장 간단한 프로토콜 HTTP" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/infra/http-network/">http network</a></p>
+                            <p class="item-title"><a href="/2020/01/06/http-network-2/" class="title">2장 간단한 프로토콜 HTTP</a></p>
+                            <p class="item-date"><time datetime="2020-01-05T15:20:04.000Z" itemprop="datePublished">2020-01-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/01/05/http-network-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png)" alt="1장 웹과 네트워크의 기본" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/infra/http-network/">http network</a></p>
+                            <p class="item-title"><a href="/2020/01/05/http-network-1/" class="title">1장 웹과 네트워크의 기본</a></p>
+                            <p class="item-date"><time datetime="2020-01-05T14:30:28.000Z" itemprop="datePublished">2020-01-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/28/design-pattern-etc/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71541849-4b1f3a80-29a2-11ea-9f4e-2e3eec8ca23e.png)" alt="실전에서의 디자인 패턴" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/design-pattern/">Design-pattern</a></p>
+                            <p class="item-title"><a href="/2019/12/28/design-pattern-etc/" class="title">실전에서의 디자인 패턴</a></p>
+                            <p class="item-date"><time datetime="2019-12-28T08:32:59.000Z" itemprop="datePublished">2019-12-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/24/seminar_wootechnight-2019/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71410016-fe2c2300-2686-11ea-9a08-f6ca3682cead.png)" alt="우아한 테크의 밤 후기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a></p>
+                            <p class="item-title"><a href="/2019/12/24/seminar_wootechnight-2019/" class="title">우아한 테크의 밤 후기</a></p>
+                            <p class="item-date"><time datetime="2019-12-24T11:16:23.000Z" itemprop="datePublished">2019-12-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">97</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">Database</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">MySQL</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/oracle/">Oracle</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">44</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/dev-english/">Dev English</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/lecture/">Lecture</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/typescript/">TypeScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/infra/">Infra</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/infra/http-network/">http network</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">Tool</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/intellij/">IntelliJ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <!-- <div id="busuanzi_container_site_pv">
+          총 조회 <span id="busuanzi_value_site_pv"></span> 회 |
+        </div>
+        <div id="busuanzi_container_site_uv">
+          총 방문자 <span id="busuanzi_value_site_uv"></span> 명
+        </div> -->
+        <p>
+          &copy; 2020 Phang
+        </p>
+        <p>
+          Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by
+          <a href="//github.com/ppoffice" target="_blank">PPOffice</a>
+        </p>
+      </div>
+      <div class="footer-plugins">
+        
+    
+
+
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2020/01/21/seminar_aws-communityday-2020/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
