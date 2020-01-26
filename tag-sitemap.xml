@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
+        <lastmod>2020-01-26T12:30:02.947Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/til/</loc>
+        <lastmod>2020-01-26T12:30:02.947Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-http-network/</loc>
         <lastmod>2020-01-05T15:33:19.405Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -66,13 +80,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4/</loc>
-        <lastmod>2019-11-24T13:53:42.963Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/tags/%ED%85%9C%ED%94%8C%EB%A6%BF-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%8C%A8%ED%84%B4/</loc>
         <lastmod>2019-11-24T13:53:42.963Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -81,6 +88,13 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/template-method-pattern/</loc>
+        <lastmod>2019-11-24T13:53:42.963Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4/</loc>
         <lastmod>2019-11-24T13:53:42.963Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -166,20 +180,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/tags/%EB%B0%95%EC%9E%AC%EC%84%B1/</loc>
         <lastmod>2019-11-16T11:57:20.104Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
-        <lastmod>2019-11-16T11:50:08.161Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/til/</loc>
-        <lastmod>2019-11-16T11:50:08.161Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

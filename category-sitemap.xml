@@ -8,14 +8,21 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/seminar-conference/</loc>
-        <lastmod>2020-01-22T03:05:00.244Z</lastmod>
+        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
+        <lastmod>2020-01-26T12:30:02.947Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
+        <lastmod>2020-01-26T12:30:02.947Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/developer/seminar-conference/</loc>
         <lastmod>2020-01-22T03:05:00.244Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -52,13 +59,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/lecture/</loc>
         <lastmod>2019-11-16T11:57:20.104Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
-        <lastmod>2019-11-16T11:50:08.161Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
