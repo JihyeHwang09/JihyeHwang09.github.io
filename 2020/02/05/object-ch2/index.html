@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="오브젝트">
     
-    <meta name="description" content="조영호님의 오브젝트: 코드로 이해하는 객체지향 설계을 읽고 정리한 내용입니다.   01. 영화 예매 시스템영화와 상영이라는 용어를 구분하자.두 용어의 차이가 중요한 이유는 사용자가 실제로 예매하는 대상은영화가 아니라, 상영이기 때문이다.  02. 객체지향 프로그래밍을 향해협력, 객체, 클래스이제부터는 예매 시스템보다는 객체 지향에 대해 알아보자.대부분의">
+    <meta name="description" content="조영호님의 오브젝트: 코드로 이해하는 객체지향 설계를 읽고 정리한 내용입니다.   01. 영화 예매 시스템영화와 상영이라는 용어를 구분하자.두 용어의 차이가 중요한 이유는 사용자가 실제로 예매하는 대상은영화가 아니라, 상영이기 때문이다.  02. 객체지향 프로그래밍을 향해협력, 객체, 클래스이제부터는 예매 시스템보다는 객체 지향에 대해 알아보자.대부분의">
 <meta name="keywords" content="오브젝트">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch2. 객체지향 프로그래밍">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2020/02/05/object-ch2/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="조영호님의 오브젝트: 코드로 이해하는 객체지향 설계을 읽고 정리한 내용입니다.   01. 영화 예매 시스템영화와 상영이라는 용어를 구분하자.두 용어의 차이가 중요한 이유는 사용자가 실제로 예매하는 대상은영화가 아니라, 상영이기 때문이다.  02. 객체지향 프로그래밍을 향해협력, 객체, 클래스이제부터는 예매 시스템보다는 객체 지향에 대해 알아보자.대부분의">
+<meta property="og:description" content="조영호님의 오브젝트: 코드로 이해하는 객체지향 설계를 읽고 정리한 내용입니다.   01. 영화 예매 시스템영화와 상영이라는 용어를 구분하자.두 용어의 차이가 중요한 이유는 사용자가 실제로 예매하는 대상은영화가 아니라, 상영이기 때문이다.  02. 객체지향 프로그래밍을 향해협력, 객체, 클래스이제부터는 예매 시스템보다는 객체 지향에 대해 알아보자.대부분의">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/73866221-d33d0d80-4887-11ea-868c-8f2d41317df6.png">
-<meta property="og:updated_time" content="2020-02-05T17:45:34.583Z">
+<meta property="og:updated_time" content="2020-02-05T22:36:59.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ch2. 객체지향 프로그래밍">
-<meta name="twitter:description" content="조영호님의 오브젝트: 코드로 이해하는 객체지향 설계을 읽고 정리한 내용입니다.   01. 영화 예매 시스템영화와 상영이라는 용어를 구분하자.두 용어의 차이가 중요한 이유는 사용자가 실제로 예매하는 대상은영화가 아니라, 상영이기 때문이다.  02. 객체지향 프로그래밍을 향해협력, 객체, 클래스이제부터는 예매 시스템보다는 객체 지향에 대해 알아보자.대부분의">
+<meta name="twitter:description" content="조영호님의 오브젝트: 코드로 이해하는 객체지향 설계를 읽고 정리한 내용입니다.   01. 영화 예매 시스템영화와 상영이라는 용어를 구분하자.두 용어의 차이가 중요한 이유는 사용자가 실제로 예매하는 대상은영화가 아니라, 상영이기 때문이다.  02. 객체지향 프로그래밍을 향해협력, 객체, 클래스이제부터는 예매 시스템보다는 객체 지향에 대해 알아보자.대부분의">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/73866221-d33d0d80-4887-11ea-868c-8f2d41317df6.png">
     
 
@@ -215,13 +215,13 @@ ga('send', 'pageview');
      
     <div class="article-entry" itemprop="articleBody">
       <blockquote>
-<p><a href="http://www.yes24.com/Product/Goods/74219491?scode=029" target="_blank" rel="noopener">조영호님의 <strong>오브젝트: 코드로 이해하는 객체지향 설계</strong></a><br>을 읽고 정리한 내용입니다.</p>
+<p><a href="http://www.yes24.com/Product/Goods/74219491?scode=029" target="_blank" rel="noopener">조영호님의 <strong>오브젝트: 코드로 이해하는 객체지향 설계</strong></a><br>를 읽고 정리한 내용입니다.</p>
 </blockquote>
 <hr>
 <h2 id="01-영화-예매-시스템"><a href="#01-영화-예매-시스템" class="headerlink" title="01. 영화 예매 시스템"></a>01. 영화 예매 시스템</h2><p><code>영화</code>와 <code>상영</code>이라는 용어를 구분하자.<br>두 용어의 차이가 중요한 이유는 사용자가 실제로 예매하는 대상은<br><code>영화</code>가 아니라, <code>상영</code>이기 때문이다.</p>
 <hr>
 <h2 id="02-객체지향-프로그래밍을-향해"><a href="#02-객체지향-프로그래밍을-향해" class="headerlink" title="02. 객체지향 프로그래밍을 향해"></a>02. 객체지향 프로그래밍을 향해</h2><h3 id="협력-객체-클래스"><a href="#협력-객체-클래스" class="headerlink" title="협력, 객체, 클래스"></a>협력, 객체, 클래스</h3><p>이제부터는 예매 시스템보다는 객체 지향에 대해 알아보자.<br>대부분의 사람들은 클래스를 결정한 후에 클래스에 어떤 속성과 메서드가 필요한지 고민한다.<br>(<strong>객체 = 클래스</strong>라는 관점) -&gt; 객체지향의 본질과는 거리가 멀다.<br><strong>진정한 객체지향 패러다임으로의 전환은</strong> 클래스가 아닌 <strong><code>객체</code>에 초점을 맞출 때에만 얻을 수 있다.</strong><br>객체들의 모양과 윤곽이 잡히면, 공통된 특성과 상태를 가진 객체들을 타입으로 분류하고<br>이 타입을 기반으로 클래스를 구현한다.</p>
-<h3 id="도메인의-구조를-따르는-프로그램-구조"><a href="#도메인의-구조를-따르는-프로그램-구조" class="headerlink" title="도메인의 구조를 따르는 프로그램 구조"></a>도메인의 구조를 따르는 프로그램 구조</h3><p>문제를 해결하기 위해 사용자가 프로그램을 사용하는 분야를 <code>도메인</code>이라고 부른다.<br>(ex) 설계 순서의 예시<br>일반적으로 RDB를 사용하는 실무에서의 설계 순서는 대부분 테이블을 만들고 그 테이블을<br>기반으로 클래스를 만드는 설계하는 반면,<br>이 책에서는 도메인을 먼저 구성한 후, 그 도메인을 기반으로 클래스를 설계한다고 말한다.)</p>
+<h3 id="도메인의-구조를-따르는-프로그램-구조"><a href="#도메인의-구조를-따르는-프로그램-구조" class="headerlink" title="도메인의 구조를 따르는 프로그램 구조"></a>도메인의 구조를 따르는 프로그램 구조</h3><p>문제를 해결하기 위해 사용자가 프로그램을 사용하는 분야를 <code>도메인</code>이라고 부른다.<br>ex) 설계 순서의 예시<br>일반적으로 RDB를 사용하는 실무에서의 설계 순서는 대부분 테이블을 만들고 그 테이블을<br>기반으로 클래스를 만드는 설계하는 반면,<br>이 책에서는 도메인을 먼저 구성한 후, 그 도메인을 기반으로 클래스를 설계하는 것이 좋다고 말한다.)</p>
 <h3 id="클래스-구현하기"><a href="#클래스-구현하기" class="headerlink" title="클래스 구현하기"></a>클래스 구현하기</h3><p>클래스는 내부와 외부로 구분되며 훌륭한 클래스를 설계하기 위한 핵심은<br>어떤 부분을 외부에 공개하고 어떤 부분을 감출지 결정하는 것이다.</p>
 <h4 id="자율적인-객체"><a href="#자율적인-객체" class="headerlink" title="자율적인 객체"></a>자율적인 객체</h4><p>두 가지 사실을 알아야 한다.</p>
 <ul>
@@ -230,7 +230,7 @@ ga('send', 'pageview');
 </ul>
 <h5 id="객체지향-이전의-패러다임-VS-객체지향"><a href="#객체지향-이전의-패러다임-VS-객체지향" class="headerlink" title="객체지향 이전의 패러다임 VS 객체지향"></a>객체지향 이전의 패러다임 VS 객체지향</h5><ul>
 <li><code>객체지향 이전의 패러다임</code>: 데이터와 기능이라는 <strong>독립적인 존재를 서로 엮어</strong> 프로그램을 구성</li>
-<li><code>객체지향</code>: <strong>객체라는 단위 안에 데이터와 기능을 한 덩어리로 묶음으</strong>로써 문제 영역의 아이디어를 적절하게 표현할 수 있게 함<br>-&gt; 데이터와 기능을 객체 내부로 함께 묶는 것을 <code>캡슐화</code>라고 한다.</li>
+<li><code>객체지향</code>: <strong>객체라는 단위 안에 데이터와 기능을 한 덩어리로 묶음</strong>으로써 문제 영역의 아이디어를 적절하게 표현할 수 있게 함<br>-&gt; 데이터와 기능을 객체 내부로 함께 묶는 것을 <code>캡슐화</code>라고 한다.</li>
 </ul>
 <p>객체가 자율적인 존재로 우뚝 서기 위해서는 <strong>외부 간섭을 최소화</strong>해야 한다.</p>
 <p>캡슐화와 접근 제어는 객체를 두 부분으로 나눈다.</p>
@@ -240,7 +240,7 @@ ga('send', 'pageview');
 </ul>
 <h4 id="프로그래머의-자유"><a href="#프로그래머의-자유" class="headerlink" title="프로그래머의 자유"></a>프로그래머의 자유</h4><p>프로그래머의 역할을 <code>클래스 작성자(class creator)</code>와<br><code>클라이언트 프로그래머(client programmer)</code>로 구분하는 것이 유용하다.<br>ex) 공통 코드를 만들어내는 플랫폼 개발자 -&gt; 클래스 작성자</p>
 <p>객체 변경을 관리할 수 있는 기법 중에서 가장 대표적인 <code>접근 제어</code>는 경험과 연습이 중요하다.<br>ex) 모든 method를 처음에는 모두 <code>private</code>으로 만들고,<br>클라이언트 프로그래머에게 공개가 필요할 경우에 해당 method를 public으로 open하는 식으로 연습하는 경우도 있다.</p>
-<p>클래스를 개발할 때마다 인터페이스와 구현을 깔끔하게 분리하기 위해 노력해야 한다.<br>설계가 필요한 이유는 변경을 관리하기 위해서라는 것을 기억하라.</p>
+<p>클래스를 개발할 때마다 인터페이스와 구현을 깔끔하게 분리하기 위해 노력해야 한다.<br><strong>설계가 필요한 이유</strong>는 <strong>변경을 관리하기 위해서라는 것</strong>을 기억하라.</p>
 <h5 id="접근-제어-메커니즘"><a href="#접근-제어-메커니즘" class="headerlink" title="접근 제어 메커니즘"></a>접근 제어 메커니즘</h5><ol>
 <li>프로그래밍 언어 차원에서 클래스의 내부와 외부를 명확하게 경계 지을 수 있게 한다.</li>
 <li>클래스 작성자가 내부 구현을 은닉할 수 있게 해준다.</li>
@@ -387,13 +387,13 @@ ga('send', 'pageview');
         "dateModified": "2020-02-06",
         "url": "https://JihyeHwang09.github.io/2020/02/05/object-ch2/",
         "description": "
-조영호님의 오브젝트: 코드로 이해하는 객체지향 설계을 읽고 정리한 내용입니다.
+조영호님의 오브젝트: 코드로 이해하는 객체지향 설계를 읽고 정리한 내용입니다.
 
 
 01. 영화 예매 시스템영화와 상영이라는 용어를 구분하자.두 용어의 차이가 중요한 이유는 사용자가 실제로 예매하는 대상은영화가 아니라, 상영이기 때문이다.
 
 02. 객체지향 프로그래밍을 향해협력, 객체, 클래스이제부터는 예매 시스템보다는 객체 지향에 대해 알아보자.대부분의 "
-        "wordCount": 1283
+        "wordCount": 1285
     }
 </script>
 
