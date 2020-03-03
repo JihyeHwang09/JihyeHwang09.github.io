@@ -8,14 +8,21 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/object/</loc>
-        <lastmod>2020-02-05T22:36:59.774Z</lastmod>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/python/</loc>
+        <lastmod>2020-03-03T14:04:24.540Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
+        <lastmod>2020-03-03T14:04:24.540Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/object/</loc>
         <lastmod>2020-02-05T22:36:59.774Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -206,13 +213,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%BC%ED%95%99/</loc>
         <lastmod>2019-07-29T14:57:02.016Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/python/</loc>
-        <lastmod>2019-07-29T12:50:30.170Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
