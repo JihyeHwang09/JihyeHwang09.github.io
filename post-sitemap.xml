@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2020/03/04/http-network-3/</loc>
+        <lastmod>2020-03-04T13:08:13.217Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/06/23/codeup-29/</loc>
         <lastmod>2020-03-03T14:04:24.540Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1864,7 +1872,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/12/css-inheritance%26cascade/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/01/15/css-background/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1872,7 +1880,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/15/css-background/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/01/12/css-inheritance%26cascade/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1976,14 +1984,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/26/node-web-serever/</loc>
-        <lastmod>2019-04-11T15:21:56.271Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/2019/03/06/node-morgan/</loc>
         <lastmod>2019-04-11T15:21:56.271Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1993,6 +1993,14 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/</loc>
+        <lastmod>2019-04-11T15:21:56.271Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/2019/02/26/node-web-serever/</loc>
         <lastmod>2019-04-11T15:21:56.271Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2016,7 +2024,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/04/09/node-library-winston/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/19/node-js-design-pattern1/</loc>
         <lastmod>2019-04-11T15:21:56.259Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2024,7 +2032,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/19/node-js-design-pattern1/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/04/09/node-library-winston/</loc>
         <lastmod>2019-04-11T15:21:56.259Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
