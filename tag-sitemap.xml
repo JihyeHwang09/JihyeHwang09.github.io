@@ -4,14 +4,14 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
-        <lastmod>2020-03-07T15:09:44.152Z</lastmod>
+        <lastmod>2020-03-07T15:27:00.472Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/til/</loc>
-        <lastmod>2020-03-07T15:09:44.152Z</lastmod>
+        <lastmod>2020-03-07T15:27:00.472Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -220,6 +220,13 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4/</loc>
+        <lastmod>2019-11-24T13:53:42.963Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/%ED%85%9C%ED%94%8C%EB%A6%BF-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%8C%A8%ED%84%B4/</loc>
         <lastmod>2019-11-24T13:53:42.963Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -228,13 +235,6 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/template-method-pattern/</loc>
-        <lastmod>2019-11-24T13:53:42.963Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4/</loc>
         <lastmod>2019-11-24T13:53:42.963Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -640,14 +640,14 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98/</loc>
+        <loc>https://JihyeHwang09.github.io/tags/recursion/</loc>
         <lastmod>2019-07-29T14:57:02.016Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/recursion/</loc>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98/</loc>
         <lastmod>2019-07-29T14:57:02.016Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
