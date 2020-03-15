@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="http network,그림으로 배우는 HTTP &amp; Network">
     
-    <meta name="description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   6.3.2. Connection1. 프록시에 더 이상 전송하지 않는 헤더 필드를 지정1Connection: 더 이상 전송하지 않는 헤더 필드명 클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 Connection 헤더 필드를 사용하며,프록시 서버에">
+    <meta name="description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.    Connection 프록시에 더 이상 전송하지 않는 헤더 필드를 지정 지속적 접속 관리   Date Pragma Trailer Transfer-Encoding Upgrade Via Warning   Connection프록시에 더 이상 전송하지">
 <meta name="keywords" content="http network,그림으로 배우는 HTTP &amp; Network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6장 HTTP 헤더-3">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2020/03/15/http-network-6-3/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   6.3.2. Connection1. 프록시에 더 이상 전송하지 않는 헤더 필드를 지정1Connection: 더 이상 전송하지 않는 헤더 필드명 클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 Connection 헤더 필드를 사용하며,프록시 서버에">
+<meta property="og:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.    Connection 프록시에 더 이상 전송하지 않는 헤더 필드를 지정 지속적 접속 관리   Date Pragma Trailer Transfer-Encoding Upgrade Via Warning   Connection프록시에 더 이상 전송하지">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png">
-<meta property="og:updated_time" content="2020-03-15T08:11:26.250Z">
+<meta property="og:updated_time" content="2020-03-15T08:28:57.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6장 HTTP 헤더-3">
-<meta name="twitter:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   6.3.2. Connection1. 프록시에 더 이상 전송하지 않는 헤더 필드를 지정1Connection: 더 이상 전송하지 않는 헤더 필드명 클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 Connection 헤더 필드를 사용하며,프록시 서버에">
+<meta name="twitter:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.    Connection 프록시에 더 이상 전송하지 않는 헤더 필드를 지정 지속적 접속 관리   Date Pragma Trailer Transfer-Encoding Upgrade Via Warning   Connection프록시에 더 이상 전송하지">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png">
     
 
@@ -218,7 +218,22 @@ ga('send', 'pageview');
 <p><strong>그림으로 배우는 HTTP &amp; Network</strong><br>(우에노 센 저 / 이병억 역 )<br>을 읽고 정리한 내용입니다.</p>
 </blockquote>
 <hr>
-<h3 id="6-3-2-Connection"><a href="#6-3-2-Connection" class="headerlink" title="6.3.2. Connection"></a>6.3.2. Connection</h3><h4 id="1-프록시에-더-이상-전송하지-않는-헤더-필드를-지정"><a href="#1-프록시에-더-이상-전송하지-않는-헤더-필드를-지정" class="headerlink" title="1. 프록시에 더 이상 전송하지 않는 헤더 필드를 지정"></a>1. 프록시에 더 이상 전송하지 않는 헤더 필드를 지정</h4><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Connection</span>: 더 이상 전송하지 않는 헤더 필드명</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="#connection">Connection</a><ul>
+<li><a href="#프록시에-더-이상-전송하지-않는-헤더-필드를-지정">프록시에 더 이상 전송하지 않는 헤더 필드를 지정</a></li>
+<li><a href="#지속적-접속-관리">지속적 접속 관리</a></li>
+</ul>
+</li>
+<li><a href="#date">Date</a></li>
+<li><a href="#pragma">Pragma</a></li>
+<li><a href="#trailer">Trailer</a></li>
+<li><a href="#transferencoding">Transfer-Encoding</a></li>
+<li><a href="#upgrade">Upgrade</a></li>
+<li><a href="#via">Via</a></li>
+<li><a href="#warning">Warning</a></li>
+</ul>
+<hr>
+<h3 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h3><h4 id="프록시에-더-이상-전송하지-않는-헤더-필드를-지정"><a href="#프록시에-더-이상-전송하지-않는-헤더-필드를-지정" class="headerlink" title="프록시에 더 이상 전송하지 않는 헤더 필드를 지정"></a>프록시에 더 이상 전송하지 않는 헤더 필드를 지정</h4><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Connection</span>: 더 이상 전송하지 않는 헤더 필드명</span><br></pre></td></tr></table></figure>
 <p>클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 <code>Connection</code> 헤더 필드를 사용하며,<br>프록시 서버에 더 이상 전송하지 않는 헤더 필드(hop-by-hop 헤더)를 지정할 수 있다.</p>
 <ul>
 <li>클라이언트 -&gt; 프록시 서버</li>
@@ -228,7 +243,7 @@ ga('send', 'pageview');
 <li>프록시 서버 -&gt; 오리진 서버</li>
 </ul>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">GET/HTTP/1.1</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-지속적-접속-관리"><a href="#2-지속적-접속-관리" class="headerlink" title="2. 지속적 접속 관리"></a>2. 지속적 접속 관리</h4><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Connection</span>: Close</span><br></pre></td></tr></table></figure>
+<h4 id="지속적-접속-관리"><a href="#지속적-접속-관리" class="headerlink" title="지속적 접속 관리"></a>지속적 접속 관리</h4><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Connection</span>: Close</span><br></pre></td></tr></table></figure>
 <p>HTTP/1.1에서는 <strong>지속적 접속</strong>이 디폴트<br>-&gt; 리퀘스트를 송신했던 클라이언트는 접속이 계속 유지되면서 추가 리퀘스트를 송신하도록 한다.<br><strong>서버 측에서 명시적으로 접속을 끊고 싶을 때, <code>Connection 헤더 필드</code>에 <code>Close</code>라고 지정</strong>한다.</p>
 <ul>
 <li>클라이언트 -&gt; 서버</li>
@@ -241,10 +256,10 @@ ga('send', 'pageview');
 <p>HTTP/1.1 이전 버전의 HTTP에서는 지속적인 접속이 디폴트가 아니었다.<br>-&gt; 오래된 버전의 HTTP에서 지속적 접속을 하고 싶은 경우,<br>Connection 헤더 필드에 Keep-Alive 헤더 필드와 Connection 헤더 필드를 붙여서 리스폰스한다.</p>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Connection</span>: Keep-Alive</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="6-3-3-Date"><a href="#6-3-3-Date" class="headerlink" title="6.3.3. Date"></a>6.3.3. Date</h3><p>Date 헤더 필드: HTTP 메시지를 생성한 날짜를 나타낸다.</p>
+<h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><p>Date 헤더 필드: HTTP 메시지를 생성한 날짜를 나타낸다.</p>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Date</span>: Tue, 10 Mar 2020 11:00:59 GMT</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="6-3-4-Pragma"><a href="#6-3-4-Pragma" class="headerlink" title="6.3.4. Pragma"></a>6.3.4. Pragma</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Pragma</span>: no-cache</span><br></pre></td></tr></table></figure>
+<h3 id="Pragma"><a href="#Pragma" class="headerlink" title="Pragma"></a>Pragma</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Pragma</span>: no-cache</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>HTTP/1.1</code>보다 오래된 버전의 흔적으로, <code>HTTP/1.0</code>과의 후방 호환성만을 위해서 정의되어 있는 헤더 필드</li>
 <li><p>일반 헤더 필드이지만, <strong>클라이언트의 리퀘스트에서만 사용</strong>된다.<br>(<strong>서버의 리스폰스에서는 사용하지 않는다.</strong>)<br>클라이언트에서 중간 서버로 캐시가 필요 없다고 보내고 싶을 때 사용한다.</p>
@@ -254,16 +269,16 @@ ga('send', 'pageview');
 </ul>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Cache-Control</span>: no-cache</span><br><span class="line"><span class="attribute">Pragma</span>: no-cache</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="6-3-5-Trailer"><a href="#6-3-5-Trailer" class="headerlink" title="6.3.5. Trailer"></a>6.3.5. Trailer</h3><p>메시지 바디의 뒤에 기술되어 있는 헤더 필드를 <strong>미리 전달 가능</strong>하다.<br><code>HTTP/1.1</code>에 구현되어 있는 <strong>청크 전송 인코딩</strong>을 사용하고 있는 경우에 <strong>사용 가능</strong></p>
+<h3 id="Trailer"><a href="#Trailer" class="headerlink" title="Trailer"></a>Trailer</h3><p>메시지 바디의 뒤에 기술되어 있는 헤더 필드를 <strong>미리 전달 가능</strong>하다.<br><code>HTTP/1.1</code>에 구현되어 있는 <strong>청크 전송 인코딩</strong>을 사용하고 있는 경우에 <strong>사용 가능</strong></p>
 <ul>
 <li>클라이언트 -&gt; 중간 서버</li>
 </ul>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Date</span>: Tue, 03, Jul 2012 04:40:56 GMT</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html</span><br><span class="line">#...</span><br><span class="line"><span class="attribute">Transfer-Encoding</span>: chunked</span><br><span class="line"># Trailer 헤더 필드에 Expires를 지정한다.</span><br><span class="line"><span class="attribute">Trailer</span>: Expires</span><br><span class="line"></span><br><span class="line">#(메시지 바디)</span><br><span class="line"># 메시지 바디의 뒤(청크의 길이가 0의 뒤)에 Expires 헤더 필드를 나타내고 있다.</span><br><span class="line"><span class="attribute">0</span></span><br><span class="line"><span class="attribute">Expires</span>: Tue, 28 Sep 2004 23:59:59 GMT</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="6-3-6-Transfer-Encoding"><a href="#6-3-6-Transfer-Encoding" class="headerlink" title="6.3.6. Transfer-Encoding"></a>6.3.6. Transfer-Encoding</h3><p><strong>메시지 바디의 전송 코딩 형식을 지정</strong>하는 경우에 사용</p>
+<h3 id="Transfer-Encoding"><a href="#Transfer-Encoding" class="headerlink" title="Transfer-Encoding"></a>Transfer-Encoding</h3><p><strong>메시지 바디의 전송 코딩 형식을 지정</strong>하는 경우에 사용</p>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 청크 전송 코딩이 유효한 상태</span><br><span class="line"><span class="attribute">Transfer-Encoding</span>: chunked</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="6-3-7-Upgrade"><a href="#6-3-7-Upgrade" class="headerlink" title="6.3.7. Upgrade"></a>6.3.7. Upgrade</h3><p>HTTP 및 다른 프로토콜의 새로운 버전이 통신에 이용되는 경우 사용<br>지정하는 대상이 전혀 다른 통신 프로토콜이라고 하더라도 문제 없다.</p>
+<h3 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h3><p>HTTP 및 다른 프로토콜의 새로운 버전이 통신에 이용되는 경우 사용<br>지정하는 대상이 전혀 다른 통신 프로토콜이라고 하더라도 문제 없다.</p>
 <ul>
 <li>클라이언트 -&gt; 서버</li>
 </ul>
@@ -275,7 +290,7 @@ ga('send', 'pageview');
 <p>Upgrade 헤더 필드에 TLS/1.0이 지정되어 있다.<br>양쪽 모두 Connection 헤더 필드가 지정되어 있다.<br>Upgrade 헤더 필드에 의해서 업그레이드 되는 대상은 클라이언트와 인접한 서버 뿐이므로<br>Connection: Upgrade도 지정해주어야 한다.</p>
 <p>Upgrade 헤더 필드가 달린 리퀘스트에 대해서 서버측에서는<br>상태 코드 101 Switching Protocols라는 리스폰스로 응답 가능하다.</p>
 <hr>
-<h3 id="6-3-8-Via"><a href="#6-3-8-Via" class="headerlink" title="6.3.8. Via"></a>6.3.8. Via</h3><p>클라이언트와 서버 간의 리퀘스트 혹은 리스폰스 메시지의 경로를 알기 위해 사용<br>프록시나 게이트웨이는 자신의 서버 정보를 <code>Via 헤더 필드</code>에 추가한 뒤에 메시지를 전송한다.</p>
+<h3 id="Via"><a href="#Via" class="headerlink" title="Via"></a>Via</h3><p>클라이언트와 서버 간의 리퀘스트 혹은 리스폰스 메시지의 경로를 알기 위해 사용<br>프록시나 게이트웨이는 자신의 서버 정보를 <code>Via 헤더 필드</code>에 추가한 뒤에 메시지를 전송한다.</p>
 <p><code>Via 헤더 필드</code>는 전송된 메시지의 추적과 리퀘스트 루프의 회피 등에 사용되기 때문에<br><strong>프록시를 경유하는 경우에는 반드시 추가해야 한다.</strong></p>
 <ul>
 <li>클라이언트 -&gt; 프록시 서버 A</li>
@@ -290,7 +305,7 @@ ga('send', 'pageview');
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">GET/HTTP/1.1</span></span><br><span class="line"><span class="attribute">Via</span>: 1.0 gw.hackr.jp(Squid/3.1),</span><br><span class="line">1.1 a1.exmaple.com(Squid/2.7)</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="6-3-9-Warning"><a href="#6-3-9-Warning" class="headerlink" title="6.3.9. Warning"></a>6.3.9. Warning</h3><p>HTTP/1.0 리스폰스 헤더(Retry-After)가 HTTP/1.1에서 변경된 것<br>리스폰스에 관한 추가 정보(캐시에 관한 문제의 경고)를 유저에게 전달한다.</p>
+<h3 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><p>HTTP/1.0 리스폰스 헤더(Retry-After)가 HTTP/1.1에서 변경된 것<br>리스폰스에 관한 추가 정보(캐시에 관한 문제의 경고)를 유저에게 전달한다.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Warning: [경고 코드][경고한 호스트:포트 번호]"[경고문]" ([날짜])</span><br><span class="line"><span class="attribute">Warning</span>: 113 gw hackr.jp:8080 "Heuristic expiration"Tue, 03 Jul =&gt;</span><br><span class="line">2012 05:09::44 GMT</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -383,9 +398,23 @@ ga('send', 'pageview');
 그림으로 배우는 HTTP &amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.
 
 
-6.3.2. Connection1. 프록시에 더 이상 전송하지 않는 헤더 필드를 지정1Connection: 더 이상 전송하지 않는 헤더 필드명
-클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 Connection 헤더 필드를 사용하며,프록시 서버에"
-        "wordCount": 668
+
+Connection
+프록시에 더 이상 전송하지 않는 헤더 필드를 지정
+지속적 접속 관리
+
+
+Date
+Pragma
+Trailer
+Transfer-Encoding
+Upgrade
+Via
+Warning
+
+
+Connection프록시에 더 이상 전송하지"
+        "wordCount": 667
     }
 </script>
 
