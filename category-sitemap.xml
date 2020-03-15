@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/infra/http-network/</loc>
+        <lastmod>2020-03-15T08:11:26.250Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/infra/</loc>
+        <lastmod>2020-03-15T08:11:26.250Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
         <lastmod>2020-03-09T15:41:02.747Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,20 +31,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
         <lastmod>2020-03-09T15:41:02.747Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/infra/http-network/</loc>
-        <lastmod>2020-03-07T13:52:54.231Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/infra/</loc>
-        <lastmod>2020-03-07T13:52:54.231Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
