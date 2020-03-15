@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="http network,그림으로 배우는 HTTP &amp; Network">
     
-    <meta name="description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.    Connection 프록시에 더 이상 전송하지 않는 헤더 필드를 지정 지속적 접속 관리   Date Pragma Trailer Transfer-Encoding Upgrade Via Warning   Connection프록시에 더 이상 전송하지">
+    <meta name="description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   Connection프록시에 더 이상 전송하지 않는 헤더 필드를 지정1Connection: 더 이상 전송하지 않는 헤더 필드명 클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 Connection 헤더 필드를 사용하며,프록시 서버에 더 이상 전송하지">
 <meta name="keywords" content="http network,그림으로 배우는 HTTP &amp; Network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6장 HTTP 헤더-3">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2020/03/15/http-network-6-3/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.    Connection 프록시에 더 이상 전송하지 않는 헤더 필드를 지정 지속적 접속 관리   Date Pragma Trailer Transfer-Encoding Upgrade Via Warning   Connection프록시에 더 이상 전송하지">
+<meta property="og:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   Connection프록시에 더 이상 전송하지 않는 헤더 필드를 지정1Connection: 더 이상 전송하지 않는 헤더 필드명 클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 Connection 헤더 필드를 사용하며,프록시 서버에 더 이상 전송하지">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png">
-<meta property="og:updated_time" content="2020-03-15T08:28:57.224Z">
+<meta property="og:updated_time" content="2020-03-15T08:38:28.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6장 HTTP 헤더-3">
-<meta name="twitter:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.    Connection 프록시에 더 이상 전송하지 않는 헤더 필드를 지정 지속적 접속 관리   Date Pragma Trailer Transfer-Encoding Upgrade Via Warning   Connection프록시에 더 이상 전송하지">
+<meta name="twitter:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   Connection프록시에 더 이상 전송하지 않는 헤더 필드를 지정1Connection: 더 이상 전송하지 않는 헤더 필드명 클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 Connection 헤더 필드를 사용하며,프록시 서버에 더 이상 전송하지">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png">
     
 
@@ -218,21 +218,6 @@ ga('send', 'pageview');
 <p><strong>그림으로 배우는 HTTP &amp; Network</strong><br>(우에노 센 저 / 이병억 역 )<br>을 읽고 정리한 내용입니다.</p>
 </blockquote>
 <hr>
-<ul>
-<li><a href="#connection">Connection</a><ul>
-<li><a href="#프록시에-더-이상-전송하지-않는-헤더-필드를-지정">프록시에 더 이상 전송하지 않는 헤더 필드를 지정</a></li>
-<li><a href="#지속적-접속-관리">지속적 접속 관리</a></li>
-</ul>
-</li>
-<li><a href="#date">Date</a></li>
-<li><a href="#pragma">Pragma</a></li>
-<li><a href="#trailer">Trailer</a></li>
-<li><a href="#transferencoding">Transfer-Encoding</a></li>
-<li><a href="#upgrade">Upgrade</a></li>
-<li><a href="#via">Via</a></li>
-<li><a href="#warning">Warning</a></li>
-</ul>
-<hr>
 <h3 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h3><h4 id="프록시에-더-이상-전송하지-않는-헤더-필드를-지정"><a href="#프록시에-더-이상-전송하지-않는-헤더-필드를-지정" class="headerlink" title="프록시에 더 이상 전송하지 않는 헤더 필드를 지정"></a>프록시에 더 이상 전송하지 않는 헤더 필드를 지정</h4><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Connection</span>: 더 이상 전송하지 않는 헤더 필드명</span><br></pre></td></tr></table></figure>
 <p>클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 <code>Connection</code> 헤더 필드를 사용하며,<br>프록시 서버에 더 이상 전송하지 않는 헤더 필드(hop-by-hop 헤더)를 지정할 수 있다.</p>
 <ul>
@@ -398,23 +383,9 @@ ga('send', 'pageview');
 그림으로 배우는 HTTP &amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.
 
 
-
-Connection
-프록시에 더 이상 전송하지 않는 헤더 필드를 지정
-지속적 접속 관리
-
-
-Date
-Pragma
-Trailer
-Transfer-Encoding
-Upgrade
-Via
-Warning
-
-
-Connection프록시에 더 이상 전송하지"
-        "wordCount": 667
+Connection프록시에 더 이상 전송하지 않는 헤더 필드를 지정1Connection: 더 이상 전송하지 않는 헤더 필드명
+클라이언트의 리퀘스트 혹은 서버의 리스폰스에서 Connection 헤더 필드를 사용하며,프록시 서버에 더 이상 전송하지"
+        "wordCount": 648
     }
 </script>
 
