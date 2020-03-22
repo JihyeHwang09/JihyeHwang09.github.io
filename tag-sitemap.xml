@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/til/</loc>
+        <lastmod>2020-03-22T13:27:52.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
+        <lastmod>2020-03-22T13:27:52.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/instance-method/</loc>
         <lastmod>2020-03-22T13:26:09.577Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,20 +47,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/tags/http-network/</loc>
         <lastmod>2020-03-15T08:38:28.628Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/til/</loc>
-        <lastmod>2020-03-09T15:41:02.747Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
-        <lastmod>2020-03-09T15:41:02.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
