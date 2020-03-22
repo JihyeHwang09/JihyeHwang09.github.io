@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/instance-method/</loc>
+        <lastmod>2020-03-22T13:26:09.577Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/static-method/</loc>
+        <lastmod>2020-03-22T13:26:09.577Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/java/</loc>
+        <lastmod>2020-03-22T13:26:09.577Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-http-network/</loc>
         <lastmod>2020-03-15T08:38:28.628Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -542,13 +563,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/java/</loc>
-        <lastmod>2019-08-19T14:39:37.244Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/tags/css/</loc>
         <lastmod>2019-08-19T14:16:56.501Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -640,14 +654,14 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/recursion/</loc>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98/</loc>
         <lastmod>2019-07-29T14:57:02.016Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98/</loc>
+        <loc>https://JihyeHwang09.github.io/tags/recursion/</loc>
         <lastmod>2019-07-29T14:57:02.016Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -1718,6 +1732,13 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%88%9C%ED%99%98-%ED%95%A8%EC%88%98-recursion/</loc>
+        <lastmod>2019-01-21T03:47:39.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/algorithms/</loc>
         <lastmod>2019-01-21T03:47:39.434Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1726,13 +1747,6 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/computer-science/</loc>
-        <lastmod>2019-01-21T03:47:39.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%88%9C%ED%99%98-%ED%95%A8%EC%88%98-recursion/</loc>
         <lastmod>2019-01-21T03:47:39.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
