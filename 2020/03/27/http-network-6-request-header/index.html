@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>6장 Request 헤더 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="http network,그림으로 배우는 HTTP &amp; Network,request header">
+    
+    <meta name="description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   6.4. 리퀘스트 헤더 필드리퀘스트 헤더 필드는 클라이언트 측에서 서버 측으로 송신된 리퀘스트 메시지에 사용되는 헤더 6.4.1. Accept클라이언트 측에서 그 리소스는 가능하다면 HTML로 받고 싶은데, 안된다면 TEXT라도 괜찮다는 의미">
+<meta name="keywords" content="http network,그림으로 배우는 HTTP &amp; Network,request header">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6장 Request 헤더">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2020/03/27/http-network-6-request-header/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   6.4. 리퀘스트 헤더 필드리퀘스트 헤더 필드는 클라이언트 측에서 서버 측으로 송신된 리퀘스트 메시지에 사용되는 헤더 6.4.1. Accept클라이언트 측에서 그 리소스는 가능하다면 HTML로 받고 싶은데, 안된다면 TEXT라도 괜찮다는 의미">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png">
+<meta property="og:updated_time" content="2020-03-28T14:12:26.583Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6장 Request 헤더">
+<meta name="twitter:description" content="그림으로 배우는 HTTP &amp;amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.   6.4. 리퀘스트 헤더 필드리퀘스트 헤더 필드는 클라이언트 측에서 서버 측으로 송신된 리퀘스트 메시지에 사용되는 헤더 6.4.1. Accept클라이언트 측에서 그 리소스는 가능하다면 HTML로 받고 싶은데, 안된다면 TEXT라도 괜찮다는 의미">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-139151127-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jmnote/IropkeBatang/master/iropkebatang.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css"> <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css"> <link rel="stylesheet" href="/css/style.css">
+
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+          <h2 class="subtitle-wrap">
+            <p class="subtitle">
+              꿈꾸는 지구별 개발자, Phang&#39;s IT Blog
+            </p>
+          </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+              <li class="main-nav-list-item">
+                <a class="main-nav-list-link" href="/">Home</a>
+              </li>
+               <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/object/">Object</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/mysql/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/dev-english/">Dev English</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/lecture/">Lecture</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/typescript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/">Infra</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/http-network/">http network</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/">Tool</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/blog/">Blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/intellij/">IntelliJ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></li></ul></li></ul> 
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/infra/http-network/">http network</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+                            <article id="post-http-network-6-request-header" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+    
+        <h1 class="article-title" itemprop="name">
+        6장 Request 헤더
+        </h1>
+    
+
+    </header>
+     
+    <div class="article-meta">
+      <div class="article-subtitle">
+        <span class="article-date">
+          <!-- 
+    <div class="article-date">
+        <a href="/2020/03/27/http-network-6-request-header/" class="article-date">
+            <time datetime="2020-03-27T14:07:40.000Z" itemprop="datePublished">2020-03-27</time>
+        </a>
+    </div>
+ 
+ 
+                      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/http-network/">http network</a>, <a class="tag-link" href="/tags/request-header/">request header</a>, <a class="tag-link" href="/tags/그림으로-배우는-http-network/">그림으로 배우는 HTTP & Network</a>
+    </div>
+ -->
+          <!-- 🗓 작성일자 -->
+          
+    <div class="article-date">
+        <a href="/2020/03/27/http-network-6-request-header/" class="article-date">
+            <time datetime="2020-03-27T14:07:40.000Z" itemprop="datePublished">2020-03-27</time>
+        </a>
+    </div>
+
+        </span>
+        <span class="reading-time">⏱ 읽기 소요 시간: 7 분</span>
+      </div>
+    </div>
+     
+    <div class="article-entry" itemprop="articleBody">
+      <blockquote>
+<p><strong>그림으로 배우는 HTTP &amp; Network</strong><br>(우에노 센 저 / 이병억 역 )<br>을 읽고 정리한 내용입니다.</p>
+</blockquote>
+<hr>
+<h2 id="6-4-리퀘스트-헤더-필드"><a href="#6-4-리퀘스트-헤더-필드" class="headerlink" title="6.4. 리퀘스트 헤더 필드"></a>6.4. 리퀘스트 헤더 필드</h2><p>리퀘스트 헤더 필드는 클라이언트 측에서 서버 측으로 송신된 리퀘스트 메시지에 사용되는 헤더</p>
+<h3 id="6-4-1-Accept"><a href="#6-4-1-Accept" class="headerlink" title="6.4.1. Accept"></a>6.4.1. Accept</h3><p>클라이언트 측에서 그 리소스는 가능하다면 HTML로 받고 싶은데, 안된다면 TEXT라도 괜찮다는 의미</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Accept</span>: text/html, application/xhtml+xml,  application/xml;q=0.9,*/*,q=0.8</span><br></pre></td></tr></table></figure>
+<p>유저 에이전트에 처리할 수 있는 <strong>미디어 타입</strong>, 미디어 타입의 <strong>상대적인 우선 순위를 전달</strong>하기 위해 사용</p>
+<h3 id="6-4-2-Accept-Charset"><a href="#6-4-2-Accept-Charset" class="headerlink" title="6.4.2. Accept-Charset"></a>6.4.2. Accept-Charset</h3><ul>
+<li>문자셋의 상대적인 우선순위를 전달하기 위해서 사용된다.</li>
+<li>한 번에 여러 개 지정 가능</li>
+</ul>
+<h3 id="6-4-3-Accept-Encoding"><a href="#6-4-3-Accept-Encoding" class="headerlink" title="6.4.3. Accept-Encoding"></a>6.4.3. Accept-Encoding</h3><p>유저 에이전트가 처리할 수 있는 콘텐츠 코딩과 코딩의 상대적인 우선순위를 전달하기 위해 사용<br><code>*</code>(애스터리스크)를 지정하면, 와일드 카드로서 <strong>모든 인코딩 포맷</strong>을 가리킴</p>
+<h3 id="6-4-4-Accept-Language"><a href="#6-4-4-Accept-Language" class="headerlink" title="6.4.4. Accept-Language"></a>6.4.4. Accept-Language</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Accept-Language</span>: ko-kr, en-us:q=0.7;q=0.3</span><br></pre></td></tr></table></figure>
+<p>유저 에이전트가 처리할 수 있는 자연어의 세트(한국어와 영어라는 의미)와<br>자연어 세트의 상대적인 우선 순위를 전달하기 위해서 사용</p>
+<h3 id="6-4-5-Authorizaiton"><a href="#6-4-5-Authorizaiton" class="headerlink" title="6.4.5. Authorizaiton"></a>6.4.5. Authorizaiton</h3><p>유저 에이전트의 인증 정보(크리덴셜 값)을 전하기 위해서 사용</p>
+<h3 id="6-4-6-Expect"><a href="#6-4-6-Expect" class="headerlink" title="6.4.6. Expect"></a>6.4.6. Expect</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 상태 코드 100 리스폰스를 가진 클라이언트는 리퀘스트할 때</span><br><span class="line"># Except: 100-continue으로 지정해야 한다.</span><br><span class="line"><span class="attribute">Except</span>: 100-continue</span><br></pre></td></tr></table></figure>
+<p>클라이언트가 서버에 특정 동작 요구를 전달한다.</p>
+<h3 id="6-4-7-Form"><a href="#6-4-7-Form" class="headerlink" title="6.4.7. Form"></a>6.4.7. Form</h3><p>유저 에이전트를 사용하고 있는 유저의 메일 주소를 전달</p>
+<h3 id="6-4-8-Host"><a href="#6-4-8-Host" class="headerlink" title="6.4.8. Host"></a>6.4.8. Host</h3><p>리퀘스트한 리소스의 인터넷 호스트와 포트 번호를 전달<br>Host 헤더 필드는 <strong>HTTP/1.1에서 유일한 필수 헤더 필드</strong><br>ex) 같은 IP 주소로 복수의 도메인이 적용되어 있을 때, 어느 도메인에 대한 리퀘스트인지 알 수 없다.<br>-&gt; Host 헤더 필드에 리퀘스트를 받을 호스트명을 넣어준다.</p>
+<hr>
+<h3 id="6-4-9-If-Match"><a href="#6-4-9-If-Match" class="headerlink" title="6.4.9. If-Match"></a>6.4.9. If-Match</h3><p>서버 상의 리소스를 특정하기 위해서 엔티티 태그(ETag)값을 전달한다.<br>서버는 <code>If-Match의 필드 값</code>과 <code>리소스의 ETag값</code>이 <strong>일치한 경우에만, 리퀘스트를 받아들일 수 있다.</strong></p>
+<h3 id="6-4-10-If-Modified-Since"><a href="#6-4-10-If-Modified-Since" class="headerlink" title="6.4.10. If-Modified-Since"></a>6.4.10. If-Modified-Since</h3><p><strong><code>If-Modified-Since</code>의 필드값에 지정된 날짜 이후에 갱신</strong>된 리소스라면, 리퀘스트를 받아들인다.</p>
+<h3 id="6-4-11-If-None-Match"><a href="#6-4-11-If-None-Match" class="headerlink" title="6.4.11. If-None-Match"></a>6.4.11. If-None-Match</h3><p><code>If-None-Match 필드값</code>과 <code>ETag</code>가 <strong>일치하지 않은 경우만</strong>, 리퀘스트를 받아들인다.<br>If-Match 필드와는 <strong>반대의 동작</strong></p>
+<h3 id="6-4-12-If-Range"><a href="#6-4-12-If-Range" class="headerlink" title="6.4.12. If-Range"></a>6.4.12. If-Range</h3><ul>
+<li><code>If-Range 필드값</code>과 <code>ETag 값</code> 혹은 <code>갱신 날짜</code>가 <strong>일치</strong>하면,<br>Range 리퀘스트로 처리한다.</li>
+<li>만일, If-Range 헤더 필드를 사용하지 않으면, 처리를 두 번 해야 한다.</li>
+</ul>
+<h3 id="6-4-13-If-Unmodified-Since"><a href="#6-4-13-If-Unmodified-Since" class="headerlink" title="6.4.13. If-Unmodified-Since"></a>6.4.13. If-Unmodified-Since</h3><ul>
+<li><code>If-modified-Since</code>와 <strong>반대</strong>로 동작<br>지정된 리소스가 필드 값에 지정된 날짜 <strong>이후</strong>에 갱신되어 있지 <strong>않은</strong> 경우,</li>
+<li>리퀘스트를 받아들이도록 전달한다.</li>
+</ul>
+<h3 id="6-4-14-Max-Forwards"><a href="#6-4-14-Max-Forwards" class="headerlink" title="6.4.14. Max-Forwards"></a>6.4.14. Max-Forwards</h3><p>TRACE 혹은 OPTIONS 메소드에 의한 리퀘스트를 할 때에 전송해도 좋은 서버 수의 최대치를<br>10진수 정수로 지정한다.<br>받아넘길 때마다 Max-Forwards값을 <code>1</code>씩 뺀다. 값이 <code>0</code>이 되면, 리스폰스를 반환한다.</p>
+<h3 id="6-4-15-Proxy-Authorizaiton"><a href="#6-4-15-Proxy-Authorizaiton" class="headerlink" title="6.4.15. Proxy-Authorizaiton"></a>6.4.15. Proxy-Authorizaiton</h3><p>클라이언트와 프록시 사이에 이루어지는 인증<br>프록시 서버에서의 인증 요구를 받아들인 때, 인증에 필요한 클라이언트의 정보를 전달한다.</p>
+<h3 id="6-4-16-Range"><a href="#6-4-16-Range" class="headerlink" title="6.4.16. Range"></a>6.4.16. Range</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Range</span>: bytes=5001-10000</span><br></pre></td></tr></table></figure>
+<p>리소스의 일부분만 취득하는 Range 리퀘스트를 할 때, <strong>지정 범위</strong>를 전달한다.</p>
+<h3 id="6-4-17-Referer"><a href="#6-4-17-Referer" class="headerlink" title="6.4.17. Referer"></a>6.4.17. Referer</h3><p>리퀘스트가 발생한 본래 리소스의 URI를 전달</p>
+<h3 id="6-4-18-TE"><a href="#6-4-18-TE" class="headerlink" title="6.4.18. TE"></a>6.4.18. TE</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TE:전송 코딩 형식;q=우선순위</span><br><span class="line"><span class="attribute">TE</span>: gzip, deflate;1=0.5</span><br></pre></td></tr></table></figure>
+<p>리스폰스로 받을 수 있는 전송 코딩의 형식과 상대적인 우선순위를 전달</p>
+<h3 id="6-4-19-User-Agent"><a href="#6-4-19-User-Agent" class="headerlink" title="6.4.19. User-Agent"></a>6.4.19. User-Agent</h3><p>리퀘스트를 생성한 브라우저와 유저 에이전트의 이름 등을 전달하기 위한 필드</p>
+
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+    <footer class="article-footer">
+      
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+    </footer>
+  </div>
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "6장 Request 헤더",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png",
+        "keywords": "http network 그림으로 배우는 HTTP & Network request header",
+        "genre": "Infra http network",
+        "datePublished": "2020-03-27",
+        "dateCreated": "2020-03-27",
+        "dateModified": "2020-03-28",
+        "url": "https://JihyeHwang09.github.io/2020/03/27/http-network-6-request-header/",
+        "description": "
+그림으로 배우는 HTTP &amp; Network(우에노 센 저 / 이병억 역 )을 읽고 정리한 내용입니다.
+
+
+6.4. 리퀘스트 헤더 필드리퀘스트 헤더 필드는 클라이언트 측에서 서버 측으로 송신된 리퀘스트 메시지에 사용되는 헤더
+6.4.1. Accept클라이언트 측에서 그 리소스는 가능하다면 HTML로 받고 싶은데, 안된다면 TEXT라도 괜찮다는 의미
+"
+        "wordCount": 475
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/03/28/http-network-6-response-header/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            6장 Response 헤더
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/03/21/java-static-method-and-instance-method/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Static method VS Instance method</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/28/http-network-6-response-header/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png)" alt="6장 Response 헤더" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/infra/http-network/">http network</a></p>
+                            <p class="item-title"><a href="/2020/03/28/http-network-6-response-header/" class="title">6장 Response 헤더</a></p>
+                            <p class="item-date"><time datetime="2020-03-28T14:12:49.000Z" itemprop="datePublished">2020-03-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/27/http-network-6-request-header/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png)" alt="6장 Request 헤더" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/infra/http-network/">http network</a></p>
+                            <p class="item-title"><a href="/2020/03/27/http-network-6-request-header/" class="title">6장 Request 헤더</a></p>
+                            <p class="item-date"><time datetime="2020-03-27T14:07:40.000Z" itemprop="datePublished">2020-03-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/21/java-static-method-and-instance-method/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/77250545-11518d80-6c8c-11ea-9edd-348ef88d2d28.png)" alt="Static method VS Instance method" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/03/21/java-static-method-and-instance-method/" class="title">Static method VS Instance method</a></p>
+                            <p class="item-date"><time datetime="2020-03-21T13:40:05.000Z" itemprop="datePublished">2020-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/15/http-network-6-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png)" alt="6장 HTTP 헤더-3" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/infra/http-network/">http network</a></p>
+                            <p class="item-title"><a href="/2020/03/15/http-network-6-3/" class="title">6장 HTTP 헤더-3</a></p>
+                            <p class="item-date"><time datetime="2020-03-15T07:40:53.000Z" itemprop="datePublished">2020-03-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/14/http-network-6-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png)" alt="6장 HTTP 헤더-2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/infra/http-network/">http network</a></p>
+                            <p class="item-title"><a href="/2020/03/14/http-network-6-2/" class="title">6장 HTTP 헤더-2</a></p>
+                            <p class="item-date"><time datetime="2020-03-14T07:30:32.000Z" itemprop="datePublished">2020-03-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">99</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/object/">Object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">Database</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">MySQL</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/oracle/">Oracle</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">48</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/dev-english/">Dev English</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/lecture/">Lecture</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/typescript/">TypeScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/infra/">Infra</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/infra/http-network/">http network</a><span class="category-list-count">10</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">Tool</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/blog/">Blog</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/intellij/">IntelliJ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <!-- <div id="busuanzi_container_site_pv">
+          총 조회 <span id="busuanzi_value_site_pv"></span> 회 |
+        </div>
+        <div id="busuanzi_container_site_uv">
+          총 방문자 <span id="busuanzi_value_site_uv"></span> 명
+        </div> -->
+        <p>
+          &copy; 2020 Phang
+        </p>
+        <p>
+          Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by
+          <a href="//github.com/ppoffice" target="_blank">PPOffice</a>
+        </p>
+      </div>
+      <div class="footer-plugins">
+        
+    
+
+
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2020/03/27/http-network-6-request-header/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

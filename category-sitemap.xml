@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/infra/http-network/</loc>
+        <lastmod>2020-03-28T14:18:18.834Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/infra/</loc>
+        <lastmod>2020-03-28T14:18:18.834Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
         <lastmod>2020-03-22T13:30:09.421Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -23,28 +37,14 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/categories/back-end/java/</loc>
-        <lastmod>2020-03-22T13:26:09.577Z</lastmod>
+        <lastmod>2020-03-22T13:26:44.485Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
-        <lastmod>2020-03-22T13:26:09.577Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/infra/http-network/</loc>
-        <lastmod>2020-03-15T08:38:28.628Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/infra/</loc>
-        <lastmod>2020-03-15T08:38:28.628Z</lastmod>
+        <lastmod>2020-03-22T13:26:44.485Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
