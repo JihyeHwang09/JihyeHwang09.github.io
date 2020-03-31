@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="Database,Oracle,무결성 제약조건이 위배되었습니다,부모 키가 없습니다">
     
-    <meta name="description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다. 참조하려고 하">
+    <meta name="description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다">
 <meta name="keywords" content="Database,Oracle,무결성 제약조건이 위배되었습니다,부모 키가 없습니다">
 <meta property="og:type" content="article">
 <meta property="og:title" content="무결성 제약조건이 위배되었습니다- 부모 키가 없습니다">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2020/03/31/db-2020-03-31/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다. 참조하려고 하">
+<meta property="og:description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/78040670-b82fdb00-73aa-11ea-8648-7cab15d2fd15.png">
-<meta property="og:updated_time" content="2020-03-31T14:55:05.454Z">
+<meta property="og:updated_time" content="2020-03-31T14:59:52.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="무결성 제약조건이 위배되었습니다- 부모 키가 없습니다">
-<meta name="twitter:description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다. 참조하려고 하">
+<meta name="twitter:description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/78040670-b82fdb00-73aa-11ea-8648-7cab15d2fd15.png">
     
 
@@ -222,11 +222,12 @@ ga('send', 'pageview');
 <li><a href="#참고">참고</a></li>
 </ul>
 <hr>
-<p>테이블에 insert를 하는 테스트 코드를 작성하다가<br><strong>무결성 제약조건이 위배되었습니다- 부모 키가 없습니다</strong><br>에러가 발생했다.</p>
+<p>테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가<br><strong>무결성 제약조건이 위배되었습니다- 부모 키가 없습니다</strong><br>에러가 발생했다.</p>
 <h3 id="에러의-원인"><a href="#에러의-원인" class="headerlink" title="에러의 원인"></a>에러의 원인</h3><p>테스트 코드의 데이터 생성시,<br>부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은<br>부모 테이블에 먼저 존재해야만 참조 가능하다.</p>
 <p>참조하려고 하는 부모 테이블의 컬럼 값이 존재하지 않기 때문에<br>부모 키가 없다는 에러가 발생한 것이다.</p>
 <h3 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h3><p>Foreign Key로 사용되는 컬럼 값을 부모 테이블의 컬럼에 먼저 생성한 후,<br>생성된 해당 키값을 자식 테이블에서 참조할 수 있도록 데이터를 넣어준다.</p>
-<h3 id="외래키-제약-조건"><a href="#외래키-제약-조건" class="headerlink" title="외래키 제약 조건"></a>외래키 제약 조건</h3><p>테이블에 제약을 설정하여 저장될 데이터를 제한할 수 있다.<br>이 중 외부 참조(정합) 제약에 대해 알아보자.</p>
+<hr>
+<h3 id="외래키-제약-조건"><a href="#외래키-제약-조건" class="headerlink" title="외래키 제약 조건"></a>외래키 제약 조건</h3><p>테이블에 제약을 설정하여 저장될 데이터를 제한할 수 있다.<br>이 중 <code>외래키 제약 조건</code>에 대해 알아보자.</p>
 <p><code>외래키(FOREIGN KEY)</code>는 여러 개의 테이블 사이에서 데이터의 정합성을 유지하기 위해 설정한다.<br>테이블 사이에 <strong>부모 자식과 같은 관계를 가지면서</strong> 정합성을 유지한다.<br>자식 테이블 측에서는 <code>외래키(FOREIGN KEY)</code>를 지정하여 부모 테이블을 참조한다.</p>
 <ul>
 <li>부모 테이블에서 참조될 열은 <strong>반드시 유일성(UNIQUE KEY, PRIMARY KEY)</strong>를 가진다.</li>
@@ -365,10 +366,9 @@ UML과 표로 정리해보자
 참고
 
 
-테이블에 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다.
-에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다.
-참조하려고 하"
-        "wordCount": 257
+테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다.
+에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다"
+        "wordCount": 259
     }
 </script>
 
