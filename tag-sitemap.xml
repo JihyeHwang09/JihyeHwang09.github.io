@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/oracle/</loc>
+        <lastmod>2020-04-04T14:56:59.465Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/database/</loc>
+        <lastmod>2020-04-04T14:56:59.465Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/%EB%B6%80%EB%AA%A8-%ED%82%A4%EA%B0%80-%EC%97%86%EC%8A%B5%EB%8B%88%EB%8B%A4/</loc>
         <lastmod>2020-03-31T14:59:52.589Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -11,20 +25,6 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/%EB%AC%B4%EA%B2%B0%EC%84%B1-%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4%EC%9D%B4-%EC%9C%84%EB%B0%B0%EB%90%98%EC%97%88%EC%8A%B5%EB%8B%88%EB%8B%A4/</loc>
-        <lastmod>2020-03-31T14:59:52.589Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/oracle/</loc>
-        <lastmod>2020-03-31T14:59:52.589Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/database/</loc>
         <lastmod>2020-03-31T14:59:52.589Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -675,14 +675,14 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98/</loc>
+        <loc>https://JihyeHwang09.github.io/tags/recursion/</loc>
         <lastmod>2019-07-29T14:57:02.016Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/recursion/</loc>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98/</loc>
         <lastmod>2019-07-29T14:57:02.016Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -1501,6 +1501,20 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/background/</loc>
+        <lastmod>2019-04-11T15:22:16.084Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EB%B0%B0%EA%B2%BD/</loc>
+        <lastmod>2019-04-11T15:22:16.084Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/cascade/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1523,20 +1537,6 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/%EC%83%81%EC%86%8D/</loc>
-        <lastmod>2019-04-11T15:22:16.084Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/background/</loc>
-        <lastmod>2019-04-11T15:22:16.084Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EB%B0%B0%EA%B2%BD/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
