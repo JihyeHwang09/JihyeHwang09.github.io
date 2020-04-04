@@ -21,7 +21,7 @@
 <meta property="og:description" content="정렬 기준 정렬할 때 NULL이 나오는 순서를 컨트롤 해보자 다중 정렬을 이용해보자 최근 시간이 먼저 나오게 정렬 다중 정렬을 적용한 예   어떤 JOIN을 쓸까?    새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다. 새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png">
-<meta property="og:updated_time" content="2020-04-04T17:08:01.406Z">
+<meta property="og:updated_time" content="2020-04-04T17:13:10.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="다중 정렬과 NULL을 다루는 과정">
 <meta name="twitter:description" content="정렬 기준 정렬할 때 NULL이 나오는 순서를 컨트롤 해보자 다중 정렬을 이용해보자 최근 시간이 먼저 나오게 정렬 다중 정렬을 적용한 예   어떤 JOIN을 쓸까?    새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다. 새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할">
@@ -234,14 +234,14 @@ ga('send', 'pageview');
 <h3 id="정렬할-때-NULL이-나오는-순서를-컨트롤-해보자"><a href="#정렬할-때-NULL이-나오는-순서를-컨트롤-해보자" class="headerlink" title="정렬할 때 NULL이 나오는 순서를 컨트롤 해보자"></a>정렬할 때 NULL이 나오는 순서를 컨트롤 해보자</h3><p>Oracle에서 ORDER BY 구문 NULL값 정렬 순서를 정하기 위해서는<br><code>NULLS FIRST</code>와 <code>NULLS LAST</code>를 이용한다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NULL이 마지막에 나오도록 정렬</span></span><br><span class="line">ORDER BY 컬럼명 정렬 기준(ASC | DESC) NULLS LAST;</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NULL이 처음에 나오도록 정렬</span></span><br><span class="line">ORDER BY 컬럼명 정렬 기준 NULLS FIRST;</span><br></pre></td></tr></table></figure>
-<p>기존에는 NULL값을 나중에 나오게 만들기 위해 <code>NULLS LAST</code>를 붙여줬었는데,<br>Oracle에서는 <strong><code>NULLS LAST</code>가 Default</strong>이므로 생략할 경우에도<br>마찬가지로 <code>NULL LAST</code>를 붙여준 것과 <strong>동일하게 정렬</strong>된다.</p>
+<p>기존에는 NULL값을 나중에 나오게 만들기 위해 <code>NULLS LAST</code>를 붙여줬었는데,<br>Oracle에서는 <strong><code>NULLS LAST</code>가 Default</strong>이므로 생략할 경우에도<br>마찬가지로 <code>NULLS LAST</code>를 붙여준 것과 <strong>동일하게 정렬</strong>된다.</p>
 <p>따라서, Oracle에서 NULL값이 가장 먼저 나오게 만들고 싶을 때만 <code>NULLS FIRST</code>를 붙여주면 된다.</p>
 <hr>
 <h3 id="다중-정렬을-이용해보자"><a href="#다중-정렬을-이용해보자" class="headerlink" title="다중 정렬을 이용해보자"></a>다중 정렬을 이용해보자</h3><p>다중 정렬은 무엇인가?<br>정렬 기준을 2개 이상 적용하고 싶을 때 사용한다.</p>
 <p>이렇게 여러 개의 컬럼을 기준으로 정렬할 경우,<br>왼쪽인 가장 앞에 정의된 컬럼을 기준으로 먼저 정렬한 후 이후의 정렬 기준들을 기준으로 정렬하게 된다.</p>
 <p>가장 먼저 나오는 기준 컬럼을 기준으로 정렬을 먼저 적용하여 정렬한 후,<br>다음 기준으로 정렬을 하는 것이다.</p>
 <p>예를 들어 다중 정렬을 적용하는데, 첫번째 정렬 기준 컬럼은 내림차순,<br>두 번째 기준 컬럼은 오름차순으로 정렬한다고 해보자.</p>
-<p>정렬 기준의 첫번 째 컬럼은 <strong>최종 수정한 시간(updatedAt)</strong>이며, 두 번째 컬럼은 <strong>제목(title)</strong>이라고 하자.</p>
+<p>정렬 기준의 첫 번째 컬럼은 <strong>최종 수정한 시간(updatedAt)</strong>이며, 두 번째 컬럼은 <strong>제목(title)</strong>이라고 하자.</p>
 <h4 id="최근-시간이-먼저-나오게-정렬"><a href="#최근-시간이-먼저-나오게-정렬" class="headerlink" title="최근 시간이 먼저 나오게 정렬"></a>최근 시간이 먼저 나오게 정렬</h4><p>시간 데이터가 들어있는 컬럼을 기준으로<br><strong>가장 최근 데이터가 가장 먼저 나오도록(최근순)</strong>정렬하고자 한다면,<br><code>DESC</code>를 넣어서 내림차순으로 정렬한다.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 수정 시간을 기준으로 최근 시간부터 나오게 정렬</span></span><br><span class="line">ORDER BY UPDATED_AT DESC</span><br></pre></td></tr></table></figure>
 <h4 id="다중-정렬을-적용한-예"><a href="#다중-정렬을-적용한-예" class="headerlink" title="다중 정렬을 적용한 예"></a>다중 정렬을 적용한 예</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 수정 시간을 기준으로 최근시간부터 나오도록 정렬한 후, 제목을 기준으로 오름차순 정렬</span></span><br><span class="line">ORDER BY UPDATED_AT DESC, TITLE (ASC);</span><br></pre></td></tr></table></figure>
