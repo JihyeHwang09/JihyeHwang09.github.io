@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="Database,Oracle,무결성 제약조건이 위배되었습니다,부모 키가 없습니다">
     
-    <meta name="description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다">
+    <meta name="description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다. 참조">
 <meta name="keywords" content="Database,Oracle,무결성 제약조건이 위배되었습니다,부모 키가 없습니다">
 <meta property="og:type" content="article">
 <meta property="og:title" content="무결성 제약조건이 위배되었습니다- 부모 키가 없습니다">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2020/03/31/db-2020-03-31/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다">
+<meta property="og:description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다. 참조">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/78040670-b82fdb00-73aa-11ea-8648-7cab15d2fd15.png">
-<meta property="og:updated_time" content="2020-03-31T14:59:52.589Z">
+<meta property="og:updated_time" content="2020-04-04T15:05:53.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="무결성 제약조건이 위배되었습니다- 부모 키가 없습니다">
-<meta name="twitter:description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다">
+<meta name="twitter:description" content="에러의 원인 해결 방법 외래키 제약 조건 UML과 표로 정리해보자 참고   테이블에 데이터를 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다. 에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다. 참조">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/78040670-b82fdb00-73aa-11ea-8648-7cab15d2fd15.png">
     
 
@@ -222,7 +222,7 @@ ga('send', 'pageview');
 <li><a href="#참고">참고</a></li>
 </ul>
 <hr>
-<p>테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가<br><strong>무결성 제약조건이 위배되었습니다- 부모 키가 없습니다</strong><br>에러가 발생했다.</p>
+<p>테이블에 데이터를 insert를 하는 테스트 코드를 작성하다가<br><strong>무결성 제약조건이 위배되었습니다- 부모 키가 없습니다</strong><br>에러가 발생했다.</p>
 <h3 id="에러의-원인"><a href="#에러의-원인" class="headerlink" title="에러의 원인"></a>에러의 원인</h3><p>테스트 코드의 데이터 생성시,<br>부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은<br>부모 테이블에 먼저 존재해야만 참조 가능하다.</p>
 <p>참조하려고 하는 부모 테이블의 컬럼 값이 존재하지 않기 때문에<br>부모 키가 없다는 에러가 발생한 것이다.</p>
 <h3 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h3><p>Foreign Key로 사용되는 컬럼 값을 부모 테이블의 컬럼에 먼저 생성한 후,<br>생성된 해당 키값을 자식 테이블에서 참조할 수 있도록 데이터를 넣어준다.</p>
@@ -356,7 +356,7 @@ ga('send', 'pageview');
         "genre": "Database Oracle",
         "datePublished": "2020-03-31",
         "dateCreated": "2020-03-31",
-        "dateModified": "2020-03-31",
+        "dateModified": "2020-04-05",
         "url": "https://JihyeHwang09.github.io/2020/03/31/db-2020-03-31/",
         "description": "
 에러의 원인
@@ -366,9 +366,10 @@ UML과 표로 정리해보자
 참고
 
 
-테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다.
-에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다"
-        "wordCount": 259
+테이블에 데이터를 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다.
+에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다.
+참조"
+        "wordCount": 258
     }
 </script>
 
@@ -420,7 +421,7 @@ UML과 표로 정리해보자
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            다중 정렬과 NULL 순서를 변경해보자
+            다중 정렬과 NULL을 다루는 과정
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
@@ -451,7 +452,7 @@ UML과 표로 정리해보자
                             <a href="/2020/04/04/db-2020-04-04/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png)" alt="다중 정렬과 NULL을 다루는 과정" class="thumbnail-image"></span>
     
     
 </a>
@@ -460,7 +461,7 @@ UML과 표로 정리해보자
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/oracle/">Oracle</a></p>
-                            <p class="item-title"><a href="/2020/04/04/db-2020-04-04/" class="title">다중 정렬과 NULL 순서를 변경해보자</a></p>
+                            <p class="item-title"><a href="/2020/04/04/db-2020-04-04/" class="title">다중 정렬과 NULL을 다루는 과정</a></p>
                             <p class="item-date"><time datetime="2020-04-04T14:39:09.000Z" itemprop="datePublished">2020-04-04</time></p>
                         </div>
                     </li>

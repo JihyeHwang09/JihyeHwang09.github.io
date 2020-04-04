@@ -186,7 +186,7 @@ ga('send', 'pageview');
         <a href="/2020/04/04/db-2020-04-04/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png)" alt="다중 정렬과 NULL을 다루는 과정" class="thumbnail-image"></span>
     
     
         
@@ -211,16 +211,25 @@ ga('send', 'pageview');
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/04/04/db-2020-04-04/">다중 정렬과 NULL 순서를 변경해보자</a>
+        <a href="/2020/04/04/db-2020-04-04/">다중 정렬과 NULL을 다루는 과정</a>
         </h1>
     
 
         <p class="article-excerpt">
             
-SQL에서 ORDER BY를 사용할 때NULL이 나오는 순서를 컨트롤해야 할 경우가 있다.
-기존에 없던 테이블을 생성하였고, 정렬 순서를 결정할 때데이터가 들어있지 않은 (NULL)인 경우에는 다른 컬럼을 기준으로 정렬하도록 만든 과정에대해 정리하고자 한다.
-다중 정렬은 무엇인가?정렬 기준을 2개 이상 적용하고 싶을 때 사용한다.
-이렇게 여러 개의 컬럼을
+정렬 기준
+정렬할 때 NULL이 나오는 순서를 컨트롤 해보자
+다중 정렬을 이용해보자
+최근 시간이 먼저 나오게 정렬
+다중 정렬을 적용한 예
+
+
+어떤 JOIN을 쓸까?
+
+
+
+새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다.
+새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할
         </p>
     </div>
 </article>
@@ -274,8 +283,9 @@ UML과 표로 정리해보자
 참고
 
 
-테이블에 데이터를 insert를 하는 코드의 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다.
-에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다
+테이블에 데이터를 insert를 하는 테스트 코드를 작성하다가무결성 제약조건이 위배되었습니다- 부모 키가 없습니다에러가 발생했다.
+에러의 원인테스트 코드의 데이터 생성시,부모 테이블에서 참조하는 컬럼의 값인 Foreign Key값은부모 테이블에 먼저 존재해야만 참조 가능하다.
+참조
         </p>
     </div>
 </article>
@@ -773,7 +783,7 @@ WHERE구로 행을 추출할 때,SELECT 구 -&gt; WHERE 구 -&gt; FRO
                             <a href="/2020/04/04/db-2020-04-04/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png)" alt="다중 정렬과 NULL을 다루는 과정" class="thumbnail-image"></span>
     
     
 </a>
@@ -782,7 +792,7 @@ WHERE구로 행을 추출할 때,SELECT 구 -&gt; WHERE 구 -&gt; FRO
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/oracle/">Oracle</a></p>
-                            <p class="item-title"><a href="/2020/04/04/db-2020-04-04/" class="title">다중 정렬과 NULL 순서를 변경해보자</a></p>
+                            <p class="item-title"><a href="/2020/04/04/db-2020-04-04/" class="title">다중 정렬과 NULL을 다루는 과정</a></p>
                             <p class="item-date"><time datetime="2020-04-04T14:39:09.000Z" itemprop="datePublished">2020-04-04</time></p>
                         </div>
                     </li>

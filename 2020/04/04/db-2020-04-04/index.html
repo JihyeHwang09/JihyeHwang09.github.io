@@ -6,24 +6,26 @@
     
 
     
-    <title>다중 정렬과 NULL 순서를 변경해보자 | 꿈꾸는 지구별 개발자, Phang</title>
+    <title>다중 정렬과 NULL을 다루는 과정 | 꿈꾸는 지구별 개발자, Phang</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Database,Oracle">
+        <meta name="keywords" content="Database,Oracle,다중 정렬,NULL 정렬 순서">
     
-    <meta name="description" content="SQL에서 ORDER BY를 사용할 때NULL이 나오는 순서를 컨트롤해야 할 경우가 있다. 기존에 없던 테이블을 생성하였고, 정렬 순서를 결정할 때데이터가 들어있지 않은 (NULL)인 경우에는 다른 컬럼을 기준으로 정렬하도록 만든 과정에대해 정리하고자 한다. 다중 정렬은 무엇인가?정렬 기준을 2개 이상 적용하고 싶을 때 사용한다. 이렇게 여러 개의 컬럼을">
-<meta name="keywords" content="Database,Oracle">
+    <meta name="description" content="정렬 기준 정렬할 때 NULL이 나오는 순서를 컨트롤 해보자 다중 정렬을 이용해보자 최근 시간이 먼저 나오게 정렬 다중 정렬을 적용한 예   어떤 JOIN을 쓸까?    새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다. 새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할">
+<meta name="keywords" content="Database,Oracle,다중 정렬,NULL 정렬 순서">
 <meta property="og:type" content="article">
-<meta property="og:title" content="다중 정렬과 NULL 순서를 변경해보자">
+<meta property="og:title" content="다중 정렬과 NULL을 다루는 과정">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2020/04/04/db-2020-04-04/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="SQL에서 ORDER BY를 사용할 때NULL이 나오는 순서를 컨트롤해야 할 경우가 있다. 기존에 없던 테이블을 생성하였고, 정렬 순서를 결정할 때데이터가 들어있지 않은 (NULL)인 경우에는 다른 컬럼을 기준으로 정렬하도록 만든 과정에대해 정리하고자 한다. 다중 정렬은 무엇인가?정렬 기준을 2개 이상 적용하고 싶을 때 사용한다. 이렇게 여러 개의 컬럼을">
+<meta property="og:description" content="정렬 기준 정렬할 때 NULL이 나오는 순서를 컨트롤 해보자 다중 정렬을 이용해보자 최근 시간이 먼저 나오게 정렬 다중 정렬을 적용한 예   어떤 JOIN을 쓸까?    새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다. 새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-04T14:56:59.465Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png">
+<meta property="og:updated_time" content="2020-04-04T17:02:28.052Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="다중 정렬과 NULL 순서를 변경해보자">
-<meta name="twitter:description" content="SQL에서 ORDER BY를 사용할 때NULL이 나오는 순서를 컨트롤해야 할 경우가 있다. 기존에 없던 테이블을 생성하였고, 정렬 순서를 결정할 때데이터가 들어있지 않은 (NULL)인 경우에는 다른 컬럼을 기준으로 정렬하도록 만든 과정에대해 정리하고자 한다. 다중 정렬은 무엇인가?정렬 기준을 2개 이상 적용하고 싶을 때 사용한다. 이렇게 여러 개의 컬럼을">
+<meta name="twitter:title" content="다중 정렬과 NULL을 다루는 과정">
+<meta name="twitter:description" content="정렬 기준 정렬할 때 NULL이 나오는 순서를 컨트롤 해보자 다중 정렬을 이용해보자 최근 시간이 먼저 나오게 정렬 다중 정렬을 적용한 예   어떤 JOIN을 쓸까?    새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다. 새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png">
     
 
     
@@ -175,7 +177,7 @@ ga('send', 'pageview');
       
     
         <h1 class="article-title" itemprop="name">
-        다중 정렬과 NULL 순서를 변경해보자
+        다중 정렬과 NULL을 다루는 과정
         </h1>
     
 
@@ -195,7 +197,7 @@ ga('send', 'pageview');
                       
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/database/">Database</a>, <a class="tag-link" href="/tags/oracle/">Oracle</a>
+        <a class="tag-link" href="/tags/database/">Database</a>, <a class="tag-link" href="/tags/null-정렬-순서/">NULL 정렬 순서</a>, <a class="tag-link" href="/tags/oracle/">Oracle</a>, <a class="tag-link" href="/tags/다중-정렬/">다중 정렬</a>
     </div>
  -->
           <!-- 🗓 작성일자 -->
@@ -207,22 +209,56 @@ ga('send', 'pageview');
     </div>
 
         </span>
-        <span class="reading-time">⏱ 읽기 소요 시간: 1 분</span>
+        <span class="reading-time">⏱ 읽기 소요 시간: 6 분</span>
       </div>
     </div>
      
     <div class="article-entry" itemprop="articleBody">
-      <hr>
-<p>SQL에서 ORDER BY를 사용할 때<br>NULL이 나오는 순서를 컨트롤해야 할 경우가 있다.</p>
-<p>기존에 없던 테이블을 생성하였고, 정렬 순서를 결정할 때<br>데이터가 들어있지 않은 (NULL)인 경우에는 다른 컬럼을 기준으로 정렬하도록 만든 과정에<br>대해 정리하고자 한다.</p>
-<p>다중 정렬은 무엇인가?<br>정렬 기준을 2개 이상 적용하고 싶을 때 사용한다.</p>
-<p>이렇게 여러 개의 컬럼을 기준으로 정렬할 경우,<br>왼쪽인 가장 앞에 정의된 컬럼을 기준으로 먼저 정렬한 후, 이후의 정렬 기준들을 기준으로 정렬하게 된다.</p>
+      <ul>
+<li><a href="#정렬-기준">정렬 기준</a></li>
+<li><a href="#정렬할-때-null이-나오는-순서를-컨트롤-해보자">정렬할 때 NULL이 나오는 순서를 컨트롤 해보자</a></li>
+<li><a href="#다중-정렬을-이용해보자">다중 정렬을 이용해보자</a><ul>
+<li><a href="#최근-시간이-먼저-나오게-정렬">최근 시간이 먼저 나오게 정렬</a></li>
+<li><a href="#다중-정렬을-적용한-예">다중 정렬을 적용한 예</a></li>
+</ul>
+</li>
+<li><a href="#어떤-join을-쓸까">어떤 JOIN을 쓸까?</a></li>
+</ul>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png" alt="우리 퍼즐 조각을 맞춰서 새로운 정렬 기준을 만들어보지 않을래? "></p>
+<p>새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여<br>기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다.</p>
+<p>새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할 것인지,<br>기존의 테이블과 JOIN할 때는 어떤 방식으로 JOIN할 것인지에 대해 고민하던 과정에 대해 정리해보고자 한다.</p>
+<h3 id="정렬-기준"><a href="#정렬-기준" class="headerlink" title="정렬 기준"></a>정렬 기준</h3><p>먼저, 정렬 기준을 간단히 정리해보자.</p>
+<p>오름차순 정렬은 <code>ASC</code>를 사용하며 정렬의 Default값이 <code>ASC</code>이므로 생략할 경우 <strong>오름차순</strong>이 적용된다.<br>내림차순 정렬은 <code>DESC</code>를 사용한다.</p>
+<hr>
+<h3 id="정렬할-때-NULL이-나오는-순서를-컨트롤-해보자"><a href="#정렬할-때-NULL이-나오는-순서를-컨트롤-해보자" class="headerlink" title="정렬할 때 NULL이 나오는 순서를 컨트롤 해보자"></a>정렬할 때 NULL이 나오는 순서를 컨트롤 해보자</h3><p>Oracle에서 ORDER BY 구문 NULL값 정렬 순서를 정하기 위해서는<br><code>NULLS FIRST</code>와 <code>NULLS LAST</code>를 이용한다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NULL이 마지막에 나오도록 정렬</span></span><br><span class="line">ORDER BY 컬럼명 정렬 기준 DESC NULLS LAST;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NULL이 처음에 나오도록 정렬</span></span><br><span class="line">ORDER BY 컬럼명 정렬 기준 DESC NULLS FIRST;</span><br></pre></td></tr></table></figure>
+<p>기존에는 NULL값을 나중에 나오게 만들기 위해 <code>NULLS LAST</code>를 붙여줬었는데,<br>Oracle에서는 <strong><code>NULLS LAST</code>가 Default</strong>이므로 생략할 경우에도<br>마찬가지로 <code>NULL LAST</code>를 붙여준 것과 <strong>동일하게 정렬</strong>된다.</p>
+<p>따라서, Oracle에서 NULL값이 가장 먼저 나오게 만들고 싶을 때만 <code>NULLS FIRST</code>를 붙여주면 된다.</p>
+<hr>
+<h3 id="다중-정렬을-이용해보자"><a href="#다중-정렬을-이용해보자" class="headerlink" title="다중 정렬을 이용해보자"></a>다중 정렬을 이용해보자</h3><p>다중 정렬은 무엇인가?<br>정렬 기준을 2개 이상 적용하고 싶을 때 사용한다.</p>
+<p>이렇게 여러 개의 컬럼을 기준으로 정렬할 경우,<br>왼쪽인 가장 앞에 정의된 컬럼을 기준으로 먼저 정렬한 후 이후의 정렬 기준들을 기준으로 정렬하게 된다.</p>
 <p>가장 먼저 나오는 기준 컬럼을 기준으로 정렬을 먼저 적용하여 정렬한 후,<br>다음 기준으로 정렬을 하는 것이다.</p>
-<p>우선 다중 정렬을 하기 전 정렬 기준을 간단히 정리해보자.</p>
-<p>오름차순 정렬은 ASC를 사용하며 정렬의 DEFAULT값이 ASC이므로 생략할 경우 오름차순이 적용된다.<br>내림차순 정렬은 DESC를 사용한다.</p>
-<p>예를 들어 다중 정렬을 적용하는데, 기준 컬럼1은 내림차순, 컬럼2는 오름차순으로 정렬한다.<br>기준 컬럼1은 최종 수정한 시간(updatedAt)이며, 컬럼2는 최초 생성한 시간(createdAt)이다.</p>
-<p>시간 데이터는 최근순으로 정렬한다고 하면,</p>
-<p>`ORDER BY 컬럼명 정렬 기준 컬럼1 DESC, 정렬 기준 컬럼2</p>
+<p>예를 들어 다중 정렬을 적용하는데, 첫번째 정렬 기준 컬럼은 내림차순,<br>두 번째 기준 컬럼은 오름차순으로 정렬한다고 해보자.</p>
+<p>정렬 기준의 첫번 째 컬럼은 <strong>최종 수정한 시간(updatedAt)</strong>이며, 두 번째 컬럼은 <strong>제목(title)</strong>이라고 하자.</p>
+<h4 id="최근-시간이-먼저-나오게-정렬"><a href="#최근-시간이-먼저-나오게-정렬" class="headerlink" title="최근 시간이 먼저 나오게 정렬"></a>최근 시간이 먼저 나오게 정렬</h4><p>시간 데이터가 들어있는 컬럼을 기준으로<br><strong>가장 최근 데이터가 가장 먼저 나오도록(최근순)</strong>정렬하고자 한다면,<br><code>DESC</code>를 넣어서 내림차순으로 정렬한다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 수정 시간을 기준으로 최근 시간부터 나오게 정렬</span></span><br><span class="line">ORDER BY UPDATED_AT DESC</span><br></pre></td></tr></table></figure>
+<h4 id="다중-정렬을-적용한-예"><a href="#다중-정렬을-적용한-예" class="headerlink" title="다중 정렬을 적용한 예"></a>다중 정렬을 적용한 예</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 수정 시간을 기준으로 최근시간부터 나오도록 정렬한 후, 제목을 기준으로 오름차순 정렬</span></span><br><span class="line">ORDER BY UPDATED_AT DESC, TITLE (ASC);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="어떤-JOIN을-쓸까"><a href="#어떤-JOIN을-쓸까" class="headerlink" title="어떤 JOIN을 쓸까?"></a>어떤 JOIN을 쓸까?</h3><p>기존에 데이터를 가져오는 쿼리에 정렬 기준을 새로운 테이블의 UPDATED_AT 컬럼으로 만든다고 해보자.</p>
+<p><code>LEFT OUTER JOIN</code>과 <code>INNER JOIN</code> 중 어떤 JOIN을 사용할지 고민했다.</p>
+<p><code>LEFT OUTER JOIN</code>은 오른쪽 테이블의 모든 값을 가져와서 왼쪽 테이블과 매칭을 한 후,<br>매칭되는 값이 없을 경우 null로 표현한다. <code>LEFT JOIN</code>으로 줄여서 사용할 수 있다.</p>
+<p><code>INNER JOIN</code>은 줄여서 <code>JOIN</code>으로 사용할 수 있으며, 값이 없으면 가져오지 않는다.</p>
+<p>지금의 경우에는 NULL일 경우에도 데이터를 추출하여 첫번째 정렬 기준으로 사용할 것이므로<br><code>LEFT OUTER JOIN</code>을 사용하여 JOIN 해주었다.</p>
+<hr>
+<h3 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h3><ul>
+<li><a href="https://www.techrepublic.com/blog/the-enterprise-cloud/control-null-data-in-oracle-using-the-order-by-clause/" target="_blank" rel="noopener">Control null data in Oracle using the ORDER BY clause</a></li>
+<li><a href="https://passionha.tistory.com/131" target="_blank" rel="noopener">오라클 NULL값 정렬 (NULLS FIRST, NULLS LAST)</a></li>
+<li><a href="http://jayko.io/til/2019/08/10/OuterJoin.html" target="_blank" rel="noopener">Outer Join</a></li>
+<li><a href="https://streetdeveloper.tistory.com/23" target="_blank" rel="noopener">[오라클] LEFT OUTER JOIN과 LEFT JOIN의 차이점</a></li>
+<li><a href="https://www.w3schools.com/sql/sql_join_left.asp" target="_blank" rel="noopener">SQL LEFT JOIN Keyword</a></li>
+</ul>
 
     </div>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -302,20 +338,29 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Phang"
         },
-        "headline": "다중 정렬과 NULL 순서를 변경해보자",
-        "image": "https://JihyeHwang09.github.io",
-        "keywords": "Database Oracle",
+        "headline": "다중 정렬과 NULL을 다루는 과정",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png",
+        "keywords": "Database Oracle 다중 정렬 NULL 정렬 순서",
         "genre": "Database Oracle",
         "datePublished": "2020-04-04",
         "dateCreated": "2020-04-04",
-        "dateModified": "2020-04-04",
+        "dateModified": "2020-04-05",
         "url": "https://JihyeHwang09.github.io/2020/04/04/db-2020-04-04/",
         "description": "
-SQL에서 ORDER BY를 사용할 때NULL이 나오는 순서를 컨트롤해야 할 경우가 있다.
-기존에 없던 테이블을 생성하였고, 정렬 순서를 결정할 때데이터가 들어있지 않은 (NULL)인 경우에는 다른 컬럼을 기준으로 정렬하도록 만든 과정에대해 정리하고자 한다.
-다중 정렬은 무엇인가?정렬 기준을 2개 이상 적용하고 싶을 때 사용한다.
-이렇게 여러 개의 컬럼을"
-        "wordCount": 125
+정렬 기준
+정렬할 때 NULL이 나오는 순서를 컨트롤 해보자
+다중 정렬을 이용해보자
+최근 시간이 먼저 나오게 정렬
+다중 정렬을 적용한 예
+
+
+어떤 JOIN을 쓸까?
+
+
+
+새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다.
+새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할"
+        "wordCount": 470
     }
 </script>
 
@@ -388,7 +433,7 @@ SQL에서 ORDER BY를 사용할 때NULL이 나오는 순서를 컨트롤해야 �
                             <a href="/2020/04/04/db-2020-04-04/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png)" alt="다중 정렬과 NULL을 다루는 과정" class="thumbnail-image"></span>
     
     
 </a>
@@ -397,7 +442,7 @@ SQL에서 ORDER BY를 사용할 때NULL이 나오는 순서를 컨트롤해야 �
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/oracle/">Oracle</a></p>
-                            <p class="item-title"><a href="/2020/04/04/db-2020-04-04/" class="title">다중 정렬과 NULL 순서를 변경해보자</a></p>
+                            <p class="item-title"><a href="/2020/04/04/db-2020-04-04/" class="title">다중 정렬과 NULL을 다루는 과정</a></p>
                             <p class="item-date"><time datetime="2020-04-04T14:39:09.000Z" itemprop="datePublished">2020-04-04</time></p>
                         </div>
                     </li>
