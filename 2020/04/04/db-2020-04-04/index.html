@@ -21,7 +21,7 @@
 <meta property="og:description" content="정렬 기준 정렬할 때 NULL이 나오는 순서를 컨트롤 해보자 다중 정렬을 이용해보자 최근 시간이 먼저 나오게 정렬 다중 정렬을 적용한 예   어떤 JOIN을 쓸까?    새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다. 새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/78456645-cf8b0300-76df-11ea-8ee8-b679e4dc313d.png">
-<meta property="og:updated_time" content="2020-04-04T17:02:28.052Z">
+<meta property="og:updated_time" content="2020-04-04T17:08:01.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="다중 정렬과 NULL을 다루는 과정">
 <meta name="twitter:description" content="정렬 기준 정렬할 때 NULL이 나오는 순서를 컨트롤 해보자 다중 정렬을 이용해보자 최근 시간이 먼저 나오게 정렬 다중 정렬을 적용한 예   어떤 JOIN을 쓸까?    새로운 테이블을 생성하고, 이 테이블을 기존의 테이블과 JOIN하여기존에 데이터를 가져오는 곳의 정렬 기준으로 만드는 과정이 있었다. 새로운 컬럼의 값이 NULL일 경우에는 어떻게 정렬할">
@@ -232,8 +232,8 @@ ga('send', 'pageview');
 <p>오름차순 정렬은 <code>ASC</code>를 사용하며 정렬의 Default값이 <code>ASC</code>이므로 생략할 경우 <strong>오름차순</strong>이 적용된다.<br>내림차순 정렬은 <code>DESC</code>를 사용한다.</p>
 <hr>
 <h3 id="정렬할-때-NULL이-나오는-순서를-컨트롤-해보자"><a href="#정렬할-때-NULL이-나오는-순서를-컨트롤-해보자" class="headerlink" title="정렬할 때 NULL이 나오는 순서를 컨트롤 해보자"></a>정렬할 때 NULL이 나오는 순서를 컨트롤 해보자</h3><p>Oracle에서 ORDER BY 구문 NULL값 정렬 순서를 정하기 위해서는<br><code>NULLS FIRST</code>와 <code>NULLS LAST</code>를 이용한다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NULL이 마지막에 나오도록 정렬</span></span><br><span class="line">ORDER BY 컬럼명 정렬 기준 DESC NULLS LAST;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NULL이 처음에 나오도록 정렬</span></span><br><span class="line">ORDER BY 컬럼명 정렬 기준 DESC NULLS FIRST;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NULL이 마지막에 나오도록 정렬</span></span><br><span class="line">ORDER BY 컬럼명 정렬 기준(ASC | DESC) NULLS LAST;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- NULL이 처음에 나오도록 정렬</span></span><br><span class="line">ORDER BY 컬럼명 정렬 기준 NULLS FIRST;</span><br></pre></td></tr></table></figure>
 <p>기존에는 NULL값을 나중에 나오게 만들기 위해 <code>NULLS LAST</code>를 붙여줬었는데,<br>Oracle에서는 <strong><code>NULLS LAST</code>가 Default</strong>이므로 생략할 경우에도<br>마찬가지로 <code>NULL LAST</code>를 붙여준 것과 <strong>동일하게 정렬</strong>된다.</p>
 <p>따라서, Oracle에서 NULL값이 가장 먼저 나오게 만들고 싶을 때만 <code>NULLS FIRST</code>를 붙여주면 된다.</p>
 <hr>
