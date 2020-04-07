@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>CS50- 기억장치(Memory) | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="cs50,memory,기억장치">
+    
+    <meta name="description" content="기억장치(Memory)Edwith에서 제공하는 CS50의 영상과 자료를 공부하고 정리한 내용 입니다. TL;DR; CPU의 용량이 크지 않은 이유는 한 번에 64bit 정도만 처리하면 되기 때문이다. 하드디스크는 영구적이고 휘발성이 없고 RAM은 일시적이고 전원을 끄면 없어지는 휘발성이 있다. RAM이 더 빠르고 하드디스크가 더 느린데도 하드디스크 용량이">
+<meta name="keywords" content="cs50,memory,기억장치">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS50- 기억장치(Memory)">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2020/04/07/cs50-memory/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="기억장치(Memory)Edwith에서 제공하는 CS50의 영상과 자료를 공부하고 정리한 내용 입니다. TL;DR; CPU의 용량이 크지 않은 이유는 한 번에 64bit 정도만 처리하면 되기 때문이다. 하드디스크는 영구적이고 휘발성이 없고 RAM은 일시적이고 전원을 끄면 없어지는 휘발성이 있다. RAM이 더 빠르고 하드디스크가 더 느린데도 하드디스크 용량이">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/78557689-30374e80-784c-11ea-8b6e-fa98a074dfee.png">
+<meta property="og:updated_time" content="2020-04-07T15:14:56.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CS50- 기억장치(Memory)">
+<meta name="twitter:description" content="기억장치(Memory)Edwith에서 제공하는 CS50의 영상과 자료를 공부하고 정리한 내용 입니다. TL;DR; CPU의 용량이 크지 않은 이유는 한 번에 64bit 정도만 처리하면 되기 때문이다. 하드디스크는 영구적이고 휘발성이 없고 RAM은 일시적이고 전원을 끄면 없어지는 휘발성이 있다. RAM이 더 빠르고 하드디스크가 더 느린데도 하드디스크 용량이">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/78557689-30374e80-784c-11ea-8b6e-fa98a074dfee.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-139151127-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jmnote/IropkeBatang/master/iropkebatang.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css"> <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css"> <link rel="stylesheet" href="/css/style.css">
+
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+          <h2 class="subtitle-wrap">
+            <p class="subtitle">
+              꿈꾸는 지구별 개발자, Phang&#39;s IT Blog
+            </p>
+          </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+              <li class="main-nav-list-item">
+                <a class="main-nav-list-link" href="/">Home</a>
+              </li>
+               <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/object/">Object</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/mysql/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/dev-english/">Dev English</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/lecture/">Lecture</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/typescript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/">Infra</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/http-network/">http network</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/">Tool</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/blog/">Blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/intellij/">IntelliJ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></li></ul></li></ul> 
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/developer/lecture/">Lecture</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+                            <article id="post-cs50-memory" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+    
+        <h1 class="article-title" itemprop="name">
+        CS50- 기억장치(Memory)
+        </h1>
+    
+
+    </header>
+     
+    <div class="article-meta">
+      <div class="article-subtitle">
+        <span class="article-date">
+          <!-- 
+    <div class="article-date">
+        <a href="/2020/04/07/cs50-memory/" class="article-date">
+            <time datetime="2020-04-07T14:56:26.000Z" itemprop="datePublished">2020-04-07</time>
+        </a>
+    </div>
+ 
+ 
+                      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/cs50/">cs50</a>, <a class="tag-link" href="/tags/memory/">memory</a>, <a class="tag-link" href="/tags/기억장치/">기억장치</a>
+    </div>
+ -->
+          <!-- 🗓 작성일자 -->
+          
+    <div class="article-date">
+        <a href="/2020/04/07/cs50-memory/" class="article-date">
+            <time datetime="2020-04-07T14:56:26.000Z" itemprop="datePublished">2020-04-07</time>
+        </a>
+    </div>
+
+        </span>
+        <span class="reading-time">⏱ 읽기 소요 시간: 9 분</span>
+      </div>
+    </div>
+     
+    <div class="article-entry" itemprop="articleBody">
+      <h2 id="기억장치-Memory"><a href="#기억장치-Memory" class="headerlink" title="기억장치(Memory)"></a>기억장치(Memory)</h2><p><a href="https://www.edwith.org/cs50" target="_blank" rel="noopener">Edwith에서 제공하는 CS50</a>의 영상과 자료를 공부하고 정리한 내용 입니다.</p>
+<h3 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR;"></a>TL;DR;</h3><ul>
+<li><strong><code>CPU</code>의 용량이 크지 않은 이유</strong>는 한 번에 64bit 정도만 처리하면 되기 때문이다.</li>
+<li><code>하드디스크</code>는 영구적이고 휘발성이 없고 <code>RAM</code>은 일시적이고 전원을 끄면 없어지는 휘발성이 있다.</li>
+<li><strong><code>RAM</code>이 더 빠르고 <code>하드디스크</code>가 더 느린데도 하드디스크 용량이 더 큰 이유</strong>는<br><code>하드디스크</code>에 있는 모든 것을 동시에 봐야 할 필요가 없기 때문이다.</li>
+<li>컴퓨터가 많은 일을 한꺼번에 수행한다고 알고 있는데 사실 이건 착각이다.<br><code>CPU</code>는 <strong>한 번에 한 가지 일만 처리</strong>할 수 있다.<br><code>RAM</code>이 많을수록 더 많은 프로그램을 한꺼번에 열 수 있는 것처럼 느낄 수 있다.</li>
+</ul>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/37353837/78557689-30374e80-784c-11ea-8b6e-fa98a074dfee.png" alt="cs50-memory"></p>
+<p><code>CPU</code>는 컴퓨터를 동작시키는 하나의 요소에 불과하다.<br>프로그램을 실행한다거나 파일을 저장하는 일을 할 때,<br>모든 비트는 <code>CPU</code>를 통과해야 한다.<br><code>CPU</code>의 용량은 굉장히 제한적이어서 1MB 정도의 저장 공간만 있다.</p>
+<h3 id="CPU의-용량이-크지-않은-이유"><a href="#CPU의-용량이-크지-않은-이유" class="headerlink" title="CPU의 용량이 크지 않은 이유?"></a><code>CPU</code>의 용량이 크지 않은 이유?</h3><p><strong>한 번에 64bit 정도만 처리하면 되기 때문이다.</strong></p>
+<p>ex) 64bit 컴퓨터가 있다고 하자.<br><code>CPU</code>가 두 수를 더할 때, 첫 번째 숫자도 64bit를 사용하고<br>두 번째 숫자로 64bit를 사용한다는 것이다.</p>
+<p>심지어 파일 크기가 몇 KB나 몇 MB이더라도<br><code>CPU</code> 안에는 사용에 필요한 적은 양만 가지고 오는 것이다.</p>
+<p>그렇기 때문에 다른 곳에 데이터를 저장해야 하는데,<br>이것을 <code>RAM</code>이라고 부르며 임의의 접근 기억장치를 뜻한다.</p>
+<p>사람들이 컴퓨터 메모리 크기를 물어보는 것은 두 가지 의미가 있다.</p>
+<ul>
+<li><code>RAM</code>을 뜻하는 것일 수도 있고 <code>하드디스크</code>를 뜻하는 것일 수도 있다.<br>두 가지 모두 메모리의 종류에 속하기 때문이다.</li>
+</ul>
+<h3 id="하드디스크-VS-RAM"><a href="#하드디스크-VS-RAM" class="headerlink" title="하드디스크 VS RAM"></a><code>하드디스크</code> VS <code>RAM</code></h3><ul>
+<li><code>하드디스크</code>는 영구적이고 휘발성이 없다.</li>
+<li><code>RAM</code>은 일시적이고 전원을 끄면 없어지는 휘발성이 있다.</li>
+</ul>
+<p>일반적으로 사람들이 메모리의 크기를 물어볼 때 거의 대부분은 <code>RAM</code>에 대하여 묻는 것이다.<br>하지만 항상 그렇지는 않다는 것을 명심하자.</p>
+<hr>
+<h3 id="컴퓨터에-있는-메모리의-종류"><a href="#컴퓨터에-있는-메모리의-종류" class="headerlink" title="컴퓨터에 있는 메모리의 종류"></a>컴퓨터에 있는 메모리의 종류</h3><blockquote>
+<p>CPU 내부에 있는 메모리까지 포함하면 5개의 메모리</p>
+</blockquote>
+<p>파일이나 프로그램을 더블클릭하면 도착하는 곳이 <code>RAM</code>이다.<br>문서를 작성하거나 프로그램을 실행할 때 자료나 프로그램들은 <code>하드디스크</code>에만 저장되는 것이 아니라,<br><code>하드디스크 드라이브(HDD)</code>에 복사되고 <code>RAM</code>에 일시적으로 저장된다.</p>
+<h4 id="RAM에-저장되는-이유"><a href="#RAM에-저장되는-이유" class="headerlink" title="RAM에 저장되는 이유"></a><code>RAM</code>에 저장되는 이유</h4><ol>
+<li><code>RAM</code>이 <code>하드디스크</code>보다 훨씬 속도가 빠르기 때문이다.</li>
+</ol>
+<p>2.<code>하드디스크</code>에 500GB의 용량이 있다고 가정해보자.<br><code>RAM</code>에는 한 자릿수에 불과한 2GB 정도만 있을 수 있다.</p>
+<p>여기서 의문이 생긴다.<br>Q) <code>RAM</code>이 더 빠르고 <code>하드디스크</code>가 더 느린데도 왜 느린 것을 더 많이 가지고 있는 걸까?<br><strong><code>하드디스크</code>에 있는 모든 것을 동시에 봐야 할 필요가 없기 때문이다.(모든 것을 한 번에 볼 필요가 없다.)</strong><br>ex) 과제물 하나를 열어놓거나 프로그램을 몇 개 실행시킬 수 있지만<br>폴더 안에 있는 모든 프로그램들을 동시에 실행하는 일은 없을 것이다.<br>-&gt; 현실적으로 이것들이 다 필요한 것은 아니다.</p>
+<p>CPU에는 어차피 병목현상이 있다.<br>Why?<br><code>하드디스크</code> 용량과 무관하게 통이 더 좁은 파이프라인으로 흘러가게 될 것이기 때문이다.</p>
+<ol start="3">
+<li>왜 <code>RAM</code>의 용량이 더 작은가?</li>
+</ol>
+<ul>
+<li><strong><code>하드디스크</code>보다 비싸다.(같은 용량을 사면 <code>RAM</code>이 <code>하드디스크</code>보다 더 비싸다.)</strong></li>
+<li>500GB의 용량의 <code>RAM</code>을 사서 컴퓨터에 꽂을 수 없다.<ul>
+<li><strong>기술적으로 아직 <code>RAM</code>이 500GB의 용량을 담을 수 없다.</strong><br>요즘 최대로 가질 수 있는 양이 굉장히 크긴 하지만,<br>128GB나 256GB도 가능하겠지만, 서버에나 그렇게 쓰인다.</li>
+<li>우리가 쓴다면 2GB, 4GB, 8GB 정도이고 데스크톱은 16GB나 32GB 정도 된다.</li>
+<li>소비자 시장에서 500GB는 아직 말도 안 되게 큰 숫자이다.<br>-&gt; 따라서 이 정도 크기는 소비자 시장에서는 가지기 어렵다.</li>
+</ul>
+</li>
+</ul>
+<p>그래도 괜찮다.<br>Why?<br>우리와 같은 사람들은 컴퓨터에게 그렇게 많은 일을 한꺼번에 부탁하는 것이 불가능하기 때문이다.</p>
+<p>결국 <code>RAM</code>과 <code>하드디스크</code> 모두 서로 상용하며 계속 커질 것이다.</p>
+<p>용량이 크고 속도가 느린 곳에서 용량이 작고 속도는 빠른 곳으로 가는 파이프라인이 만들어진다.</p>
+<p><code>하드디스크</code>에 있는 프로그램을 더블클릭하면 <code>RAM</code>에 적재되고<br>어떠한 일이 실제로 발생하기 위해서 (컴퓨터가 키 입력이나 마우스 클릭에 반응하기 위해서)<br>CPU로 비트가 흘러 들어간다.</p>
+<h3 id="RAM의-종류"><a href="#RAM의-종류" class="headerlink" title="RAM의 종류"></a><code>RAM</code>의 종류</h3><ul>
+<li>L1 캐시</li>
+<li>L2 캐시</li>
+<li>L3 캐시</li>
+</ul>
+<p>용량이 더 작고 비싸지만 더 빠르고 작은 크기의 메모리이다.<br>CPU에 가까울수록 더 빨리 데이터를 받을 수 있지만 그 데이터 양은 적다.<br>Why?<br>기술적인 효율성을 위해 이러한 흐름으로 만든다.</p>
+<p>CPU가 항상 일하게 만들고 싶다면,<br>CPU 옆에 서있는 사람들이 가장 빠른 것이 좋을 것이다.<br>Why?<br>비트를 계속해서 줄 수 있을 것이므로.<br>이 줄 맨 끝에 있는 <code>하드디스크</code>는 좀 느려도 괜찮다.<br>Why?<br>충분한 양만 주어지면 메가바이트나 킬로바이트 양의 비트들이 저장될 것이고<br>CPU는 항상 할 일이 있을 것이다.</p>
+<p>따라서, 데이터가 이렇게 큰 쪽에서 작은 쪽으로 옮겨가는 것이 실제로 문제가 되지 않는다.</p>
+<h4 id="하드디스크-용량에-신경-써야-하는-이유"><a href="#하드디스크-용량에-신경-써야-하는-이유" class="headerlink" title="하드디스크 용량에 신경 써야 하는 이유"></a><code>하드디스크</code> 용량에 신경 써야 하는 이유</h4><p><code>하드디스크</code>가 더 있으면 더 많은 영화, 음악, 문서를 저장할 수 있고 백업도 더 많이 할 수 있으므로 소비자로서 장점이 많다.</p>
+<h4 id="RAM-용량이-클수록-좋은-이유"><a href="#RAM-용량이-클수록-좋은-이유" class="headerlink" title="RAM 용량이 클수록 좋은 이유"></a><code>RAM</code> 용량이 클수록 좋은 이유</h4><p><code>RAM</code>이 크면 어떤 것을 할 수 있을까?<br>더 많은 기능을 동시에 수행할 수 있다.<br>그래서 어떤 프로그램이나 파일을 더블클릭해서 열 때마다<br>결국 <code>하드디스크</code>에서 <code>RAM</code>으로 적재하게 된다.<br>적어도 우리가 사용해야 할 부분은 <code>RAM</code>으로 적재된다.</p>
+<p>대부분의 사람들은 여러 개의 프로그램을 한꺼번에 쓸 것이다.<br>이 프로그램들은 사실 동시에 실행되고 있지 않다.</p>
+<p>컴퓨터는 엄청나게 빠르고 우리는 그에 비해 느리기 때문에<br>컴퓨터는 이 일들이 한꺼번에 일어나는 것처럼 착각하게 만드는 것이다.</p>
+<p>결국 컴퓨터 안을 들여다보면 보통 CPU는 1개밖에 없다.<br>요즘에는 2개의 CPU나 2개의 코어가 있다고들 하지만<br>컴퓨터 안에는 사실 이 뇌 역할을 하는 것이 거의 없다.</p>
+<p>그래서 대여섯 개나 10개 정도의 프로그램을 돌리면 실제로 일어나는 일은<br>1초에 10억 개씩 처리하는 속도라면 컴퓨터는 MS Word 실행하여<br>비트들을 순식간에 읽고 쓰고 처리하며<br>동시에 AOL 메신저 Safari, Firefox 브라우저, 이메일 등 모든 프로그램을 그 순간 안에 처리한다.<br>그 순간에 일어난 일들이 한꺼번에 발생된 것처럼 보인다.</p>
+<p>-&gt; 컴퓨터가 많은 일을 한꺼번에 수행한다고 알고 있는데 사실 이건 착각이다.<br>-&gt; 결론적으로 CPU는 한 번에 한 가지 일밖에 처리할 수 없다.<br>좋은 컴퓨터는 두 가지 일을 처리할 수도 있다.<br>어찌 되었든 우리는 이 차이를 느끼지 못한다.</p>
+<p>-&gt; <code>RAM</code>이 많을수록 더 많은 프로그램을 한꺼번에 열 수 있다.</p>
+<p>그런데 이게 필수일까?<br>프로그램들을 계속해서 종료해야 한다면 귀찮지 않을까?</p>
+<h4 id="가상-기억-장치"><a href="#가상-기억-장치" class="headerlink" title="가상 기억 장치"></a>가상 기억 장치</h4><p>그래픽 프로그램 포토샵을 실행한다고 해보자.<br>윈도우나 MacOS 같은 요즘 컴퓨터는 가상 기억장치라는 것을 제공하는데<br>잘 드러나지 않는 비밀 기능이긴 하지만,<br>윈도우나 MacOS가 어떤 파일이 공간을 너무 많이 차지한다고 여기면<br>사용자가 어떤 다른 프로그램을 앞으로 끌어 가지고 올 때 <code>RAM</code>에 있는 것들을 <code>하드디스크</code> 내의 별개의 공간으로 옮긴다.<br>우리가 눈치채지 못하게 이 비트들을 <code>RAM</code>에서 <code>하드디스크</code>로 옮긴다.<br>우리가 앞으로 끌어당긴 그 프로그램을 실행시키기 위한 공간이 필요하기 때문이다.</p>
+<p>원하는 프로그램이 다른 프로그램보다 앞으로 오게끔 그 아이콘을 클릭하면 뭔가 버벅거리고 지연이 좀 있다.<br>-&gt; 아마도 후순위에 있던 프로그램이 우리가 모르는 사이에 잠시 동안 <code>하드디스크</code>의 한 공간으로 옮겨져 가상 장치로 저장되어 있기 때문에 그런 것이다.</p>
+<p>우선순위로 바뀌는 데에 영점 몇 초에서 몇 초까지도 걸리는 이유는<br><code>하드디스크</code>에 있던 그 비트들을 몰래 다시 <code>RAM</code>으로 옮겨놓아야 하고<br><code>RAM</code>에 있던 후순위로 옮겨야 할 그 프로그램은 다시 <code>하드디스크</code>로 옮겨야 하기 때문이다.</p>
+<p>-&gt; <code>RAM</code>이 많으면 이런 짜증 나는 과정들을 거치지 않아도 된다.<br>그래서 요즘 시대에 컴퓨터를 살 때 가장 많은 투자를 하면 좋은 부분이<br>CPU 속도를 늘리거나 디스크 공간을 늘리는 것도 좋지만 체감상으로 느끼기에 <code>RAM</code>이 아닐까 싶다.<br>-&gt; <strong>컴퓨터가 한 번에 더 많은 양을 처리하는 듯한 착각을 느끼게 하니까.</strong></p>
+<h4 id="L2-캐시-L1-캐시"><a href="#L2-캐시-L1-캐시" class="headerlink" title="L2 캐시, L1 캐시"></a>L2 캐시, L1 캐시</h4><p>대부분 숫자가 높으면 더 좋은 것은 맞지만<br>다른 요인들도 많기 때문에 1.3GHz 컴퓨터가 1.5GHz 컴퓨터보다 더 빠를 수 있다.<br>Why?<br>더 느릴 것 같은 1.3GHz 컴퓨터가 <code>RAM</code> 용량이 더 클 수도 있다.<br>-&gt; 이렇게 되면 한 번에 더 많은 일을 처리할 수 있다는 뜻이고 여러분은 사람이기 때문에 지연을 잘 느끼지 못하기 때문에 CPU내의 L2나 L1 캐시가 더 좋을 수도 있다.<br>더 많은 비트들을 CPU 근처에 대기시켜서 도울 수 있을 것이다.</p>
+<p>어떤 프로그램은 특정 연산에 최적화되도록 설정되어 있다.<br>게임을 하거나 포토샵을 쓸 때 그 상황에 더 좋은 CPU가 있고 그래서 결국에는 단순히 사양을 읽는 것보다 구매평을 읽거나 컴퓨터를 좋아하는 사람이 올린<br>포토샵 같은 프로그램을 서로 다른 컴퓨터에 실행시켜 속도를 비교하는 동영상을 참고하는 것이 좋다.</p>
+<p>이렇게 실제 시간을 보고 비교해서 결정하는 것이 기계적 세부사항을 파고드는 것보다 나을 수도 있다.</p>
+<hr>
+<h3 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h3><ul>
+<li><a href="https://www.edwith.org/cs50" target="_blank" rel="noopener">Edwith- CS50</a></li>
+</ul>
+
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+    <footer class="article-footer">
+      
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+    </footer>
+  </div>
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "CS50- 기억장치(Memory)",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/78557689-30374e80-784c-11ea-8b6e-fa98a074dfee.png",
+        "keywords": "cs50 memory 기억장치",
+        "genre": "Developer Lecture",
+        "datePublished": "2020-04-07",
+        "dateCreated": "2020-04-07",
+        "dateModified": "2020-04-08",
+        "url": "https://JihyeHwang09.github.io/2020/04/07/cs50-memory/",
+        "description": "기억장치(Memory)Edwith에서 제공하는 CS50의 영상과 자료를 공부하고 정리한 내용 입니다.
+TL;DR;
+CPU의 용량이 크지 않은 이유는 한 번에 64bit 정도만 처리하면 되기 때문이다.
+하드디스크는 영구적이고 휘발성이 없고 RAM은 일시적이고 전원을 끄면 없어지는 휘발성이 있다.
+RAM이 더 빠르고 하드디스크가 더 느린데도 하드디스크 용량이 "
+        "wordCount": 1078
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/04/05/http-network/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">6장 엔티티 헤더 필드와 쿠키를 위한 헤더 필드</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/04/07/cs50-memory/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/78557689-30374e80-784c-11ea-8b6e-fa98a074dfee.png)" alt="CS50- 기억장치(Memory)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/lecture/">Lecture</a></p>
+                            <p class="item-title"><a href="/2020/04/07/cs50-memory/" class="title">CS50- 기억장치(Memory)</a></p>
+                            <p class="item-date"><time datetime="2020-04-07T14:56:26.000Z" itemprop="datePublished">2020-04-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/04/05/http-network/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png)" alt="6장 엔티티 헤더 필드와 쿠키를 위한 헤더 필드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/infra/http-network/">http network</a></p>
+                            <p class="item-title"><a href="/2020/04/05/http-network/" class="title">6장 엔티티 헤더 필드와 쿠키를 위한 헤더 필드</a></p>
+                            <p class="item-date"><time datetime="2020-04-05T14:40:30.000Z" itemprop="datePublished">2020-04-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/04/04/db-2020-04-04/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/78457299-2e527b80-76e4-11ea-8509-1b8fba61b8a0.png)" alt="다중 정렬과 NULL을 다루는 과정" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/oracle/">Oracle</a></p>
+                            <p class="item-title"><a href="/2020/04/04/db-2020-04-04/" class="title">다중 정렬과 NULL을 다루는 과정</a></p>
+                            <p class="item-date"><time datetime="2020-04-04T14:39:09.000Z" itemprop="datePublished">2020-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/31/db-2020-03-31/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/78040670-b82fdb00-73aa-11ea-8648-7cab15d2fd15.png)" alt="무결성 제약조건이 위배되었습니다- 부모 키가 없습니다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/oracle/">Oracle</a></p>
+                            <p class="item-title"><a href="/2020/03/31/db-2020-03-31/" class="title">무결성 제약조건이 위배되었습니다- 부모 키가 없습니다</a></p>
+                            <p class="item-date"><time datetime="2020-03-31T13:25:25.000Z" itemprop="datePublished">2020-03-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/03/28/http-network-6-response-header/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/71782125-0cc8f180-301a-11ea-93d6-d62bfbcfdd5b.png)" alt="6장 Response 헤더" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/infra/">Infra</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/infra/http-network/">http network</a></p>
+                            <p class="item-title"><a href="/2020/03/28/http-network-6-response-header/" class="title">6장 Response 헤더</a></p>
+                            <p class="item-date"><time datetime="2020-03-28T14:12:49.000Z" itemprop="datePublished">2020-03-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">99</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/object/">Object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">Database</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">MySQL</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/oracle/">Oracle</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">49</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/dev-english/">Dev English</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/lecture/">Lecture</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/typescript/">TypeScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/infra/">Infra</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/infra/http-network/">http network</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">Tool</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/blog/">Blog</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/intellij/">IntelliJ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <!-- <div id="busuanzi_container_site_pv">
+          총 조회 <span id="busuanzi_value_site_pv"></span> 회 |
+        </div>
+        <div id="busuanzi_container_site_uv">
+          총 방문자 <span id="busuanzi_value_site_uv"></span> 명
+        </div> -->
+        <p>
+          &copy; 2020 Phang
+        </p>
+        <p>
+          Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by
+          <a href="//github.com/ppoffice" target="_blank">PPOffice</a>
+        </p>
+      </div>
+      <div class="footer-plugins">
+        
+    
+
+
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2020/04/07/cs50-memory/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
