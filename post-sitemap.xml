@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2020/04/11/TIL-2020-04-11/</loc>
+        <lastmod>2020-04-10T16:06:39.493Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2020/04/09/no-newline-at-end-of-file/</loc>
         <lastmod>2020-04-09T11:54:44.992Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1640,7 +1648,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/18/TIL-2019-03-18/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1648,7 +1656,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/18/TIL-2019-03-18/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1744,7 +1752,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/01/react10/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/02/react11/</loc>
         <lastmod>2019-04-11T15:22:16.384Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1752,7 +1760,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/02/react11/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/01/react10/</loc>
         <lastmod>2019-04-11T15:22:16.384Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2000,7 +2008,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/15/css-background/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/01/12/css-inheritance%26cascade/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2008,7 +2016,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/12/css-inheritance%26cascade/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/01/15/css-background/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2112,7 +2120,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/06/node-morgan/</loc>
         <lastmod>2019-04-11T15:21:56.271Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2120,7 +2128,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/06/node-morgan/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/11/node-request-and-response2/</loc>
         <lastmod>2019-04-11T15:21:56.271Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2176,7 +2184,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/07/node-ajax/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/05/node-custom-middleware/</loc>
         <lastmod>2019-04-11T15:21:56.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2184,7 +2192,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/05/node-custom-middleware/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/07/node-ajax/</loc>
         <lastmod>2019-04-11T15:21:56.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
