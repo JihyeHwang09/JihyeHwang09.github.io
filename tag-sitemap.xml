@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/java-list-null-check/</loc>
+        <lastmod>2020-04-13T14:01:35.040Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/list-size-0/</loc>
+        <lastmod>2020-04-13T14:01:35.040Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/list-isempty/</loc>
+        <lastmod>2020-04-13T14:01:35.040Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/collectionutils-isempty/</loc>
+        <lastmod>2020-04-13T14:01:35.040Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/java/</loc>
+        <lastmod>2020-04-13T14:01:35.040Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
         <lastmod>2020-04-10T16:55:06.667Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -116,13 +151,6 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/static-method/</loc>
-        <lastmod>2020-03-22T13:26:44.485Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/java/</loc>
         <lastmod>2020-03-22T13:26:44.485Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -311,13 +339,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4/</loc>
-        <lastmod>2019-11-24T13:53:42.963Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/tags/%ED%85%9C%ED%94%8C%EB%A6%BF-%EB%A9%94%EC%86%8C%EB%93%9C-%ED%8C%A8%ED%84%B4/</loc>
         <lastmod>2019-11-24T13:53:42.963Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -326,6 +347,13 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/template-method-pattern/</loc>
+        <lastmod>2019-11-24T13:53:42.963Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%A0%84%EB%9E%B5-%ED%8C%A8%ED%84%B4/</loc>
         <lastmod>2019-11-24T13:53:42.963Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -1487,14 +1515,14 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/object-object/</loc>
+        <loc>https://JihyeHwang09.github.io/tags/position/</loc>
         <lastmod>2019-04-11T15:22:16.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/position/</loc>
+        <loc>https://JihyeHwang09.github.io/tags/object-object/</loc>
         <lastmod>2019-04-11T15:22:16.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -1536,20 +1564,6 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/tags/background/</loc>
-        <lastmod>2019-04-11T15:22:16.084Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EB%B0%B0%EA%B2%BD/</loc>
-        <lastmod>2019-04-11T15:22:16.084Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://JihyeHwang09.github.io/tags/cascade/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1572,6 +1586,20 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/tags/%EC%83%81%EC%86%8D/</loc>
+        <lastmod>2019-04-11T15:22:16.084Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/background/</loc>
+        <lastmod>2019-04-11T15:22:16.084Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EB%B0%B0%EA%B2%BD/</loc>
         <lastmod>2019-04-11T15:22:16.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

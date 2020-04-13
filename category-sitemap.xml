@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/java/</loc>
+        <lastmod>2020-04-13T14:01:35.040Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
+        <lastmod>2020-04-13T14:01:35.040Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/til/</loc>
         <lastmod>2020-04-10T16:55:06.667Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -59,20 +73,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/database/</loc>
         <lastmod>2020-04-04T17:22:38.304Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/java/</loc>
-        <lastmod>2020-03-22T13:26:44.485Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
-        <lastmod>2020-03-22T13:26:44.485Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
