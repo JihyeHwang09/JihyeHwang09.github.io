@@ -21,7 +21,7 @@
 <meta property="og:description" content="3장. 정렬과 연산14강. 날짜 연산1CURREUNT_TIMESTAMP CURRENT_DATE INTERVAL 1. SQL에서의 날짜1-1) 시스템 날짜RDBMS에서는 시스템 날짜와 시간을 확인하는 함수를 제공한다.CURREUNT_TIMESTAMP는 함수이지만 인수를 필요로 하지 않는다.즉, 괄호를 사용하지 않는 함수이다. 123# CURREUNT_TIME">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png">
-<meta property="og:updated_time" content="2020-05-03T14:30:55.146Z">
+<meta property="og:updated_time" content="2020-05-03T14:32:47.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL 첫걸음- 14강">
 <meta name="twitter:description" content="3장. 정렬과 연산14강. 날짜 연산1CURREUNT_TIMESTAMP CURRENT_DATE INTERVAL 1. SQL에서의 날짜1-1) 시스템 날짜RDBMS에서는 시스템 날짜와 시간을 확인하는 함수를 제공한다.CURREUNT_TIMESTAMP는 함수이지만 인수를 필요로 하지 않는다.즉, 괄호를 사용하지 않는 함수이다. 123# CURREUNT_TIME">
@@ -233,7 +233,7 @@ ga('send', 'pageview');
 <p>Oracle의 경우, <code>TO_DATE</code>함수를 이용해서 문자열 데이터를 날짜형 데이터로<br>변환할 수 있고, 서식도 별도로 지정할 수 있다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Oracle&gt; SELECT TO_DATE(&apos;2020/05/03&apos;, &apos;YYYY/MM/DD&apos;) FROM TABLE;</span><br><span class="line">-- SELECT TO_DATE([컬럼명],[포맷형식])FROM [테이블명]</span><br></pre></td></tr></table></figure>
 <p>반대로 날짜형 데이터를 문자열 데이터로 변환할 때는 <code>TO_CHAR</code> 함수를 사용한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Oracle&gt; SELECT TO_CHAR(COLUMN, &apos;YYYYMMDD HH24:MI:SS&apos;) FROM TABLE;</span><br><span class="line">-- SELECT TO_CHAR([컬럼명]) FROM [테이블명]</span><br><span class="line">20200503 23:10:10</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Oracle&gt; SELECT TO_CHAR(COLUMN, &apos;YYYYMMDD HH24:MI:SS&apos;) FROM TABLE;</span><br><span class="line">-- SELECT TO_CHAR([컬럼명]) FROM [테이블명]</span><br><span class="line">-- 20200503 23:10:10</span><br></pre></td></tr></table></figure>
 <h3 id="2-날짜의-덧셈과-뺄셈"><a href="#2-날짜의-덧셈과-뺄셈" class="headerlink" title="2. 날짜의 덧셈과 뺄셈"></a>2. 날짜의 덧셈과 뺄셈</h3><p>날짜시간형 데이터는 기간형 수치데이터와 덧셈 및 뺄셈을 할 수 있다.<br>특정일로부터 1일 후는 a + 1DAY, 1일 전이라면 a - 1Day로 하면 된다.</p>
 <h4 id="2-1-날짜형-간의-덧셈"><a href="#2-1-날짜형-간의-덧셈" class="headerlink" title="2-1) 날짜형 간의 덧셈"></a>2-1) 날짜형 간의 덧셈</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 시스템 날짜의 1일 후를 계산하기</span><br><span class="line">SELECT CURRENT_DATE + INTERVAL 1 DAY;</span><br><span class="line"># 2020-05-04</span><br></pre></td></tr></table></figure>
 <p><code>INTERVAL 1 DAY</code>는 1일 후라는 의미의 기간형 상수이다.<br>기간형 상수의 기술방법은 데이터베이스마다 조금씩 다르고 세세한 부분까지 표준화되지는 않았다.</p>
@@ -330,7 +330,7 @@ ga('send', 'pageview');
         "description": "3장. 정렬과 연산14강. 날짜 연산1CURREUNT_TIMESTAMP CURRENT_DATE INTERVAL
 1. SQL에서의 날짜1-1) 시스템 날짜RDBMS에서는 시스템 날짜와 시간을 확인하는 함수를 제공한다.CURREUNT_TIMESTAMP는 함수이지만 인수를 필요로 하지 않는다.즉, 괄호를 사용하지 않는 함수이다.
 123# CURREUNT_TIME"
-        "wordCount": 347
+        "wordCount": 348
     }
 </script>
 
