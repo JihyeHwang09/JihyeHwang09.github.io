@@ -21,7 +21,7 @@
 <meta property="og:description" content="3장. 정렬과 연산15강 CASE문으로 데이터 변환하기임의의 조건에 따라서 독자적으로 변환 처리를 지정해서 데이터를 변환하고 싶을 때CASE문을 사용할 수 있다. 1234CASE WHEN 조건식1 THEN 식1  [WHEN 조건식2 THEN 식2...]  [ELSE 식3]END 1. CASE문예를 들어, NULL값을 0으로 간주해서 계산하고 싶을 때는 어떻">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png">
-<meta property="og:updated_time" content="2020-05-04T14:58:37.560Z">
+<meta property="og:updated_time" content="2020-05-04T15:23:03.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL 첫걸음- 15강">
 <meta name="twitter:description" content="3장. 정렬과 연산15강 CASE문으로 데이터 변환하기임의의 조건에 따라서 독자적으로 변환 처리를 지정해서 데이터를 변환하고 싶을 때CASE문을 사용할 수 있다. 1234CASE WHEN 조건식1 THEN 식1  [WHEN 조건식2 THEN 식2...]  [ELSE 식3]END 1. CASE문예를 들어, NULL값을 0으로 간주해서 계산하고 싶을 때는 어떻">
@@ -209,7 +209,7 @@ ga('send', 'pageview');
     </div>
 
         </span>
-        <span class="reading-time">⏱ 읽기 소요 시간: 3 분</span>
+        <span class="reading-time">⏱ 읽기 소요 시간: 8 분</span>
       </div>
     </div>
      
@@ -226,6 +226,27 @@ ga('send', 'pageview');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column, COALESCE(column, 0) FROM table;</span><br></pre></td></tr></table></figure>
 <p><code>COALESCE</code> 함수는 여러 개의 인수를 지정할 수 있다.<br>주어진 인수 가운데 NULL이 아닌 값에 대해서는 가장 먼저 지정된 인수의 값을 반환한다.<br>앞의 예문은 column이 NULL이 아니면 column값을 그대로 출력하고,<br>그렇지 않으면(column이 NULL이면) 0을 출력한다.</p>
 <h3 id="2-또-하나의-CASE문"><a href="#2-또-하나의-CASE문" class="headerlink" title="2. 또 하나의 CASE문"></a>2. 또 하나의 CASE문</h3><p>숫자로 이루어진 코드를 알아보기 더 쉽게 문자열로 변환하고 싶은 경우<br>CASE문을 많이 사용한다.<br>수치 데이터를 문자화하는 것을 <code>디코드</code>라고 부르고,<br>반대로 문자를 수치화하는 것을 <code>인코드</code>라고 부른다.</p>
+<p>단순 CASE문으로 예를 들자면,<br>성별 코드를 변환해보면,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 단순 CASE로 성별 코드를 남자, 여자로 변환하기</span><br><span class="line">my sql&gt; SELECT column명 AS &quot;코드&quot;,</span><br><span class="line">CASE column명</span><br><span class="line">  WHEN 1 THEN &apos;남자&apos;</span><br><span class="line">  WHEN 2 THEN &apos;여자&apos;</span><br><span class="line">  ELSE &apos;미지정&apos;</span><br><span class="line">END AS &quot;성별&quot; FROM table명;</span><br></pre></td></tr></table></figure>
+<p>단순 CASE문에서 CASE 뒤에는 대상을 적고 WHEN 뒤에는 값을 적는다.</p>
+<h3 id="3-CASE를-사용할-경우-주의사항"><a href="#3-CASE를-사용할-경우-주의사항" class="headerlink" title="3. CASE를 사용할 경우 주의사항"></a>3. CASE를 사용할 경우 주의사항</h3><h4 id="1-ELSE-생략"><a href="#1-ELSE-생략" class="headerlink" title="1) ELSE 생략"></a>1) ELSE 생략</h4><p>CASE문에서 ELSE는 생략할 경우, ELSE NULL이 되는 것에 주의하자.<br>대응되는 WHEN이 하나도 없는 경우 ELSE절이 사용된다.<br>이때, ELSE를 생략한 경우 NULL이 반환되게 된다.<br>따라서 ELSE를 생략하지 지정하는 편이 낫다.</p>
+<blockquote>
+<p>CASE문의 ELSE는 생략하지 않는 편이 낫다!</p>
+</blockquote>
+<h4 id="2-WHEN에-NULL-지정하기"><a href="#2-WHEN에-NULL-지정하기" class="headerlink" title="2) WHEN에 NULL 지정하기"></a>2) WHEN에 NULL 지정하기</h4><p>여기에서 데이터가 NULL인 경우를 고려해서 WHEN NULL THEN ‘데이터 없음’과 같이 지정해도<br>문법적으로는 문제가 없지만 정상적으로 처리되지 않는다.<br>예를 들어, CASE문에서 WHEN절에 NULL을 지정해보자.</p>
+<h5 id="단순-CASE문에서-WHEN절에-NULL-지정하기"><a href="#단순-CASE문에서-WHEN절에-NULL-지정하기" class="headerlink" title="단순 CASE문에서 WHEN절에 NULL 지정하기"></a>단순 CASE문에서 WHEN절에 NULL 지정하기</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CASE a</span><br><span class="line">  WHEN 1 THEN &apos;남자&apos;</span><br><span class="line">  WHEN 2 THEN &apos;여자&apos;</span><br><span class="line">  WHEN NULL THEN &apos;데이터 없음&apos;</span><br><span class="line">  ELSE &apos;미지정&apos;</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p>이 예제에서 조건식이 처리되는 순서는 아래와 같다.</p>
+<ol>
+<li>a = 1</li>
+<li>a = 2</li>
+<li>a = NULL</li>
+</ol>
+<p><strong>그런데 문제는 비교 연산자 <code>=</code>로는 NULL값과 같은지 아니지를 비교할 수 없다는 것이다.</strong><br>따라서 a열의 값이 NULL이라고 해도 a = NULL은 참이 되지 않는다.<br>즉, ‘데이터 없음’ 대신 ELSE절에 있는 ‘미지정’이라는 결과값이 나온다.<br>이때 NULL값인지 아닌지를 판정하기 위해서는 IS NULL을 사용한다.<br>다만, 단순 CASE문은 특성상 <code>=</code>연산자로 비교하는 만큼, NULL값인지를 판정하기 위해서는<br>검색 CASE문을 사용해야 한다.</p>
+<h5 id="검색-CASE문으로-NULL-지정하기"><a href="#검색-CASE문으로-NULL-지정하기" class="headerlink" title="검색 CASE문으로 NULL 지정하기"></a>검색 CASE문으로 NULL 지정하기</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CASE</span><br><span class="line">  WHEN a = 1 THEN &apos;남자&apos;</span><br><span class="line">  WHEN a = 2 THEN &apos;여자&apos;</span><br><span class="line">  WHEN a IS NULL THEN &apos;데이터 없음&apos;</span><br><span class="line">  ELSE &apos;미지정&apos;</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>단순 CASE문으로는 NULL값을 비교할 수 없다!</p>
+</blockquote>
+<h4 id="3-DECODE-NVL"><a href="#3-DECODE-NVL" class="headerlink" title="3) DECODE NVL"></a>3) DECODE NVL</h4><p>Oracle에는 디코드를 수행하는 DECODE함수가 내장되어 있어서<br>CASE문과 같은 용도로 사용할 수 있다.<br>단, DECODE 함수는 Oracle에서만 지원하는 함수인 만큼 다른 데이터베이스 제품에서는 사용할 수 없다.<br>NULL값을 변환하는 함수도 있는데, Oracle에서는 NVL 함수, SQL Server에서는 ISNULL 함수가 이에 해당한다.<br>다만, 이 함수들은 특정 데이터베이스에 국한된 함수이기 때문에<br>NULL값을 변환할 때는 표준 SQL로 지정되어 있는 <code>COALESCE</code>함수를 사용한다.</p>
 
     </div>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -311,12 +332,12 @@ ga('send', 'pageview');
         "genre": "Database MySQL",
         "datePublished": "2020-05-04",
         "dateCreated": "2020-05-04",
-        "dateModified": "2020-05-04",
+        "dateModified": "2020-05-05",
         "url": "https://JihyeHwang09.github.io/2020/05/04/book-sql-first-steps-15/",
         "description": "3장. 정렬과 연산15강 CASE문으로 데이터 변환하기임의의 조건에 따라서 독자적으로 변환 처리를 지정해서 데이터를 변환하고 싶을 때CASE문을 사용할 수 있다.
 1234CASE WHEN 조건식1 THEN 식1  [WHEN 조건식2 THEN 식2...]  [ELSE 식3]END
 1. CASE문예를 들어, NULL값을 0으로 간주해서 계산하고 싶을 때는 어떻"
-        "wordCount": 309
+        "wordCount": 673
     }
 </script>
 
