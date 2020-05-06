@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/til/</loc>
+        <lastmod>2020-05-06T00:04:55.680Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
+        <lastmod>2020-05-06T00:04:55.680Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/mysql/</loc>
         <lastmod>2020-05-04T15:23:03.367Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -82,20 +96,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/tags/collectionutils-isempty/</loc>
         <lastmod>2020-04-13T14:11:07.533Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/til/</loc>
-        <lastmod>2020-04-10T16:55:06.667Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
-        <lastmod>2020-04-10T16:55:06.667Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
