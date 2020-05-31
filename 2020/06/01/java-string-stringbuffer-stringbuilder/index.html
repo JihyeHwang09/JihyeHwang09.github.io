@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>String VS StringBuffer VS StringBuilder | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Java,String,StringBuffer">
+    
+    <meta name="description" content="TL;DR 문자열 연산이 많고 단일 쓰레드이거나 동기화를 고려하지 않아도 되는 경우,StringBuilder를 사용하자. 멀티쓰레드 환경일 경우, String이나 StringBuffer의 사용을 고려해본다. 멀티쓰레드 환경이면서 문자열 연산이 적을 경우, String을 사용한다. 멀티쓰레드 환경이면서 문자열 연산이 많을 경우, StringBuffer를 사용">
+<meta name="keywords" content="Java,String,StringBuffer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="String VS StringBuffer VS StringBuilder">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2020/06/01/java-string-stringbuffer-stringbuilder/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="TL;DR 문자열 연산이 많고 단일 쓰레드이거나 동기화를 고려하지 않아도 되는 경우,StringBuilder를 사용하자. 멀티쓰레드 환경일 경우, String이나 StringBuffer의 사용을 고려해본다. 멀티쓰레드 환경이면서 문자열 연산이 적을 경우, String을 사용한다. 멀티쓰레드 환경이면서 문자열 연산이 많을 경우, StringBuffer를 사용">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/83358939-ea14ec00-a3b1-11ea-8ffe-72002bad5262.png">
+<meta property="og:updated_time" content="2020-05-31T17:45:25.627Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="String VS StringBuffer VS StringBuilder">
+<meta name="twitter:description" content="TL;DR 문자열 연산이 많고 단일 쓰레드이거나 동기화를 고려하지 않아도 되는 경우,StringBuilder를 사용하자. 멀티쓰레드 환경일 경우, String이나 StringBuffer의 사용을 고려해본다. 멀티쓰레드 환경이면서 문자열 연산이 적을 경우, String을 사용한다. 멀티쓰레드 환경이면서 문자열 연산이 많을 경우, StringBuffer를 사용">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/83358939-ea14ec00-a3b1-11ea-8ffe-72002bad5262.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-139151127-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jmnote/IropkeBatang/master/iropkebatang.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css"> <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css"> <link rel="stylesheet" href="/css/style.css">
+
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+          <h2 class="subtitle-wrap">
+            <p class="subtitle">
+              꿈꾸는 지구별 개발자, Phang&#39;s IT Blog
+            </p>
+          </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+              <li class="main-nav-list-item">
+                <a class="main-nav-list-link" href="/">Home</a>
+              </li>
+               <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/object/">Object</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/mysql/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/dev-english/">Dev English</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/lecture/">Lecture</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/typescript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/">Infra</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/http-network/">http network</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/">Tool</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/blog/">Blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/intellij/">IntelliJ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></li></ul></li></ul> 
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+                            <article id="post-java-string-stringbuffer-stringbuilder" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+    
+        <h1 class="article-title" itemprop="name">
+        String VS StringBuffer VS StringBuilder
+        </h1>
+    
+
+    </header>
+     
+    <div class="article-meta">
+      <div class="article-subtitle">
+        <span class="article-date">
+          <!-- 
+    <div class="article-date">
+        <a href="/2020/06/01/java-string-stringbuffer-stringbuilder/" class="article-date">
+            <time datetime="2020-05-31T17:35:26.000Z" itemprop="datePublished">2020-06-01</time>
+        </a>
+    </div>
+ 
+ 
+                      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">Java</a>, <a class="tag-link" href="/tags/string/">String</a>, <a class="tag-link" href="/tags/stringbuffer/">StringBuffer</a>
+    </div>
+ -->
+          <!-- 🗓 작성일자 -->
+          
+    <div class="article-date">
+        <a href="/2020/06/01/java-string-stringbuffer-stringbuilder/" class="article-date">
+            <time datetime="2020-05-31T17:35:26.000Z" itemprop="datePublished">2020-06-01</time>
+        </a>
+    </div>
+
+        </span>
+        <span class="reading-time">⏱ 읽기 소요 시간: 5 분</span>
+      </div>
+    </div>
+     
+    <div class="article-entry" itemprop="articleBody">
+      <h3 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h3><ul>
+<li>문자열 연산이 많고 단일 쓰레드이거나 동기화를 고려하지 않아도 되는 경우,<br>StringBuilder를 사용하자.</li>
+<li>멀티쓰레드 환경일 경우, String이나 StringBuffer의 사용을 고려해본다.</li>
+<li>멀티쓰레드 환경이면서 문자열 연산이 적을 경우, String을 사용한다.</li>
+<li>멀티쓰레드 환경이면서 문자열 연산이 많을 경우, StringBuffer를 사용한다.</li>
+</ul>
+<hr>
+<h3 id="공통점"><a href="#공통점" class="headerlink" title="공통점"></a>공통점</h3><p>String 클래스와 StringBuffer 클래스 모두 문자형 배열(char[])을 내부적으로 가지고 있다.</p>
+<ul>
+<li>String 클래스</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* The value is used for character storage. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[] value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>StringBuffer 클래스</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">StringBuffer</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[] values;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="차이점"><a href="#차이점" class="headerlink" title="차이점"></a>차이점</h3><h4 id="1-인스턴스의-내용을-변경할-수-있는가"><a href="#1-인스턴스의-내용을-변경할-수-있는가" class="headerlink" title="1. 인스턴스의 내용을 변경할 수 있는가?"></a>1. 인스턴스의 내용을 변경할 수 있는가?</h4><ul>
+<li>String 클래스 인스턴스의 내용은 변경할 수 없다.(immutable)</li>
+<li>반면에, StringBuffer 클래스는 인스턴스의 내용을 바꿀 수 있다.(mutable)</li>
+</ul>
+<p>String 클래스는 대표적인 불변객체이다.</p>
+<h4 id="2-equals-를-오버라이딩-하는가"><a href="#2-equals-를-오버라이딩-하는가" class="headerlink" title="2. equals()를 오버라이딩 하는가?"></a>2. equals()를 오버라이딩 하는가?</h4><ul>
+<li>String 클래스는 equals()를 오버라이딩한다.</li>
+<li>StringBuffer 클래스는 eqauls()를 오버라이딩하지 않는다.</li>
+</ul>
+<hr>
+<h3 id="왜-구분해서-사용할까"><a href="#왜-구분해서-사용할까" class="headerlink" title="왜 구분해서 사용할까?"></a>왜 구분해서 사용할까?</h3><p>StringBuffer를 사용하면 thread-safe하게 문자열 연산을 수행할 수 있다.</p>
+<hr>
+<h3 id="표로-정리해보자"><a href="#표로-정리해보자" class="headerlink" title="표로 정리해보자"></a>표로 정리해보자</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>String</th>
+<th>StringBuffer</th>
+<th>StringBuilder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage</td>
+<td>String pool</td>
+<td>Heap</td>
+<td>Heap</td>
+</tr>
+<tr>
+<td>Modifiable</td>
+<td>No(immutable)</td>
+<td>Yes(mutable)</td>
+<td>Yes(mutable)</td>
+</tr>
+<tr>
+<td>Thread safe</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Synchronized</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Fast</td>
+<td>Slow</td>
+<td>Fast</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h3><p>남궁성 저, Java의 정석 요약집 2판, 도우출판, 262~ 269(슬라이드 번호)<br><a href="https://ifuwanna.tistory.com/221" target="_blank" rel="noopener">https://ifuwanna.tistory.com/221</a><br><a href="https://jeong-pro.tistory.com/85" target="_blank" rel="noopener">https://jeong-pro.tistory.com/85</a><br><a href="https://cjh5414.github.io/why-StringBuffer-and-StringBuilder-are-better-than-String/" target="_blank" rel="noopener">https://cjh5414.github.io/why-StringBuffer-and-StringBuilder-are-better-than-String/</a></p>
+
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+    <footer class="article-footer">
+      
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+    </footer>
+  </div>
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "String VS StringBuffer VS StringBuilder",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/83358939-ea14ec00-a3b1-11ea-8ffe-72002bad5262.png",
+        "keywords": "Java String StringBuffer",
+        "genre": "Back-end Java",
+        "datePublished": "2020-06-01",
+        "dateCreated": "2020-06-01",
+        "dateModified": "2020-06-01",
+        "url": "https://JihyeHwang09.github.io/2020/06/01/java-string-stringbuffer-stringbuilder/",
+        "description": "TL;DR
+문자열 연산이 많고 단일 쓰레드이거나 동기화를 고려하지 않아도 되는 경우,StringBuilder를 사용하자.
+멀티쓰레드 환경일 경우, String이나 StringBuffer의 사용을 고려해본다.
+멀티쓰레드 환경이면서 문자열 연산이 적을 경우, String을 사용한다.
+멀티쓰레드 환경이면서 문자열 연산이 많을 경우, StringBuffer를 사용"
+        "wordCount": 229
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/05/11/TIL-2020-05-11/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">의지력을 유지할 장치</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/01/java-string-stringbuffer-stringbuilder/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/83358939-ea14ec00-a3b1-11ea-8ffe-72002bad5262.png)" alt="String VS StringBuffer VS StringBuilder" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/06/01/java-string-stringbuffer-stringbuilder/" class="title">String VS StringBuffer VS StringBuilder</a></p>
+                            <p class="item-date"><time datetime="2020-05-31T17:35:26.000Z" itemprop="datePublished">2020-06-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/11/TIL-2020-05-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/81533493-45e6e900-93a1-11ea-8b88-ec1ae19a5bc1.png)" alt="의지력을 유지할 장치" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/til/">TIL</a></p>
+                            <p class="item-title"><a href="/2020/05/11/TIL-2020-05-11/" class="title">의지력을 유지할 장치</a></p>
+                            <p class="item-date"><time datetime="2020-05-10T15:10:49.000Z" itemprop="datePublished">2020-05-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/04/book-sql-first-steps-15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 15강" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/mysql/">MySQL</a></p>
+                            <p class="item-title"><a href="/2020/05/04/book-sql-first-steps-15/" class="title">SQL 첫걸음- 15강</a></p>
+                            <p class="item-date"><time datetime="2020-05-04T11:13:18.000Z" itemprop="datePublished">2020-05-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/03/book-sql-first-steps-14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/67577260-18c34800-f77b-11e9-9873-2fc3b427946e.png)" alt="SQL 첫걸음- 14강" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/database/">Database</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/database/mysql/">MySQL</a></p>
+                            <p class="item-title"><a href="/2020/05/03/book-sql-first-steps-14/" class="title">SQL 첫걸음- 14강</a></p>
+                            <p class="item-date"><time datetime="2020-05-03T13:23:32.000Z" itemprop="datePublished">2020-05-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/04/26/git-how-to-change-commit-message/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/80302672-6716d980-87e6-11ea-88c3-84f33056ccaa.png)" alt="Git- commit message를 바꿔보자" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/tool/">Tool</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/tool/git/">Git</a></p>
+                            <p class="item-title"><a href="/2020/04/26/git-how-to-change-commit-message/" class="title">Git- commit message를 바꿔보자</a></p>
+                            <p class="item-date"><time datetime="2020-04-26T07:48:25.000Z" itemprop="datePublished">2020-04-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">102</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/java/">Java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/object/">Object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">Database</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">MySQL</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/oracle/">Oracle</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">51</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/dev-english/">Dev English</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/lecture/">Lecture</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/typescript/">TypeScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/infra/">Infra</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/infra/http-network/">http network</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">Tool</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/blog/">Blog</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/intellij/">IntelliJ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <!-- <div id="busuanzi_container_site_pv">
+          총 조회 <span id="busuanzi_value_site_pv"></span> 회 |
+        </div>
+        <div id="busuanzi_container_site_uv">
+          총 방문자 <span id="busuanzi_value_site_uv"></span> 명
+        </div> -->
+        <p>
+          &copy; 2020 Phang
+        </p>
+        <p>
+          Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by
+          <a href="//github.com/ppoffice" target="_blank">PPOffice</a>
+        </p>
+      </div>
+      <div class="footer-plugins">
+        
+    
+
+
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2020/06/01/java-string-stringbuffer-stringbuilder/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
