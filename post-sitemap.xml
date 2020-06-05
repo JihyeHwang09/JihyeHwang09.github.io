@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2020/03/09/2020-03-09-til/</loc>
+        <lastmod>2020-06-05T15:08:08.894Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2020/06/01/java-string-stringbuffer-stringbuilder/</loc>
         <lastmod>2020-05-31T17:45:25.627Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -130,14 +138,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/2020/03/27/http-network-6-request-header/</loc>
         <lastmod>2020-03-28T14:12:26.583Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2020/03/09/2020-03-09-til/</loc>
-        <lastmod>2020-03-22T13:27:29.175Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
