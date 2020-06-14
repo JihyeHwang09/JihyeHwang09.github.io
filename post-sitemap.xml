@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2020/06/14/computational-civilization-intro/</loc>
+        <lastmod>2020-06-14T13:54:31.081Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2020/06/13/TIL-2020-06-13/</loc>
         <lastmod>2020-06-13T05:24:25.436Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1712,6 +1720,14 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
+        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/2019/03/16/TIL-2019-03-16/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1721,14 +1737,6 @@
 
     <url>
         <loc>https://JihyeHwang09.github.io/2019/03/18/TIL-2019-03-18/</loc>
-        <lastmod>2019-04-16T13:04:41.687Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/17/TIL-2019-03-17/</loc>
         <lastmod>2019-04-16T13:04:41.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1992,7 +2000,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/13/javascript1/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/02/javascript19/</loc>
         <lastmod>2019-04-11T15:22:16.168Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2000,7 +2008,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/02/javascript19/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/01/13/javascript1/</loc>
         <lastmod>2019-04-11T15:22:16.168Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2032,7 +2040,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/01/25/javascript11/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/02/04/css-layout-position/</loc>
         <lastmod>2019-04-11T15:22:16.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2040,7 +2048,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/02/04/css-layout-position/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/01/25/javascript11/</loc>
         <lastmod>2019-04-11T15:22:16.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2256,7 +2264,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/07/node-ajax/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/05/node-custom-middleware/</loc>
         <lastmod>2019-04-11T15:21:56.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2264,7 +2272,7 @@
     </url>
 
     <url>
-        <loc>https://JihyeHwang09.github.io/2019/03/05/node-custom-middleware/</loc>
+        <loc>https://JihyeHwang09.github.io/2019/03/07/node-ajax/</loc>
         <lastmod>2019-04-11T15:21:56.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
