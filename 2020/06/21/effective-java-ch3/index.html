@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="이펙티브 자바,Effective Java,모든 객체의 공통 메서드">
     
-    <meta name="description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.  아이템 10. equals는 일반 규약을 지켜 재">
+    <meta name="description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.   아이템 10. equals는 일반 규약을 지켜">
 <meta name="keywords" content="이펙티브 자바,Effective Java,모든 객체의 공통 메서드">
 <meta property="og:type" content="article">
 <meta property="og:title" content="이펙티브 자바-3장 모든 객체의 공통 메서드">
 <meta property="og:url" content="https://JihyeHwang09.github.io/2020/06/21/effective-java-ch3/index.html">
 <meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
-<meta property="og:description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.  아이템 10. equals는 일반 규약을 지켜 재">
+<meta property="og:description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.   아이템 10. equals는 일반 규약을 지켜">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/37353837/85224849-1e575780-b408-11ea-8b89-852eb6049171.png">
-<meta property="og:updated_time" content="2020-06-21T12:43:20.393Z">
+<meta property="og:updated_time" content="2020-06-21T12:47:27.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="이펙티브 자바-3장 모든 객체의 공통 메서드">
-<meta name="twitter:description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.  아이템 10. equals는 일반 규약을 지켜 재">
+<meta name="twitter:description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.   아이템 10. equals는 일반 규약을 지켜">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/85224849-1e575780-b408-11ea-8b89-852eb6049171.png">
     
 
@@ -217,6 +217,7 @@ ga('send', 'pageview');
       <h3 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h3><blockquote>
 <p>모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.<br>메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.<br>이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.</p>
 </blockquote>
+<hr>
 <h3 id="아이템-10-equals는-일반-규약을-지켜-재정의하라"><a href="#아이템-10-equals는-일반-규약을-지켜-재정의하라" class="headerlink" title="아이템 10. equals는 일반 규약을 지켜 재정의하라"></a>아이템 10. <code>equals</code>는 일반 규약을 지켜 재정의하라</h3><p>다음에서 열거한 상황 중 하나에 해당한다면 재정의하지 않는 것이 최선이다.</p>
 <blockquote>
 <ol>
@@ -244,8 +245,11 @@ ga('send', 'pageview');
 <li>너무 복잡하게 해결하려 들지 말자.<br>꼭 필요한 경우가 아니면 <code>equals</code>를 재정의하지 말자.<br>많은 경우에 Object의 <code>equals</code>가 원하는 비교를 정확히 수행해준다.<br>재정의해야 할 때는 그 클래스의 핵심 필드 모두를 빠짐없이, 다섯 규약을 확실히 지켜가며 비교해야 한다.</li>
 </ol>
 </blockquote>
+<hr>
 <h3 id="아이템-11-equals를-재정의하려거든-hashCode도-재정의하라"><a href="#아이템-11-equals를-재정의하려거든-hashCode도-재정의하라" class="headerlink" title="아이템 11. equals를 재정의하려거든 hashCode도 재정의하라"></a>아이템 11. <code>equals</code>를 재정의하려거든 <code>hashCode</code>도 재정의하라</h3><p><code>equals</code>를 재정의한 클래스 모두에게 <code>hashCode</code>도 재정의해야 한다.<br>논리적으로 같은 객체는 같은 해시코드를 반환해야 한다.<br>성능을 높인답시고 해시코드를 계산할 때 핵심 필드를 생략해서는 안 된다.<br><code>hashCode</code>가 반환하는 값의 생성 규칙을 API 사용자에게 자세히 공표하지 말자.<br>그래야 클라이언트가 이 값에 의지하지 않게 되고, 추후에 계산 방식을 바꿀 수도 있다.</p>
+<hr>
 <h3 id="아이템-12-toString을-항상-재정의하라"><a href="#아이템-12-toString을-항상-재정의하라" class="headerlink" title="아이템 12. toString을 항상 재정의하라"></a>아이템 12. <code>toString</code>을 항상 재정의하라</h3><p><code>toString</code>을 잘 구현한 클래스는 사용하기에 훨씬 즐겁고, 그 클래스를 사용한 시스템은 디버깅하기 쉽다.<br>실전에서 <code>toString</code>은 그 객체가 가진 주요 정보 모두를 반환하는 게 좋다.<br>포맷을 명시하든 아니든 여러분의 의도는 명확히 밝혀야 한다.<br><code>toString</code>이 반환한 값에 포함된 정보를 얻어올 수 있는 API를 제공하자.<br>모든 구체 클래스에서 Object의 <code>toString</code>를 재정의하자.<br><code>toString</code>을 재정의한 클래스는 사용하기도 즐겁고 그 클래스를 사용한 시스템을 디버깅하기 쉽게 해준다.<br><code>toString</code>은 해당 객체에 관한 명확하고 유용한 정보를 읽기 좋은 형태로 반환해야 한다.</p>
+<hr>
 <h3 id="아이템-13-clone-재정의는-주의해서-진행하라"><a href="#아이템-13-clone-재정의는-주의해서-진행하라" class="headerlink" title="아이템 13. clone 재정의는 주의해서 진행하라"></a>아이템 13. <code>clone</code> 재정의는 주의해서 진행하라</h3><p>실무에서 <code>clone</code>able을 구현한 클래스는 <code>clone</code> 메서드를 <code>public</code>으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대한다.<br><code>clone</code>able 아키텍처는 ‘가변 객체를 참조하는 필드는 final로 선언하라’는 일반 용법과 충돌한다.<br><code>public</code>인 <code>clone</code> 메서드에서는 throws 절을 없애야 한다.<br>복사 생성자와 복사 팩터리라는 더 나은 객체 복사 방식을 제공할 수 있다.</p>
 
     </div>
@@ -337,7 +341,8 @@ ga('send', 'pageview');
         "description": "TL;DR
 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.
 
-아이템 10. equals는 일반 규약을 지켜 재"
+
+아이템 10. equals는 일반 규약을 지켜 "
         "wordCount": 397
     }
 </script>
