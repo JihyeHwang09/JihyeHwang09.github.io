@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/java/</loc>
+        <lastmod>2020-06-21T12:43:20.393Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
+        <lastmod>2020-06-21T12:43:20.393Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B3%BC%ED%95%99/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B3%BC%ED%95%99%EC%9D%B4-%EC%97%AC%EB%8A%94-%EC%84%B8%EA%B3%84/</loc>
         <lastmod>2020-06-14T19:33:59.750Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -31,20 +45,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/categories/developer/</loc>
         <lastmod>2020-06-13T05:24:25.436Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/java/</loc>
-        <lastmod>2020-06-07T15:39:55.076Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/categories/back-end/</loc>
-        <lastmod>2020-06-07T15:39:55.076Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

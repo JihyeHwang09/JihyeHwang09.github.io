@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EB%AA%A8%EB%93%A0-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EA%B3%B5%ED%86%B5-%EB%A9%94%EC%84%9C%EB%93%9C/</loc>
+        <lastmod>2020-06-21T12:43:20.393Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/effective-java/</loc>
+        <lastmod>2020-06-21T12:43:20.393Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%9D%B4%ED%8E%99%ED%8B%B0%EB%B8%8C-%EC%9E%90%EB%B0%94/</loc>
+        <lastmod>2020-06-21T12:43:20.393Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/exception/</loc>
+        <lastmod>2020-06-21T12:28:23.628Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://JihyeHwang09.github.io/tags/%EC%98%88%EC%99%B8/</loc>
+        <lastmod>2020-06-21T12:28:23.628Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://JihyeHwang09.github.io/tags/computational-civilization/</loc>
         <lastmod>2020-06-14T19:33:59.750Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,34 +54,6 @@
     <url>
         <loc>https://JihyeHwang09.github.io/tags/developer/</loc>
         <lastmod>2020-06-13T05:24:25.436Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/exception/</loc>
-        <lastmod>2020-06-07T15:39:55.076Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%98%88%EC%99%B8/</loc>
-        <lastmod>2020-06-07T15:39:55.076Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/effective-java/</loc>
-        <lastmod>2020-06-07T15:39:55.076Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://JihyeHwang09.github.io/tags/%EC%9D%B4%ED%8E%99%ED%8B%B0%EB%B8%8C-%EC%9E%90%EB%B0%94/</loc>
-        <lastmod>2020-06-07T15:39:55.076Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

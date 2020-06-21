@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>이펙티브 자바-3장 모든 객체의 공통 메서드 | 꿈꾸는 지구별 개발자, Phang</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="이펙티브 자바,Effective Java,모든 객체의 공통 메서드">
+    
+    <meta name="description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.  아이템 10. equals는 일반 규약을 지켜 재">
+<meta name="keywords" content="이펙티브 자바,Effective Java,모든 객체의 공통 메서드">
+<meta property="og:type" content="article">
+<meta property="og:title" content="이펙티브 자바-3장 모든 객체의 공통 메서드">
+<meta property="og:url" content="https://JihyeHwang09.github.io/2020/06/21/effective-java-ch3/index.html">
+<meta property="og:site_name" content="꿈꾸는 지구별 개발자, Phang">
+<meta property="og:description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.  아이템 10. equals는 일반 규약을 지켜 재">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37353837/85224849-1e575780-b408-11ea-8b89-852eb6049171.png">
+<meta property="og:updated_time" content="2020-06-21T12:43:20.393Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="이펙티브 자바-3장 모든 객체의 공통 메서드">
+<meta name="twitter:description" content="TL;DR 모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.  아이템 10. equals는 일반 규약을 지켜 재">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/37353837/85224849-1e575780-b408-11ea-8b89-852eb6049171.png">
+    
+
+    
+        <link rel="alternate" href="/" title="꿈꾸는 지구별 개발자, Phang" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="https://user-images.githubusercontent.com/37353837/50596042-366eaa80-0ee6-11e9-8319-4f3d4b741d2f.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+   
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-139151127-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" href="https://cdn.rawgit.com/jmnote/IropkeBatang/master/iropkebatang.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css"> <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css"> <link rel="stylesheet" href="/css/style.css">
+
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+          <h2 class="subtitle-wrap">
+            <p class="subtitle">
+              꿈꾸는 지구별 개발자, Phang&#39;s IT Blog
+            </p>
+          </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+              <li class="main-nav-list-item">
+                <a class="main-nav-list-link" href="/">Home</a>
+              </li>
+               <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/object/">Object</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/mysql/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/database/oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/">Developer</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/book/">Book</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/dev-english/">Dev English</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/lecture/">Lecture</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/til/">TIL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/developer/면접/">면접</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/angular/">Angular</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/css/">CSS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/javascript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/react/">React</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/front-end/typescript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/">Infra</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/infra/http-network/">http network</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/">Tool</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/blog/">Blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/tool/intellij/">IntelliJ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/">정보처리기사</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/컴퓨터-과학/컴퓨터과학이-여는-세계/">컴퓨터과학이 여는 세계</a></li></ul></li></ul> 
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/back-end/java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+                            <article id="post-effective-java-ch3" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+    
+        <h1 class="article-title" itemprop="name">
+        이펙티브 자바-3장 모든 객체의 공통 메서드
+        </h1>
+    
+
+    </header>
+     
+    <div class="article-meta">
+      <div class="article-subtitle">
+        <span class="article-date">
+          <!-- 
+    <div class="article-date">
+        <a href="/2020/06/21/effective-java-ch3/" class="article-date">
+            <time datetime="2020-06-21T12:24:18.000Z" itemprop="datePublished">2020-06-21</time>
+        </a>
+    </div>
+ 
+ 
+                      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/effective-java/">Effective Java</a>, <a class="tag-link" href="/tags/모든-객체의-공통-메서드/">모든 객체의 공통 메서드</a>, <a class="tag-link" href="/tags/이펙티브-자바/">이펙티브 자바</a>
+    </div>
+ -->
+          <!-- 🗓 작성일자 -->
+          
+    <div class="article-date">
+        <a href="/2020/06/21/effective-java-ch3/" class="article-date">
+            <time datetime="2020-06-21T12:24:18.000Z" itemprop="datePublished">2020-06-21</time>
+        </a>
+    </div>
+
+        </span>
+        <span class="reading-time">⏱ 읽기 소요 시간: 4 분</span>
+      </div>
+    </div>
+     
+    <div class="article-entry" itemprop="articleBody">
+      <h3 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h3><blockquote>
+<p>모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.<br>메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.<br>이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.</p>
+</blockquote>
+<h3 id="아이템-10-equals는-일반-규약을-지켜-재정의하라"><a href="#아이템-10-equals는-일반-규약을-지켜-재정의하라" class="headerlink" title="아이템 10. equals는 일반 규약을 지켜 재정의하라"></a>아이템 10. <code>equals</code>는 일반 규약을 지켜 재정의하라</h3><p>다음에서 열거한 상황 중 하나에 해당한다면 재정의하지 않는 것이 최선이다.</p>
+<blockquote>
+<ol>
+<li>각 인스턴스가 본질적으로 고유하다.</li>
+<li>인스턴스의 ‘논리적 동치성(logical equality)‘을 검사할 일이 없다.</li>
+<li>상위 클래스에서 재정의한 <code>equals</code>가 하위 클래스에도 딱 들어맞는다.</li>
+<li>클래스가 private이거나 package-private이고 <code>equals</code> 메서드를 호출할 일이 없다.</li>
+</ol>
+</blockquote>
+<p>반사성은 단순히 말하면 객체는 자기 자신과 같아야 한다는 뜻이다.<br>대칭성은 두 객체는 서로에 대한 동치 여부에 똑같이 답해야 한다는 뜻이다.<br><code>equals</code> 규약을 어기면 그 객체를 사용하는 다른 객체들이 어떻게 반응할지 알 수 없다.<br>구체 클래스를 확장해 새로운 값을 추가하면서 <code>equals</code> 규약을 만족시킬 방법은 존재하지 않는다.<br><code>equals</code>의 판단에 신뢰할 수 없는 자원이 끼어들게 해서는 안 된다.</p>
+<p>양질의 <code>equals</code> 메서드 구현 방법을 단계별로 정리해보자.</p>
+<blockquote>
+<ol>
+<li>== 연산자를 사용해 입력이 자기 자신의 참조인지 확인한다.</li>
+<li>instanceof 연산자로 입력이 올바른 타입인지 확인한다.</li>
+<li>입력을 올바른 타입으로 형변환한다.</li>
+<li>입력 객체와 자기 자신이 대응되는 ‘핵심‘필드들이 모두 일치하는지 하나씩 검사한다.</li>
+</ol>
+</blockquote>
+<p><code>equals</code>를 다 구현했다면 세 가지만 자문해보자.</p>
+<blockquote>
+<ol>
+<li>대칭적인가? 추이성이 있는가? 일관적인가?</li>
+<li><code>equals</code>를 재정의할 땐 hashCodde도 반드시 재정의하자</li>
+<li>너무 복잡하게 해결하려 들지 말자.<br>꼭 필요한 경우가 아니면 <code>equals</code>를 재정의하지 말자.<br>많은 경우에 Object의 <code>equals</code>가 원하는 비교를 정확히 수행해준다.<br>재정의해야 할 때는 그 클래스의 핵심 필드 모두를 빠짐없이, 다섯 규약을 확실히 지켜가며 비교해야 한다.</li>
+</ol>
+</blockquote>
+<h3 id="아이템-11-equals를-재정의하려거든-hashCode도-재정의하라"><a href="#아이템-11-equals를-재정의하려거든-hashCode도-재정의하라" class="headerlink" title="아이템 11. equals를 재정의하려거든 hashCode도 재정의하라"></a>아이템 11. <code>equals</code>를 재정의하려거든 <code>hashCode</code>도 재정의하라</h3><p><code>equals</code>를 재정의한 클래스 모두에게 <code>hashCode</code>도 재정의해야 한다.<br>논리적으로 같은 객체는 같은 해시코드를 반환해야 한다.<br>성능을 높인답시고 해시코드를 계산할 때 핵심 필드를 생략해서는 안 된다.<br><code>hashCode</code>가 반환하는 값의 생성 규칙을 API 사용자에게 자세히 공표하지 말자.<br>그래야 클라이언트가 이 값에 의지하지 않게 되고, 추후에 계산 방식을 바꿀 수도 있다.</p>
+<h3 id="아이템-12-toString을-항상-재정의하라"><a href="#아이템-12-toString을-항상-재정의하라" class="headerlink" title="아이템 12. toString을 항상 재정의하라"></a>아이템 12. <code>toString</code>을 항상 재정의하라</h3><p><code>toString</code>을 잘 구현한 클래스는 사용하기에 훨씬 즐겁고, 그 클래스를 사용한 시스템은 디버깅하기 쉽다.<br>실전에서 <code>toString</code>은 그 객체가 가진 주요 정보 모두를 반환하는 게 좋다.<br>포맷을 명시하든 아니든 여러분의 의도는 명확히 밝혀야 한다.<br><code>toString</code>이 반환한 값에 포함된 정보를 얻어올 수 있는 API를 제공하자.<br>모든 구체 클래스에서 Object의 <code>toString</code>를 재정의하자.<br><code>toString</code>을 재정의한 클래스는 사용하기도 즐겁고 그 클래스를 사용한 시스템을 디버깅하기 쉽게 해준다.<br><code>toString</code>은 해당 객체에 관한 명확하고 유용한 정보를 읽기 좋은 형태로 반환해야 한다.</p>
+<h3 id="아이템-13-clone-재정의는-주의해서-진행하라"><a href="#아이템-13-clone-재정의는-주의해서-진행하라" class="headerlink" title="아이템 13. clone 재정의는 주의해서 진행하라"></a>아이템 13. <code>clone</code> 재정의는 주의해서 진행하라</h3><p>실무에서 <code>clone</code>able을 구현한 클래스는 <code>clone</code> 메서드를 <code>public</code>으로 제공하며, 사용자는 당연히 복제가 제대로 이뤄지리라 기대한다.<br><code>clone</code>able 아키텍처는 ‘가변 객체를 참조하는 필드는 final로 선언하라’는 일반 용법과 충돌한다.<br><code>public</code>인 <code>clone</code> 메서드에서는 throws 절을 없애야 한다.<br>복사 생성자와 복사 팩터리라는 더 나은 객체 복사 방식을 제공할 수 있다.</p>
+
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6166249867196543",
+    enable_page_level_ads: true,
+    google_language= "ko"
+  });
+</script>
+
+    <footer class="article-footer">
+      
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+    </footer>
+  </div>
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Phang"
+        },
+        "headline": "이펙티브 자바-3장 모든 객체의 공통 메서드",
+        "image": "https://JihyeHwang09.github.iohttps://user-images.githubusercontent.com/37353837/85224849-1e575780-b408-11ea-8b89-852eb6049171.png",
+        "keywords": "이펙티브 자바 Effective Java 모든 객체의 공통 메서드",
+        "genre": "Back-end Java",
+        "datePublished": "2020-06-21",
+        "dateCreated": "2020-06-21",
+        "dateModified": "2020-06-21",
+        "url": "https://JihyeHwang09.github.io/2020/06/21/effective-java-ch3/",
+        "description": "TL;DR
+모든 클래스는 이 메서드들을 일반 규약에 맞게 재정의해야 한다.메서드를 잘못 구현하면 대상 클래스가 이 규약을 준사한다고 가정하는 클래스(HashMap과 HashSet 등)를 오동작하게 만들 수 있다.이번 장에서는 final이 아닌 Object 메서드들을 언제 어떻게 재정의해야 하는지를 다룬다.
+
+아이템 10. equals는 일반 규약을 지켜 재"
+        "wordCount": 397
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/JihyeHwang09" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/06/14/computational-civilization-intro/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">컴퓨터과학이 여는 세계-intro</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/21/effective-java-ch3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/85224849-1e575780-b408-11ea-8b89-852eb6049171.png)" alt="이펙티브 자바-3장 모든 객체의 공통 메서드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/06/21/effective-java-ch3/" class="title">이펙티브 자바-3장 모든 객체의 공통 메서드</a></p>
+                            <p class="item-date"><time datetime="2020-06-21T12:24:18.000Z" itemprop="datePublished">2020-06-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/14/computational-civilization-intro/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/84595005-91a11c80-ae90-11ea-9dea-eaf0e155206a.png)" alt="컴퓨터과학이 여는 세계-intro" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/컴퓨터-과학/컴퓨터과학이-여는-세계/">컴퓨터과학이 여는 세계</a></p>
+                            <p class="item-title"><a href="/2020/06/14/computational-civilization-intro/" class="title">컴퓨터과학이 여는 세계-intro</a></p>
+                            <p class="item-date"><time datetime="2020-06-14T13:43:38.000Z" itemprop="datePublished">2020-06-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/13/TIL-2020-06-13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/84560594-89f25280-ad80-11ea-857e-bad9233abb72.png)" alt="행동으로 옮길 때 도약할 수 있다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/developer/">Developer</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/developer/til/">TIL</a></p>
+                            <p class="item-title"><a href="/2020/06/13/TIL-2020-06-13/" class="title">행동으로 옮길 때 도약할 수 있다</a></p>
+                            <p class="item-date"><time datetime="2020-06-13T05:08:07.000Z" itemprop="datePublished">2020-06-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/07/effective-java-exception/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/83973095-01f2ef80-a91f-11ea-8986-5764222da7ed.png)" alt="이펙티브 자바-10장 예외" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/06/07/effective-java-exception/" class="title">이펙티브 자바-10장 예외</a></p>
+                            <p class="item-date"><time datetime="2020-06-07T14:24:57.000Z" itemprop="datePublished">2020-06-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/06/01/java-string-stringbuffer-stringbuilder/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/37353837/83358939-ea14ec00-a3b1-11ea-8ffe-72002bad5262.png)" alt="String VS StringBuffer VS StringBuilder" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/back-end/java/">Java</a></p>
+                            <p class="item-title"><a href="/2020/06/01/java-string-stringbuffer-stringbuilder/" class="title">String VS StringBuffer VS StringBuilder</a></p>
+                            <p class="item-date"><time datetime="2020-05-31T17:35:26.000Z" itemprop="datePublished">2020-06-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/">Back-end</a><span class="category-list-count">104</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/design-pattern/">Design-pattern</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/node-js/">Node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/object/">Object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/python/">Python</a><span class="category-list-count">65</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/back-end/spring-spring-boot/">Spring & Spring Boot</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">Database</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">MySQL</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/oracle/">Oracle</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/">Developer</a><span class="category-list-count">52</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/developer/book/">Book</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/dev-english/">Dev English</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/lecture/">Lecture</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/seminar-conference/">Seminar & Conference</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/til/">TIL</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/developer/면접/">면접</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">Front-end</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/33-js-concepts/">33-js-concepts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/angular/">Angular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/css/">CSS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/javascript/">JavaScript</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/react/">React</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/typescript/">TypeScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/infra/">Infra</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/infra/http-network/">http network</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">Tool</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tool/blog/">Blog</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/git/">Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/intellij/">IntelliJ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/">정보처리기사</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/데이터-통신/">데이터 통신</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/정보처리기사/전자계산기-구조/">전자계산기 구조</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/">컴퓨터 과학</a><span class="category-list-count">38</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/소프트웨어-공학/">소프트웨어 공학</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/알고리즘/">알고리즘</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/운영체제/">운영체제</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/컴퓨터-과학/컴퓨터과학이-여는-세계/">컴퓨터과학이 여는 세계</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">33</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <!-- <div id="busuanzi_container_site_pv">
+          총 조회 <span id="busuanzi_value_site_pv"></span> 회 |
+        </div>
+        <div id="busuanzi_container_site_uv">
+          총 방문자 <span id="busuanzi_value_site_uv"></span> 명
+        </div> -->
+        <p>
+          &copy; 2020 Phang
+        </p>
+        <p>
+          Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by
+          <a href="//github.com/ppoffice" target="_blank">PPOffice</a>
+        </p>
+      </div>
+      <div class="footer-plugins">
+        
+    
+
+
+      </div>
+    </div>
+  </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+    
+    <script>
+    var disqus_shortname = 'Phang';
+    
+    
+    var disqus_url = 'https://JihyeHwang09.github.io/2020/06/21/effective-java-ch3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
